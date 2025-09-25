@@ -44,6 +44,13 @@
       padding: 12px;
     }
 
+    header {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
     header a, footer a {
       color: var(--putih);
       text-decoration: none;
@@ -139,15 +146,20 @@
         margin-right: 0;
         margin-bottom: 4px;
       }
+      header {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <!-- Tombol Kembali ke Beranda Atas -->
+    <!-- Tombol Kembali ke Beranda & Akses Materi -->
     <header>
-      <a href="#">Kembali ke Beranda</a>
+      <a href="index.html">Kembali ke Beranda</a>
+      <a href="#">Akses Materi</a>
     </header>
 
     <!-- Bagian A–D: Ditampilkan penuh -->
@@ -338,7 +350,6 @@
 
       <div id="tab-F" class="tab-content">
         <div class="section-content">
-          <!-- Konten sangat panjang – disalin utuh -->
           <p><strong>PERTEMUAN 1: MEMAHAMI KONSEP SABAR DAN DALILNYA (2 X 45 MENIT)</strong></p>
           <p><strong>KEGIATAN PENDAHULUAN (15 MENIT) - PRINSIP BERKESADARAN, BERMAKNA, MENGGEMBIRAKAN</strong></p>
           <ul>
@@ -486,7 +497,7 @@
 
     <!-- Tombol Kembali ke Beranda Bawah -->
     <footer>
-      <a href="#">Kembali ke Beranda</a>
+      <a href="index.html">Kembali ke Beranda</a>
     </footer>
   </div>
 
