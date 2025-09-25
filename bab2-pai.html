@@ -18,6 +18,7 @@
       color: #2c3a47;
       line-height: 1.7;
       padding: 20px;
+      min-height: 100vh;
     }
 
     .container {
@@ -25,14 +26,15 @@
       margin: 0 auto;
     }
 
+    /* Header dengan Tombol */
     header {
+      position: relative;
       text-align: center;
       padding: 25px 20px;
       background: white;
       border-radius: 16px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.08);
       margin-bottom: 30px;
-      position: relative;
     }
 
     .btn-home {
@@ -42,17 +44,26 @@
       background: #3498db;
       color: white;
       text-decoration: none;
-      padding: 8px 16px;
+      padding: 10px 20px;
       border-radius: 30px;
       font-weight: 600;
       font-size: 14px;
       box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
       transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 10;
     }
 
     .btn-home:hover {
       background: #2980b9;
       transform: translateY(-2px);
+    }
+
+    .btn-home svg {
+      width: 16px;
+      height: 16px;
     }
 
     h1 {
@@ -74,6 +85,7 @@
       border-radius: 2px;
     }
 
+    /* Card Styling */
     .card {
       background: white;
       border-radius: 16px;
@@ -111,6 +123,7 @@
       margin-bottom: 8px;
     }
 
+    /* Video Container */
     .video-container {
       display: flex;
       flex-direction: column;
@@ -125,6 +138,7 @@
       overflow: hidden;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background: #000;
     }
 
     .video-wrapper iframe {
@@ -134,33 +148,62 @@
       width: 100%;
       height: 100%;
       border: none;
+      border-radius: 12px;
     }
 
+    /* Footer (hanya untuk informasi tambahan, bukan tombol) */
     footer {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 40px;
+      padding: 15px;
+      color: #7f8c8d;
+      font-size: 14px;
     }
 
+    /* Media Query - Mobile */
     @media (max-width: 600px) {
       .btn-home {
         position: static;
-        display: inline-block;
+        display: inline-flex;
         margin-bottom: 15px;
+        width: 100%;
+        justify-content: center;
+        padding: 12px 24px;
       }
+
+      header {
+        padding: 15px 20px;
+      }
+
       h1 {
         font-size: 22px;
       }
+
       h2 {
         font-size: 18px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      .video-wrapper {
+        border-radius: 10px;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Header with Back Button -->
+
+    <!-- Header dengan Tombol -->
     <header>
-      <a href="index.html" class="btn-home">🏠 Kembali ke Beranda</a>
+      <a href="index.html" class="btn-home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8.707 1.5a1 1 0 00-1.414 0L2.5 6.293A6 6 0 001.5 9a6 6 0 006 6h2a6 6 0 006-6c0-.542-.067-1.07-.199-1.57L8.707 1.5z"/>
+        </svg>
+        Kembali ke Beranda
+      </a>
       <h1>📘 Materi Ajar PAI & Budi Pekerti</h1>
       <h2>Bab 2: Indahnya Kehidupan Bermakna</h2>
       <p>Kelas XII – 3 Pertemuan (2 × 45 menit)</p>
@@ -300,10 +343,11 @@
       </div>
     </div>
 
-    <!-- Footer Button -->
+    <!-- Footer Informasi -->
     <footer>
-      <a href="index.html" class="btn-home">🏠 Kembali ke Beranda</a>
+      © 2025 Materi PAI & Budi Pekerti | Kelas XII
     </footer>
+
   </div>
 </body>
 </html>
