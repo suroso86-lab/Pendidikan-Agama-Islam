@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modul Ajar Deep Learning - PAI dan Budi Pekerti</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.7;
+      color: #333;
+      background-color: #f9fbfd;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #1e5631, #4caf50);
+      color: white;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .header h1 {
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+
+    .btn-home {
+      background-color: white;
+      color: #1e5631;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .btn-home:hover {
+      background-color: #f0f7f0;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .module-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #1e5631;
+    }
+
+    .module-title h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      color: #1e5631;
+      margin-top: 2.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e0f0e3;
+    }
+
+    h3 {
+      color: #2e7d32;
+      margin-top: 1.8rem;
+    }
+
+    h4 {
+      color: #388e3c;
+      margin-top: 1.4rem;
+    }
+
+    ul, ol {
+      margin-left: 1.8rem;
+      margin-top: 0.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .indent {
+      margin-left: 2.5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.2rem 0;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    table th,
+    table td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    table th {
+      background-color: #e8f5e9;
+      color: #1b5e20;
+      font-weight: 600;
+    }
+
+    table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .footer-btn {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #eee;
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+      .header h1 {
+        font-size: 1.3rem;
+      }
+      .container {
+        padding: 0 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <h1>Modul Ajar Deep Learning</h1>
+    <a href="index.html" class="btn-home">
+      <i class="fas fa-home"></i> Kembali ke Beranda
+    </a>
+  </div>
+
+  <div class="container">
+    <div class="module-title">
+      <h2>PENDIDIKAN AGAMA ISLAM DAN BUDI PEKERTI</h2>
+      <p><strong>BAB:</strong> 2. INDAHNYA KEHIDUPAN BERMAKNA</p>
+    </div>
+
+    <!-- A. IDENTITAS MODUL -->
+    <h2>A. IDENTITAS MODUL</h2>
+    <ul>
+      <li><strong>Nama Sekolah:</strong> SMAN 1 CLURING</li>
+      <li><strong>Nama Penyusun:</strong> Drs. Suroso</li>
+      <li><strong>Mata Pelajaran:</strong> Pendidikan Agama Islam dan Budi Pekerti (PAI)</li>
+      <li><strong>Fase / Kelas / Semester:</strong> E / XII / Ganjil</li>
+      <li><strong>Alokasi Waktu:</strong> 3 Pertemuan (6 x 45 menit)</li>
+      <li><strong>Tahun Pelajaran:</strong> 2024 / 2025</li>
+    </ul>
+
+    <!-- B. IDENTIFIKASI KESIAPAN PESERTA DIDIK -->
+    <h2>B. IDENTIFIKASI KESIAPAN PESERTA DIDIK</h2>
+    <p>Peserta didik diharapkan memiliki pengetahuan awal tentang dasar-dasar akidah Islam dan pemahaman umum tentang pentingnya adab dalam Islam. Minat peserta didik akan terstimulasi jika pembelajaran dikaitkan dengan pengalaman pribadi mereka dalam berinteraksi dengan orang tua dan guru. Latar belakang keluarga dan sosial peserta didik yang beragam akan menjadi kekayaan dalam diskusi dan pemahaman. Kebutuhan belajar akan disesuaikan melalui pendekatan yang beragam, termasuk diskusi, studi kasus, dan kegiatan reflektif.</p>
+
+    <!-- C. KARAKTERISTIK MATERI PELAJARAN -->
+    <h2>C. KARAKTERISTIK MATERI PELAJARAN</h2>
+    <p>Materi "Indahnya Kehidupan Bermakna" mencakup jenis pengetahuan konseptual (pemahaman ayat dan hadis), prosedural (praktik hormat dan patuh), dan afektif (penghayatan nilai-nilai). Relevansinya dengan kehidupan nyata sangat tinggi karena berkaitan langsung dengan etika sehari-hari dalam keluarga dan lingkungan pendidikan. Tingkat kesulitan materi ini moderat, dengan penekanan pada penghayatan dan implementasi nilai. Struktur materi diawali dengan pemahaman dalil naqli (ayat dan hadis), dilanjutkan dengan penafsiran, analisis hikmah, dan implementasi dalam perilaku sehari-hari. Integrasi nilai dan karakter ditekankan pada religiusitas (keimanan), tanggung jawab, santun, dan peduli.</p>
+
+    <!-- D. DIMENSI LULUSAN PEMBELAJARAN -->
+    <h2>D. DIMENSI LULUSAN PEMBELAJARAN</h2>
+    <ul>
+      <li><strong>Keimanan dan Ketakwaan terhadap Tuhan:</strong> Peserta didik menghayati perintah Allah Swt. dan Rasul-Nya untuk berbakti kepada orang tua dan guru sebagai bentuk ibadah.</li>
+      <li><strong>Kemandirian:</strong> Peserta didik mampu menginternalisasi nilai-nilai hormat dan patuh secara sadar dan menerapkannya dalam perilaku sehari-hari tanpa paksaan.</li>
+      <li><strong>Kolaborasi:</strong> Peserta didik mampu berdiskusi dan berbagi pengalaman dalam memahami serta menerapkan nilai-nilai hormat dan patuh.</li>
+      <li><strong>Komunikasi:</strong> Peserta didik mampu menyampaikan pemahaman dan argumen mereka tentang pentingnya hormat dan patuh kepada orang tua dan guru dengan baik.</li>
+      <li><strong>Penalaran Kritis:</strong> Peserta didik mampu menganalisis berbagai kasus atau dilema terkait hormat dan patuh, serta menemukan solusi berdasarkan ajaran Islam.</li>
+    </ul>
+
+    <!-- DESAIN PEMBELAJARAN -->
+    <h1 style="color:#1e5631; margin-top:2.5rem;">DESAIN PEMBELAJARAN</h1>
+
+    <!-- A. CAPAIAN PEMBELAJARAN -->
+    <h2>A. CAPAIAN PEMBELAJARAN (CP) NOMOR : 32 TAHUN 2024</h2>
+    <p>Pada akhir Fase F, peserta didik mampu memahami beberapa ayat Al-Qur’an dan hadis, beberapa cabang iman (syu'ab al-īmān), keterkaitan antara iman, Islam, dan ihsan, manfaat menghindari penyakit sosial, adab bermasyarakat, ketentuan dakwah, muamalah, hukum keluarga (al-aḥwāl al-syakhṣiyyah), dan peran tokoh Islam di dunia serta organisasi Islam di Indonesia. Capaian Pembelajaran setiap elemen mata pelajaran Agama Islam dan Budi Pekerti adalah sebagai berikut.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Elemen</th>
+          <th>Capaian Pembelajaran</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Al-Qur’an dan Hadis</td>
+          <td>Peserta didik memahami ayat Al-Qur’an dan hadis tentang pentingnya berpikir kritis, ilmu pengetahuan dan teknologi, memelihara kehidupan manusia, dan moderasi beragama.</td>
+        </tr>
+        <tr>
+          <td>Akidah</td>
+          <td>Peserta didik memahami beberapa cabang iman (syu'ab al-īmān), keterkaitan antara iman, Islam, dan ihsan.</td>
+        </tr>
+        <tr>
+          <td>Akhlak</td>
+          <td>Peserta didik memahami manfaat menghindari penyakit sosial; Memahami adab bermasyarakat dan etika digital dalam Islam.</td>
+        </tr>
+        <tr>
+          <td>Fikih</td>
+          <td>Peserta didik memahami ketentuan khotbah, tablig dan dakwah, muamalah, munakahat, dan mawāris.</td>
+        </tr>
+        <tr>
+          <td>Sejarah Peradaban Islam</td>
+          <td>Peserta didik memahami peran tokoh ulama dalam perkembangan peradaban Islam di dunia dan peran organisasi-organisasi Islam di Indonesia.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- B. LINTAS DISIPLIN ILMU -->
+    <h2>B. LINTAS DISIPLIN ILMU</h2>
+    <p>Materi ini memiliki relevansi dengan beberapa disiplin ilmu lain:</p>
+    <ul>
+      <li><strong>Sosiologi:</strong> Memahami peran orang tua dan guru dalam sosialisasi nilai, serta dinamika interaksi dalam keluarga dan masyarakat.</li>
+      <li><strong>Psikologi:</strong> Memahami perkembangan moral, empati, dan dampak pola asuh serta pendidikan terhadap karakter.</li>
+      <li><strong>Pendidikan Kewarganegaraan:</strong> Mengembangkan sikap warga negara yang beretika dan bertanggung jawab dalam bermasyarakat.</li>
+      <li><strong>Bahasa Indonesia/Arab:</strong> Keterampilan membaca, memahami, dan menafsirkan teks (ayat dan hadis).</li>
+    </ul>
+
+    <!-- C. TUJUAN PEMBELAJARAN -->
+    <h2>C. TUJUAN PEMBELAJARAN</h2>
+
+    <h3>Pertemuan 1: Memahami Kandungan Q.S. Luqman/31:13-14 dan Q.S. al-Baqarah/2:83</h3>
+    <ul>
+      <li>Membaca Q.S. Luqman/31:13-14 dan Q.S. al-Baqarah/2:83 dengan tartil dan benar (sesuai kaidah tajwid) secara individu.</li>
+      <li>Mengidentifikasi hukum tajwid pada ayat-ayat tersebut dengan tepat melalui latihan terbimbing.</li>
+      <li>Menyajikan terjemah Q.S. Luqman/31:13-14 dan Q.S. al-Baqarah/2:83 secara tepat melalui diskusi kelompok.</li>
+      <li>Menjelaskan kandungan pokok Q.S. Luqman/31:13-14 dan Q.S. al-Baqarah/2:83 terkait perintah berbakti kepada orang tua dan beribadah kepada Allah Swt. dengan percaya diri.</li>
+    </ul>
+
+    <h3>Pertemuan 2: Menganalisis Hadis dan Hikmah Perilaku Hormat dan Patuh</h3>
+    <ul>
+      <li>Mengidentifikasi hadis-hadis terkait hormat dan patuh kepada orang tua dan guru dari berbagai sumber dengan cermat.</li>
+      <li>Menganalisis relevansi kandungan hadis dengan ayat-ayat Al-Qur'an yang telah dipelajari dalam diskusi kelompok.</li>
+      <li>Menganalisis hikmah atau manfaat dari perilaku hormat dan patuh kepada orang tua dan guru dalam kehidupan sehari-hari dengan penalaran kritis.</li>
+      <li>Membuat poster atau infografis singkat tentang pentingnya hormat dan patuh kepada orang tua dan guru.</li>
+    </ul>
+
+    <h3>Pertemuan 3: Menginternalisasi dan Mengaplikasikan Perilaku Hormat dan Patuh</h3>
+    <ul>
+      <li>Mengidentifikasi contoh-contoh perilaku hormat dan patuh kepada orang tua dan guru dalam berbagai situasi melalui studi kasus.</li>
+      <li>Menyusun rencana aksi pribadi untuk mengimplementasikan perilaku hormat dan patuh kepada orang tua dan guru dalam kehidupan sehari-hari.</li>
+      <li>Membuat video pendek atau presentasi simulasi tentang penerapan perilaku hormat dan patuh kepada orang tua dan guru dengan kreatif.</li>
+      <li>Merefleksikan pengalaman pribadi terkait pentingnya hormat dan patuh kepada orang tua dan guru untuk membentuk kehidupan bermakna.</li>
+    </ul>
+
+    <!-- D. TOPIK PEMBELAJARAN KONTEKSTUAL -->
+    <h2>D. TOPIK PEMBELAJARAN KONTEKSTUAL</h2>
+    <p>Topik pembelajaran akan dikaitkan dengan konteks kehidupan peserta didik sehari-hari, antara lain:</p>
+    <ul>
+      <li>Interaksi sehari-hari dengan orang tua di rumah (membantu pekerjaan rumah, mendengarkan nasihat, menjaga perasaan).</li>
+      <li>Interaksi dengan guru di sekolah (memperhatikan pelajaran, bertanya dengan sopan, mengerjakan tugas).</li>
+      <li>Kasus-kasus nyata atau dilema yang mungkin dihadapi peserta didik terkait perbedaan pendapat dengan orang tua atau guru.</li>
+      <li>Dampak positif dan negatif dari perilaku hormat/tidak hormat kepada orang tua dan guru terhadap diri sendiri dan lingkungan.</li>
+      <li>Kisah-kisah teladan dalam Islam tentang bakti kepada orang tua dan adab kepada guru.</li>
+    </ul>
+
+    <!-- E. KERANGKA PEMBELAJARAN -->
+    <h2>E. KERANGKA PEMBELAJARAN</h2>
+
+    <h3>PRAKTIK PEDAGOGIK:</h3>
+    <ul>
+      <li><strong>Model Pembelajaran:</strong> Cooperative Learning (Student Teams-Achievement Divisions/STAD, Jigsaw) dan Project-Based Learning (PBL).</li>
+      <li><strong>Strategi Pembelajaran:</strong> Diskusi kelompok, presentasi, studi kasus, refleksi diri, dan penulisan jurnal.</li>
+      <li><strong>Metode Pembelajaran:</strong> Tadarus, tanya jawab, ceramah interaktif, bermain peran (role play), membuat produk (poster/video).</li>
+    </ul>
+
+    <h3>KEMITRAAN PEMBELAJARAN:</h3>
+    <ul>
+      <li><strong>Lingkungan Sekolah:</strong> Guru Agama lain (untuk diskusi tentang implementasi adab), wali kelas/guru BK (untuk memantau implementasi perilaku baik peserta didik), perpustakaan sekolah (untuk mencari referensi).</li>
+      <li><strong>Lingkungan Luar Sekolah/Masyarakat:</strong> Mengajak peserta didik mengamati interaksi di lingkungan sekitar (keluarga, tetangga, masyarakat) yang menunjukkan perilaku hormat dan patuh. Mendorong peserta didik untuk mengamati teladan dari tokoh masyarakat atau keluarga.</li>
+      <li><strong>Orang Tua/Wali:</strong> Menginformasikan tujuan pembelajaran dan meminta dukungan orang tua dalam memantau dan membimbing penerapan perilaku hormat dan patuh di rumah.</li>
+    </ul>
+
+    <h3>LINGKUNGAN BELAJAR:</h3>
+    <ul>
+      <li><strong>Ruang Fisik:</strong> Ruang kelas yang nyaman, dapat diatur untuk diskusi kelompok (U-shape atau lingkaran), dilengkapi proyektor/layar, papan tulis, dan tempat untuk menampilkan hasil karya.</li>
+      <li><strong>Ruang Virtual:</strong> Pemanfaatan Google Classroom sebagai platform untuk berbagi materi (video murottal, tafsir singkat, artikel), mengumpulkan tugas, dan forum diskusi daring untuk pertanyaan atau berbagi insight.</li>
+      <li><strong>Budaya Belajar:</strong> Menciptakan suasana belajar yang religius, saling menghargai, empati, dan positif. Mendorong peserta didik untuk berani bertanya, berbagi, dan merefleksikan diri.</li>
+    </ul>
+
+    <h3>PEMANFAATAN DIGITAL:</h3>
+    <ul>
+      <li>Perpustakaan Digital/Sumber Online: Mengarahkan peserta didik untuk mencari tafsir ayat, video murottal dengan terjemah, artikel tentang adab, atau kisah teladan melalui internet.</li>
+      <li>Forum Diskusi Daring (Google Classroom/Padlet): Digunakan untuk berbagi hasil diskusi, mengajukan pertanyaan, atau memberikan komentar reflektif.</li>
+      <li>YouTube: Menayangkan video ceramah singkat tentang bakti orang tua atau film pendek inspiratif.</li>
+      <li>Aplikasi Quran Digital: Untuk memudahkan peserta didik membaca dan mencari ayat-ayat.</li>
+      <li>Canva/PosterMyWall: Untuk membuat poster atau infografis secara kolaboratif.</li>
+      <li>Aplikasi Edit Video Sederhana (misal: CapCut, InShot): Untuk membuat video pendek simulasi.</li>
+    </ul>
+
+    <!-- F. LANGKAH-LANGKAH PEMBELAJARAN BERDIFERENSIASI -->
+    <h2>F. LANGKAH-LANGKAH PEMBELAJARAN BERDIFERENSIASI</h2>
+
+    <h3>KEGIATAN PENDAHULUAN (15-20 MENIT PER PERTEMUAN)</h3>
+    <ul>
+      <li><strong>Pembukaan & Salam:</strong> Guru membuka pelajaran dengan salam dan doa. (Joyful Learning)</li>
+      <li><strong>Tadarus/Tilawah:</strong> Peserta didik bersama-sama membaca Q.S. Luqman/31:13-14 dan Q.S. al-Baqarah/2:83 (pada pertemuan 1) atau hadis-hadis terkait (pada pertemuan 2-3). Ini menumbuhkan kesadaran spiritual. (Mindful Learning)</li>
+    </ul>
+
+    <p><strong>Apersepsi & Motivasi:</strong></p>
+    <ul>
+      <li><strong>Pertemuan 1:</strong> Guru menayangkan video singkat atau gambar tentang interaksi anak dengan orang tua atau murid dengan guru. Kemudian bertanya: "Bagaimana perasaan kalian saat melihat interaksi ini? Apa yang membuat interaksi ini indah?" (Meaningful Learning, Joyful Learning)</li>
+      <li><strong>Pertemuan 2:</strong> Guru bertanya: "Apa yang kalian rasakan setelah membaca ayat-ayat tentang orang tua dan guru? Bagaimana cara kita mewujudkannya dalam tindakan?"</li>
+      <li><strong>Pertemuan 3:</strong> Guru bertanya: "Bisakah kalian membayangkan bagaimana kehidupan akan lebih indah jika semua orang saling menghormati dan patuh?"</li>
+    </ul>
+
+    <ul>
+      <li><strong>Penyampaian Tujuan:</strong> Guru menyampaikan tujuan pembelajaran setiap pertemuan.</li>
+      <li><strong>Asesmen Awal (Diferensiasi Kesiapan):</strong> Guru meminta peserta didik menuliskan di sticky notes atau mengirim di Mentimeter: "Satu kata tentang 'orang tua' dan satu kata tentang 'guru'." atau "Apa yang kalian ketahui tentang adab kepada orang tua?" Hasilnya digunakan untuk memetakan pengetahuan awal dan minat peserta didik. Guru juga dapat melakukan tes bacaan singkat (tajwid) secara individual atau berkelompok kecil untuk mengetahui tingkat kemampuan membaca Al-Qur'an.</li>
+    </ul>
+
+    <h3>KEGIATAN INTI (60-70 MENIT PER PERTEMUAN)</h3>
+
+    <p><strong>PERTEMUAN 1 (MEMAHAMI):</strong></p>
+    <ul>
+      <li><strong>Pembagian Kelompok (Diferensiasi Kesiapan):</strong> Peserta didik dibagi dalam kelompok heterogen berdasarkan hasil asesmen awal (misalnya, yang sudah lancar tajwid bisa membantu yang belum).</li>
+      <li><strong>Analisis Dalil Naqli (Mindful Learning):</strong> Setiap kelompok menerima lembar kerja yang berisi Q.S. Luqman/31:13-14 dan Q.S. al-Baqarah/2:83. Mereka berdiskusi untuk:
+        <ul class="indent">
+          <li>Mengidentifikasi hukum tajwid (guru berkeliling membimbing).</li>
+          <li>Menyusun terjemah per kata/ayat.</li>
+          <li>Merumuskan kandungan pokok ayat-ayat tersebut.</li>
+        </ul>
+      </li>
+      <li><strong>Presentasi Kelompok & Penguatan:</strong> Perwakilan kelompok mempresentasikan hasil diskusi. Guru memberikan penguatan materi, meluruskan pemahaman, dan menjelaskan hikmah dari kandungan ayat.</li>
+    </ul>
+
+    <p><strong>PERTEMUAN 2 (MENGANALISIS & MENGAPLIKASI):</strong></p>
+    <ul>
+      <li><strong>Studi Literasi Hadis (Meaningful Learning):</strong> Guru menyediakan beberapa hadis terkait hormat dan patuh kepada orang tua dan guru (bisa berupa teks, potongan video, atau rekaman suara). Peserta didik dalam kelompok diminta untuk membaca, memahami, dan menghubungkan hadis-hadis tersebut dengan ayat Al-Qur'an yang sudah dipelajari. (Diferensiasi Proses: Kelompok yang lebih cepat dapat mencari hadis tambahan dari sumber digital).</li>
+      <li><strong>Analisis Hikmah & Manfaat (Penalaran Kritis):</strong> Peserta didik berdiskusi tentang hikmah dan manfaat dari perilaku hormat dan patuh. Mereka diminta mencari contoh konkret dalam kehidupan sehari-hari.</li>
+      <li><strong>Proyek Mini: Poster/Infografis (Kreativitas, Kolaborasi, Joyful Learning):</strong> Setiap kelompok merancang poster atau infografis digital/manual yang berisi poin-poin penting tentang pentingnya hormat dan patuh kepada orang tua dan guru, beserta dalil pendukungnya. Mereka bisa menggunakan Canva atau alat digital lain.</li>
+    </ul>
+
+    <p><strong>PERTEMUAN 3 (MENGINTERNALISASI & MEREFLEKSI):</strong></p>
+    <ul>
+      <li><strong>Studi Kasus & Dilema Moral (Penalaran Kritis):</strong> Guru menyajikan beberapa studi kasus atau dilema moral terkait hubungan dengan orang tua/guru (misal: "Bagaimana jika orang tua menyuruhmu melakukan hal yang bertentangan dengan ajaran agama?" atau "Bagaimana menghadapi guru yang kurang kamu sukai?"). Peserta didik berdiskusi dalam kelompok untuk menemukan solusi Islami.</li>
+      <li><strong>Perencanaan Aksi Pribadi (Kemandirian, Mindful Learning):</strong> Setiap peserta didik menyusun "Rencana Aksi Pribadi" (Personal Action Plan) tentang bagaimana mereka akan meningkatkan perilaku hormat dan patuh kepada orang tua dan guru dalam satu minggu ke depan. Rencana ini bisa berisi tindakan konkret (misal: "setiap pagi mencium tangan orang tua," "tidak membantah perintah guru," "membantu ibu di rumah").</li>
+      <li><strong>Produk Kreatif: Video/Simulasi (Komunikasi, Kreativitas, Joyful Learning):</strong> Peserta didik (individu/berpasangan/kelompok kecil) membuat video pendek simulasi atau bermain peran singkat tentang situasi yang menunjukkan perilaku hormat dan patuh kepada orang tua atau guru. Hasilnya bisa diunggah ke Google Classroom.</li>
+      <li><strong>Refleksi Diri Mendalam:</strong> Guru memfasilitasi sesi refleksi akhir, meminta peserta didik berbagi perasaan dan pelajaran yang mereka dapatkan dari seluruh unit.</li>
+    </ul>
+
+    <h3>KEGIATAN PENUTUP (15-20 MENIT PER PERTEMUAN)</h3>
+    <p><strong>Refleksi Pembelajaran (Meaningful Learning, Mindful Learning):</strong></p>
+    <ul>
+      <li><strong>Pertemuan 1-2:</strong> Guru meminta peserta didik menuliskan satu kalimat yang paling berkesan dari pembelajaran hari ini.</li>
+      <li><strong>Pertemuan 3:</strong> Guru mengajak peserta didik untuk merangkum secara keseluruhan nilai-nilai yang telah dipelajari dalam Bab "Indahnya Kehidupan Bermakna" dan bagaimana nilai-nilai tersebut dapat diimplementasikan dalam kehidupan mereka sehari-hari.</li>
+    </ul>
+
+    <ul>
+      <li><strong>Umpan Balik Konstruktif:</strong> Guru memberikan apresiasi atas partisipasi aktif peserta didik, hasil karya, dan proses belajar mereka. Guru memberikan motivasi untuk terus menerapkan nilai-nilai yang sudah dipelajari.</li>
+      <li><strong>Doa & Penutup:</strong> Guru menutup pelajaran dengan doa dan salam.</li>
+      <li><strong>Perencanaan Pembelajaran Selanjutnya:</strong> Guru memberikan informasi singkat tentang materi unit berikutnya dan mengingatkan tentang komitmen dalam Rencana Aksi Pribadi.</li>
+    </ul>
+
+    <!-- G. ASESMEN PEMBELAJARAN -->
+    <h2>G. ASESMEN PEMBELAJARAN</h2>
+
+    <h3>A. ASESMEN AWAL PEMBELAJARAN (DIAGNOSTIK)</h3>
+    <p><strong>Tujuan:</strong> Mengidentifikasi pengetahuan awal, kemampuan membaca Al-Qur'an (tajwid), dan pemahaman awal tentang adab.</p>
+    <p><strong>Format:</strong></p>
+    <ul>
+      <li>Tes Lisan (Individual): Membaca Q.S. Luqman/31:13-14 dan Q.S. al-Baqarah/2:83 (fokus pada tajwid dan kelancaran).</li>
+      <li>Kuis Awal Singkat (Tertulis/Online): Pertanyaan pilihan ganda atau isian singkat tentang konsep dasar adab atau terjemah ringkas.</li>
+      <li>Menuliskan Refleksi Singkat: "Apa makna berbakti kepada orang tua bagimu?"</li>
+    </ul>
+    <p><strong>Contoh Pertanyaan/Tugas:</strong></p>
+    <ul>
+      <li>"Bacalah Q.S. Luqman/31:13-14 dengan tartil."</li>
+      <li>"Sebutkan dua contoh perilaku berbakti kepada orang tua yang paling mudah kamu lakukan."</li>
+    </ul>
+
+    <h3>B. ASESMEN PROSES PEMBELAJARAN (FORMATIF)</h3>
+    <p><strong>Tujuan:</strong> Memantau pemahaman peserta didik selama proses pembelajaran, kemampuan berkolaborasi, dan penghayatan nilai.</p>
+    <p><strong>Format:</strong></p>
+    <ul>
+      <li>Observasi (Partisipasi Diskusi Kelompok): Guru mengamati keaktifan, kualitas argumen, dan kolaborasi peserta didik. (Lembar Observasi dengan rubrik).</li>
+      <li>Penilaian Kinerja (Diskusi/Presentasi Kelompok): Penilaian terhadap kemampuan menyajikan terjemah, kandungan ayat/hadis, dan analisis hikmah. (Rubrik Penilaian Diskusi).</li>
+      <li>Penilaian Produk (Poster/Infografis): Penilaian kreativitas, kelengkapan informasi, dan pesan yang disampaikan. (Rubrik Penilaian Produk).</li>
+      <li>Umpan Balik Sejawat (Peer Feedback): Peserta didik memberikan umpan balik pada hasil kerja teman (misal: video simulasi).</li>
+      <li>Jurnal Refleksi/Rencana Aksi Pribadi: Guru membaca dan memberikan umpan balik terhadap rencana aksi dan refleksi peserta didik.</li>
+    </ul>
+    <p><strong>Contoh Pertanyaan/Tugas:</strong></p>
+    <ul>
+      <li>"Dalam kelompok, jelaskan kandungan Q.S. Luqman/31:14 dengan bahasamu sendiri."</li>
+      <li>"Berikan feedback terhadap poster temanmu: 'Apa yang paling kamu suka dari poster ini? Apa yang bisa ditambahkan?'"</li>
+      <li>"Tuliskan satu tindakan konkret yang akan kamu lakukan besok untuk menunjukkan rasa hormat kepada orang tuamu."</li>
+    </ul>
+
+    <h3>C. ASESMEN AKHIR PEMBELAJARAN (SUMATIF)</h3>
+    <p><strong>Tujuan:</strong> Mengukur pencapaian tujuan pembelajaran secara keseluruhan, baik aspek kognitif (pemahaman dalil), afektif (penghayatan), maupun psikomotorik (aplikasi).</p>
+    <p><strong>Format:</strong></p>
+    <ul>
+      <li>Tes Tertulis: Soal uraian atau esai yang menguji pemahaman kandungan ayat dan hadis, serta kemampuan menganalisis hikmah dan mengaitkan dengan kehidupan nyata.</li>
+      <li>Penilaian Proyek (Video/Simulasi): Menilai kreativitas, pesan moral yang disampaikan, dan kemampuan aplikasi nilai.</li>
+      <li>Penilaian Sikap (Observasi Lanjutan/Jurnal): Guru dapat memantau atau meminta peserta didik untuk melaporkan (secara jujur) implementasi Rencana Aksi Pribadi mereka selama periode tertentu.</li>
+    </ul>
+    <p><strong>Contoh Pertanyaan/Tugas (Tes Tertulis):</strong></p>
+    <ul>
+      <li>"Jelaskan kandungan Q.S. Luqman/31:13-14 dan Q.S. al-Baqarah/2:83 terkait hubungan manusia dengan Allah dan manusia dengan sesama, khususnya orang tua!"</li>
+      <li>"Mengapa hormat dan patuh kepada guru memiliki kedudukan yang penting dalam Islam? Jelaskan dengan mengacu pada hadis yang kamu ketahui!"</li>
+      <li>"Bayangkan kamu adalah seorang anak yang sedang menghadapi dilema antara keinginan orang tua dan keinginan pribadimu yang tidak bertentangan dengan syariat. Bagaimana kamu akan bersikap berdasarkan ajaran Islam? Berikan contoh konkret!"</li>
+    </ul>
+    <p><strong>Tugas Proyek:</strong> "Buatlah sebuah video pendek (durasi maks 3 menit) atau simulasi drama singkat yang menggambarkan bagaimana seorang Muslim/Muslimah menerapkan perilaku hormat dan patuh kepada orang tua atau guru dalam situasi modern. Sertakan pesan moral yang ingin kamu sampaikan."</p>
+
+    <!-- Tombol Kembali ke Beranda di Bawah -->
+    <div class="footer-btn">
+      <a href="index.html" class="btn-home">
+        <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>

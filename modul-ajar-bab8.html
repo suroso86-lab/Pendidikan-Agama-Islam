@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modul Ajar Deep Learning - PAI</title>
+  <style>
+    :root {
+      --primary: #2e7d32;       /* Hijau Islamik */
+      --secondary: #81c784;     /* Hijau muda */
+      --accent: #d4af37;        /* Emas lembut */
+      --bg-light: #f9f7f0;      /* Krem */
+      --text: #2c2c2c;
+      --border: #c8e6c9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--bg-light);
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    h1, h2, h3, h4 {
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--secondary);
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-top: 24px;
+    }
+
+    h3 {
+      font-size: 18px;
+      margin-top: 18px;
+    }
+
+    p, li {
+      margin-bottom: 10px;
+    }
+
+    ul, ol {
+      margin-left: 20px;
+      margin-bottom: 16px;
+    }
+
+    .home-btn {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 10px 0;
+      transition: background 0.3s;
+    }
+
+    .home-btn:hover {
+      background-color: #1b5e20;
+    }
+
+    /* Tab Styles */
+    .tabs {
+      margin: 30px 0;
+    }
+
+    .tab-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .tab-btn {
+      padding: 10px 16px;
+      background-color: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: 6px 6px 0 0;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--primary);
+      transition: all 0.3s;
+    }
+
+    .tab-btn:hover {
+      background-color: #e8f5e9;
+    }
+
+    .tab-btn.active {
+      background-color: white;
+      border-bottom: 2px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .tab-content {
+      display: none;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-top: none;
+      background-color: white;
+      border-radius: 0 0 6px 6px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .section {
+      margin-bottom: 24px;
+    }
+
+    .letter {
+      display: inline-block;
+      width: 24px;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #e8f5e9;
+      color: var(--primary);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 15px;
+      }
+      .tab-buttons {
+        flex-direction: column;
+      }
+      .tab-btn {
+        border-radius: 6px;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Tombol Kembali ke Beranda (Atas) -->
+  <a href="#" class="home-btn">Kembali ke Beranda</a>
+
+  <h1>MODUL AJAR DEEP LEARNING<br>
+    MATA PELAJARAN : PENDIDIKAN AGAMA ISLAM DAN BUDI PEKERTI<br>
+    BAB: 8. SIKAP INOVATIF DAN ETIKA DALAM BERORGANISASI</h1>
+
+  <!-- Bagian A–D: Ditampilkan penuh -->
+  <div class="section">
+    <h2><span class="letter">A.</span> IDENTITAS MODUL</h2>
+    <p><strong>Nama Sekolah</strong> : SMAN 1 CLURING</p>
+    <p><strong>Nama Penyusun</strong> : Drs. Suroso</p>
+    <p><strong>Mata Pelajaran</strong> : Pendidikan Agama Islam dan Budi Pekerti (PAI)</p>
+    <p><strong>Fase / Kelas /Semester</strong> : E / XII / Genap</p>
+    <p><strong>Alokasi Waktu</strong> : 4 x 45 menit (2 Pertemuan)</p>
+    <p><strong>Tahun Pelajaran</strong> : 2025 / 2026</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="letter">B.</span> IDENTIFIKASI KESIAPAN PESERTA DIDIK</h2>
+    <p>Peserta didik kelas XII umumnya memiliki pemahaman dasar tentang ajaran Islam dan nilai-nilai moral. Mereka telah melalui pengalaman belajar di jenjang sebelumnya yang mencakup dasar-dasar akidah, akhlak, dan syariat. Minat mereka terhadap materi yang relevan dengan kehidupan sosial dan masa depan (seperti organisasi atau karier) cenderung tinggi. Latar belakang sosial dan ekonomi peserta didik bervariasi, mempengaruhi pengalaman mereka dalam berorganisasi atau berinteraksi sosial. Kebutuhan belajar juga beragam; ada yang memerlukan penguatan konsep dasar, ada pula yang siap untuk diskusi mendalam dan aplikasi praktis. Kesiapan mereka dalam menerima pembelajaran yang berbasis diskusi, studi kasus, dan proyek kolaboratif relatif baik.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="letter">C.</span> KARAKTERISTIK MATERI PELAJARAN</h2>
+    <p>Materi "Sikap Inovatif dan Etika dalam Berorganisasi" adalah jenis pengetahuan konseptual (memahami definisi dan prinsip inovasi serta etika) dan prosedural (menerapkan prinsip-prinsip tersebut dalam tindakan). Lebih jauh lagi, materi ini sangat menekankan pada aspek afektif (sikap) dan psikomotorik (keterampilan berorganisasi dan berinovasi). Relevansinya dengan kehidupan nyata sangat tinggi, karena peserta didik akan menghadapi dunia kerja atau perkuliahan yang sangat membutuhkan inovasi dan etika dalam berinteraksi dan berorganisasi. Tingkat kesulitan materi ini moderat; konsep inovasi dan etika perlu didalami dengan contoh-contoh nyata. Struktur materi bersifat tematik, mencakup pengertian inovasi, pentingnya inovasi dalam Islam, etika berorganisasi, serta implementasinya. Integrasi nilai dan karakter sangat kuat, meliputi kejujuran, tanggung jawab, kepedulian, kerja keras, toleransi, dan berpikir kreatif.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="letter">D.</span> DIMENSI LULUSAN PEMBELAJARAN</h2>
+    <p>Dalam pembelajaran ini, dimensi profil lulusan yang akan dicapai adalah:</p>
+    <ul>
+      <li><strong>Keimanan dan Ketakwaan terhadap Tuhan YME:</strong> Peserta didik akan memahami bahwa sikap inovatif dan etika berorganisasi adalah bagian dari nilai-nilai luhur ajaran Islam dan bentuk ibadah kepada Allah SWT.</li>
+      <li><strong>Penalaran Kritis:</strong> Peserta didik akan menganalisis studi kasus terkait inovasi dan etika dalam organisasi, serta memberikan solusi berdasarkan prinsip Islam.</li>
+      <li><strong>Kreativitas:</strong> Peserta didik akan didorong untuk menghasilkan ide-ide inovatif dalam konteks organisasi atau kegiatan sosial.</li>
+      <li><strong>Kolaborasi:</strong> Peserta didik akan bekerja sama dalam kelompok untuk merumuskan ide inovasi dan menyelesaikan tugas-tugas terkait etika berorganisasi.</li>
+      <li><strong>Komunikasi:</strong> Peserta didik akan dilatih untuk menyampaikan gagasan, hasil diskusi, dan presentasi terkait materi dengan jelas dan persuasif.</li>
+    </ul>
+  </div>
+
+  <!-- Bagian Desain Pembelajaran: Tab Interaktif -->
+  <h2>DESAIN PEMBELAJARAN</h2>
+
+  <div class="tabs">
+    <div class="tab-buttons">
+      <button class="tab-btn active" data-tab="A">A. Capaian Pembelajaran</button>
+      <button class="tab-btn" data-tab="B">B. Lintas Disiplin Ilmu</button>
+      <button class="tab-btn" data-tab="C">C. Tujuan Pembelajaran</button>
+      <button class="tab-btn" data-tab="D">D. Topik Kontekstual</button>
+      <button class="tab-btn" data-tab="E">E. Kerangka Pembelajaran</button>
+      <button class="tab-btn" data-tab="F">F. Langkah-Langkah Pembelajaran</button>
+      <button class="tab-btn" data-tab="G">G. Asesmen Pembelajaran</button>
+    </div>
+
+    <!-- Tab A -->
+    <div id="A" class="tab-content active">
+      <h3><span class="letter">A.</span> CAPAIAN PEMBELAJARAN (CP) NOMOR : 32 TAHUN 2024</h3>
+      <p>Pada akhir Fase F, peserta didik mampu memahami beberapa ayat Al-Qur’an dan hadis, beberapa cabang iman (syu'ab al-īmān), keterkaitan antara iman, Islam, dan ihsan, manfaat menghindari penyakit sosial, adab bermasyarakat, ketentuan dakwah, muamalah, hukum keluarga (al-aḥwāl al-syakhṣiyyah), dan peran tokoh Islam di dunia serta organisasi Islam di Indonesia. Capaian Pembelajaran setiap elemen mata pelajaran Agama Islam dan Budi Pekerti adalah sebagai berikut.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Elemen</th>
+            <th>Capaian Pembelajaran</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Al-Qur’an dan Hadis</td>
+            <td>Peserta didik memahami ayat Al-Qur’an dan hadis tentang pentingnya berpikir kritis, ilmu pengetahuan dan teknologi, memelihara kehidupan manusia, dan moderasi beragama.</td>
+          </tr>
+          <tr>
+            <td>Akidah</td>
+            <td>Peserta didik memahami beberapa cabang iman (syu'ab al-īmān), keterkaitan antara iman, Islam, dan ihsan.</td>
+          </tr>
+          <tr>
+            <td>Akhlak</td>
+            <td>Peserta didik memahami manfaat menghindari penyakit sosial; Memahami adab bermasyarakat dan etika digital dalam Islam.</td>
+          </tr>
+          <tr>
+            <td>Fikih</td>
+            <td>Peserta didik memahami ketentuan khotbah, tablig dan dakwah, muamalah, munakahat, dan mawāris.</td>
+          </tr>
+          <tr>
+            <td>Sejarah Peradaban Islam</td>
+            <td>Peserta didik memahami peran tokoh ulama dalam perkembangan peradaban Islam di dunia dan peran organisasi-organisasi Islam di Indonesia.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Tab B -->
+    <div id="B" class="tab-content">
+      <h3><span class="letter">B.</span> LINTAS DISIPLIN ILMU</h3>
+      <ul>
+        <li><strong>Pendidikan Kewarganegaraan:</strong> Konsep organisasi, kepemimpinan, dan partisipasi aktif dalam masyarakat.</li>
+        <li><strong>Ekonomi/Kewirausahaan:</strong> Pentingnya inovasi dalam pengembangan produk, jasa, dan keberlanjutan bisnis.</li>
+        <li><strong>Sosiologi:</strong> Struktur organisasi, dinamika kelompok, dan interaksi sosial dalam konteks organisasi.</li>
+        <li><strong>Bahasa Indonesia:</strong> Kemampuan berkomunikasi, presentasi, dan menyusun laporan.</li>
+        <li><strong>Teknologi Informasi dan Komunikasi (TIK):</strong> Pemanfaatan teknologi untuk mendukung inovasi dan komunikasi dalam berorganisasi.</li>
+      </ul>
+    </div>
+
+    <!-- Tab C -->
+    <div id="C" class="tab-content">
+      <h3><span class="letter">C.</span> TUJUAN PEMBELAJARAN</h3>
+      <p><strong>Pertemuan 1: Memahami Konsep Inovasi dalam Islam (2 x 45 menit)</strong></p>
+      <ul>
+        <li>Menjelaskan pengertian inovasi (tajdid) dalam konteks ajaran Islam dengan benar. (Kondisi: Melalui kajian literatur dan diskusi kelompok. Tingkat pencapaian: Benar)</li>
+        <li>Menganalisis pentingnya sikap inovatif (tajdid) dalam kehidupan berorganisasi dan bermasyarakat berdasarkan dalil naqli (Al-Qur'an dan Hadis) serta aqli dengan tepat. (Kondisi: Melalui telaah ayat/hadis dan diskusi studi kasus. Tingkat pencapaian: Tepat)</li>
+        <li>Mengidentifikasi ciri-ciri individu yang memiliki sikap inovatif menurut ajaran Islam dengan cermat. (Kondisi: Melalui pengamatan tokoh teladan dan refleksi diri. Tingkat pencapaian: Cermat)</li>
+        <li>Merumuskan contoh perilaku inovatif dalam kehidupan sehari-hari dan konteks organisasi yang sesuai dengan nilai-nilai Islam. (Kondisi: Melalui brainstorming dan diskusi. Tingkat pencapaian: Sesuai)</li>
+      </ul>
+      <p><strong>Pertemuan 2: Etika dalam Berorganisasi Perspektif Islam (2 x 45 menit)</strong></p>
+      <ul>
+        <li>Menjelaskan konsep etika dalam berorganisasi menurut pandangan Islam dengan benar. (Kondisi: Melalui kajian literatur dan diskusi. Tingkat pencapaian: Benar)</li>
+        <li>Menganalisis prinsip-prinsip etika Islam dalam berorganisasi (amanah, tanggung jawab, musyawarah, adil, profesionalisme, dll.) dengan kritis. (Kondisi: Melalui analisis studi kasus dan diskusi kelompok. Tingkat pencapaian: Kritis)</li>
+        <li>Mengidentifikasi dampak positif penerapan etika Islam dalam berorganisasi bagi individu dan masyarakat. (Kondisi: Melalui curah pendapat dan diskusi. Tingkat pencapaian: Teridentifikasi)</li>
+        <li>Menerapkan etika Islam dalam kegiatan berorganisasi di lingkungan sekolah atau masyarakat dengan menunjukkan perilaku yang bertanggung jawab dan kolaboratif. (Kondisi: Melalui simulasi peran atau proyek kelompok. Tingkat pencapaian: Bertanggung jawab dan Kolaboratif)</li>
+      </ul>
+    </div>
+
+    <!-- Tab D -->
+    <div id="D" class="tab-content">
+      <h3><span class="letter">D.</span> TOPIK PEMBELAJARAN KONTEKSTUAL</h3>
+      <p>Topik pembelajaran kontekstual yang relevan dengan capaian dan tujuan pembelajaran meliputi:</p>
+      <ul>
+        <li>Studi Kasus Organisasi Kemahasiswaan/Osis: Menganalisis bagaimana inovasi dan etika diterapkan dalam kegiatan organisasi di sekolah atau kampus.</li>
+        <li>Inovasi Sosial Keagamaan: Contoh-contoh inovasi dalam dakwah, pengelolaan masjid, atau lembaga amil zakat.</li>
+        <li>Etika dalam Kerja Tim Proyek: Menganalisis pentingnya etika ketika bekerja dalam sebuah tim proyek di era digital, termasuk etika dalam menggunakan media sosial untuk tujuan organisasi.</li>
+        <li>Tokoh-tokoh Muslim Inovatif: Mengkaji biografi singkat atau kiprah tokoh-tokoh Muslim yang memiliki jiwa inovatif dan menjunjung tinggi etika.</li>
+      </ul>
+    </div>
+
+    <!-- Tab E -->
+    <div id="E" class="tab-content">
+      <h3><span class="letter">E.</span> KERANGKA PEMBELAJARAN</h3>
+      <h4>1. PRAKTIK PEDAGOGIK:</h4>
+      <ul>
+        <li><strong>Model Pembelajaran:</strong> Problem-Based Learning (PBL) dan Project-Based Learning (PjBL) untuk mendorong pemahaman mendalam, kreativitas, dan aplikasi.</li>
+        <li><strong>Strategi Pembelajaran:</strong> Diskusi Kelompok, Studi Kasus, Presentasi, Bermain Peran (Role Play), dan Proyek Kolaboratif.</li>
+        <li><strong>Metode Pembelajaran:</strong> Ceramah Interaktif, Tanya Jawab, Brainstorming, Penugasan Individu dan Kelompok.</li>
+      </ul>
+      <h4>2. KEMITRAAN PEMBELAJARAN:</h4>
+      <ul>
+        <li><strong>Lingkungan Sekolah:</strong> Mengajak peserta didik berinteraksi dengan pengurus OSIS, DKM (Dewan Kemakmuran Masjid) sekolah, atau guru pembina ekstrakurikuler untuk mendapatkan contoh nyata tentang inovasi dan etika berorganisasi.</li>
+        <li><strong>Lingkungan Luar Sekolah/Masyarakat:</strong> Jika memungkinkan, mengundang narasumber dari organisasi masyarakat (misalnya, karang taruna, yayasan sosial) atau praktisi yang relevan untuk berbagi pengalaman. Pemanfaatan sumber-sumber berita atau media massa terkait isu etika dan inovasi dalam organisasi.</li>
+      </ul>
+      <h4>3. LINGKUNGAN BELAJAR:</h4>
+      <ul>
+        <li><strong>Ruang Fisik:</strong> Kelas yang fleksibel untuk diskusi kelompok (misalnya, meja dan kursi dapat diatur ulang), dilengkapi dengan papan tulis/whiteboard dan proyektor.</li>
+        <li><strong>Ruang Virtual:</strong> Pemanfaatan Google Classroom sebagai platform utama untuk berbagi materi, pengumuman, pengumpulan tugas, dan forum diskusi daring. Penggunaan media sosial (terkontrol dan terarah) untuk observasi atau penyebaran informasi terkait proyek.</li>
+        <li><strong>Budaya Belajar:</strong> Mendorong budaya belajar aktif, kritis, saling menghargai perbedaan pendapat, berani berinovasi, dan menjunjung tinggi nilai-nilai etika dalam berinteraksi.</li>
+      </ul>
+      <h4>4. PEMANFAATAN DIGITAL:</h4>
+      <ul>
+        <li>Perpustakaan Digital/Internet: Mengakses artikel, jurnal, atau video tentang inovasi dan etika berorganisasi dari perspektif Islam.</li>
+        <li>Forum Diskusi Daring: Menggunakan fitur forum di Google Classroom untuk diskusi di luar jam pelajaran, mengajukan pertanyaan, atau berbagi sumber.</li>
+        <li>Padlet/Jamboard: Untuk mengumpulkan ide-ide brainstorming secara kolaboratif.</li>
+        <li>Mentimeter/Polleverywhere: Untuk survei singkat atau mengumpulkan tanggapan cepat dari peserta didik.</li>
+        <li>Google Classroom: Sebagai LMS utama untuk manajemen kelas, materi, dan tugas.</li>
+        <li>Youtube/Platform Video Lain: Menonton video inspiratif tentang inovasi atau studi kasus etika dalam organisasi.</li>
+      </ul>
+    </div>
+
+    <!-- Tab F -->
+    <div id="F" class="tab-content">
+      <h3><span class="letter">F.</span> LANGKAH-LANGKAH PEMBELAJARAN BERDIFERENSIASI</h3>
+      <p><strong>PERTEMUAN 1: MEMAHAMI KONSEP INOVASI DALAM ISLAM (2 X 45 MENIT)</strong></p>
+      <p><strong>KEGIATAN PENDAHULUAN (15 MENIT)</strong></p>
+      <ul>
+        <li><strong>Mindful Learning:</strong> Guru memulai pelajaran dengan salam dan doa. Peserta didik diajak untuk melakukan "deep breathing" atau menenangkan diri sejenak untuk menumbuhkan fokus dan kesadaran diri. Guru dapat memutar lantunan ayat Al-Qur'an singkat tentang berpikir dan berinovasi. (Kesadaran)</li>
+        <li><strong>Meaningful Learning:</strong> Guru menampilkan gambar atau video tentang penemuan-penemuan Islam di masa lampau (misalnya, penemuan Al-Jazari, Ibnu Sina) atau inovasi-inovasi sosial yang terjadi di masyarakat saat ini. Guru mengajukan pertanyaan pemantik: "Bagaimana Islam memandang pentingnya perubahan dan kemajuan?" "Apa itu inovasi menurut pandangan Islam?" (Keterkaitan dengan kehidupan nyata dan relevansi)</li>
+        <li><strong>Joyful Learning:</strong> Guru mengajak peserta didik bermain "Tebak Kata" terkait istilah-istilah inovasi atau kreativitas. Guru menyampaikan tujuan pembelajaran dengan semangat, menekankan bahwa kita akan belajar bagaimana menjadi pribadi Muslim yang inovatif dan bermanfaat. (Menciptakan suasana positif)</li>
+        <li><strong>Apersepsi:</strong> Guru melakukan asesmen awal (diagnostik) melalui pertanyaan lisan singkat tentang pemahaman mereka terhadap "kemajuan" atau "perubahan" dalam kehidupan beragama dan bermasyarakat.</li>
+        <li><strong>Diferensiasi Kesiapan:</strong> Guru dapat menyiapkan daftar pertanyaan asesmen awal yang bervariasi tingkat kesulitannya.</li>
+      </ul>
+      <p><strong>KEGIATAN INTI (60 MENIT)</strong></p>
+      <p><strong>Memahami (Understanding) - (30 menit):</strong></p>
+      <ul>
+        <li>Eksplorasi Konsep (Diferensiasi Konten & Proses):</li>
+        <li>Peserta didik dibagi dalam kelompok kecil (diferensiasi berdasarkan minat atau gaya belajar, misalnya kelompok yang suka visual, kelompok yang suka membaca, kelompok yang suka audio).</li>
+        <li>Setiap kelompok diberi LKPD yang berisi dalil naqli (Q.S. Ar-Ra'd [13]:11, Q.S. Al-Hasyr [59]:18, Hadis tentang tajdid) dan kasus-kasus kontemporer terkait inovasi (misalnya, inovasi bank syariah, inovasi dalam pengelolaan zakat, inovasi dakwah digital).</li>
+        <li>Kelompok menganalisis dalil dan studi kasus untuk menemukan pengertian inovasi dalam Islam, pentingnya, dan ciri-ciri individu inovatif.</li>
+        <li>Guru menyediakan sumber belajar yang bervariasi: teks dari buku ajar, video pendek tentang sejarah ilmuwan Muslim, infografis definisi inovasi. Guru berkeliling memberikan bimbingan dan pertanyaan pengarah.</li>
+        <li>Diskusi dan Sintesis: Setiap kelompok mendiskusikan temuan mereka dan merumuskan pengertian serta pentingnya inovasi dalam Islam.</li>
+        <li>Asesmen Proses: Guru mengobservasi partisipasi dan pemahaman peserta didik selama diskusi.</li>
+      </ul>
+      <p><strong>Mengaplikasi (Applying) - (20 menit):</strong></p>
+      <ul>
+        <li>Merumuskan Contoh Perilaku Inovatif (Diferensiasi Produk):</li>
+        <li>Setiap kelompok diberi tugas untuk merumuskan minimal 3 contoh perilaku inovatif dalam kehidupan sehari-hari (misalnya, di rumah, sekolah, masyarakat) yang sesuai dengan nilai-nilai Islam.</li>
+        <li>Peserta didik dapat menyajikan contoh perilaku inovatif ini dalam bentuk mind map, daftar ide, atau sketsa singkat.</li>
+        <li>Perwakilan kelompok mempresentasikan hasil rumusan mereka.</li>
+        <li>Diferensiasi Produk: Peserta didik dengan kemampuan visual dapat membuat infografis, yang memiliki kemampuan menulis dapat membuat esai singkat.</li>
+      </ul>
+      <p><strong>Merefleksi (Reflecting) - (10 menit):</strong></p>
+      <ul>
+        <li>Refleksi Diri: Guru meminta peserta didik untuk menuliskan di kertas kecil (exit ticket) satu kalimat tentang: "Bagaimana sikap inovatif dapat membantuku menjadi pribadi Muslim yang lebih baik?"</li>
+        <li>Diskusi Kelas: Guru memimpin diskusi singkat tentang relevansi sikap inovatif dengan ajaran Islam dan kehidupan masa depan.</li>
+      </ul>
+      <p><strong>KEGIATAN PENUTUP (15 MENIT)</strong></p>
+      <ul>
+        <li>Umpan Balik: Guru memberikan umpan balik umum terhadap diskusi dan presentasi kelompok, menyoroti kekuatan ide-ide inovatif yang muncul.</li>
+        <li>Merangkum: Guru bersama peserta didik merangkum konsep utama tentang pengertian, pentingnya, dan ciri-ciri sikap inovatif dalam Islam.</li>
+        <li>Pratinjau: Guru menyampaikan pengantar singkat tentang materi pertemuan selanjutnya: Etika dalam Berorganisasi, menekankan bahwa inovasi harus diiringi etika.</li>
+        <li>Doa dan Salam: Guru menutup pelajaran dengan doa dan salam.</li>
+      </ul>
+
+      <p><strong>PERTEMUAN 2: ETIKA DALAM BERORGANISASI PERSPEKTIF ISLAM (2 X 45 MENIT)</strong></p>
+      <p><strong>KEGIATAN PENDAHULUAN (15 MENIT)</strong></p>
+      <ul>
+        <li><strong>Mindful Learning:</strong> Guru memulai pelajaran dengan salam dan doa. Peserta didik diajak untuk mengamati "Kata Mutiara Islami" tentang etika atau akhlak dalam berinteraksi yang ditampilkan di layar. (Kesadaran)</li>
+        <li><strong>Meaningful Learning:</strong> Guru memantik diskusi dengan mengajukan pertanyaan: "Mengapa etika itu penting dalam berorganisasi?" atau "Apa jadinya jika sebuah organisasi tidak memiliki etika?" Guru bisa menampilkan berita singkat atau video tentang kasus pelanggaran etika dalam organisasi. (Relevansi dan keterkaitan dengan masalah sosial)</li>
+        <li><strong>Joyful Learning:</strong> Guru mengajak peserta didik untuk berpasangan dan berbagi pengalaman singkat tentang "organisasi" (bisa di sekolah atau lingkungan) yang menurut mereka berjalan dengan baik atau kurang baik, kemudian menanyakan mengapa demikian. (Menciptakan suasana positif melalui pengalaman personal)</li>
+        <li><strong>Apersepsi:</strong> Mengulang kembali konsep inovasi dari pertemuan sebelumnya dan mengaitkannya dengan perlunya etika dalam menerapkannya.</li>
+        <li><strong>Diferensiasi Kesiapan:</strong> Guru dapat meminta beberapa peserta didik yang memiliki pengalaman organisasi lebih banyak untuk berbagi di awal.</li>
+      </ul>
+      <p><strong>KEGIATAN INTI (60 MENIT)</strong></p>
+      <p><strong>Memahami (Understanding) - (30 menit):</strong></p>
+      <ul>
+        <li>Eksplorasi Konsep dan Prinsip Etika (Diferensiasi Konten & Proses):</li>
+        <li>Peserta didik dibagi kembali ke dalam kelompok. Setiap kelompok diberi LKPD berisi studi kasus etika berorganisasi (misalnya, pengambilan keputusan yang tidak transparan, pembagian tugas yang tidak adil, konflik internal).</li>
+        <li>Kelompok ditugaskan untuk mengidentifikasi prinsip-prinsip etika Islam (amanah, musyawarah, adil, tanggung jawab, profesionalisme, dll.) yang relevan dengan kasus tersebut. Guru menyediakan bahan bacaan dari buku ajar atau sumber lain yang menjelaskan prinsip-prinsip ini.</li>
+        <li>Guru berkeliling, membimbing dan memberikan pertanyaan-pertanyaan yang mendorong pemikiran kritis. Bagi kelompok yang cepat, dapat diberikan studi kasus yang lebih kompleks.</li>
+        <li>Diskusi Kelompok dan Analisis: Setiap kelompok menganalisis studi kasus dan mengaitkannya dengan prinsip-prinsip etika Islam, lalu merumuskan solusi atau rekomendasi berdasarkan etika Islam.</li>
+        <li>Asesmen Proses: Guru mengobservasi interaksi, argumen, dan kesesuaian solusi yang diberikan oleh setiap kelompok.</li>
+      </ul>
+      <p><strong>Mengaplikasi (Applying) - (20 menit):</strong></p>
+      <ul>
+        <li>Simulasi Peran/Proyek Mini (Diferensiasi Produk):</li>
+        <li>Setiap kelompok memilih satu studi kasus etika atau situasi organisasi yang sering terjadi (misalnya, rapat OSIS, pembagian tugas piket, proyek sosial) dan membuat skenario singkat (2-3 menit) yang menunjukkan penerapan etika Islam atau cara mengatasi masalah etika.</li>
+        <li>Kelompok dapat mempresentasikan skenario mereka dalam bentuk role play atau "simulasi rapat".</li>
+        <li>Diferensiasi Produk: Beberapa kelompok mungkin memilih untuk membuat "Kode Etik Sederhana" untuk kegiatan di kelas atau kelompok belajar mereka sebagai produk akhir.</li>
+      </ul>
+      <p><strong>Merefleksi (Reflecting) - (10 menit):</strong></p>
+      <ul>
+        <li>Diskusi Kelas: Guru memimpin diskusi kelas tentang pelajaran yang didapat dari simulasi/presentasi kelompok. Mengajukan pertanyaan: "Bagaimana etika Islam membentuk karakter individu dalam organisasi?" "Apa tantangan terbesar dalam menerapkan etika di organisasi?"</li>
+        <li>Koneksi Diri: Peserta didik diminta untuk menuliskan di buku catatan mereka satu komitmen pribadi tentang bagaimana mereka akan menerapkan etika dalam setiap organisasi yang mereka ikuti di masa depan.</li>
+      </ul>
+      <p><strong>KEGIATAN PENUTUP (15 MENIT)</strong></p>
+      <ul>
+        <li>Umpan Balik Konstruktif: Guru memberikan umpan balik rinci terhadap presentasi/simulasi, menyoroti aspek etika yang sudah baik dan area yang perlu diperbaiki.</li>
+        <li>Menyimpulkan Pembelajaran: Guru bersama peserta didik merangkum seluruh materi tentang etika dalam berorganisasi menurut Islam, menekankan pentingnya amanah, musyawarah, dan keadilan.</li>
+        <li>Perencanaan Pembelajaran Selanjutnya: Guru meminta masukan dari peserta didik tentang topik-topik selanjutnya yang relevan dengan kehidupan mereka atau pertanyaan yang masih ingin didiskusikan. Guru memberikan tugas mandiri berupa penulisan esai singkat (150-200 kata) tentang "Pentingnya Inovasi dan Etika bagi Generasi Muda Muslim di Era Global".</li>
+        <li>Apresiasi dan Doa: Guru memberikan apresiasi atas partisipasi aktif peserta didik dan menutup pelajaran dengan doa serta salam.</li>
+      </ul>
+    </div>
+
+    <!-- Tab G -->
+    <div id="G" class="tab-content">
+      <h3><span class="letter">G.</span> ASESMEN PEMBELAJARAN</h3>
+      <p><strong>A. ASESMEN AWAL PEMBELAJARAN (DIAGNOSTIK)</strong></p>
+      <ul>
+        <li><strong>Tujuan:</strong> Mengidentifikasi pengetahuan awal peserta didik tentang konsep inovasi dan pengalaman mereka dalam berorganisasi.</li>
+        <li><strong>Format Asesmen:</strong>
+          <ul>
+            <li>Kuesioner Singkat (Tes Tertulis): Pertanyaan terbuka tentang pemahaman awal mereka terhadap kata "inovasi", "etika", dan "organisasi".</li>
+            <li>Diskusi Kelas/Tanya Jawab Lisan: Menggali pandangan dan pengalaman peserta didik secara langsung.</li>
+          </ul>
+        </li>
+        <li><strong>Contoh Pertanyaan/Tugas:</strong>
+          <ol>
+            <li>"Apa yang terlintas di benak kalian ketika mendengar kata 'inovasi'?"</li>
+            <li>"Seberapa sering kalian terlibat dalam organisasi? Apa peran kalian?"</li>
+            <li>"Menurut kalian, apa yang membuat sebuah organisasi bisa berjalan baik?"</li>
+          </ol>
+        </li>
+      </ul>
+
+      <p><strong>B. ASESMEN PROSES PEMBELAJARAN (FORMATIF)</strong></p>
+      <ul>
+        <li><strong>Tujuan:</strong> Memantau kemajuan belajar peserta didik, memberikan umpan balik berkelanjutan, dan mengidentifikasi kesulitan.</li>
+        <li><strong>Format Asesmen:</strong>
+          <ul>
+            <li>Observasi: Guru mengamati keaktifan, kolaborasi, kemampuan berargumen, dan penerapan etika selama diskusi kelompok, simulasi, dan presentasi. Menggunakan lembar observasi dengan rubrik.</li>
+            <li>Penilaian LKPD: Penilaian terhadap kelengkapan, ketepatan analisis dalil, studi kasus, dan rumusan contoh perilaku.</li>
+            <li>Jurnal Reflektif/Exit Ticket: Penilaian terhadap kemampuan peserta didik merefleksikan pembelajaran dan membuat komitmen diri.</li>
+          </ul>
+        </li>
+        <li><strong>Contoh Pertanyaan/Tugas:</strong>
+          <ol>
+            <li>(Saat diskusi kelompok) "Apakah solusi yang kalian usulkan untuk kasus ini sudah mencerminkan prinsip keadilan dalam Islam?"</li>
+            <li>(Saat presentasi) "Bagaimana kalian memastikan bahwa inovasi yang kalian buat tidak melanggar batasan syariat?"</li>
+            <li>(Jurnal Reflektif) "Apa tantangan terbesar yang kalian hadapi saat mencoba berkolaborasi dalam kelompok, dan bagaimana etika Islam bisa membantu mengatasinya?"</li>
+          </ol>
+        </li>
+      </ul>
+
+      <p><strong>C. ASESMEN AKHIR PEMBELAJARAN (SUMATIF)</strong></p>
+      <ul>
+        <li><strong>Tujuan:</strong> Mengukur pencapaian kompetensi peserta didik terhadap seluruh tujuan pembelajaran.</li>
+        <li><strong>Format Asesmen:</strong>
+          <ul>
+            <li>Tes Tertulis: Soal esai atau pilihan ganda kompleks yang menguji pemahaman konsep inovasi dan etika dalam berorganisasi berdasarkan perspektif Islam, serta kemampuan menganalisis studi kasus.</li>
+            <li>Penilaian Proyek (Produk/Presentasi):
+              <ul>
+                <li>Proyek: "Desain Inovasi Sosial Berbasis Etika Islam": Peserta didik dalam kelompok membuat proposal sederhana (maksimal 2 halaman) atau infografis tentang sebuah ide inovasi sosial (misalnya, program kebersihan lingkungan berbasis masjid, platform donasi online yang amanah, dsb.) yang menerapkan prinsip inovasi dan etika Islam.</li>
+                <li>Presentasi: Presentasi kelompok tentang proyek yang telah dibuat, menjelaskan ide inovasi, dasar etika yang digunakan, dan dampaknya.</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><strong>Contoh Pertanyaan/Tugas (Tes Tertulis):</strong>
+          <ol>
+            <li>"Jelaskan pengertian inovasi (tajdid) dalam Islam beserta dasar hukumnya (minimal 1 dalil naqli dan penjelasannya)!"</li>
+            <li>"Analisis sebuah kasus pelanggaran etika dalam organisasi (berikan contoh kasusnya sendiri), kemudian jelaskan bagaimana prinsip-prinsip etika Islam dapat menjadi solusi untuk mengatasi kasus tersebut!"</li>
+            <li>"Bagaimana seorang pemimpin Muslim dapat menumbuhkan sikap inovatif sekaligus menjaga etika dalam timnya?"</li>
+          </ol>
+        </li>
+        <li><strong>Contoh Tugas Proyek:</strong>
+          <ul>
+            <li>"Buatlah proposal sederhana sebuah program inovasi sosial (misalnya, aplikasi dakwah, bank sampah syariah, program edukasi agama kreatif) yang akan kalian terapkan di lingkungan sekolah atau masyarakat. Jelaskan bagaimana program ini mencerminkan sikap inovatif dan menjunjung tinggi etika Islam."</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Tombol Kembali ke Beranda (Bawah) -->
+  <a href="#" class="home-btn">Kembali ke Beranda</a>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
+
+        // Add active to clicked
+        button.classList.add('active');
+        const target = button.getAttribute('data-tab');
+        document.getElementById(target).classList.add('active');
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

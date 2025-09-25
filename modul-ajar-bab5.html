@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MODUL AJAR DEEP LEARNING – Kewarisan dalam Islam</title>
+  <style>
+    :root {
+      /* Palet warna edukatif-islami */
+      --primary: #1e5631;
+      --secondary: #a4be7b;
+      --accent: #d4af37;
+      --light: #f8f9fa;
+      --dark: #212529;
+      --gray: #6c757d;
+      --border: #dee2e6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.7;
+      color: var(--dark);
+      background-color: var(--light);
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 20px 0;
+      border-bottom: 3px solid var(--primary);
+      background: linear-gradient(to right, #f0f4f1, #e8f0e9);
+    }
+
+    h1, h2, h3, h4 {
+      color: var(--primary);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 30px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      color: var(--dark);
+      margin-top: 24px;
+    }
+
+    h4 {
+      font-size: 1.15rem;
+      margin-top: 20px;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    ul, ol {
+      margin-left: 24px;
+      margin-bottom: 16px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9fbf9;
+    }
+
+    .btn-home {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      margin: 15px 0;
+      transition: background-color 0.3s;
+    }
+
+    .btn-home:hover {
+      background-color: #163d24;
+    }
+
+    /* Tab Styles */
+    .tab-container {
+      margin: 30px 0;
+    }
+
+    .tab-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 10px;
+    }
+
+    .tab-btn {
+      padding: 10px 20px;
+      background-color: #e9ecef;
+      border: none;
+      border-radius: 6px 6px 0 0;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--gray);
+      transition: all 0.3s ease;
+    }
+
+    .tab-btn:hover {
+      background-color: #dfe5e0;
+    }
+
+    .tab-btn.active {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 20px;
+      background-color: white;
+      border: 1px solid var(--border);
+      border-radius: 0 6px 6px 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      color: var(--gray);
+    }
+
+    @media (max-width: 768px) {
+      .tab-buttons {
+        flex-direction: column;
+      }
+      .tab-btn {
+        width: 100%;
+        text-align: center;
+      }
+      .container {
+        padding: 15px;
+      }
+      h1 { font-size: 1.5rem; }
+      h2 { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Tombol Kembali ke Beranda (Atas) -->
+    <div style="text-align: center;">
+      <a href="index.html" class="btn-home">Kembali ke Beranda</a>
+    </div>
+
+    <header>
+      <h1>MODUL AJAR DEEP LEARNING</h1>
+      <p><strong>MATA PELAJARAN:</strong> PENDIDIKAN AGAMA ISLAM DAN BUDI PEKERTI</p>
+      <p><strong>BAB:</strong> 4. KEWARISAN DALAM ISLAM: BERBAGI DALAM KEARIFAN</p>
+    </header>
+
+    <!-- Bagian A–D tetap ditampilkan penuh -->
+    <div class="section">
+      <h2>A. IDENTITAS MODUL</h2>
+      <table>
+        <tr><td>Nama Sekolah</td><td>: SMAN 1 CLURING</td></tr>
+        <tr><td>Nama Penyusun</td><td>: Drs. Suroso</td></tr>
+        <tr><td>Mata Pelajaran</td><td>: Pendidikan Agama Islam dan Budi Pekerti (PAI)</td></tr>
+        <tr><td>Fase / Kelas / Semester</td><td>: E / XII / Ganjil</td></tr>
+        <tr><td>Alokasi Waktu</td><td>: 8 Jam Pelajaran (4 Pertemuan @ 2 JP)</td></tr>
+        <tr><td>Tahun Pelajaran</td><td>: 2024 / 2025</td></tr>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>B. IDENTIFIKASI KESIAPAN PESERTA DIDIK</h2>
+      <p>Peserta didik kelas XII umumnya telah memiliki pemahaman dasar tentang ajaran Islam, termasuk konsep rukun iman dan rukun Islam. Namun, pengetahuan spesifik mengenai hukum waris dalam Islam (faraid) mungkin bervariasi, tergantung pada latar belakang pendidikan agama mereka sebelumnya. Beberapa peserta didik mungkin memiliki minat tinggi untuk memahami aspek praktis hukum Islam, sementara yang lain mungkin merasa materi ini kompleks dan sensitif. Latar belakang keluarga dan pemahaman masyarakat sekitar tentang warisan juga akan memengaruhi persepsi mereka. Kebutuhan belajar juga beragam, ada yang membutuhkan penjelasan rinci tentang dalil dan perhitungan, hingga yang lebih fokus pada hikmah dan penerapan nilai-nilai kearifan dalam pembagian waris.</p>
+    </div>
+
+    <div class="section">
+      <h2>C. KARAKTERISTIK MATERI PELAJARAN</h2>
+      <p>Materi "Kewarisan dalam Islam: Berbagi dalam Kearifan" merupakan jenis pengetahuan konseptual (tentang hukum waris), prosedural (cara menghitung bagian waris), dan sangat kuat pada aspek afektif/sikap (keimanan, kearifan, keadilan, tanggung jawab). Relevansinya dengan kehidupan nyata sangat tinggi karena berkaitan langsung dengan hak dan kewajiban setiap Muslim dalam mengelola harta peninggalan. Tingkat kesulitan materi ini bersifat moderat hingga tinggi, terutama pada bagian perhitungan yang membutuhkan ketelitian dan pemahaman mendalam tentang siapa saja ahli waris dan berapa bagiannya. Struktur materi akan dimulai dari dalil-dalil, rukun dan syarat waris, sebab-sebab waris, ahli waris dan bagiannya, hingga hikmah dan adab dalam pembagian waris. Integrasi nilai dan karakter akan ditekankan pada keimanan, ketakwaan, keadilan, kejujuran, kebijaksanaan, dan empati.</p>
+    </div>
+
+    <div class="section">
+      <h2>D. DIMENSI LULUSAN PEMBELAJARAN</h2>
+      <p>Berdasarkan materi Kewarisan dalam Islam dan pendekatan Deep Learning, dimensi profil lulusan yang akan dicapai adalah:</p>
+      <ul>
+        <li><strong>Keimanan dan Ketakwaan terhadap Tuhan:</strong> Peserta didik meyakini bahwa hukum waris adalah bagian dari syariat Islam yang ditetapkan Allah SWT untuk mewujudkan keadilan dan kemaslahatan.</li>
+        <li><strong>Penalaran Kritis:</strong> Peserta didik mampu menganalisis permasalahan waris, mengidentifikasi ahli waris yang sah, serta menghitung bagian masing-masing ahli waris berdasarkan dalil dan ketentuan syariat.</li>
+        <li><strong>Kolaborasi:</strong> Peserta didik mampu bekerja sama dalam kelompok untuk menyelesaikan studi kasus pembagian waris dan mendiskusikan berbagai perspektif dengan adab Islami.</li>
+        <li><strong>Kemandirian:</strong> Peserta didik mampu secara mandiri memahami konsep dasar waris, melakukan perhitungan sederhana, dan mencari solusi atas permasalahan yang dihadapi.</li>
+        <li><strong>Komunikasi:</strong> Peserta didik mampu menyampaikan pemahaman mereka tentang hukum waris, termasuk dalil dan hikmahnya, secara lisan maupun tertulis dengan jelas dan santun.</li>
+      </ul>
+    </div>
+
+    <!-- DESAIN PEMBELAJARAN dalam Tab A–G -->
+    <h2>DESAIN PEMBELAJARAN</h2>
+    <div class="tab-container">
+      <div class="tab-buttons">
+        <button class="tab-btn active" data-tab="A">A. Capaian Pembelajaran</button>
+        <button class="tab-btn" data-tab="B">B. Lintas Disiplin Ilmu</button>
+        <button class="tab-btn" data-tab="C">C. Tujuan Pembelajaran</button>
+        <button class="tab-btn" data-tab="D">D. Topik Kontekstual</button>
+        <button class="tab-btn" data-tab="E">E. Kerangka Pembelajaran</button>
+        <button class="tab-btn" data-tab="F">F. Langkah-Langkah Diferensiasi</button>
+        <button class="tab-btn" data-tab="G">G. Asesmen Pembelajaran</button>
+      </div>
+
+      <!-- Tab A -->
+      <div id="A" class="tab-content active">
+        <h3>A. CAPAIAN PEMBELAJARAN (CP) NOMOR : 32 TAHUN 2024</h3>
+        <p>Pada akhir Fase F, peserta didik mampu memahami beberapa ayat Al-Qur’an dan hadis, beberapa cabang iman (syu'ab al-īmān), keterkaitan antara iman, Islam, dan ihsan, manfaat menghindari penyakit sosial, adab bermasyarakat, ketentuan dakwah, muamalah, hukum keluarga (al-aḥwāl al-syakhṣiyyah), dan peran tokoh Islam di dunia serta organisasi Islam di Indonesia. Capaian Pembelajaran setiap elemen mata pelajaran Agama Islam dan Budi Pekerti adalah sebagai berikut.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Elemen</th>
+              <th>Capaian Pembelajaran</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Al-Qur’an dan Hadis</td>
+              <td>Peserta didik memahami ayat Al-Qur’an dan hadis tentang pentingnya berpikir kritis, ilmu pengetahuan dan teknologi, memelihara kehidupan manusia, dan moderasi beragama.</td>
+            </tr>
+            <tr>
+              <td>Akidah</td>
+              <td>Peserta didik memahami beberapa cabang iman (syu'ab al-īmān), keterkaitan antara iman, Islam, dan ihsan.</td>
+            </tr>
+            <tr>
+              <td>Akhlak</td>
+              <td>Peserta didik memahami manfaat menghindari penyakit sosial; Memahami adab bermasyarakat dan etika digital dalam Islam.</td>
+            </tr>
+            <tr>
+              <td>Fikih</td>
+              <td>Peserta didik memahami ketentuan khotbah, tablig dan dakwah, muamalah, munakahat, dan mawāris.</td>
+            </tr>
+            <tr>
+              <td>Sejarah Peradaban Islam</td>
+              <td>Peserta didik memahami peran tokoh ulama dalam perkembangan peradaban Islam di dunia dan peran organisasi-organisasi Islam di Indonesia.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Tab B -->
+      <div id="B" class="tab-content">
+        <h3>B. LINTAS DISIPLIN ILMU</h3>
+        <ul>
+          <li><strong>Matematika:</strong> Penggunaan konsep pecahan, rasio, dan perhitungan dasar dalam penentuan bagian ahli waris.</li>
+          <li><strong>Sosiologi/Antropologi:</strong> Memahami struktur keluarga, adat istiadat terkait warisan di berbagai daerah, dan dampaknya terhadap masyarakat.</li>
+          <li><strong>Hukum/Ekonomi Syariah:</strong> Mempelajari lebih dalam aspek legalitas hukum waris Islam dalam konteks hukum positif dan implikasinya dalam ekonomi syariah.</li>
+          <li><strong>Sejarah Kebudayaan Islam:</strong> Menelusuri bagaimana hukum waris diterapkan pada masa Rasulullah SAW dan para sahabat, serta perkembangannya.</li>
+        </ul>
+      </div>
+
+      <!-- Tab C -->
+      <div id="C" class="tab-content">
+        <h3>C. TUJUAN PEMBELAJARAN</h3>
+        <h4>Pertemuan 1 (2 JP): Memahami Dasar Hukum dan Konsep Awal Waris</h4>
+        <ul>
+          <li>Peserta didik dapat mengidentifikasi dalil-dalil naqli (Al-Qur'an dan Hadis) tentang kewarisan dalam Islam.</li>
+          <li>Peserta didik dapat menjelaskan rukun, syarat, dan sebab-sebab terjadinya kewarisan.</li>
+          <li>Peserta didik dapat mengklasifikasikan penghalang-penghalang kewarisan.</li>
+        </ul>
+
+        <h4>Pertemuan 2 (2 JP): Mengenal Ahli Waris dan Bagiannya</h4>
+        <ul>
+          <li>Peserta didik dapat mengidentifikasi macam-macam ahli waris (ashabul furud, ashabah, dan dzawil arham secara umum).</li>
+          <li>Peserta didik dapat menentukan bagian-bagian pasti dari ahli waris ashabul furud.</li>
+          <li>Peserta didik dapat menghitung bagian ahli waris secara sederhana dalam kasus-kasus dasar.</li>
+        </ul>
+
+        <h4>Pertemuan 3 (2 JP): Praktik Perhitungan Waris dan Studi Kasus</h4>
+        <ul>
+          <li>Peserta didik dapat menyelesaikan studi kasus pembagian harta warisan secara sistematis berdasarkan ketentuan syariat Islam.</li>
+          <li>Peserta didik dapat mengidentifikasi adanya kasus aul dan radd dalam perhitungan waris sederhana.</li>
+          <li>Peserta didik dapat menganalisis kasus-kasus yang menimbulkan perdebatan dalam pembagian waris dan menemukan solusi yang adil.</li>
+        </ul>
+
+        <h4>Pertemuan 4 (2 JP): Hikmah dan Adab dalam Pembagian Waris</h4>
+        <ul>
+          <li>Peserta didik dapat menjelaskan hikmah disyariatkannya hukum waris dalam Islam.</li>
+          <li>Peserta didik dapat menunjukkan adab-adab dalam pembagian waris.</li>
+          <li>Peserta didik dapat merefleksikan pentingnya keadilan, tanggung jawab, dan kearifan dalam mengelola harta warisan.</li>
+          <li>Peserta didik dapat menyusun rencana aksi pribadi untuk menerapkan nilai-nilai kearifan dalam konteks pembagian waris atau pengelolaan harta.</li>
+        </ul>
+      </div>
+
+      <!-- Tab D -->
+      <div id="D" class="tab-content">
+        <h3>D. TOPIK PEMBELAJARAN KONTEKSTUAL</h3>
+        <p>Topik pembelajaran akan berfokus pada studi kasus nyata atau simulasi kasus yang relevan dengan kehidupan peserta didik, seperti:</p>
+        <ul>
+          <li>Kasus keluarga yang ditinggal meninggal dan permasalahan pembagian warisnya.</li>
+          <li>Diskusi tentang pentingnya wasiat dan hibah dalam perencanaan harta.</li>
+          <li>Peran mediator atau pihak ketiga yang netral dalam menyelesaikan sengketa waris.</li>
+          <li>Kisah-kisah teladan tentang kearifan dalam pembagian waris.</li>
+          <li>Perbandingan praktik waris di masyarakat dengan ketentuan syariat Islam.</li>
+        </ul>
+      </div>
+
+      <!-- Tab E -->
+      <div id="E" class="tab-content">
+        <h3>E. KERANGKA PEMBELAJARAN</h3>
+        <p><strong>PRAKTIK PEDAGOGIK:</strong></p>
+        <ul>
+          <li>Model Pembelajaran: Problem-Based Learning (PBL) dan Project-Based Learning (PjBL) untuk simulasi kasus.</li>
+          <li>Strategi: Diferensiasi konten, proses, dan produk. Pendekatan inkuiri berbasis kasus.</li>
+          <li>Metode: Diskusi kelompok, studi kasus, simulasi, role-play, ceramah interaktif, dan presentasi.</li>
+        </ul>
+
+        <p><strong>KEMITRAAN PEMBELAJARAN:</strong></p>
+        <ul>
+          <li>Lingkungan Sekolah: Berkolaborasi dengan guru mata pelajaran Matematika untuk penguatan perhitungan. Mengundang guru PAI yang lebih senior atau ahli agama di sekolah untuk berbagi pengalaman.</li>
+          <li>Lingkungan Luar Sekolah: Mengundang tokoh agama (ulama/ustaz), praktisi hukum Islam, atau penasihat syariah untuk memberikan ceramah tamu atau sesi tanya jawab. Mengunjungi lembaga yang menangani masalah warisan (misalnya, pengadilan agama, lembaga fatwa setempat).</li>
+          <li>Masyarakat: Mengajak peserta didik untuk bertanya dan mengamati praktik pembagian waris di lingkungan keluarga atau tetangga mereka (dengan adab dan etika yang baik).</li>
+        </ul>
+
+        <p><strong>LINGKUNGAN BELAJAR:</strong></p>
+        <ul>
+          <li>Ruang Fisik: Kelas diatur secara fleksibel untuk diskusi kelompok dan presentasi. Tersedia papan tulis/media untuk menuliskan skema silsilah ahli waris atau perhitungan.</li>
+          <li>Ruang Virtual: Pemanfaatan Google Classroom sebagai platform untuk berbagi materi (ayat Al-Qur'an dan Hadis, artikel, video), mengunggah tugas studi kasus, dan forum diskusi daring.</li>
+          <li>Budaya Belajar: Mendorong budaya bertanya, berdiskusi dengan santun dan beradab, berpikir kritis namun tetap menjaga nilai-nilai keimanan, serta bertanggung jawab dalam memahami dan menerapkan hukum waris. Guru menjadi fasilitator dan teladan.</li>
+        </ul>
+
+        <p><strong>PEMANFAATAN DIGITAL:</strong></p>
+        <ul>
+          <li>Pemanfaatan perpustakaan digital/internet: Mengakses tafsir Al-Qur'an digital, hadis online, artikel, atau jurnal ilmiah tentang hukum waris Islam.</li>
+          <li>Forum diskusi daring: Menggunakan Google Classroom atau grup chat (WhatsApp/Telegram) untuk diskusi mendalam tentang studi kasus atau pertanyaan yang muncul di luar jam pelajaran.</li>
+          <li>Aplikasi kalkulator waris syariah online: Untuk verifikasi perhitungan atau eksplorasi kasus yang lebih kompleks.</li>
+          <li>Video edukasi: Menonton video ceramah atau simulasi tentang pembagian waris dari sumber yang terpercaya.</li>
+          <li>Google Docs/Slides: Untuk kolaborasi dalam penyusunan laporan studi kasus atau bahan presentasi.</li>
+        </ul>
+      </div>
+
+      <!-- Tab F -->
+      <div id="F" class="tab-content">
+        <h3>F. LANGKAH-LANGKAH PEMBELAJARAN BERDIFERENSIASI</h3>
+
+        <h4>PERTEMUAN 1: MEMAHAMI DASAR HUKUM DAN KONSEP AWAL WARIS</h4>
+        <p><strong>KEGIATAN PENDAHULUAN (MINDFUL LEARNING, JOYFUL LEARNING):</strong></p>
+        <ul>
+          <li>Guru menyapa peserta didik, memulai dengan salam dan doa, serta memeriksa kehadiran.</li>
+          <li>Icebreaker: Guru menampilkan gambar atau video singkat tentang sebuah keluarga besar yang berkumpul atau sebuah acara tahlilan, kemudian bertanya: "Apa yang kalian bayangkan akan terjadi jika ada anggota keluarga yang meninggal dunia, terutama terkait harta peninggalannya?" (Mindful Learning)</li>
+          <li>Guru mengaitkan pertanyaan tersebut dengan pentingnya memahami hukum waris dalam Islam sebagai bagian dari syariat Allah SWT. (Meaningful Learning)</li>
+          <li>Guru menyampaikan tujuan pembelajaran pertemuan ini dan pentingnya belajar waris dengan hati yang bersih.</li>
+        </ul>
+
+        <p><strong>KEGIATAN INTI (MEMAHAMI, MENGAPLIKASI, MEREFLEKSI):</strong></p>
+        <p><em>Diferensiasi Konten:</em></p>
+        <ul>
+          <li>Memahami (Mindful Learning): Guru menyajikan dalil-dalil naqli (Al-Qur'an dan Hadis) terkait waris. Bagi peserta didik yang kinestetik, bisa dengan menuliskan ayat atau hadis di papan tulis/digital. Bagi yang visual, bisa menampilkan infografis atau bagan alur waris. Bagi yang auditori, membacakan terjemahan dan menjelaskan maknanya.</li>
+          <li>Guru menjelaskan rukun, syarat, dan sebab-sebab waris, serta penghalang waris.</li>
+        </ul>
+
+        <p><em>Diferensiasi Proses:</em></p>
+        <ul>
+          <li>Mengaplikasi (Meaningful Learning): Peserta didik dibagi menjadi kelompok-kelompok kecil (diferensiasi berdasarkan kesiapan belajar, bisa juga dengan kelompok heterogen untuk saling membantu).</li>
+          <li>Setiap kelompok diberikan kartu kasus sederhana (misalnya, "Sebutkan sebab-sebab waris yang ada pada kasus ini," "Identifikasi penghalang waris jika ada").</li>
+          <li>Kelompok dengan kesiapan rendah: Diberikan kasus yang sangat jelas dan spesifik.</li>
+          <li>Kelompok dengan kesiapan sedang/tinggi: Diberikan kasus yang membutuhkan sedikit analisis.</li>
+          <li>Guru berkeliling memberikan bimbingan dan klarifikasi.</li>
+        </ul>
+
+        <p><em>Merefleksi (Mindful Learning):</em></p>
+        <ul>
+          <li>Setiap kelompok mempresentasikan hasil diskusinya.</li>
+          <li>Diskusi kelas untuk mengoreksi dan menguatkan pemahaman.</li>
+          <li>Peserta didik secara individu menuliskan "Hikmah apa yang saya dapatkan dari pemahaman awal tentang waris ini?" di jurnal refleksi mereka.</li>
+        </ul>
+
+        <p><strong>KEGIATAN PENUTUP:</strong></p>
+        <ul>
+          <li>Guru dan peserta didik bersama-sama menyimpulkan konsep dasar hukum waris.</li>
+          <li>Guru memberikan umpan balik positif atas partisipasi aktif peserta didik.</li>
+          <li>Guru memberikan tugas rumah berupa soal identifikasi sebab dan penghalang waris.</li>
+          <li>Guru mengarahkan peserta didik untuk membaca materi ahli waris dan bagiannya sebagai persiapan pertemuan berikutnya.</li>
+        </ul>
+
+        <!-- Pertemuan 2 -->
+        <h4>PERTEMUAN 2: MENGENAL AHLI WARIS DAN BAGIANNYA</h4>
+        <p><strong>KEGIATAN PENDAHULUAN (MINDFUL LEARNING, JOYFUL LEARNING):</strong></p>
+        <ul>
+          <li>Guru mengulas singkat materi sebelumnya melalui kuis singkat interaktif (misalnya, via Kahoot!/Mentimeter) tentang sebab dan penghalang waris. (Joyful Learning)</li>
+          <li>Guru menampilkan silsilah keluarga sederhana dan bertanya: "Siapa saja yang berhak mendapatkan warisan jika kepala keluarga ini meninggal?" untuk mengarahkan ke konsep ahli waris. (Mindful Learning)</li>
+          <li>Guru menyampaikan tujuan pembelajaran pertemuan ini.</li>
+        </ul>
+
+        <p><strong>KEGIATAN INTI (MEMAHAMI, MENGAPLIKASI, MEREFLEKSI):</strong></p>
+        <p><em>Diferensiasi Konten:</em></p>
+        <ul>
+          <li>Memahami (Mindful Learning): Guru menjelaskan klasifikasi ahli waris (ashabul furud, ashabah) beserta bagian-bagian pasti masing-masing. Guru bisa menggunakan diagram pohon silsilah keluarga untuk visualisasi. Guru juga bisa menyediakan tabel ahli waris dan bagiannya.</li>
+          <li>Bagi peserta didik yang audio, guru dapat menyertakan rekaman atau podcast penjelasan tentang ahli waris.</li>
+        </ul>
+
+        <p><em>Diferensiasi Proses:</em></p>
+        <ul>
+          <li>Mengaplikasi (Meaningful Learning): Peserta didik dibagi menjadi kelompok. Setiap kelompok diberikan beberapa studi kasus sederhana tentang pembagian waris dengan jumlah ahli waris yang tidak terlalu kompleks (misalnya, hanya suami/istri, anak, dan orang tua).</li>
+          <li>Kelompok dengan kesiapan rendah: Diberikan panduan langkah-langkah perhitungan yang lebih rinci.</li>
+          <li>Kelompok dengan kesiapan sedang/tinggi: Diberikan lebih banyak kebebasan untuk menganalisis dan menghitung.</li>
+          <li>Guru memfasilitasi diskusi dan membimbing kelompok dalam menentukan ahli waris dan bagiannya.</li>
+        </ul>
+
+        <p><em>Merefleksi (Mindful Learning):</em></p>
+        <ul>
+          <li>Setiap kelompok mempresentasikan hasil perhitungan mereka.</li>
+          <li>Diskusi kelas tentang tantangan dalam menentukan ahli waris dan bagiannya.</li>
+          <li>Peserta didik menuliskan di jurnal: "Bagian ahli waris mana yang paling menantang untuk saya pahami dan mengapa?"</li>
+        </ul>
+
+        <p><strong>KEGIATAN PENUTUP:</strong></p>
+        <ul>
+          <li>Guru bersama peserta didik membuat rangkuman kunci tentang ahli waris dan bagian-bagiannya.</li>
+          <li>Guru memberikan penghargaan atas kerja keras peserta didik.</li>
+          <li>Guru memberikan tugas rumah untuk berlatih menghitung bagian waris dari beberapa skenario kasus sederhana.</li>
+        </ul>
+
+        <!-- Pertemuan 3 -->
+        <h4>PERTEMUAN 3: PRAKTIK PERHITUNGAN WARIS DAN STUDI KASUS</h4>
+        <p><strong>KEGIATAN PENDAHULUAN (MINDFUL LEARNING, JOYFUL LEARNING):</strong></p>
+        <ul>
+          <li>Guru memulai dengan review singkat tentang bagian-bagian ahli waris menggunakan flashcard atau kuis cepat.</li>
+          <li>Guru menampilkan sebuah "puzzle" perhitungan waris yang sedikit lebih rumit, meminta peserta didik untuk mulai memikirkan bagaimana cara memecahkannya. (Mindful Learning, Joyful Learning)</li>
+          <li>Guru menyampaikan tujuan pembelajaran pertemuan ini.</li>
+        </ul>
+
+        <p><strong>KEGIATAN INTI (MEMAHAMI, MENGAPLIKASI, MEREFLEKSI):</strong></p>
+        <p><em>Diferensiasi Proses:</em></p>
+        <ul>
+          <li>Mengaplikasi (Meaningful Learning): Peserta didik bekerja dalam kelompok atau berpasangan. Guru menyediakan studi kasus waris yang lebih kompleks, mungkin melibatkan kasus aul atau radd (disesuaikan dengan tingkat kesulitan buku ajar).</li>
+          <li>Setiap kelompok harus:
+            <ul>
+              <li>Membuat silsilah ahli waris.</li>
+              <li>Menentukan siapa saja ahli waris yang berhak.</li>
+              <li>Menghitung bagian masing-masing ahli waris secara proporsional.</li>
+              <li>Menjelaskan langkah-langkah perhitungannya.</li>
+            </ul>
+          </li>
+          <li>Guru memfasilitasi dengan memberikan scaffolding (misalnya, panduan langkah demi langkah yang lebih terstruktur bagi yang kesulitan) atau challenging questions (misalnya, "Bagaimana jika ada ahli waris yang meninggal sebelum pewaris?") bagi yang cepat menyelesaikan.</li>
+        </ul>
+
+        <p><em>Merefleksi (Mindful Learning):</em></p>
+        <ul>
+          <li>Setiap kelompok mempresentasikan hasil analisis dan perhitungan studi kasus mereka.</li>
+          <li>Guru memfasilitasi diskusi kelas tentang berbagai pendekatan dalam menyelesaikan kasus, tantangan yang dihadapi, dan solusi yang paling tepat.</li>
+          <li>Peserta didik menuliskan di jurnal: "Apa yang membuat perhitungan waris ini lebih menantang dari sebelumnya? Apa yang saya pelajari dari kesalahan atau kesulitan yang saya alami?"</li>
+        </ul>
+
+        <p><strong>KEGIATAN PENUTUP:</strong></p>
+        <ul>
+          <li>Guru dan peserta didik menyimpulkan metode penyelesaian kasus waris dan pentingnya ketelitian.</li>
+          <li>Guru memberikan umpan balik konstruktif atas analisis dan perhitungan peserta didik.</li>
+          <li>Guru memberikan tugas proyek (PjBL): "Buatlah satu studi kasus pembagian waris (fiktif, bisa berdasarkan kisah nyata yang disederhanakan dan disamarkan) lengkap dengan silsilah, ahli waris, harta peninggalan, dan perhitungannya, kemudian presentasikan di pertemuan berikutnya."</li>
+        </ul>
+
+        <!-- Pertemuan 4 -->
+        <h4>PERTEMUAN 4: HIKMAH DAN ADAB DALAM PEMBAGIAN WARIS</h4>
+        <p><strong>KEGIATAN PENDAHULUAN (MINDFUL LEARNING, JOYFUL LEARNING):</strong></p>
+        <ul>
+          <li>Guru memutar video atau membaca kisah singkat tentang sengketa waris yang diakhiri dengan perdamaian/kearifan, atau sebaliknya.</li>
+          <li>Guru bertanya: "Mengapa hukum waris ini penting dalam Islam? Bagaimana kita bisa menghindari konflik dalam pembagian warisan?" untuk mengarahkan ke hikmah dan adab. (Mindful Learning)</li>
+          <li>Guru menyampaikan tujuan pembelajaran.</li>
+        </ul>
+
+        <p><strong>KEGIATAN INTI (MEMAHAMI, MENGAPLIKASI, MEREFLEKSI):</strong></p>
+        <p><em>Diferensiasi Konten:</em></p>
+        <ul>
+          <li>Memahami (Mindful Learning): Guru menjelaskan hikmah disyariatkannya hukum waris (menjaga keadilan, mencegah sengketa, menjaga tali silaturahmi, dll.) dan adab-adab dalam pembagian waris (musyawarah, ikhlas, mendahulukan hutang/wasiat, dll.).</li>
+          <li>Guru dapat menyediakan teks-teks hikmah dari para ulama atau kisah-kisah teladan.</li>
+        </ul>
+
+        <p><em>Diferensiasi Proses:</em></p>
+        <ul>
+          <li>Mengaplikasi (Meaningful Learning): Peserta didik mempresentasikan proyek studi kasus waris yang telah mereka buat (dari pertemuan sebelumnya). Setelah presentasi, guru dan peserta didik lain memberikan pertanyaan atau tanggapan.</li>
+          <li>Setelah presentasi, setiap kelompok atau individu diminta untuk melakukan role-play atau simulasi singkat tentang bagaimana mereka akan menyampaikan hasil pembagian waris kepada ahli waris, dengan memperhatikan adab dan kearifan.</li>
+          <li>Guru memfasilitasi diskusi tentang bagaimana menerapkan nilai-nilai keadilan dan kearifan dalam setiap tahapan pembagian waris.</li>
+        </ul>
+
+        <p><em>Merefleksi (Mindful Learning):</em></p>
+        <ul>
+          <li>Peserta didik secara individu menuliskan refleksi akhir mereka tentang keseluruhan bab warisan: "Bagaimana pembelajaran ini mengubah pandangan saya tentang harta dan keluarga?", "Apa komitmen pribadi saya untuk menerapkan nilai-nilai kearifan dalam hidup terkait harta peninggalan?"</li>
+          <li>Guru meminta beberapa peserta didik untuk berbagi refleksi mereka di kelas.</li>
+        </ul>
+
+        <p><strong>KEGIATAN PENUTUP:</strong></p>
+        <ul>
+          <li>Guru dan peserta didik bersama-sama menyimpulkan hikmah dan adab penting dalam pembagian waris.</li>
+          <li>Guru mengapresiasi seluruh usaha dan proses belajar peserta didik, menekankan pentingnya mengamalkan ilmu yang telah didapat.</li>
+          <li>Peserta didik diajak untuk merencanakan pembelajaran selanjutnya, misalnya, topik ibadah atau muamalah lain yang ingin mereka pelajari lebih dalam, atau bagaimana mereka bisa berdakwah tentang pentingnya hukum waris. (Melibatkan siswa dalam perencanaan pembelajaran selanjutnya)</li>
+        </ul>
+      </div>
+
+      <!-- Tab G -->
+      <div id="G" class="tab-content">
+        <h3>G. ASESMEN PEMBELAJARAN</h3>
+
+        <h4>A. ASESMEN AWAL PEMBELAJARAN (DIAGNOSTIK)</h4>
+        <ul>
+          <li><strong>Format:</strong> Kuis singkat pilihan ganda atau isian singkat (5-7 pertanyaan) melalui Google Form.</li>
+          <li><strong>Tujuan:</strong> Mengukur pengetahuan awal peserta didik tentang konsep dasar waris dalam Islam, seperti pengertian waris atau pentingnya waris.</li>
+          <li><strong>Pertanyaan/Tugas:</strong>
+            <ul>
+              <li>"Apa yang dimaksud dengan 'warisan' dalam Islam?"</li>
+              <li>"Sebutkan salah satu ayat Al-Qur'an yang berbicara tentang warisan (cukup terjemahannya)."</li>
+              <li>"Menurut Anda, mengapa Islam mengatur pembagian warisan?"</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h4>B. ASESMEN PROSES PEMBELAJARAN (FORMATIF)</h4>
+        <ul>
+          <li><strong>Format:</strong>
+            <ul>
+              <li>Observasi: Guru mengamati partisipasi peserta didik dalam diskusi kelompok, kemampuan mengidentifikasi ahli waris, ketelitian dalam perhitungan, dan adab berkomunikasi. (Rubrik observasi yang berfokus pada keaktifan, kolaborasi, dan sikap)</li>
+              <li>Penilaian Latihan Soal/Kartu Kasus: Penilaian terhadap ketepatan identifikasi dan perhitungan pada latihan di kelas.</li>
+              <li>Umpan Balik Lisan/Tertulis: Guru memberikan umpan balik langsung selama kegiatan inti, atau melalui komentar singkat di jurnal refleksi peserta didik.</li>
+              <li>Jurnal Refleksi: Mengumpulkan dan membaca jurnal refleksi peserta didik untuk memahami pemahaman konsep dan tantangan belajar, serta pengembangan nilai-nilai.</li>
+              <li>Kuis Singkat: Di setiap akhir sesi inti atau awal sesi berikutnya untuk mengecek pemahaman cepat.</li>
+            </ul>
+          </li>
+          <li><strong>Tujuan:</strong> Memantau kemajuan belajar peserta didik, mengidentifikasi kesulitan, dan memberikan umpan balik yang konstruktif untuk perbaikan.</li>
+          <li><strong>Pertanyaan/Tugas (Contoh untuk observasi/umpan balik):</strong>
+            <ol>
+              <li>"Apakah kelompok ini mampu mengidentifikasi semua ahli waris yang sah dalam studi kasus ini?"</li>
+              <li>"Bagaimana cara Anda menjelaskan bagian waris anak laki-laki kepada keluarga yang berduka dengan cara yang santun?"</li>
+            </ol>
+          </li>
+        </ul>
+
+        <h4>C. ASESMEN AKHIR PEMBELAJARAN (SUMATIF)</h4>
+        <ul>
+          <li><strong>Format:</strong>
+            <ul>
+              <li>Tes Tertulis (Uraian dan Pilihan Ganda): Untuk mengukur pemahaman konseptual dan prosedural.</li>
+              <li>Penilaian Proyek/Produk: Penilaian terhadap proyek studi kasus pembagian waris (termasuk silsilah, identifikasi ahli waris, perhitungan, dan analisis hikmah/adab).</li>
+              <li>Tes Lisan (Simulasi/Role-play/Presentasi): Menguji kemampuan mengaplikasikan adab dan komunikasi dalam konteks pembagian waris.</li>
+            </ul>
+          </li>
+          <li><strong>Tujuan:</strong> Mengukur pencapaian kompetensi peserta didik secara keseluruhan terhadap tujuan pembelajaran.</li>
+          <li><strong>Pertanyaan dan Tugas (Contoh):</strong>
+            <ul>
+              <li><strong>Tes Tertulis:</strong>
+                <ol>
+                  <li>"Jelaskan rukun dan syarat waris dalam Islam!" (Uraian - menguji pemahaman konsep)</li>
+                  <li>"Pak Ahmad meninggal dunia meninggalkan seorang istri, 2 anak laki-laki, dan 1 anak perempuan, serta harta peninggalan sebesar Rp180.000.000,00. Hitunglah bagian masing-masing ahli waris!" (Uraian - menguji kemampuan perhitungan)</li>
+                  <li>"Sebutkan minimal tiga hikmah disyariatkannya hukum waris dalam Islam!" (Uraian - menguji pemahaman hikmah)</li>
+                  <li>"Manakah di antara berikut ini yang merupakan salah satu penghalang waris?" (Pilihan Ganda - menguji identifikasi penghalang)</li>
+                </ol>
+              </li>
+              <li><strong>Penilaian Proyek/Produk:</strong> "Selesaikan proyek studi kasus pembagian waris Anda. Pastikan semua elemen (silsilah, ahli waris, perhitungan, hikmah, adab) telah tercakup dengan baik." (Rubrik penilaian proyek yang menekankan akurasi perhitungan, kelengkapan informasi, dan analisis nilai)</li>
+              <li><strong>Tes Lisan (Simulasi/Role-play):</strong> "Lakukan simulasi musyawarah keluarga untuk pembagian waris berdasarkan studi kasus yang Anda buat. Perlihatkan adab dan komunikasi yang baik dalam menyelesaikan potensi konflik." (Rubrik penilaian kinerja yang mencakup kemampuan berkomunikasi, menunjukkan adab, dan mencari solusi).</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Tombol Kembali ke Beranda (Bawah) -->
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="index.html" class="btn-home">Kembali ke Beranda</a>
+    </div>
+
+    <footer>
+      <p>© 2025 SMAN 1 Cluring – Modul Ajar Deep Learning PAI Kelas XII</p>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            // Hapus kelas active dari semua tombol dan konten
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            // Tambahkan kelas active ke tombol yang diklik
+            button.classList.add('active');
+
+            // Tampilkan konten yang sesuai
+            const tabId = button.getAttribute('data-tab');
+            document.getElementById(tabId).classList.add('active');
+          });
+        });
+      });
+    </script>
+  </div>
+</body>
+</html>

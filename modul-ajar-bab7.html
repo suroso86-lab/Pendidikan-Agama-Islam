@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modul Ajar Deep Learning - Ilmu Kalam</title>
+  <style>
+    :root {
+      --hijau-tua: #0d5e3f;
+      --hijau-muda: #2e8b57;
+      --krem: #f8f4e9;
+      --emas: #d4af37;
+      --abu-abu: #f0f0f0;
+      --putih: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background-color: var(--krem);
+      color: #333;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: var(--putih);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h1, h2, h3, h4 {
+      color: var(--hijau-tua);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 30px;
+      border-bottom: 2px solid var(--emas);
+      padding-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-top: 24px;
+    }
+
+    h3 {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    p, ul, ol {
+      margin-bottom: 12px;
+    }
+
+    ul, ol {
+      padding-left: 24px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .btn-home {
+      display: inline-block;
+      background-color: var(--hijau-muda);
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      transition: background 0.3s;
+    }
+
+    .btn-home:hover {
+      background-color: var(--hijau-tua);
+    }
+
+    /* Tab Styles */
+    .tabs {
+      margin: 30px 0;
+    }
+
+    .tab-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .tab-btn {
+      padding: 10px 16px;
+      background-color: var(--abu-abu);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--hijau-tua);
+      transition: all 0.3s;
+    }
+
+    .tab-btn:hover {
+      background-color: var(--hijau-muda);
+      color: white;
+    }
+
+    .tab-btn.active {
+      background-color: var(--hijau-tua);
+      color: white;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 20px;
+      background-color: var(--abu-abu);
+      border-radius: 8px;
+      border-left: 4px solid var(--emas);
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .section {
+      margin-bottom: 24px;
+    }
+
+    .section h2 {
+      position: relative;
+      padding-left: 10px;
+    }
+
+    .section h2::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 24px;
+      background-color: var(--emas);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Tombol Kembali ke Beranda (Atas) -->
+    <a href="#" class="btn-home">Kembali ke Beranda</a>
+
+    <h1>MODUL AJAR DEEP LEARNING<br>MATA PELAJARAN: PENDIDIKAN AGAMA ISLAM DAN BUDI PEKERTI<br>BAB: 7 ILMU KALAM</h1>
+
+    <!-- Bagian A–D: Ditampilkan penuh -->
+    <div class="section">
+      <h2>A. IDENTITAS MODUL</h2>
+      <p><strong>Nama Sekolah:</strong> SMAN 1 CLURING</p>
+      <p><strong>Nama Penyusun:</strong> Drs. Suroso</p>
+      <p><strong>Mata Pelajaran:</strong> Pendidikan Agama Islam dan Budi Pekerti (PAI)</p>
+      <p><strong>Fase / Kelas / Semester:</strong> E / XII / Genap</p>
+      <p><strong>Alokasi Waktu:</strong> 3 Pertemuan (3 x 2 x 45 menit = 270 menit)</p>
+      <p><strong>Tahun Pelajaran:</strong> 2025 / 2026</p>
+    </div>
+
+    <div class="section">
+      <h2>B. IDENTIFIKASI KESIAPAN PESERTA DIDIK</h2>
+      <p>Kesiapan peserta didik bervariasi. Beberapa mungkin memiliki pengetahuan awal tentang konsep dasar akidah Islam dari jenjang sebelumnya, namun pemahaman mendalam tentang Ilmu Kalam sebagai disiplin ilmu mungkin masih minim. Minat peserta didik terhadap topik yang bersifat filosofis dan teologis bisa beragam; sebagian mungkin sangat tertarik untuk mendalami, sementara yang lain mungkin merasa kesulitan dengan abstraksi konsep. Latar belakang keluarga dan komunitas juga dapat memengaruhi pemahaman dan pandangan awal mereka terhadap isu-isu keimanan. Kebutuhan belajar yang mungkin muncul meliputi kebutuhan akan visualisasi konsep abstrak, diskusi interaktif, serta bimbingan dalam menalar isu-isu kompleks.</p>
+    </div>
+
+    <div class="section">
+      <h2>C. KARAKTERISTIK MATERI PELAJARAN</h2>
+      <p>Materi "Ilmu Kalam" termasuk dalam jenis pengetahuan konseptual, faktual, dan prosedural. Konseptual karena melibatkan pemahaman tentang definisi, ruang lingkup, dan aliran-aliran dalam Ilmu Kalam. Faktual karena mencakup sejarah perkembangan dan tokoh-tokoh pentingnya. Prosedural karena peserta didik diharapkan mampu menganalisis dan menyikapi persoalan akidah kontemporer dengan kerangka berpikir Ilmu Kalam. Relevansinya dengan kehidupan nyata sangat tinggi karena materi ini membekali peserta didik dengan argumen rasional untuk menguatkan akidah, menghadapi keraguan, dan menyikapi berbagai paham keagamaan yang berkembang. Tingkat kesulitan materi ini tergolong tinggi karena membutuhkan daya nalar kritis dan kemampuan berpikir abstrak. Struktur materi akan meliputi pengertian dan ruang lingkup, sejarah dan tokoh, serta relevansi Ilmu Kalam di era kontemporer. Integrasi nilai dan karakter akan ditekankan pada penguatan keimanan, ketakwaan, penalaran kritis, toleransi beragama, dan kemandirian dalam beragama.</p>
+    </div>
+
+    <div class="section">
+      <h2>D. DIMENSI LULUSAN PEMBELAJARAN</h2>
+      <p>Dalam pembelajaran ini, dimensi profil lulusan yang akan dicapai adalah:</p>
+      <ul>
+        <li><strong>Keimanan dan Ketakwaan terhadap Tuhan:</strong> Peserta didik diharapkan dapat memperkuat keyakinan akidah melalui penalaran dan pemahaman mendalam tentang dasar-dasar keimanan dalam perspektif Ilmu Kalam.</li>
+        <li><strong>Penalaran Kritis:</strong> Peserta didik akan dilatih untuk menganalisis, mengevaluasi, dan menyikapi berbagai argumen teologis serta persoalan akidah secara logis dan rasional.</li>
+        <li><strong>Kolaborasi:</strong> Peserta didik akan bekerja sama dalam kelompok untuk mendiskusikan berbagai pandangan dan menemukan pemahaman bersama terkait isu-isu dalam Ilmu Kalam.</li>
+        <li><strong>Kemandirian:</strong> Peserta didik akan didorong untuk mencari sumber referensi, mengembangkan argumen pribadi, dan membentuk sikap beragama yang kokoh berdasarkan pemahaman yang mendalam.</li>
+        <li><strong>Komunikasi:</strong> Peserta didik akan berlatih mengkomunikasikan pemahaman dan argumen mereka secara lisan maupun tulisan dengan jelas dan santun.</li>
+      </ul>
+    </div>
+
+    <!-- DESAIN PEMBELAJARAN (Tab Interaktif) -->
+    <h2>DESAIN PEMBELAJARAN</h2>
+    <div class="tabs">
+      <div class="tab-buttons">
+        <button class="tab-btn active" data-tab="A">A. Capaian Pembelajaran</button>
+        <button class="tab-btn" data-tab="B">B. Lintas Disiplin Ilmu</button>
+        <button class="tab-btn" data-tab="C">C. Tujuan Pembelajaran</button>
+        <button class="tab-btn" data-tab="D">D. Topik Kontekstual</button>
+        <button class="tab-btn" data-tab="E">E. Kerangka Pembelajaran</button>
+        <button class="tab-btn" data-tab="F">F. Langkah-Langkah</button>
+        <button class="tab-btn" data-tab="G">G. Asesmen</button>
+      </div>
+
+      <div id="tab-A" class="tab-content active">
+        <h3>A. CAPAIAN PEMBELAJARAN (CP) NOMOR : 32 TAHUN 2024</h3>
+        <p>Pada akhir Fase F, peserta didik mampu memahami beberapa ayat Al-Qur’an dan hadis, beberapa cabang iman (syu'ab al-īmān), keterkaitan antara iman, Islam, dan ihsan, manfaat menghindari penyakit sosial, adab bermasyarakat, ketentuan dakwah, muamalah, hukum keluarga (al-aḥwāl al-syakhṣiyyah), dan peran tokoh Islam di dunia serta organisasi Islam di Indonesia. Capaian Pembelajaran setiap elemen mata pelajaran Agama Islam dan Budi Pekerti adalah sebagai berikut.</p>
+        <table border="1" cellpadding="8" cellspacing="0" style="width:100%; margin-top:12px; border-collapse:collapse;">
+          <thead>
+            <tr style="background-color: var(--hijau-muda); color: white;">
+              <th>Elemen</th>
+              <th>Capaian Pembelajaran</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Al-Qur’an dan Hadis</strong></td>
+              <td>Peserta didik memahami ayat Al-Qur’an dan hadis tentang pentingnya berpikir kritis, ilmu pengetahuan dan teknologi, memelihara kehidupan manusia, dan moderasi beragama.</td>
+            </tr>
+            <tr>
+              <td><strong>Akidah</strong></td>
+              <td>Peserta didik memahami beberapa cabang iman (syu'ab al-īmān), keterkaitan antara iman, Islam, dan ihsan.</td>
+            </tr>
+            <tr>
+              <td><strong>Akhlak</strong></td>
+              <td>Peserta didik memahami manfaat menghindari penyakit sosial; Memahami adab bermasyarakat dan etika digital dalam Islam.</td>
+            </tr>
+            <tr>
+              <td><strong>Fikih</strong></td>
+              <td>Peserta didik memahami ketentuan khotbah, tablig dan dakwah, muamalah, munakahat, dan mawāris.</td>
+            </tr>
+            <tr>
+              <td><strong>Sejarah Peradaban Islam</strong></td>
+              <td>Peserta didik memahami peran tokoh ulama dalam perkembangan peradaban Islam di dunia dan peran organisasi-organisasi Islam di Indonesia.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="tab-B" class="tab-content">
+        <h3>B. LINTAS DISIPLIN ILMU</h3>
+        <ul>
+          <li><strong>Filsafat:</strong> Ilmu Kalam sangat erat kaitannya dengan filsafat, khususnya dalam penggunaan logika dan penalaran rasional untuk membahas isu-isu ketuhanan, kenabian, dan eskatologi.</li>
+          <li><strong>Sejarah Kebudayaan Islam:</strong> Sejarah perkembangan Ilmu Kalam tidak dapat dipisahkan dari konteks sejarah dan perkembangan pemikiran Islam.</li>
+          <li><strong>Sosiologi dan Antropologi Agama:</strong> Membantu memahami bagaimana pemikiran kalam memengaruhi praktik dan keyakinan masyarakat dalam konteks sosial dan budaya.</li>
+          <li><strong>Bahasa Indonesia:</strong> Kemampuan menalar dan berargumen secara efektif membutuhkan keterampilan berbahasa yang baik dalam menyampaikan gagasan kompleks.</li>
+        </ul>
+      </div>
+
+      <div id="tab-C" class="tab-content">
+        <h3>C. TUJUAN PEMBELAJARAN</h3>
+        <p><strong>Pertemuan 1 (Alokasi Waktu: 2 x 45 menit)</strong></p>
+        <ul>
+          <li>Tujuan Pembelajaran: Melalui studi literatur dan diskusi kelompok, peserta didik dapat menjelaskan pengertian, ruang lingkup, dan kedudukan Ilmu Kalam dalam Islam dengan benar secara meaningful.</li>
+          <li>Tujuan Pembelajaran: Dengan analisis kritis terhadap berbagai sumber, peserta didik mampu mengidentifikasi urgensi mempelajari Ilmu Kalam dalam kehidupan sehari-hari sebagai penguatan akidah secara mindful.</li>
+        </ul>
+        <p><strong>Pertemuan 2 (Alokasi Waktu: 2 x 45 menit)</strong></p>
+        <ul>
+          <li>Tujuan Pembelajaran: Melalui penelusuran sejarah dan diskusi, peserta didik dapat mengidentifikasi latar belakang munculnya aliran-aliran dalam Ilmu Kalam (misalnya Khawarij, Murji'ah, Mu'tazilah, Ahlussunnah wal Jama'ah) serta tokoh-tokohnya dengan akurat secara meaningful.</li>
+          <li>Tujuan Pembelajaran: Dengan berpikir kritis, peserta didik dapat membandingkan pokok-pokok pikiran dari beberapa aliran dalam Ilmu Kalam dan mengkomunikasikannya secara jelas secara kolaboratif.</li>
+        </ul>
+        <p><strong>Pertemuan 3 (Alokasi Waktu: 2 x 45 menit)</strong></p>
+        <ul>
+          <li>Tujuan Pembelajaran: Melalui diskusi kasus dan pemanfaatan media digital, peserta didik mampu menganalisis relevansi Ilmu Kalam dalam menyikapi persoalan akidah kontemporer (misalnya fenomena ateisme, liberalisme agama, dst.) dengan bijak secara penalaran kritis.</li>
+          <li>Tujuan Pembelajaran: Dengan menyusun argumen berdasarkan konsep Ilmu Kalam, peserta didik dapat merumuskan sikap yang tepat dalam menghadapi keraguan atau tantangan keimanan di era digital secara mandiri dan joyful.</li>
+        </ul>
+      </div>
+
+      <div id="tab-D" class="tab-content">
+        <h3>D. TOPIK PEMBELAJARAN KONTEKSTUAL</h3>
+        <p>Topik pembelajaran kontekstual akan difokuskan pada:</p>
+        <ul>
+          <li>Debat dan diskusi tentang isu-isu keimanan yang sering muncul di media sosial.</li>
+          <li>Fenomena pluralisme dan inklusivitas dalam beragama, serta bagaimana Ilmu Kalam memberikan landasan argumentasinya.</li>
+          <li>Kasus-kasus keraguan keimanan yang dialami oleh generasi muda dan cara Ilmu Kalam membantu mengatasinya.</li>
+          <li>Bagaimana pemahaman Ilmu Kalam membentuk pribadi yang moderat, toleran, dan kokoh akidahnya.</li>
+        </ul>
+      </div>
+
+      <div id="tab-E" class="tab-content">
+        <h3>E. KERANGKA PEMBELAJARAN</h3>
+        <p><strong>PRAKTIK PEDAGOGIK:</strong></p>
+        <ul>
+          <li>Model Pembelajaran: Inquiry-Based Learning, Problem-Based Learning (PBL).</li>
+          <li>Strategi Pembelajaran: Diskusi Sokratik (bertanya untuk memicu penalaran), Kajian Kasus (Case Study), Pembelajaran Kolaboratif.</li>
+          <li>Metode Pembelajaran: Tanya jawab, diskusi kelompok, presentasi, debat sederhana, studi literatur, analisis video/artikel.</li>
+        </ul>
+        <p><strong>KEMITRAAN PEMBELAJARAN:</strong></p>
+        <ul>
+          <li>Lingkungan Sekolah: Guru sebagai fasilitator dan narasumber, guru PAI lain (jika ada) untuk diskusi, pustakawan untuk akses referensi, teman sebaya sebagai mitra diskusi.</li>
+          <li>Lingkungan Luar Sekolah: Mengajak tokoh agama (ustaz/ulama) atau akademisi yang menguasai Ilmu Kalam sebagai narasumber tamu (jika memungkinkan), orang tua untuk berdiskusi tentang pemahaman keagamaan di keluarga.</li>
+          <li>Masyarakat: Mengaitkan materi dengan isu-isu keagamaan yang berkembang di masyarakat, mendorong peserta didik untuk berpartisipasi dalam diskusi keagamaan yang sehat dan ilmiah.</li>
+        </ul>
+        <p><strong>LINGKUNGAN BELAJAR:</strong></p>
+        <ul>
+          <li>Ruang Fisik: Kelas diatur untuk diskusi kelompok (U-shape atau lingkaran), tersedia proyektor untuk presentasi dan pemutaran video, papan tulis untuk mencatat poin-poin penting.</li>
+          <li>Ruang Virtual: Pemanfaatan Google Classroom untuk berbagi materi (jurnal, artikel ilmiah, video ceramah), forum diskusi daring untuk melanjutkan pembahasan di luar jam pelajaran, dan akses ke perpustakaan digital (e-book, jurnal).</li>
+          <li>Budaya Belajar: Mendorong budaya bertanya, berani mengemukakan pendapat dengan argumen yang kuat, menghargai perbedaan pandangan, dan toleran dalam berdiskusi isu-isu keagamaan.</li>
+        </ul>
+        <p><strong>PEMANFAATAN DIGITAL:</strong></p>
+        <ul>
+          <li>Perpustakaan Digital: Mengakses jurnal ilmiah, e-book tentang Ilmu Kalam, artikel dari sumber terpercaya (misalnya Kementerian Agama, situs keagamaan resmi).</li>
+          <li>Forum Diskusi Daring: Google Classroom, Padlet, atau forum diskusi lainnya untuk debat/diskusi asynchronous tentang isu-isu kalam kontemporer.</li>
+          <li>Video Pembelajaran/Dokumenter: Menayangkan video singkat tentang sejarah pemikiran Islam, tokoh-tokoh Ilmu Kalam, atau ceramah relevan dari ulama terkemuka.</li>
+          <li>Google Forms/Quizizz: Untuk kuis formatif interaktif atau survei pemahaman awal/akhir.</li>
+        </ul>
+      </div>
+
+      <div id="tab-F" class="tab-content">
+        <h3>F. LANGKAH-LANGKAH PEMBELAJARAN BERDIFERENSIASI</h3>
+        <p><strong>PERTEMUAN 1: PENGERTIAN, RUANG LINGKUP, DAN URGENSI ILMU KALAM</strong></p>
+        <p><em>KEGIATAN PENDAHULUAN (15 MENIT)</em></p>
+        <ul>
+          <li>Pembelajaran Berkesadaran (Mindful Learning): Guru memulai dengan mengajak peserta didik untuk melakukan refleksi singkat tentang arti penting keyakinan dalam hidup mereka. "Apa yang membuat kalian merasa tenang dan yakin dalam menjalani hidup? Seberapa penting keyakinan itu bagi kalian?" Guru dapat memutarkan lantunan ayat Al-Qur'an terkait keimanan.</li>
+          <li>Pembelajaran Bermakna (Meaningful Learning): Guru menampilkan berita atau kasus viral di media sosial yang menunjukkan keraguan atau perdebatan tentang akidah. Guru bertanya, "Bagaimana perasaan kalian melihat berita ini? Apakah kalian pernah memiliki pertanyaan serupa?"</li>
+          <li>Pembelajaran Menggembirakan (Joyful Learning): Guru mengadakan permainan "Kuis Cepat Iman" menggunakan Quizizz atau Kahoot tentang konsep dasar iman dan rukun iman, untuk mengecek pengetahuan awal dan menyegarkan suasana.</li>
+          <li>Guru menyampaikan tujuan pembelajaran.</li>
+        </ul>
+        <p><em>KEGIATAN INTI (70 MENIT)</em></p>
+        <p><strong>Memahami (Understanding):</strong></p>
+        <ul>
+          <li>Guru menyajikan materi tentang pengertian, ruang lingkup, dan kedudukan Ilmu Kalam dalam Islam menggunakan presentasi interaktif (visual, audio).</li>
+          <li>Peserta didik dibagi menjadi kelompok-kelompok kecil. Setiap kelompok diberikan 1-2 artikel singkat atau kutipan dari buku tentang Ilmu Kalam (diferensiasi konten: artikel dengan tingkat kesulitan yang bervariasi).</li>
+        </ul>
+        <p><strong>Diferensiasi Proses:</strong></p>
+        <ul>
+          <li>Kelompok dengan kemampuan literasi tinggi: Diberi kebebasan untuk menemukan sendiri definisi dan urgensi dari berbagai sumber.</li>
+          <li>Kelompok dengan kemampuan literasi sedang: Diberi panduan pertanyaan kunci untuk menemukan informasi.</li>
+          <li>Kelompok dengan kemampuan literasi kurang: Diberikan rangkuman materi dan bimbingan langsung oleh guru.</li>
+          <li>Setiap kelompok mendiskusikan temuan mereka dan merumuskan pengertian Ilmu Kalam serta urgensinya.</li>
+        </ul>
+        <p><strong>Mengaplikasi (Applying):</strong></p>
+        <ul>
+          <li>Setiap kelompok membuat "Peta Konsep Mini" atau "Mind Map" tentang pengertian dan ruang lingkup Ilmu Kalam serta urgensinya.</li>
+          <li>Kelompok mempresentasikan hasil diskusi dan peta konsep mereka.</li>
+          <li>Guru memfasilitasi sesi tanya jawab dan klarifikasi, mendorong peserta didik untuk berani bertanya dan berpendapat.</li>
+        </ul>
+        <p><strong>Merefleksi (Reflecting):</strong></p>
+        <ul>
+          <li>Guru meminta peserta didik untuk menuliskan di kertas kecil: "Satu hal baru yang saya pahami tentang Ilmu Kalam hari ini adalah..." dan "Mengapa penting bagi saya untuk mempelajari Ilmu Kalam?"</li>
+          <li>Beberapa peserta didik diminta untuk membacakan refleksinya.</li>
+        </ul>
+        <p><em>KEGIATAN PENUTUP (5 MENIT)</em></p>
+        <ul>
+          <li>Umpan Balik Konstruktif: Guru memberikan apresiasi atas partisipasi dan antusiasme peserta didik.</li>
+          <li>Menyimpulkan Pembelajaran: Guru bersama peserta didik menyimpulkan esensi Ilmu Kalam sebagai benteng akidah.</li>
+          <li>Perencanaan Pembelajaran Selanjutnya: Guru memberikan tugas membaca materi tentang sejarah dan aliran Ilmu Kalam untuk pertemuan berikutnya.</li>
+        </ul>
+
+        <p><strong>PERTEMUAN 2: SEJARAH DAN ALIRAN ILMU KALAM</strong></p>
+        <p><em>KEGIATAN PENDAHULUAN (15 MENIT)</em></p>
+        <ul>
+          <li>Pembelajaran Berkesadaran (Mindful Learning): Guru memulai dengan pertanyaan pemantik, "Pernahkah kalian bertanya-tanya, mengapa ada banyak pandangan berbeda tentang suatu hal dalam agama? Apakah perbedaan itu selalu buruk?"</li>
+          <li>Pembelajaran Bermakna (Meaningful Learning): Guru memutarkan video singkat (misalnya dari YouTube channel edukasi) tentang latar belakang munculnya berbagai aliran pemikiran dalam sejarah Islam.</li>
+          <li>Pembelajaran Menggembirakan (Joyful Learning): Guru dapat mengajak peserta didik bermain "Tebak Tokoh" dengan menampilkan gambar tokoh-tokoh penting dalam Ilmu Kalam dan meminta peserta didik menebak namanya (jika sudah membaca materi).</li>
+        </ul>
+        <p><em>KEGIATAN INTI (70 MENIT)</em></p>
+        <p><strong>Memahami (Understanding):</strong></p>
+        <ul>
+          <li>Guru menjelaskan secara ringkas latar belakang munculnya aliran-aliran dalam Ilmu Kalam (politik, sosial, teologis).</li>
+          <li>Peserta didik dibagi menjadi kelompok-kelompok (setiap kelompok ditugaskan untuk fokus pada satu aliran utama: Khawarij, Murji'ah, Mu'tazilah, Ahlussunnah wal Jama'ah).</li>
+          <li>Setiap kelompok diberikan bahan bacaan (diferensiasi konten: ringkasan materi atau artikel lebih mendalam) tentang aliran yang ditugaskan.</li>
+        </ul>
+        <p><strong>Diferensiasi Proses:</strong></p>
+        <ul>
+          <li>Kelompok menganalisis pokok-pokok pikiran, argumen utama, dan tokoh-tokoh penting dari aliran tersebut.</li>
+          <li>Guru memberikan bimbingan kepada kelompok yang kesulitan dalam memahami konsep-konsep yang rumit.</li>
+        </ul>
+        <p><strong>Mengaplikasi (Applying):</strong></p>
+        <ul>
+          <li>Setiap kelompok membuat presentasi singkat (bisa dalam bentuk slide sederhana, infografis, atau narasi) yang membandingkan aliran mereka dengan aliran lain atau menunjukkan perbedaannya.</li>
+          <li>Sesi "Debat Ringan" antar kelompok: Setiap kelompok mempertahankan pandangan aliran mereka dan mencoba memahami argumen kelompok lain. Guru menjadi moderator.</li>
+        </ul>
+        <p><strong>Merefleksi (Reflecting):</strong></p>
+        <ul>
+          <li>Guru meminta peserta didik untuk menuliskan di jurnal belajar mereka: "Apa yang membuat suatu aliran pemikiran muncul? Bagaimana perbedaan pandangan ini mengajarkan saya tentang toleransi?"</li>
+          <li>Guru memfasilitasi diskusi kelas tentang nilai-nilai toleransi dan adab dalam menyikapi perbedaan pendapat dalam Islam.</li>
+        </ul>
+        <p><em>KEGIATAN PENUTUP (5 MENIT)</em></p>
+        <ul>
+          <li>Umpan Balik Konstruktif: Guru memberikan apresiasi atas keberanian peserta didik dalam berdiskusi dan memberikan masukan tentang adab berkomunikasi.</li>
+          <li>Menyimpulkan Pembelajaran: Guru bersama peserta didik menyimpulkan ragam aliran Ilmu Kalam dan pentingnya memahami latar belakang perbedaannya.</li>
+          <li>Perencanaan Pembelajaran Selanjutnya: Guru memberikan pengantar singkat tentang relevansi Ilmu Kalam di era digital dan tugas mencari contoh kasus keraguan iman di media sosial.</li>
+        </ul>
+
+        <p><strong>PERTEMUAN 3: RELEVANSI ILMU KALAM DI ERA KONTEMPORER DAN SIKAP MUSLIM</strong></p>
+        <p><em>KEGIATAN PENDAHULUAN (15 MENIT)</em></p>
+        <ul>
+          <li>Pembelajaran Berkesadaran (Mindful Learning): Guru memutarkan klip singkat dari media sosial yang menampilkan pertanyaan-pertanyaan kritis atau keraguan keimanan yang sering dilontarkan oleh generasi muda. Guru bertanya, "Bagaimana perasaan kalian saat melihat atau mendengar pertanyaan-pertanyaan seperti ini? Apa yang harus kita lakukan?"</li>
+          <li>Pembelajaran Bermakna (Meaningful Learning): Guru menampilkan data atau survei tentang tingkat religiusitas generasi muda atau tantangan keimanan di era digital. Guru menghubungkan data tersebut dengan pentingnya Ilmu Kalam.</li>
+          <li>Pembelajaran Menggembirakan (Joyful Learning): Guru memulai dengan permainan "Problem Solver" di mana peserta didik secara berpasangan diberikan kasus singkat tentang keraguan iman dan mereka harus menuliskan satu ide solusi cepat.</li>
+        </ul>
+        <p><em>KEGIATAN INTI (70 MENIT)</em></p>
+        <p><strong>Memahami (Understanding):</strong></p>
+        <ul>
+          <li>Guru menjelaskan konsep-konsep kunci dalam Ilmu Kalam yang relevan untuk menjawab tantangan kontemporer (misalnya, argumen keberadaan Tuhan, sifat-sifat Allah, keadilan Ilahi).</li>
+          <li>Peserta didik dibagi menjadi kelompok-kelompok. Setiap kelompok diberikan 1-2 "kasus kontemporer" (misalnya, argumen ateisme, liberalisme agama, relativisme kebenaran) yang harus dianalisis dari perspektif Ilmu Kalam.</li>
+        </ul>
+        <p><strong>Diferensiasi Proses:</strong></p>
+        <ul>
+          <li>Kelompok dengan kemampuan analisis tinggi: Diberi kasus yang lebih kompleks dan terbuka untuk diinterpretasikan.</li>
+          <li>Kelompok dengan kemampuan analisis sedang/kurang: Diberi kasus dengan pertanyaan panduan yang lebih terstruktur.</li>
+          <li>Guru memberikan akses ke sumber daya digital (video ceramah, artikel) yang membahas kasus serupa sebagai referensi.</li>
+        </ul>
+        <p><strong>Mengaplikasi (Applying):</strong></p>
+        <ul>
+          <li>Setiap kelompok merumuskan solusi atau argumen balasan terhadap kasus yang diberikan berdasarkan pemahaman Ilmu Kalam.</li>
+          <li>Setiap kelompok membuat "Infografis Digital" atau "Video Pendek (max 3 menit)" yang menjelaskan kasus tersebut dan bagaimana Ilmu Kalam memberikan jawabannya (diferensiasi produk).</li>
+          <li>Presentasi atau penayangan produk kelompok. Guru memfasilitasi diskusi dan sesi tanya jawab.</li>
+        </ul>
+        <p><strong>Merefleksi (Reflecting):</strong></p>
+        <ul>
+          <li>Guru memandu refleksi: "Apa pelajaran terbesar yang kalian dapatkan hari ini tentang bagaimana Ilmu Kalam membantu kita mempertahankan akidah?"</li>
+          <li>Peserta didik menuliskan komitmen pribadi tentang bagaimana mereka akan menguatkan akidah mereka di masa depan dan menghadapi tantangan keimanan.</li>
+        </ul>
+        <p><em>KEGIATAN PENUTUP (5 MENIT)</em></p>
+        <ul>
+          <li>Umpan Balik Konstruktif: Guru memberikan umpan balik menyeluruh tentang pemahaman dan keterampilan penalaran kritis peserta didik.</li>
+          <li>Menyimpulkan Pembelajaran: Guru bersama peserta didik menyimpulkan pentingnya Ilmu Kalam sebagai alat nalar untuk menguatkan akidah di era modern.</li>
+          <li>Perencanaan Pembelajaran Selanjutnya: Guru memberikan pengantar singkat tentang materi bab selanjutnya dan tugas refleksi akhir bab Ilmu Kalam.</li>
+        </ul>
+      </div>
+
+      <div id="tab-G" class="tab-content">
+        <h3>G. ASESMEN PEMBELAJARAN</h3>
+        <p><strong>A. ASESMEN AWAL PEMBELAJARAN (DIAGNOSTIK)</strong></p>
+        <ul>
+          <li><strong>Format:</strong> Kuis singkat (Google Forms/Quizizz) dan pertanyaan lisan.</li>
+          <li><strong>Pertanyaan/Tugas:</strong>
+            <ul>
+              <li>"Apa yang kalian pahami tentang akidah?"</li>
+              <li>"Apakah kalian pernah mendengar istilah 'Ilmu Kalam'?" (Jika ya, apa yang kalian ketahui?)</li>
+              <li>"Bagaimana cara kalian menghadapi keraguan tentang keimanan?"</li>
+              <li>"Sebutkan beberapa aliran pemikiran dalam Islam yang kalian ketahui!"</li>
+            </ul>
+          </li>
+          <li><strong>Tujuan:</strong> Mengidentifikasi pengetahuan awal dan kesiapan peserta didik, serta mengukur pemahaman intuitif mereka terhadap isu-isu keimanan.</li>
+        </ul>
+
+        <p><strong>B. ASESMEN PROSES PEMBELAJARAN (FORMATIF)</strong></p>
+        <ul>
+          <li><strong>Format:</strong> Observasi selama diskusi kelompok, penilaian peta konsep/mind map, penilaian presentasi/debat ringan, penilaian partisipasi dalam forum diskusi daring, penilaian laporan kasus.</li>
+          <li><strong>Pertanyaan/Tugas (contoh):</strong>
+            <ul>
+              <li><em>Observasi:</em>
+                <ul>
+                  <li>"Apakah peserta didik aktif dalam diskusi dan memberikan argumen yang relevan?"</li>
+                  <li>"Apakah peserta didik menunjukkan sikap toleransi terhadap perbedaan pandangan?"</li>
+                  <li>"Apakah peserta didik mampu mengidentifikasi pokok-pokok pikiran dari setiap aliran Ilmu Kalam?"</li>
+                </ul>
+              </li>
+              <li><em>Penilaian Peta Konsep/Mind Map:</em> "Apakah peta konsep menunjukkan pemahaman yang komprehensif tentang pengertian dan ruang lingkup Ilmu Kalam?"</li>
+              <li><em>Penilaian Presentasi/Debat:</em> "Apakah argumen yang disampaikan logis dan didukung oleh dalil/fakta?"</li>
+              <li><em>Penilaian Laporan Kasus:</em> "Apakah analisis kasus menunjukkan kemampuan berpikir kritis dan solusi yang relevan dari perspektif Ilmu Kalam?"</li>
+            </ul>
+          </li>
+          <li><strong>Tujuan:</strong> Memantau pemahaman peserta didik selama proses pembelajaran, memberikan umpan balik konstruktif, dan menyesuaikan strategi pengajaran.</li>
+        </ul>
+
+        <p><strong>C. ASESMEN AKHIR PEMBELAJARAN (SUMATIF)</strong></p>
+        <ul>
+          <li><strong>Format:</strong> Tes Tertulis (esai) dan Penilaian Proyek.</li>
+          <li><strong>Pertanyaan/Tugas Tes Tertulis:</strong>
+            <ul>
+              <li>"Jelaskan pengertian dan urgensi Ilmu Kalam dalam mempertahankan akidah di era modern!"</li>
+              <li>"Bandingkan pokok-pokok pikiran antara aliran Mu'tazilah dan Ahlussunnah wal Jama'ah dalam pandangan mereka tentang sifat-sifat Tuhan!"</li>
+              <li>"Analisis satu kasus keraguan keimanan yang sering muncul di media sosial, dan rumuskan bagaimana konsep Ilmu Kalam dapat memberikan jawaban yang rasional terhadap keraguan tersebut!"</li>
+              <li>"Sebagai seorang muslim di era digital, bagaimana sikap yang tepat dalam menyikapi berbagai paham keagamaan yang muncul di media sosial menurut perspektif Ilmu Kalam?"</li>
+            </ul>
+          </li>
+          <li><strong>Penilaian Proyek:</strong>
+            <ul>
+              <li>"Buatlah sebuah 'E-booklet Digital' atau 'Infografis Interaktif' yang berisi rangkuman tentang Ilmu Kalam, sejarahnya, beberapa aliran penting, dan bagaimana Ilmu Kalam relevan dalam menjawab tantangan akidah di era kontemporer. Produk ini harus menampilkan argumen-argumen rasional yang kuat dan mudah dipahami oleh teman sebaya."</li>
+            </ul>
+          </li>
+          <li><strong>Tujuan:</strong> Mengukur pencapaian kompetensi peserta didik secara keseluruhan setelah pembelajaran selesai dan menilai kemampuan mereka dalam menerapkan pemahaman Ilmu Kalam untuk menganalisis dan menyikapi persoalan akidah.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Tombol Kembali ke Beranda (Bawah) -->
+    <a href="#" class="btn-home">Kembali ke Beranda</a>
+  </div>
+
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        // Hapus class active dari semua tombol dan konten
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+        // Tambahkan class active ke tombol yang diklik
+        button.classList.add('active');
+
+        // Tampilkan konten yang sesuai
+        const tabId = button.getAttribute('data-tab');
+        document.getElementById(`tab-${tabId}`).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

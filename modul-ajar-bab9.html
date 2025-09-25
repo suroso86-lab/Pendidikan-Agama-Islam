@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modul Ajar Deep Learning - Ijtihad</title>
+  <style>
+    :root {
+      --hijau-tua: #0d5e3f;
+      --hijau-muda: #4caf50;
+      --krem: #f9f7f0;
+      --emas: #d4af37;
+      --abu-abu: #e0e0e0;
+      --putih: #ffffff;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--krem);
+      color: #333;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header, footer {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .btn-home {
+      display: inline-block;
+      background-color: var(--hijau-tua);
+      color: var(--putih);
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .btn-home:hover {
+      background-color: var(--hijau-muda);
+    }
+
+    h1, h2, h3 {
+      color: var(--hijau-tua);
+    }
+
+    h1 {
+      text-align: center;
+      border-bottom: 2px solid var(--emas);
+      padding-bottom: 10px;
+      margin-bottom: 25px;
+    }
+
+    .identitas {
+      background-color: var(--putih);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .identitas h2 {
+      margin-top: 0;
+      border-left: 4px solid var(--hijau-muda);
+      padding-left: 10px;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      border-bottom: 2px solid var(--abu-abu);
+    }
+
+    .tab {
+      padding: 12px 20px;
+      cursor: pointer;
+      background-color: var(--abu-abu);
+      border: 1px solid #ccc;
+      border-bottom: none;
+      margin-right: 5px;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+      font-weight: bold;
+      color: var(--hijau-tua);
+    }
+
+    .tab:hover {
+      background-color: #d0d0d0;
+    }
+
+    .tab.active {
+      background-color: var(--putih);
+      border-bottom: 2px solid var(--hijau-muda);
+      margin-bottom: -2px;
+      color: var(--hijau-tua);
+    }
+
+    .tab-content {
+      display: none;
+      padding: 20px;
+      background-color: var(--putih);
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    ul, ol {
+      margin-left: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .tabs {
+        flex-direction: column;
+      }
+      .tab {
+        margin-right: 0;
+        margin-bottom: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Tombol Kembali ke Beranda (atas) -->
+    <header>
+      <a href="#" class="btn-home">Kembali ke Beranda</a>
+    </header>
+
+    <!-- Judul Modul -->
+    <h1>MODUL AJAR DEEP LEARNING<br>MATA PELAJARAN: PENDIDIKAN AGAMA ISLAM DAN BUDI PEKERTI<br>BAB 9: IJTIHAD</h1>
+
+    <!-- Bagian A–D: Identitas hingga Dimensi Lulusan -->
+    <div class="identitas">
+      <h2>A. IDENTITAS MODUL</h2>
+      <p><strong>Nama Sekolah:</strong> SMAN 1 CLURING<br>
+      <strong>Nama Penyusun:</strong> Drs. Suroso<br>
+      <strong>Mata Pelajaran:</strong> Pendidikan Agama Islam dan Budi Pekerti (PAI)<br>
+      <strong>Fase / Kelas / Semester:</strong> E / XII / Genap<br>
+      <strong>Alokasi Waktu:</strong> 3 Pertemuan (@ 2 x 45 menit)<br>
+      <strong>Tahun Pelajaran:</strong> 2025 / 2026</p>
+
+      <h2>B. IDENTIFIKASI KESIAPAN PESERTA DIDIK</h2>
+      <p>Peserta didik kelas XII umumnya memiliki pengetahuan dasar tentang konsep-konsep hukum Islam dan sumber-sumbernya dari jenjang sebelumnya. Mereka mungkin sudah mengenal Al-Qur'an dan Hadis sebagai sumber utama, namun pemahaman mendalam tentang Ijtihad dan relevansinya dalam kehidupan modern mungkin masih terbatas. Minat peserta didik dapat bervariasi, ada yang tertarik pada studi keislaman secara mendalam, ada pula yang lebih fokus pada aplikasi praktis dalam kehidupan sehari-hari. Latar belakang sosial dan budaya peserta didik juga akan mempengaruhi cara mereka memahami dan merespons isu-isu keagamaan. Kebutuhan belajar mereka meliputi pemahaman konseptual yang kuat, kemampuan analisis, serta kemampuan untuk mengaitkan teori dengan praktik.</p>
+
+      <h2>C. KARAKTERISTIK MATERI PELAJARAN</h2>
+      <p>Materi "Ijtihad" adalah jenis pengetahuan konseptual, prosedural, dan metakognitif. Konseptual dalam memahami pengertian, syarat, dan macam-macam Ijtihad; prosedural dalam langkah-langkah melakukan Ijtihad (meskipun hanya pada tataran teori dan apresiasi); serta metakognitif dalam menyadari pentingnya Ijtihad untuk menjawab tantangan zaman. Relevansi materi ini sangat tinggi dengan kehidupan nyata peserta didik, terutama dalam menghadapi isu-isu kontemporer yang memerlukan penetapan hukum Islam. Tingkat kesulitan materi ini moderat, membutuhkan penalaran kritis dan pemahaman yang komprehensif. Struktur materi akan mencakup pengertian, kedudukan, syarat, macam-macam, fungsi, hingga contoh penerapan Ijtihad. Integrasi nilai dan karakter akan ditekankan pada pentingnya berpikir kritis, toleransi terhadap perbedaan pendapat (khilafiyah), kemandirian dalam mencari solusi, dan tanggung jawab moral.</p>
+
+      <h2>D. DIMENSI LULUSAN PEMBELAJARAN</h2>
+      <p>Berdasarkan tujuan pembelajaran dan karakteristik materi, dimensi profil lulusan yang akan dicapai adalah:</p>
+      <ul>
+        <li><strong>Keimanan dan Ketakwaan terhadap Tuhan:</strong> Peserta didik akan memperdalam keyakinan akan kebenaran ajaran Islam dan relevansinya melalui pemahaman tentang Ijtihad sebagai upaya manusia memahami hukum Tuhan.</li>
+        <li><strong>Penalaran Kritis:</strong> Peserta didik akan dilatih untuk menganalisis berbagai sudut pandang dalam masalah keagamaan yang memerlukan Ijtihad, serta mengevaluasi argumen-argumen yang ada.</li>
+        <li><strong>Kemandirian:</strong> Peserta didik akan didorong untuk secara mandiri mencari informasi, merumuskan gagasan, dan berani mengemukakan pendapat dalam konteks diskusi tentang Ijtihad.</li>
+        <li><strong>Kolaborasi:</strong> Peserta didik akan bekerja sama dalam kelompok untuk menganalisis kasus-kasus kontemporer yang memerlukan Ijtihad.</li>
+        <li><strong>Komunikasi:</strong> Peserta didik akan belajar mengomunikasikan hasil analisis dan argumen mereka secara jelas dan logis.</li>
+      </ul>
+    </div>
+
+    <!-- Tab Interaktif untuk Desain Pembelajaran (A–G) -->
+    <div class="tabs">
+      <div class="tab active" onclick="openTab(event, 'tabA')">A. Capaian Pembelajaran</div>
+      <div class="tab" onclick="openTab(event, 'tabB')">B. Lintas Disiplin Ilmu</div>
+      <div class="tab" onclick="openTab(event, 'tabC')">C. Tujuan Pembelajaran</div>
+      <div class="tab" onclick="openTab(event, 'tabD')">D. Topik Kontekstual</div>
+      <div class="tab" onclick="openTab(event, 'tabE')">E. Kerangka Pembelajaran</div>
+      <div class="tab" onclick="openTab(event, 'tabF')">F. Langkah-Langkah Pembelajaran</div>
+      <div class="tab" onclick="openTab(event, 'tabG')">G. Asesmen Pembelajaran</div>
+    </div>
+
+    <div id="tabA" class="tab-content active">
+      <h2>A. CAPAIAN PEMBELAJARAN (CP) NOMOR : 32 TAHUN 2024</h2>
+      <p>Pada akhir Fase F, peserta didik mampu memahami beberapa ayat Al-Qur’an dan hadis, beberapa cabang iman (syu'ab al-īmān), keterkaitan antara iman, Islam, dan ihsan, manfaat menghindari penyakit sosial, adab bermasyarakat, ketentuan dakwah, muamalah, hukum keluarga (al-aḥwāl al-syakhṣiyyah), dan peran tokoh Islam di dunia serta organisasi Islam di Indonesia. Capaian Pembelajaran setiap elemen mata pelajaran Agama Islam dan Budi Pekerti adalah sebagai berikut.</p>
+      <table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse: collapse;">
+        <tr><th>Elemen</th><th>Capaian Pembelajaran</th></tr>
+        <tr><td>Al-Qur’an dan Hadis</td><td>Peserta didik memahami ayat Al-Qur’an dan hadis tentang pentingnya berpikir kritis, ilmu pengetahuan dan teknologi, memelihara kehidupan manusia, dan moderasi beragama.</td></tr>
+        <tr><td>Akidah</td><td>Peserta didik memahami beberapa cabang iman (syu'ab al-īmān), keterkaitan antara iman, Islam, dan ihsan.</td></tr>
+        <tr><td>Akhlak</td><td>Peserta didik memahami manfaat menghindari penyakit sosial; Memahami adab bermasyarakat dan etika digital dalam Islam.</td></tr>
+        <tr><td>Fikih</td><td>Peserta didik memahami ketentuan khotbah, tablig dan dakwah, muamalah, munakahat, dan mawāris.</td></tr>
+        <tr><td>Sejarah Peradaban Islam</td><td>Peserta didik memahami peran tokoh ulama dalam perkembangan peradaban Islam di dunia dan peran organisasi-organisasi Islam di Indonesia.</td></tr>
+      </table>
+    </div>
+
+    <div id="tabB" class="tab-content">
+      <h2>B. LINTAS DISIPLIN ILMU</h2>
+      <ul>
+        <li><strong>Ilmu Ushul Fiqh:</strong> Ijtihad merupakan salah satu bahasan utama dalam ilmu Ushul Fiqh yang mempelajari kaidah-kaidah penggalian hukum Islam.</li>
+        <li><strong>Sejarah Kebudayaan Islam:</strong> Memahami Ijtihad memerlukan pemahaman konteks historis perkembangan pemikiran Islam.</li>
+        <li><strong>Sosiologi/Antropologi:</strong> Relevan untuk memahami dampak Ijtihad terhadap masyarakat dan budaya, serta isu-isu sosial yang memerlukan pendekatan Ijtihad.</li>
+        <li><strong>Pendidikan Kewarganegaraan:</strong> Konsep perbedaan pendapat (khilafiyah) dan toleransi sangat relevan dengan nilai-nilai kewarganegaraan yang demokratis.</li>
+      </ul>
+    </div>
+
+    <div id="tabC" class="tab-content">
+      <h2>C. TUJUAN PEMBELAJARAN</h2>
+      <p><strong>Pertemuan 1: Memahami Konsep Dasar Ijtihad</strong></p>
+      <ul>
+        <li>Melalui diskusi kelompok dan studi kasus, peserta didik dapat menjelaskan pengertian Ijtihad, kedudukan, dan dasar hukumnya dalam Islam dengan tepat.</li>
+        <li>Setelah menyimak presentasi guru dan membaca materi, peserta didik dapat mengidentifikasi syarat-syarat mujtahid dan urgensi Ijtihad di era kontemporer dengan benar.</li>
+      </ul>
+      <p><strong>Pertemuan 2: Mengenal Macam-macam Ijtihad dan Fungsi Ijtihad</strong></p>
+      <ul>
+        <li>Melalui analisis contoh-contoh Ijtihad, peserta didik dapat mengklasifikasikan macam-macam Ijtihad (seperti qiyas, istihsan, maslahah mursalah) dengan tepat.</li>
+        <li>Dengan berdiskusi, peserta didik dapat menganalisis fungsi Ijtihad dalam menjawab permasalahan umat Islam dan perkembangan zaman secara kritis.</li>
+      </ul>
+      <p><strong>Pertemuan 3: Penerapan Ijtihad dalam Isu Kontemporer dan Hikmah Ijtihad</strong></p>
+      <ul>
+        <li>Melalui studi kasus isu-isu kontemporer, peserta didik dapat mengidentifikasi masalah-masalah keagamaan yang memerlukan Ijtihad dan merumuskan solusi awal berdasarkan prinsip-prinsip Ijtihad secara kolaboratif.</li>
+        <li>Setelah melakukan refleksi, peserta didik dapat menyimpulkan hikmah dan manfaat Ijtihad bagi kehidupan individu dan umat Islam dengan penuh kesadaran.</li>
+      </ul>
+    </div>
+
+    <div id="tabD" class="tab-content">
+      <h2>D. TOPIK PEMBELAJARAN KONTEKSTUAL</h2>
+      <ul>
+        <li>Perbedaan pendapat di kalangan ulama tentang suatu isu keagamaan modern (misalnya, hukum trading online, vaksin, atau transplantasi organ).</li>
+        <li>Peran lembaga-lembaga fatwa atau majelis ulama dalam menetapkan hukum Islam untuk isu-isu baru.</li>
+        <li>Diskusi tentang bagaimana prinsip-prinsip Ijtihad dapat diterapkan dalam menghadapi tantangan etika dan moral di era digital.</li>
+      </ul>
+    </div>
+
+    <div id="tabE" class="tab-content">
+      <h2>E. KERANGKA PEMBELAJARAN</h2>
+      <p><strong>PRAKTIK PEDAGOGIK:</strong></p>
+      <ul>
+        <li><strong>Model Pembelajaran:</strong> Discovery Learning, Problem-Based Learning.</li>
+        <li><strong>Strategi:</strong> Diskusi kelompok, studi kasus, presentasi, refleksi individu.</li>
+        <li><strong>Metode:</strong> Tanya jawab, curah pendapat, demonstrasi (jika memungkinkan), simulasi debat.</li>
+      </ul>
+      <p><strong>Pendekatan Deep Learning:</strong></p>
+      <ul>
+        <li><strong>Mindful Learning:</strong> Melibatkan peserta didik secara penuh dalam setiap aktivitas, mendorong refleksi mendalam, dan memfasilitasi kesadaran akan proses belajar.</li>
+        <li><strong>Meaningful Learning:</strong> Mengaitkan materi Ijtihad dengan isu-isu nyata yang relevan dengan kehidupan peserta didik, sehingga mereka merasakan kebermaknaan belajar.</li>
+        <li><strong>Joyful Learning:</strong> Menciptakan suasana belajar yang interaktif, kolaboratif, dan menyenangkan melalui aktivitas yang bervariasi dan penggunaan media yang menarik.</li>
+      </ul>
+      <p><strong>KEMITRAAN PEMBELAJARAN:</strong></p>
+      <ul>
+        <li><strong>Lingkungan Sekolah:</strong> Perpustakaan sekolah untuk sumber referensi, ruang kelas yang kondusif untuk diskusi kelompok.</li>
+        <li><strong>Lingkungan Luar Sekolah/Masyarakat:</strong> Jika memungkinkan, mengundang tokoh agama atau akademisi yang kompeten dalam bidang fikih/ushul fikih untuk memberikan ceramah singkat atau sesi tanya jawab. Mengakses berita atau artikel online tentang isu-isu kontemporer yang memerlukan Ijtihad.</li>
+      </ul>
+      <p><strong>LINGKUNGAN BELAJAR:</strong></p>
+      <ul>
+        <li><strong>Ruang Fisik:</strong> Tata letak kelas yang fleksibel untuk memungkinkan kerja kelompok dan diskusi pleno. Adanya papan tulis/whiteboard untuk memvisualisasikan ide.</li>
+        <li><strong>Ruang Virtual:</strong> Pemanfaatan platform Google Classroom sebagai pusat pengumuman, pengumpulan tugas, dan forum diskusi.</li>
+        <li><strong>Budaya Belajar:</strong> Mendorong budaya saling menghargai pendapat, berani bertanya, dan aktif berpartisipasi. Guru berperan sebagai fasilitator yang membimbing dan memotivasi.</li>
+      </ul>
+      <p><strong>PEMANFAATAN DIGITAL:</strong></p>
+      <ul>
+        <li>Perpustakaan Digital: Mengakses jurnal ilmiah atau artikel tentang Ijtihad dan isu-isu kontemporer.</li>
+        <li>Forum Diskusi Daring: Google Classroom untuk melanjutkan diskusi di luar jam pelajaran atau memberikan pertanyaan pemantik.</li>
+        <li>Google Form/Quizzes: Untuk asesmen formatif cepat atau pre-test/post-test.</li>
+        <li>YouTube/Video Edukasi: Menayangkan video singkat tentang sejarah Ijtihad atau contoh penerapan Ijtihad.</li>
+      </ul>
+    </div>
+
+    <div id="tabF" class="tab-content">
+      <h2>F. LANGKAH-LANGKAH PEMBELAJARAN BERDIFERENSIASI</h2>
+
+      <p><strong>PERTEMUAN 1: MEMAHAMI KONSEP DASAR IJTIHAD</strong></p>
+      <p><strong>KEGIATAN PENDAHULUAN (MINDFUL, JOYFUL):</strong></p>
+      <ul>
+        <li>Guru memulai dengan salam dan doa, serta mengecek kehadiran.</li>
+        <li>Mindful Learning: Guru mengajak peserta didik untuk melakukan relaksasi singkat atau menarik napas dalam-dalam untuk menenangkan pikiran dan mempersiapkan diri untuk belajar.</li>
+        <li>Joyful Learning: Guru menampilkan gambar atau video singkat tentang sebuah isu kontemporer yang hukumnya belum jelas, lalu bertanya: "Menurut kalian, bagaimana Islam menentukan hukumnya?" untuk membangkitkan rasa ingin tahu.</li>
+        <li>Apersepsi: Guru mengaitkan materi sebelumnya tentang sumber hukum Islam (Al-Qur'an, Hadis) dengan pentingnya Ijtihad.</li>
+        <li>Guru menyampaikan tujuan pembelajaran.</li>
+      </ul>
+
+      <p><strong>KEGIATAN INTI (MEMAHAMI, MENGAPLIKASI, MEREFLEKSI):</strong></p>
+      <p><strong>Memahami:</strong></p>
+      <ul>
+        <li>Guru menyajikan materi tentang pengertian, kedudukan, dan dasar hukum Ijtihad melalui presentasi interaktif dan penjelasan yang mudah dipahami.</li>
+        <li>Peserta didik membaca materi dari buku teks (BS 12 - PA Islam) dan buku panduan guru (BG 12 - PA Islam) terkait Ijtihad.</li>
+        <li>Diferensiasi Konten: Peserta didik dengan gaya belajar visual dapat memanfaatkan infografis atau peta konsep yang disediakan guru. Peserta didik auditori dapat menyimak penjelasan guru dan diskusi.</li>
+        <li>Guru memfasilitasi diskusi kelas untuk memastikan pemahaman konsep dasar.</li>
+      </ul>
+
+      <p><strong>Mengaplikasi:</strong></p>
+      <ul>
+        <li>Guru membagi peserta didik ke dalam kelompok kecil. Setiap kelompok diberikan satu studi kasus singkat yang memerlukan pemahaman tentang kedudukan Ijtihad (misalnya, perbedaan pendapat ulama tentang suatu hukum) dan diminta untuk mengidentifikasi mengapa Ijtihad diperlukan.</li>
+        <li>Peserta didik mengidentifikasi syarat-syarat mujtahid dan urgensi Ijtihad dalam kelompok.</li>
+        <li>Diferensiasi Proses: Kelompok dapat memilih cara mereka mendiskusikan (misalnya, Brainstorming, jigsaw). Guru memberikan bimbingan individual bagi kelompok yang membutuhkan.</li>
+      </ul>
+
+      <p><strong>Merefleksi:</strong></p>
+      <ul>
+        <li>Setiap kelompok mempresentasikan hasil diskusinya.</li>
+        <li>Guru memberikan umpan balik dan penguatan.</li>
+        <li>Meaningful Learning: Guru mengajukan pertanyaan reflektif: "Mengapa pemahaman tentang Ijtihad ini penting bagi kita sebagai umat Islam di zaman sekarang?"</li>
+      </ul>
+
+      <p><strong>KEGIATAN PENUTUP (UMPAN BALIK, MENYIMPULKAN, PERENCANAAN):</strong></p>
+      <ul>
+        <li>Guru memberikan penguatan terhadap konsep yang telah dipelajari.</li>
+        <li>Umpan Balik: Guru meminta peserta didik untuk menuliskan satu hal baru yang mereka pelajari dan satu pertanyaan yang masih mengganjal.</li>
+        <li>Menyimpulkan: Bersama peserta didik, guru merangkum poin-poin penting tentang konsep dasar Ijtihad.</li>
+        <li>Perencanaan: Guru memberikan pengantar singkat untuk materi pertemuan berikutnya (macam-macam Ijtihad) dan memberikan tugas membaca awal.</li>
+      </ul>
+
+      <p><strong>PERTEMUAN 2: MENGENAL MACAM-MACAM IJTIHAD DAN FUNGSI IJTIHAD</strong></p>
+      <p><strong>KEGIATAN PENDAHULUAN (MINDFUL, JOYFUL):</strong></p>
+      <ul>
+        <li>Guru menyapa dan mengecek kehadiran.</li>
+        <li>Mindful Learning: Guru meminta peserta didik untuk mengingat kembali apa yang telah dipelajari di pertemuan sebelumnya dan mengaitkannya dengan topik hari ini.</li>
+        <li>Joyful Learning: Guru memulai dengan kuis singkat melalui Kahoot atau Mentimeter tentang pengertian Ijtihad untuk merefresh ingatan dan menciptakan suasana kompetitif yang sehat.</li>
+        <li>Apersepsi: Guru mengaitkan Ijtihad dengan kebutuhan umat akan solusi hukum baru.</li>
+        <li>Guru menyampaikan tujuan pembelajaran.</li>
+      </ul>
+
+      <p><strong>KEGIATAN INTI (MEMAHAMI, MENGAPLIKASI, MEREFLEKSI):</strong></p>
+      <p><strong>Memahami:</strong></p>
+      <ul>
+        <li>Guru menyajikan materi tentang macam-macam Ijtihad (qiyas, istihsan, maslahah mursalah, dll.) dengan penjelasan dan contoh yang jelas.</li>
+        <li>Peserta didik secara individu atau berpasangan mencari contoh kasus dari buku teks atau sumber lain yang menggambarkan macam-macam Ijtihad.</li>
+        <li>Diferensiasi Konten: Guru dapat menyediakan materi tambahan berupa artikel atau video singkat tentang setiap macam Ijtihad bagi peserta didik yang ingin mendalami lebih lanjut.</li>
+      </ul>
+
+      <p><strong>Mengaplikasi:</strong></p>
+      <ul>
+        <li>Guru membagi peserta didik ke dalam kelompok-kelompok. Setiap kelompok diberikan beberapa studi kasus tentang permasalahan kontemporer dan diminta untuk menentukan jenis Ijtihad yang paling relevan untuk diterapkan serta menjelaskan fungsinya.</li>
+        <li>Diferensiasi Proses: Peserta didik dapat memilih cara mereka menganalisis kasus (misalnya, membuat mind map, tabel perbandingan, atau presentasi singkat).</li>
+      </ul>
+
+      <p><strong>Merefleksi:</strong></p>
+      <ul>
+        <li>Setiap kelompok mempresentasikan hasil analisisnya.</li>
+        <li>Guru memberikan umpan balik dan mengklarifikasi konsep.</li>
+        <li>Meaningful Learning: Guru mengajak peserta didik untuk merefleksikan bagaimana Ijtihad membantu umat Islam menghadapi perubahan zaman tanpa kehilangan identitas keagamaan.</li>
+      </ul>
+
+      <p><strong>KEGIATAN PENUTUP (UMPAN BALIK, MENYIMPULKAN, PERENCANAAN):</strong></p>
+      <ul>
+        <li>Guru memberikan penguatan terhadap macam-macam Ijtihad dan fungsinya.</li>
+        <li>Umpan Balik: Peserta didik diminta menuliskan satu contoh Ijtihad yang paling menarik bagi mereka dan mengapa.</li>
+        <li>Menyimpulkan: Bersama peserta didik, guru merangkum perbedaan dan fungsi masing-masing Ijtihad.</li>
+        <li>Perencanaan: Guru menyampaikan materi untuk pertemuan berikutnya yaitu penerapan Ijtihad dalam isu kontemporer dan memberikan tugas mencari contoh isu terkini yang memerlukan Ijtihad.</li>
+      </ul>
+
+      <p><strong>PERTEMUAN 3: PENERAPAN IJTIHAD DALAM ISU KONTEMPORER DAN HIKMAH IJTIHAD</strong></p>
+      <p><strong>KEGIATAN PENDAHULUAN (MINDFUL, JOYFUL):</strong></p>
+      <ul>
+        <li>Guru menyapa dan mengecek kehadiran.</li>
+        <li>Mindful Learning: Guru mengajak peserta didik untuk menvisualisasikan diri mereka sebagai seorang "mujtahid" yang sedang mencoba memecahkan masalah.</li>
+        <li>Joyful Learning: Guru menampilkan beberapa gambar/video isu kontemporer yang "viral" dan menanyakan pendapat peserta didik dari sudut pandang Islam.</li>
+        <li>Apersepsi: Mengulas kembali fungsi Ijtihad sebagai solusi permasalahan umat.</li>
+        <li>Guru menyampaikan tujuan pembelajaran.</li>
+      </ul>
+
+      <p><strong>KEGIATAN INTI (MEMAHAMI, MENGAPLIKASI, MEREFLEKSI):</strong></p>
+      <p><strong>Memahami:</strong></p>
+      <ul>
+        <li>Guru memfasilitasi diskusi tentang isu-isu kontemporer yang telah dikumpulkan peserta didik (tugas dari pertemuan sebelumnya). Guru dapat memverifikasi relevansi isu dan memilahnya untuk diskusi lebih lanjut.</li>
+      </ul>
+
+      <p><strong>Mengaplikasi:</strong></p>
+      <ul>
+        <li>Guru membagi peserta didik ke dalam kelompok-kelompok "Dewan Fatwa" (simulasi). Setiap kelompok memilih satu isu kontemporer yang telah diidentifikasi.</li>
+        <li>Kelompok menganalisis isu tersebut menggunakan prinsip-prinsip Ijtihad yang telah dipelajari, mencoba merumuskan solusi awal, dan mempersiapkan presentasi singkat.</li>
+        <li>Diferensiasi Proses: Peserta didik dapat memilih peran dalam kelompok (moderator, penyaji, notulen, peneliti).</li>
+        <li>Diferensiasi Produk: Setiap kelompok dapat mempresentasikan hasil diskusinya dalam format yang beragam (misalnya, presentasi PowerPoint, video pendek, atau debat singkat).</li>
+      </ul>
+
+      <p><strong>Merefleksi:</strong></p>
+      <ul>
+        <li>Setiap kelompok mempresentasikan "fatwa" atau solusi mereka. Kelompok lain dapat memberikan tanggapan.</li>
+        <li>Guru memberikan umpan balik konstruktif, mengarahkan diskusi, dan mengklarifikasi konsep yang masih keliru.</li>
+        <li>Meaningful Learning: Guru mengajak peserta didik untuk merefleksikan proses Ijtihad yang telah mereka lakukan (simulasi) dan menyimpulkan hikmah serta manfaat Ijtihad bagi kehidupan individu dan umat.</li>
+      </ul>
+
+      <p><strong>KEGIATAN PENUTUP (UMPAN BALIK, MENYIMPULKAN, PERENCANAAN):</strong></p>
+      <ul>
+        <li>Guru memberikan penguatan tentang pentingnya Ijtihad dalam konteks kehidupan modern dan hikmah di baliknya.</li>
+        <li>Umpan Balik: Peserta didik menuliskan kesan mereka tentang proses belajar Ijtihad dan bagaimana mereka akan menerapkan hikmahnya dalam kehidupan sehari-hari.</li>
+        <li>Menyimpulkan: Bersama peserta didik, guru membuat rangkuman besar tentang seluruh materi Ijtihad, dari konsep dasar hingga penerapannya dan hikmahnya.</li>
+        <li>Perencanaan: Guru memberikan motivasi untuk terus belajar dan mengkaji ajaran Islam, serta memberikan informasi mengenai materi selanjutnya.</li>
+      </ul>
+    </div>
+
+    <div id="tabG" class="tab-content">
+      <h2>G. ASESMEN PEMBELAJARAN</h2>
+      <p><strong>A. ASESMEN AWAL PEMBELAJARAN (DIAGNOSTIK)</strong></p>
+      <ul>
+        <li><strong>Format Asesmen:</strong> Kuis singkat tertulis atau lisan (pertanyaan terbuka).</li>
+        <li><strong>Tujuan:</strong> Mengukur pengetahuan awal peserta didik tentang sumber hukum Islam (Al-Qur'an, Hadis) dan isu-isu kontemporer yang belum jelas hukumnya.</li>
+        <li><strong>Pertanyaan/Tugas:</strong>
+          <ul>
+            <li>"Sebutkan sumber-sumber hukum Islam yang kalian ketahui!"</li>
+            <li>"Pernahkah kalian mendengar tentang perbedaan pendapat ulama dalam suatu masalah keagamaan? Berikan contohnya!"</li>
+            <li>"Menurut kalian, bagaimana cara Islam menentukan hukum untuk permasalahan baru yang tidak ada di Al-Qur'an dan Hadis?"</li>
+          </ul>
+        </li>
+      </ul>
+
+      <p><strong>B. ASESMEN PROSES PEMBELAJARAN (FORMATIF)</strong></p>
+      <ul>
+        <li><strong>Format Asesmen:</strong>
+          <ul>
+            <li>Observasi partisipasi aktif dalam diskusi kelompok dan kelas.</li>
+            <li>Penilaian proyek mini (studi kasus kelompok).</li>
+            <li>Presentasi kelompok.</li>
+            <li>Jurnal refleksi atau catatan belajar.</li>
+          </ul>
+        </li>
+        <li><strong>Tujuan:</strong> Memantau kemajuan belajar peserta didik, memberikan umpan balik segera, dan mengidentifikasi area yang memerlukan dukungan lebih lanjut.</li>
+        <li><strong>Pertanyaan/Tugas (contoh):</strong>
+          <ul>
+            <li>Observasi: Ceklis observasi untuk melihat keaktifan, kemampuan berargumen, dan kerja sama dalam kelompok.</li>
+            <li>Studi Kasus Kelompok: "Diskusikan dalam kelompok Anda, mengapa suatu masalah memerlukan Ijtihad dan jenis Ijtihad apa yang relevan untuk diterapkan. Sajikan hasil diskusi Anda."</li>
+            <li>Jurnal Refleksi: "Tuliskan tiga hal yang Anda pelajari hari ini tentang Ijtihad dan satu pertanyaan yang masih ingin Anda tanyakan."</li>
+          </ul>
+        </li>
+      </ul>
+
+      <p><strong>C. ASESMEN AKHIR PEMBELAJARAN (SUMATIF)</strong></p>
+      <ul>
+        <li><strong>Format Asesmen:</strong> Tes tertulis (esai dan/atau pilihan ganda), Penilaian Produk (hasil analisis studi kasus individu/kelompok), Presentasi simulasi "Dewan Fatwa".</li>
+        <li><strong>Tujuan:</strong> Mengukur pencapaian tujuan pembelajaran secara keseluruhan.</li>
+        <li><strong>Pertanyaan/Tugas (contoh):</strong>
+          <ul>
+            <li><strong>Tes Tertulis (Esai):</strong>
+              <ul>
+                <li>"Jelaskan pengertian Ijtihad, kedudukannya sebagai sumber hukum Islam, dan mengapa Ijtihad sangat dibutuhkan di era modern ini."</li>
+                <li>"Sebutkan dan jelaskan tiga macam Ijtihad beserta contoh penerapannya dalam kasus kontemporer."</li>
+                <li>"Analisis salah satu isu kontemporer (misalnya, [nama isu]) dari sudut pandang Ijtihad. Jelaskan langkah-langkah Ijtihad yang mungkin dilakukan untuk menetapkan hukumnya."</li>
+              </ul>
+            </li>
+            <li><strong>Penilaian Produk (Analisis Studi Kasus Individu):</strong>
+              <ul>
+                <li>"Pilihlah satu isu kontemporer yang sedang hangat diperbincangkan. Lakukan analisis singkat tentang isu tersebut dari perspektif Ijtihad, termasuk potensi jenis Ijtihad yang dapat diterapkan dan argumen awal Anda."</li>
+              </ul>
+            </li>
+            <li><strong>Presentasi Simulasi "Dewan Fatwa":</strong>
+              <ul>
+                <li>"Presentasikan hasil analisis dan 'fatwa' kelompok Anda mengenai isu kontemporer yang telah dipilih, jelaskan dasar hukum dan argumennya."</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Tombol Kembali ke Beranda (bawah) -->
+    <footer>
+      <a href="#" class="btn-home">Kembali ke Beranda</a>
+    </footer>
+  </div>
+
+  <script>
+    function openTab(evt, tabName) {
+      const tabContents = document.getElementsByClassName("tab-content");
+      for (let i = 0; i < tabContents.length; i++) {
+        tabContents[i].classList.remove("active");
+      }
+
+      const tabs = document.getElementsByClassName("tab");
+      for (let i = 0; i < tabs.length; i++) {
+        tabs[i].classList.remove("active");
+      }
+
+      document.getElementById(tabName).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
+  </script>
+
+</body>
+</html>

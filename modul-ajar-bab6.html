@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modul Ajar Deep Learning - PAI</title>
+  <style>
+    :root {
+      --hijau-tua: #1a5d1a;
+      --hijau-muda: #4caf50;
+      --hijau-toska: #2e8b57;
+      --krem: #f9f4e8;
+      --emas: #d4af37;
+      --abu-muda: #f0f0f0;
+      --putih: #ffffff;
+      --abu-teks: #333333;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--abu-teks);
+      background-color: var(--krem);
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: var(--putih);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    header {
+      background: var(--hijau-toska);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+
+    header h2 {
+      font-size: 1.2rem;
+      font-weight: normal;
+    }
+
+    .btn-home {
+      display: inline-block;
+      background: var(--emas);
+      color: var(--hijau-tua);
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      margin: 12px 0;
+      transition: background 0.3s;
+    }
+
+    .btn-home:hover {
+      background: #c19a2a;
+    }
+
+    .section {
+      padding: 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .section h2 {
+      color: var(--hijau-tua);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--hijau-muda);
+    }
+
+    .section p, .section ul, .section ol {
+      margin-bottom: 12px;
+    }
+
+    .section ul li, .section ol li {
+      margin-bottom: 6px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--hijau-muda);
+      color: white;
+    }
+
+    /* Tab Styles */
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      background: var(--abu-muda);
+      padding: 0;
+      margin: 20px 0 0 0;
+    }
+
+    .tab {
+      padding: 12px 20px;
+      cursor: pointer;
+      background: var(--abu-muda);
+      border: none;
+      outline: none;
+      transition: background 0.3s;
+      font-weight: bold;
+      color: var(--hijau-tua);
+    }
+
+    .tab:hover {
+      background: var(--hijau-muda);
+      color: white;
+    }
+
+    .tab.active {
+      background: var(--hijau-toska);
+      color: white;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 20px;
+      border-top: 1px solid #ddd;
+      background: var(--putih);
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .footer-btn {
+      text-align: center;
+      padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .tab {
+        flex: 1 0 50%;
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Tombol Kembali ke Beranda (Atas) -->
+  <div style="text-align: center; padding: 10px 0;">
+    <a href="#" class="btn-home">Kembali ke Beranda</a>
+  </div>
+
+  <header>
+    <h1>MODUL AJAR DEEP LEARNING</h1>
+    <h2>MATA PELAJARAN: PENDIDIKAN AGAMA ISLAM DAN BUDI PEKERTI</h2>
+    <p>BAB: 6. CINTA TANAH AIR DAN MODERASI BERAGAMA</p>
+  </header>
+
+  <!-- Bagian A–D: Ditampilkan penuh -->
+  <div class="section">
+    <h2>A. IDENTITAS MODUL</h2>
+    <table>
+      <tr><td>Nama Sekolah</td><td>: SMAN 1 CLURING</td></tr>
+      <tr><td>Nama Penyusun</td><td>: Drs. Suroso</td></tr>
+      <tr><td>Mata Pelajaran</td><td>: Pendidikan Agama Islam dan Budi Pekerti (PAI)</td></tr>
+      <tr><td>Fase / Kelas / Semester</td><td>: E / XII / Genap</td></tr>
+      <tr><td>Alokasi Waktu</td><td>: 4 Pertemuan x 45 menit (total 180 menit)</td></tr>
+      <tr><td>Tahun Pelajaran</td><td>: 2025 / 2026</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>B. IDENTIFIKASI KESIAPAN PESERTA DIDIK</h2>
+    <p>Peserta didik pada umumnya telah memiliki pemahaman dasar tentang ajaran agama Islam dan nilai-nilai kebangsaan yang didapatkan dari jenjang pendidikan sebelumnya serta lingkungan keluarga dan masyarakat. Sebagian besar mungkin sudah mengenal konsep cinta tanah air dan persatuan, namun pemahaman mendalam tentang moderasi beragama mungkin masih perlu dikembangkan. Minat mereka terhadap isu-isu kebangsaan dan keagamaan dapat bervariasi, dipengaruhi oleh latar belakang sosial, media, dan pengalaman pribadi. Kebutuhan belajar mereka beragam, ada yang lebih suka diskusi, studi kasus, atau aktivitas proyek, sehingga perlu disediakan variasi metode pembelajaran.</p>
+  </div>
+
+  <div class="section">
+    <h2>C. KARAKTERISTIK MATERI PELAJARAN</h2>
+    <p>Materi "Cinta Tanah Air dan Moderasi Beragama" adalah jenis pengetahuan konseptual, prosedural, dan afektif yang menuntut pemahaman teoritis serta internalisasi nilai-nilai. Relevansinya dengan kehidupan nyata peserta didik sangat tinggi, mengingat tantangan globalisasi, isu radikalisme, dan pentingnya menjaga persatuan di tengah keberagaman. Tingkat kesulitannya moderat, terutama dalam memahami nuansa moderasi beragama yang menuntut sikap bijak dan toleran. Struktur materi berjenjang, dimulai dari dasar-dasar cinta tanah air dalam Islam, kemudian diperdalam dengan konsep moderasi beragama, dan diakhiri dengan implementasi nyata. Integrasi nilai dan karakter meliputi keimanan dan ketakwaan, nasionalisme, toleransi, saling menghargai, berpikir kritis, serta tanggung jawab sosial.</p>
+  </div>
+
+  <div class="section">
+    <h2>D. DIMENSI LULUSAN PEMBELAJARAN</h2>
+    <p>Berdasarkan tujuan pembelajaran dan karakteristik materi, dimensi profil lulusan yang akan dicapai adalah:</p>
+    <ul>
+      <li><strong>Keimanan dan Ketakwaan terhadap Tuhan:</strong> Peserta didik mampu menginternalisasi nilai-nilai cinta tanah air dan moderasi beragama sebagai bagian dari ajaran Islam dan wujud ketakwaan.</li>
+      <li><strong>Kewargaan:</strong> Peserta didik mampu menunjukkan sikap dan perilaku sebagai warga negara yang baik, menjaga persatuan dan kesatuan, serta menjunjung tinggi nilai-nilai kebangsaan.</li>
+      <li><strong>Penalaran Kritis:</strong> Peserta didik mampu menganalisis berbagai isu terkait radikalisme, ekstremisme, dan intoleransi, serta menemukan solusi berdasarkan prinsip moderasi beragama.</li>
+      <li><strong>Kolaborasi:</strong> Peserta didik dapat bekerja sama dalam kelompok untuk mendiskusikan dan menyebarkan pesan-pesan moderasi beragama serta cinta tanah air.</li>
+      <li><strong>Komunikasi:</strong> Peserta didik mampu mengkomunikasikan gagasan, pandangan, dan pesan tentang cinta tanah air dan moderasi beragama secara efektif dan persuasif.</li>
+    </ul>
+  </div>
+
+  <!-- Tabs untuk Desain Pembelajaran (A–G) -->
+  <div class="tabs">
+    <button class="tab active" onclick="openTab(event, 'tabA')">A. Capaian Pembelajaran</button>
+    <button class="tab" onclick="openTab(event, 'tabB')">B. Lintas Disiplin Ilmu</button>
+    <button class="tab" onclick="openTab(event, 'tabC')">C. Tujuan Pembelajaran</button>
+    <button class="tab" onclick="openTab(event, 'tabD')">D. Topik Kontekstual</button>
+    <button class="tab" onclick="openTab(event, 'tabE')">E. Kerangka Pembelajaran</button>
+    <button class="tab" onclick="openTab(event, 'tabF')">F. Langkah-Langkah</button>
+    <button class="tab" onclick="openTab(event, 'tabG')">G. Asesmen</button>
+  </div>
+
+  <!-- Tab Content -->
+  <div id="tabA" class="tab-content active">
+    <h2>A. CAPAIAN PEMBELAJARAN (CP) NOMOR : 32 TAHUN 2024</h2>
+    <p>Pada akhir Fase F, peserta didik mampu memahami beberapa ayat Al-Qur’an dan hadis, beberapa cabang iman (syu'ab al-īmān), keterkaitan antara iman, Islam, dan ihsan, manfaat menghindari penyakit sosial, adab bermasyarakat, ketentuan dakwah, muamalah, hukum keluarga (al-aḥwāl al-syakhṣiyyah), dan peran tokoh Islam di dunia serta organisasi Islam di Indonesia. Capaian Pembelajaran setiap elemen mata pelajaran Agama Islam dan Budi Pekerti adalah sebagai berikut.</p>
+    <table>
+      <tr><th>Elemen</th><th>Capaian Pembelajaran</th></tr>
+      <tr><td>Al-Qur’an dan Hadis</td><td>Peserta didik memahami ayat Al-Qur’an dan hadis tentang pentingnya berpikir kritis, ilmu pengetahuan dan teknologi, memelihara kehidupan manusia, dan moderasi beragama.</td></tr>
+      <tr><td>Akidah</td><td>Peserta didik memahami beberapa cabang iman (syu'ab al-īmān), keterkaitan antara iman, Islam, dan ihsan.</td></tr>
+      <tr><td>Akhlak</td><td>Peserta didik memahami manfaat menghindari penyakit sosial; Memahami adab bermasyarakat dan etika digital dalam Islam.</td></tr>
+      <tr><td>Fikih</td><td>Peserta didik memahami ketentuan khotbah, tablig dan dakwah, muamalah, munakahat, dan mawāris.</td></tr>
+      <tr><td>Sejarah Peradaban Islam</td><td>Peserta didik memahami peran tokoh ulama dalam perkembangan peradaban Islam di dunia dan peran organisasi-organisasi Islam di Indonesia.</td></tr>
+    </table>
+  </div>
+
+  <div id="tabB" class="tab-content">
+    <h2>B. LINTAS DISIPLIN ILMU</h2>
+    <ul>
+      <li><strong>Pendidikan Pancasila dan Kewarganegaraan (PPKn):</strong> Konsep nasionalisme, persatuan, Bhinneka Tunggal Ika, dan konstitusi.</li>
+      <li><strong>Sejarah:</strong> Sejarah perjuangan bangsa, peran ulama dalam kemerdekaan, dan perkembangan Islam di Indonesia.</li>
+      <li><strong>Sosiologi/Antropologi:</strong> Keberagaman masyarakat, interaksi sosial, dan resolusi konflik.</li>
+      <li><strong>Bahasa Indonesia:</strong> Kemampuan berkomunikasi dan berargumentasi dalam menyampaikan gagasan tentang cinta tanah air dan moderasi beragama.</li>
+    </ul>
+  </div>
+
+  <div id="tabC" class="tab-content">
+    <h2>C. TUJUAN PEMBELAJARAN</h2>
+    <p><strong>Pertemuan 1: Pentingnya Cinta Tanah Air dalam Islam (45 menit)</strong></p>
+    <ul>
+      <li>Setelah menyimak penjelasan guru dan berdiskusi kelompok, peserta didik dapat menjelaskan konsep cinta tanah air (hubbul wathan) dalam perspektif Islam dengan tepat.</li>
+      <li>Melalui analisis dalil naqli (Al-Qur'an dan Hadis) dan qauliyah ulama, peserta didik dapat mengidentifikasi dasar-dasar syar'i tentang cinta tanah air dengan benar.</li>
+    </ul>
+    <p><strong>Pertemuan 2: Wujud Cinta Tanah Air dan Nasionalisme Religius (45 menit)</strong></p>
+    <ul>
+      <li>Setelah mengamati berbagai contoh kasus, peserta didik dapat mengidentifikasi berbagai bentuk implementasi cinta tanah air dalam konteks kehidupan berbangsa dan bernegara.</li>
+      <li>Melalui studi tokoh, peserta didik dapat meneladani sikap nasionalisme religius para pahlawan dan ulama Indonesia.</li>
+    </ul>
+    <p><strong>Pertemuan 3: Urgensi dan Prinsip Moderasi Beragama (45 menit)</strong></p>
+    <ul>
+      <li>Setelah berdiskusi tentang isu-isu kontemporer, peserta didik dapat menjelaskan urgensi moderasi beragama di Indonesia dalam menjaga persatuan dan keutuhan bangsa.</li>
+      <li>Melalui kajian literatur, peserta didik dapat menganalisis prinsip-prinsip moderasi beragama (tawasut, tawazun, i'tidal, tasamuh, syura, islah, aulawiyah, tathawwur wa ibtikar, tahaddur) dengan pemahaman yang komprehensif.</li>
+    </ul>
+    <p><strong>Pertemuan 4: Implementasi Moderasi Beragama dan Tantangannya (45 menit)</strong></p>
+    <ul>
+      <li>Melalui studi kasus dan diskusi kelompok, peserta didik dapat merumuskan solusi konkret untuk mengatasi tantangan dalam penerapan moderasi beragama di lingkungan sekitar.</li>
+      <li>Setelah presentasi dan refleksi, peserta didik dapat berkomitmen untuk menginternalisasi dan menyebarkan nilai-nilai moderasi beragama dalam kehidupan sehari-hari.</li>
+    </ul>
+  </div>
+
+  <div id="tabD" class="tab-content">
+    <h2>D. TOPIK PEMBELAJARAN KONTEKSTUAL</h2>
+    <ul>
+      <li>Peran Ulama dan Tokoh Agama dalam Kemerdekaan dan Pembangunan Bangsa: Meneladani semangat nasionalisme religius.</li>
+      <li>Fenomena Intoleransi dan Radikalisme di Media Sosial: Menganalisis penyebab dan dampak, serta peran moderasi beragama sebagai solusi.</li>
+      <li>Keberagaman Adat, Budaya, dan Agama di Indonesia: Menghargai dan menjaga persatuan dalam perbedaan.</li>
+      <li>Kontribusi Pemuda Muslim dalam Pembangunan Bangsa: Mengidentifikasi peran aktif dalam berbagai bidang.</li>
+      <li>Pentingnya Menjaga Lingkungan Hidup: Sebagai wujud cinta tanah air dan bagian dari ajaran Islam.</li>
+    </ul>
+  </div>
+
+  <div id="tabE" class="tab-content">
+    <h2>E. KERANGKA PEMBELAJARAN</h2>
+    <p><strong>1. PRAKTIK PEDAGOGIK:</strong></p>
+    <ul>
+      <li>Model Pembelajaran: Discovery Learning (menemukan konsep melalui eksplorasi) dan Project-Based Learning (mengimplementasikan konsep melalui proyek nyata).</li>
+      <li>Strategi Pembelajaran: Kolaboratif (diskusi kelompok, think-pair-share), inkuiri (penyelidikan), dan studi kasus.</li>
+      <li>Metode Pembelajaran: Diskusi, tanya jawab, presentasi, curah pendapat, analisis teks/video, dan simulasi (jika memungkinkan).</li>
+    </ul>
+    <p><strong>2. KEMITRAAN PEMBELAJARAN:</strong></p>
+    <ul>
+      <li>Lingkungan Sekolah: Guru PPKn (untuk mengintegrasikan nilai kebangsaan), guru Sejarah (untuk mengaitkan dengan perjuangan pahlawan), pembina OSIS/ekstrakurikuler keagamaan (untuk kegiatan implementasi).</li>
+      <li>Lingkungan Luar Sekolah/Masyarakat: Tokoh agama setempat (untuk memberikan pandangan dan pengalaman), perwakilan ormas keagamaan moderat (untuk diskusi), atau orang tua (untuk dukungan di rumah).</li>
+    </ul>
+    <p><strong>3. LINGKUNGAN BELAJAR:</strong></p>
+    <ul>
+      <li>Ruang Fisik: Kelas yang nyaman untuk diskusi kelompok, dilengkapi dengan proyektor/layar, papan tulis, dan akses internet.</li>
+      <li>Ruang Virtual: Pemanfaatan Learning Management System (LMS) seperti Google Classroom untuk berbagi materi, forum diskusi asinkron, pengumpulan tugas, dan sumber belajar tambahan (video ceramah, artikel, infografis).</li>
+      <li>Budaya Belajar: Mendorong dialog terbuka, saling menghargai pendapat yang berbeda, berani bertanya, mengembangkan empati, dan menumbuhkan rasa tanggung jawab sebagai bagian dari bangsa.</li>
+    </ul>
+    <p><strong>4. PEMANFAATAN DIGITAL:</strong></p>
+    <ul>
+      <li>Pemanfaatan perpustakaan digital: Mengakses e-book atau jurnal terkait Pendidikan Agama Islam, nasionalisme, dan moderasi beragama.</li>
+      <li>Forum diskusi daring: Melalui Google Classroom atau platform lain untuk melanjutkan diskusi, berbagi temuan, dan mengajukan pertanyaan.</li>
+      <li>Kahoot/Mentimeter: Untuk asesmen formatif interaktif yang menyenangkan, menguji pemahaman konsep dan sikap.</li>
+      <li>Google Classroom: Sebagai platform utama untuk pengelolaan materi, penugasan, dan komunikasi.</li>
+      <li>YouTube/Platform Video Edukasi: Menonton dokumenter atau ceramah inspiratif tentang cinta tanah air dan moderasi beragama.</li>
+      <li>Aplikasi Qur'an Digital/Hadis: Untuk mempermudah pencarian dan analisis dalil naqli.</li>
+    </ul>
+  </div>
+
+  <div id="tabF" class="tab-content">
+    <h2>F. LANGKAH-LANGKAH PEMBELAJARAN BERDIFERENSIASI</h2>
+    <!-- Pertemuan 1 -->
+    <p><strong>PERTEMUAN 1: PENTINGNYA CINTA TANAH AIR DALAM ISLAM</strong></p>
+    <p><em>KEGIATAN PENDAHULUAN (MINDFUL LEARNING, JOYFUL LEARNING):</em></p>
+    <ul>
+      <li>Guru menyapa peserta didik dengan hangat dan mengajak mereka untuk melakukan mindfulness singkat (misalnya, menarik napas dalam-dalam, fokus pada lingkungan sekitar). (Mindful Learning: Menciptakan ketenangan dan fokus).</li>
+      <li>Guru memulai dengan pertanyaan provokatif: "Apa makna Indonesia bagimu?" atau memutarkan lagu kebangsaan/daerah yang populer. (Joyful Learning: Membangkitkan emosi positif dan rasa kebangsaan).</li>
+      <li>Guru mengaitkan dengan ajaran Islam bahwa mencintai tanah air adalah bagian dari iman. (Meaningful Learning: Menghubungkan konsep kebangsaan dengan keimanan).</li>
+    </ul>
+    <p><em>KEGIATAN INTI (MEMAHAMI, MENGAPLIKASI, MEREFLEKSI):</em></p>
+    <ul>
+      <li>Memahami: Guru menayangkan dalil-dalil naqli (Al-Qur'an dan Hadis) serta pendapat ulama tentang cinta tanah air. Peserta didik dibagi dalam kelompok kecil untuk membaca dan menginterpretasikan dalil tersebut. (Diferensiasi Konten: Sumber belajar bervariasi).</li>
+      <li>Mengaplikasi: Setiap kelompok diminta untuk membuat peta konsep atau infografis sederhana tentang "Mengapa Cinta Tanah Air Penting dalam Islam" berdasarkan hasil interpretasi mereka. (Diferensiasi Produk: Visualisasi informasi).</li>
+      <li>Merefleksi: Perwakilan kelompok mempresentasikan hasil karyanya. Guru memfasilitasi diskusi kelas dan memberikan penguatan tentang pentingnya menjaga negara sebagai amanah dari Allah Swt.</li>
+    </ul>
+    <p><em>KEGIATAN PENUTUP:</em></p>
+    <ul>
+      <li>Guru membimbing peserta didik menyimpulkan bahwa cinta tanah air adalah bagian dari iman dan kewajiban setiap muslim.</li>
+      <li>Guru memberikan kuis singkat menggunakan Mentimeter tentang pemahaman dasar dalil cinta tanah air (Asesmen Formatif).</li>
+      <li>Guru meminta peserta didik untuk mencari kisah inspiratif pahlawan muslim Indonesia yang menunjukkan cinta tanah air untuk pertemuan berikutnya.</li>
+    </ul>
+
+    <!-- Pertemuan 2 -->
+    <p><strong>PERTEMUAN 2: WUJUD CINTA TANAH AIR DAN NASIONALISME RELIGIUS</strong></p>
+    <p><em>KEGIATAN PENDAHULUAN (MINDFUL LEARNING, JOYFUL LEARNING):</em></p>
+    <ul>
+      <li>Guru memulai dengan meminta peserta didik secara acak menceritakan kisah pahlawan muslim yang mereka temukan. (Mindful Learning: Mengapresiasi inisiatif dan menghubungkan dengan konteks).</li>
+      <li>Guru menayangkan video singkat atau gambar tentang keberagaman Indonesia. (Joyful Learning: Menstimulasi visual dan rasa bangga).</li>
+      <li>Guru mengaitkan keberagaman ini dengan pentingnya persatuan sebagai wujud cinta tanah air. (Meaningful Learning: Menunjukkan relevansi keberagaman).</li>
+    </ul>
+    <p><em>KEGIATAN INTI (MEMAHAMI, MENGAPLIKASI, MEREFLEKSI):</em></p>
+    <ul>
+      <li>Memahami: Guru menjelaskan berbagai wujud konkret cinta tanah air (misalnya, menjaga lingkungan, belajar giat, menjaga persatuan, membayar pajak, berpartisipasi dalam pembangunan) dan konsep nasionalisme religius. (Diferensiasi Konten: Penjelasan beragam bentuk).</li>
+      <li>Mengaplikasi: Peserta didik dibagi ke dalam kelompok untuk melakukan studi kasus tentang bagaimana nilai-nilai Islam dapat diimplementasikan dalam menjaga persatuan dan membangun bangsa. (Diferensiasi Proses: Studi kasus).</li>
+      <li>Merefleksi: Setiap kelompok mempresentasikan temuan dan ide mereka. Guru mendorong siswa untuk berpikir kritis tentang tantangan dan peluang dalam mengamalkan cinta tanah air di era digital.</li>
+    </ul>
+    <p><em>KEGIATAN PENUTUP:</em></p>
+    <ul>
+      <li>Guru dan peserta didik bersama-sama merumuskan komitmen untuk mengamalkan cinta tanah air dalam kehidupan sehari-hari.</li>
+      <li>Guru memberikan tugas rumah untuk membuat tulisan singkat (maksimal 1 halaman) tentang "Apa yang bisa saya lakukan sebagai pelajar muslim untuk Indonesia?"</li>
+      <li>Guru menanyakan, "Bagaimana perasaan kalian setelah mengetahui bahwa cinta tanah air adalah bagian dari ibadah?"</li>
+    </ul>
+
+    <!-- Pertemuan 3 -->
+    <p><strong>PERTEMUAN 3: URGENSI DAN PRINSIP MODERASI BERAGAMA</strong></p>
+    <p><em>KEGIATAN PENDAHULUAN (MINDFUL LEARNING, JOYFUL LEARNING):</em></p>
+    <ul>
+      <li>Guru memulai dengan pertanyaan: "Mengapa kita perlu moderasi beragama di Indonesia?" atau menayangkan kliping berita terkait isu intoleransi. (Mindful Learning: Membangkitkan kesadaran akan isu aktual).</li>
+      <li>Guru mengajak peserta didik untuk melakukan brain storming tentang "toleransi" dan "ekstremisme". (Joyful Learning: Aktivitas interaktif).</li>
+      <li>Guru menyampaikan bahwa moderasi beragama adalah kunci menjaga harmoni di tengah keberagaman. (Meaningful Learning: Menjelaskan urgensi).</li>
+    </ul>
+    <p><em>KEGIATAN INTI (MEMAHAMI, MENGAPLIKASI, MEREFLEKSI):</em></p>
+    <ul>
+      <li>Memahami: Guru menjelaskan definisi dan prinsip-prinsip moderasi beragama (tawasut, tawazun, i'tidal, tasamuh, syura, islah, aulawiyah, tathawwur wa ibtikar, tahaddur) dengan contoh-contoh konkret. (Diferensiasi Konten: Penjelasan detail prinsip).</li>
+      <li>Mengaplikasi: Peserta didik dibagi ke dalam kelompok. Setiap kelompok diberikan satu atau dua prinsip moderasi beragama untuk didiskusikan dan diilustrasikan dengan contoh kasus nyata. (Diferensiasi Proses: Fokus pada prinsip tertentu).</li>
+      <li>Merefleksi: Setiap kelompok mempresentasikan hasil diskusinya. Guru menguatkan pemahaman dengan menekankan bahwa moderasi beragama bukan berarti mencampuradukkan agama, melainkan bersikap adil dan bijaksana dalam beragama.</li>
+    </ul>
+    <p><em>KEGIATAN PENUTUP:</em></p>
+    <ul>
+      <li>Guru membimbing peserta didik untuk menyimpulkan pentingnya moderasi beragama sebagai pondasi persatuan.</li>
+      <li>Guru memberikan studi kasus singkat melalui Google Form dan meminta peserta didik untuk memberikan tanggapan sesuai prinsip moderasi beragama.</li>
+      <li>Guru mengingatkan untuk terus membaca dan memperdalam pemahaman tentang moderasi beragama.</li>
+    </ul>
+
+    <!-- Pertemuan 4 -->
+    <p><strong>PERTEMUAN 4: IMPLEMENTASI MODERASI BERAGAMA DAN TANTANGANNYA</strong></p>
+    <p><em>KEGIATAN PENDAHULUAN (MINDFUL LEARNING, JOYFUL LEARNING):</em></p>
+    <ul>
+      <li>Guru mengajak peserta didik untuk melakukan refleksi singkat tentang bagaimana pengalaman mereka berinteraksi dengan orang yang berbeda keyakinan atau latar belakang. (Mindful Learning: Mengajak merefleksikan pengalaman pribadi).</li>
+      <li>Guru menayangkan kutipan inspiratif tentang persatuan dalam keberagaman. (Joyful Learning: Memberikan motivasi).</li>
+      <li>Guru menyampaikan bahwa hari ini mereka akan mencari solusi untuk tantangan moderasi beragama. (Meaningful Learning: Mengarahkan pada pemecahan masalah).</li>
+    </ul>
+    <p><em>KEGIATAN INTI (MEMAHAMI, MENGAPLIKASI, MEREFLEKSI):</em></p>
+    <ul>
+      <li>Memahami: Guru menyajikan beberapa skenario atau tantangan umum dalam penerapan moderasi beragama di masyarakat (misalnya, ujaran kebencian di media sosial, sikap eksklusif, konflik antarumat beragama).</li>
+      <li>Mengaplikasi: Peserta didik bekerja dalam kelompok untuk memilih satu skenario dan merumuskan strategi atau solusi yang berbasis pada prinsip moderasi beragama. Hasilnya dapat berupa poster digital, video pendek, atau presentasi simulasi. (Diferensiasi Produk: Pilihan format).</li>
+      <li>Merefleksi: Setiap kelompok mempresentasikan proyeknya. Guru memfasilitasi diskusi dan umpan balik. Di akhir sesi, setiap siswa menuliskan satu komitmen pribadi untuk menjadi agen moderasi beragama di lingkungan mereka.</li>
+    </ul>
+    <p><em>KEGIATAN PENUTUP:</em></p>
+    <ul>
+      <li>Guru memimpin diskusi untuk menyimpulkan pentingnya implementasi nyata moderasi beragama dalam kehidupan sehari-hari.</li>
+      <li>Guru memberikan umpan balik konstruktif terhadap proyek kelompok dan komitmen individu.</li>
+      <li>Guru meminta peserta didik untuk memberikan masukan tentang kegiatan pembelajaran yang paling berkesan dan ide untuk pembelajaran selanjutnya. (Peserta didik terlibat dalam perencanaan pembelajaran selanjutnya).</li>
+      <li>Guru memberikan apresiasi atas partisipasi aktif dan ide-ide kreatif peserta didik.</li>
+    </ul>
+  </div>
+
+  <div id="tabG" class="tab-content">
+    <h2>G. ASESMEN PEMBELAJARAN</h2>
+    <p><strong>A. ASESMEN AWAL PEMBELAJARAN (DIAGNOSTIK)</strong></p>
+    <ul>
+      <li><strong>Tujuan:</strong> Mengidentifikasi pengetahuan awal peserta didik tentang nasionalisme, toleransi, dan pengalaman mereka terkait keberagaman.</li>
+      <li><strong>Format:</strong> Survei singkat (Google Form) atau pertanyaan lisan terbuka.</li>
+      <li><strong>Pertanyaan/Tugas Spesifik:</strong>
+        <ul>
+          <li>"Apa yang kamu pahami tentang cinta tanah air?"</li>
+          <li>"Pernahkah kamu berinteraksi dengan orang yang berbeda agama/suku? Ceritakan pengalamanmu."</li>
+          <li>"Menurutmu, mengapa di Indonesia ada begitu banyak perbedaan?"</li>
+        </ul>
+      </li>
+    </ul>
+
+    <p><strong>B. ASESMEN PROSES PEMBELAJARAN (FORMATIF)</strong></p>
+    <ul>
+      <li><strong>Tujuan:</strong> Memantau pemahaman peserta didik selama proses pembelajaran dan memberikan umpan balik berkelanjutan.</li>
+      <li><strong>Format:</strong>
+        <ul>
+          <li>Observasi: Pengamatan partisipasi aktif dalam diskusi kelompok, kemampuan berargumentasi, sikap menghargai perbedaan pendapat, dan kemandirian dalam mencari informasi. (Lembar observasi dengan rubrik).</li>
+          <li>Kuis Interaktif (Kahoot/Mentimeter): Dilakukan di setiap akhir pertemuan untuk mengecek pemahaman konsep.</li>
+          <li>Penilaian Peta Konsep/Infografis: Penilaian terhadap ketepatan konsep dan kreativitas visual.</li>
+          <li>Refleksi Tertulis/Jurnal Belajar: Penilaian terhadap pemahaman mendalam, kesadaran diri, dan kemampuan merefleksikan pengalaman belajar.</li>
+        </ul>
+      </li>
+      <li><strong>Pertanyaan/Tugas Spesifik:</strong>
+        <ul>
+          <li>(Saat diskusi) "Bagaimana prinsip tawasut (moderat) dapat diterapkan dalam menyikapi berita hoax yang beredar di media sosial?"</li>
+          <li>(Dari jurnal belajar) "Apa tantangan terbesar yang kamu rasakan dalam menerapkan moderasi beragama di lingkunganmu?"</li>
+          <li>(Dari presentasi) "Bagaimana kelompok Anda mengintegrasikan nilai-nilai Islam dalam solusi yang Anda tawarkan untuk masalah ini?"</li>
+        </ul>
+      </li>
+    </ul>
+
+    <p><strong>C. ASESMEN AKHIR PEMBELAJARAN (SUMATIF)</strong></p>
+    <ul>
+      <li><strong>Tujuan:</strong> Mengukur pencapaian tujuan pembelajaran secara keseluruhan dan internalisasi nilai.</li>
+      <li><strong>Format:</strong>
+        <ul>
+          <li>Tes Tertulis: Soal esai/uraian yang menguji pemahaman konsep, analisis kasus, dan argumentasi.</li>
+          <li>Penilaian Proyek (Produk/Presentasi): Penilaian terhadap karya yang dihasilkan (misalnya, poster kampanye moderasi beragama, video pendek, artikel opini) dan kemampuan presentasi.</li>
+        </ul>
+      </li>
+      <li><strong>Pertanyaan/Tugas Spesifik (Contoh):</strong>
+        <ul>
+          <li>Tes Tertulis: "Jelaskanlah mengapa cinta tanah air merupakan bagian dari ajaran Islam, sertakan dalil naqli yang relevan! Kemudian, uraikan tiga bentuk implementasi nyata cinta tanah air dalam kehidupan sehari-hari sebagai seorang pelajar."</li>
+          <li>Tes Tertulis: "Andaikan Anda adalah seorang duta moderasi beragama di sekolah. Jelaskan minimal empat prinsip moderasi beragama yang akan Anda sampaikan kepada teman-teman Anda, dan berikan contoh konkret penerapannya di lingkungan sekolah!"</li>
+          <li>Penilaian Proyek: "Buatlah sebuah proyek kreatif (misalnya, poster digital, infografis, video pendek berdurasi maksimal 3 menit, atau artikel opini singkat) yang mengkampanyekan pentingnya moderasi beragama dan cinta tanah air di kalangan remaja. Proyek Anda harus mengandung pesan yang jelas, inspiratif, dan relevan dengan konteks kehidupan sehari-hari."</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Tombol Kembali ke Beranda (Bawah) -->
+  <div class="footer-btn">
+    <a href="#" class="btn-home">Kembali ke Beranda</a>
+  </div>
+</div>
+
+<script>
+  function openTab(evt, tabName) {
+    // Sembunyikan semua tab content
+    const tabContents = document.getElementsByClassName("tab-content");
+    for (let i = 0; i < tabContents.length; i++) {
+      tabContents[i].classList.remove("active");
+    }
+
+    // Nonaktifkan semua tab button
+    const tabButtons = document.getElementsByClassName("tab");
+    for (let i = 0; i < tabButtons.length; i++) {
+      tabButtons[i].classList.remove("active");
+    }
+
+    // Tampilkan tab yang dipilih dan aktifkan tombolnya
+    document.getElementById(tabName).classList.add("active");
+    evt.currentTarget.classList.add("active");
+  }
+</script>
+
+</body>
+</html>
