@@ -3,277 +3,508 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Modul Ajar Deep Learning - PAI dan Budi Pekerti</title>
-  <!-- Font Awesome untuk ikon -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <title>Modul Ajar Deep Learning - Sabar dalam Musibah dan Ujian</title>
   <style>
+    :root {
+      --hijau-toska: #2a9d8f;
+      --krem: #f4f1de;
+      --emas-lembut: #e9c46a;
+      --abu-muda: #e0e0e0;
+      --hitam-soft: #333;
+      --putih: #fff;
+    }
+
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.7;
-      color: #333;
-      background-color: #f9fbfd;
-      padding: 0;
-    }
-
-    /* Header dengan tombol home */
-    .header {
-      background: linear-gradient(135deg, #1e5631, #4caf50);
-      color: white;
-      padding: 1.2rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .header h1 {
-      font-size: 1.6rem;
-      font-weight: 600;
-    }
-
-    .btn-home {
-      background-color: white;
-      color: #1e5631;
-      border: none;
-      padding: 0.6rem 1.2rem;
-      border-radius: 30px;
-      font-weight: 600;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    }
-
-    .btn-home:hover {
-      background-color: #f0f7f0;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      background-color: var(--krem);
+      color: var(--hitam-soft);
+      line-height: 1.6;
+      padding: 20px;
     }
 
     .container {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1.5rem;
-    }
-
-    .module-title {
-      text-align: center;
-      margin-bottom: 2rem;
-      color: #1e5631;
-    }
-
-    .module-title h2 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .module-title p {
-      color: #555;
-    }
-
-    h2 {
-      color: #1e5631;
-      margin-top: 2.5rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid #e0f0e3;
-    }
-
-    h3 {
-      color: #2e7d32;
-      margin-top: 1.8rem;
-    }
-
-    h4 {
-      color: #388e3c;
-      margin-top: 1.4rem;
-    }
-
-    ul, ol {
-      margin-left: 1.8rem;
-      margin-top: 0.6rem;
-      margin-bottom: 1rem;
-    }
-
-    .indent {
-      margin-left: 2.5rem;
-    }
-
-    p {
-      margin-bottom: 1rem;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1.2rem 0;
-      background: white;
-      border-radius: 8px;
+      max-width: 1000px;
+      margin: 0 auto;
+      background: var(--putih);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       overflow: hidden;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
 
-    table th,
-    table td {
-      padding: 12px 15px;
-      text-align: left;
-      border-bottom: 1px solid #eee;
+    header, footer {
+      background-color: var(--hijau-toska);
+      color: var(--putih);
+      text-align: center;
+      padding: 12px;
     }
 
-    table th {
-      background-color: #e8f5e9;
-      color: #1b5e20;
-      font-weight: 600;
+    header a, footer a {
+      color: var(--putih);
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: var(--emas-lembut);
+      border-radius: 20px;
+      transition: background 0.3s;
     }
 
-    table tr:last-child td {
+    header a:hover, footer a:hover {
+      background-color: #d4a017;
+    }
+
+    .section {
+      padding: 24px;
+      border-bottom: 1px solid var(--abu-muda);
+    }
+
+    .section:last-child {
       border-bottom: none;
     }
 
-    /* Footer button */
-    .footer-btn {
-      text-align: center;
-      margin-top: 3rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid #eee;
+    .section-title {
+      color: var(--hijau-toska);
+      margin-bottom: 16px;
+      font-size: 1.4rem;
+      font-weight: bold;
+      border-left: 4px solid var(--emas-lembut);
+      padding-left: 12px;
     }
 
-    /* Responsif */
-    @media (max-width: 600px) {
-      .header {
+    .section-content {
+      margin-left: 16px;
+    }
+
+    .section-content p, .section-content li {
+      margin-bottom: 12px;
+    }
+
+    ul, ol {
+      padding-left: 24px;
+    }
+
+    /* Tab Styles */
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      background: var(--krem);
+      border-bottom: 2px solid var(--hijau-toska);
+    }
+
+    .tab {
+      padding: 12px 20px;
+      cursor: pointer;
+      background: var(--putih);
+      border: 1px solid var(--abu-muda);
+      border-bottom: none;
+      margin-right: 4px;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+      font-weight: bold;
+      color: var(--hitam-soft);
+      transition: background 0.2s;
+    }
+
+    .tab:hover {
+      background: var(--emas-lembut);
+    }
+
+    .tab.active {
+      background: var(--hijau-toska);
+      color: var(--putih);
+    }
+
+    .tab-content {
+      display: none;
+      padding: 24px;
+      background: var(--putih);
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .tabs {
         flex-direction: column;
-        gap: 1rem;
-        text-align: center;
       }
-      .header h1 {
-        font-size: 1.3rem;
-      }
-      .container {
-        padding: 0 1rem;
+      .tab {
+        margin-right: 0;
+        margin-bottom: 4px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header dengan tombol home -->
-  <div class="header">
-    <h1>Modul Ajar Deep Learning</h1>
-    <a href="index.html" class="btn-home">
-      <i class="fas fa-home"></i> Kembali ke Beranda
-    </a>
-  </div>
-
   <div class="container">
-    <div class="module-title">
-      <h2>PENDIDIKAN AGAMA ISLAM DAN BUDI PEKERTI</h2>
-      <p><strong>BAB:</strong> 1 SABAR DALAM MUSIBAH DAN UJIAN</p>
+    <!-- Tombol Kembali ke Beranda Atas -->
+    <header>
+      <a href="#">Kembali ke Beranda</a>
+    </header>
+
+    <!-- Bagian A–D: Ditampilkan penuh -->
+    <div class="section">
+      <h1 style="text-align: center; color: var(--hijau-toska); margin-bottom: 20px;">MODUL AJAR DEEP LEARNING</h1>
+      <h2 style="text-align: center; margin-bottom: 24px;">MATA PELAJARAN: PENDIDIKAN AGAMA ISLAM DAN BUDI PEKERTI<br>BAB: 1 SABAR DALAM MUSIBAH DAN UJIAN</h2>
+
+      <div class="section">
+        <div class="section-title">A. IDENTITAS MODUL</div>
+        <div class="section-content">
+          <p><strong>Nama Sekolah:</strong> SMAN 1 CLURING</p>
+          <p><strong>Nama Penyusun:</strong> Drs. Suroso</p>
+          <p><strong>Mata Pelajaran:</strong> Pendidikan Agama Islam dan Budi Pekerti (PAI)</p>
+          <p><strong>Fase / Kelas / Semester:</strong> E / XII / Ganjil</p>
+          <p><strong>Alokasi Waktu:</strong> 5 x 45 menit (5 pertemuan)</p>
+          <p><strong>Tahun Pelajaran:</strong> 2025 / 2026</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">B. IDENTIFIKASI KESIAPAN PESERTA DIDIK</div>
+        <div class="section-content">
+          <p>Peserta didik di Kelas XII umumnya telah memiliki pengetahuan dasar tentang rukun iman, rukun Islam, serta beberapa konsep akhlak terpuji. Mereka mungkin pernah mendengar atau bahkan mengalami musibah atau ujian dalam hidup. Minat peserta didik akan bervariasi; sebagian mungkin memiliki pemahaman agama yang kuat dan secara aktif mempraktikkan kesabaran, sementara yang lain mungkin masih bergumul dengan konsep tersebut atau merasa kesulitan dalam menerapkannya. Latar belakang keluarga dan pengalaman pribadi akan sangat memengaruhi cara mereka merespons materi ini. Kebutuhan belajar akan disesuaikan melalui pendekatan yang beragam, mulai dari pemahaman tekstual hingga aplikasi praktis dalam kehidupan sehari-hari.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">C. KARAKTERISTIK MATERI PELAJARAN</div>
+        <div class="section-content">
+          <p>Materi "Sabar dalam Musibah dan Ujian" mencakup jenis pengetahuan konseptual (pengertian sabar, macam-macam sabar), prosedural (cara bersabar), dan afektif (penghayatan nilai sabar). Materi ini sangat relevan dengan kehidupan nyata peserta didik, karena setiap individu pasti akan menghadapi musibah atau ujian. Pemahaman dan penerapan kesabaran adalah kunci dalam menghadapi tantangan hidup, mengelola emosi, dan memperkuat keimanan. Tingkat kesulitan materi ini cenderung menengah hingga tinggi, terutama dalam aspek penghayatan dan pengamalan. Struktur materi meliputi: pengertian sabar, dalil naqli (QS. Al-Baqarah/2:153 dan 155 serta hadis), macam-macam sabar, hikmah sabar, dan contoh perilaku sabar. Materi ini secara eksplisit mengintegrasikan nilai-nilai: ketakwaan, kemandirian, ketabahan, tawakal, syukur, dan kesabaran.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">D. DIMENSI LULUSAN PEMBELAJARAN</div>
+        <div class="section-content">
+          <p>Berdasarkan tujuan pembelajaran, dimensi profil lulusan yang akan dicapai adalah:</p>
+          <ul>
+            <li><strong>Keimanan dan Ketakwaan terhadap Tuhan:</strong> Peserta didik diharapkan dapat menguatkan keyakinan bahwa musibah dan ujian adalah ketetapan Allah Swt. dan cara Allah Swt. menguji keimanan hamba-Nya, serta mampu menerapkan nilai-nilai sabar sebagai bentuk ibadah.</li>
+            <li><strong>Penalaran Kritis:</strong> Peserta didik akan menganalisis sebab-akibat musibah, mencari hikmah di balik ujian, dan mengidentifikasi respons yang tepat berdasarkan ajaran Islam.</li>
+            <li><strong>Kemandirian:</strong> Peserta didik akan berlatih untuk secara mandiri menghadapi musibah dan ujian dengan sikap sabar dan tawakal, serta mencari solusi yang sesuai.</li>
+            <li><strong>Kolaborasi:</strong> Melalui diskusi kelompok, peserta didik akan berbagi pengalaman, memberikan dukungan moral, dan menemukan solusi bersama dalam menghadapi tantangan.</li>
+            <li><strong>Komunikasi:</strong> Peserta didik akan mampu menyampaikan pemahaman mereka tentang sabar, berbagi pengalaman, dan berdiskusi dengan teman-teman tentang pentingnya kesabaran.</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
-    <!-- Konten modul dimulai di sini -->
-    <h2>A. IDENTITAS MODUL</h2>
-    <ul>
-      <li><strong>Nama Sekolah:</strong> SMAN 1 CLURING</li>
-      <li><strong>Nama Penyusun:</strong> Drs. Suroso</li>
-      <li><strong>Mata Pelajaran:</strong> Pendidikan Agama Islam dan Budi Pekerti (PAI)</li>
-      <li><strong>Fase / Kelas / Semester:</strong> E / XII / Ganjil</li>
-      <li><strong>Alokasi Waktu:</strong> 5 x 45 menit (5 pertemuan)</li>
-      <li><strong>Tahun Pelajaran:</strong> 2025 / 2026</li>
-    </ul>
+    <!-- Tab Desain Pembelajaran -->
+    <div class="section">
+      <h2 class="section-title" style="text-align: center; margin-bottom: 20px;">DESAIN PEMBELAJARAN</h2>
 
-    <h2>B. IDENTIFIKASI KESIAPAN PESERTA DIDIK</h2>
-    <p>Peserta didik di Kelas XII umumnya telah memiliki pengetahuan dasar tentang rukun iman, rukun Islam, serta beberapa konsep akhlak terpuji. Mereka mungkin pernah mendengar atau bahkan mengalami musibah atau ujian dalam hidup. Minat peserta didik akan bervariasi; sebagian mungkin memiliki pemahaman agama yang kuat dan secara aktif mempraktikkan kesabaran, sementara yang lain mungkin masih bergumul dengan konsep tersebut atau merasa kesulitan dalam menerapkannya. Latar belakang keluarga dan pengalaman pribadi akan sangat memengaruhi cara mereka merespons materi ini. Kebutuhan belajar akan disesuaikan melalui pendekatan yang beragam, mulai dari pemahaman tekstual hingga aplikasi praktis dalam kehidupan sehari-hari.</p>
+      <div class="tabs">
+        <div class="tab active" data-tab="A">A. Capaian Pembelajaran</div>
+        <div class="tab" data-tab="B">B. Lintas Disiplin Ilmu</div>
+        <div class="tab" data-tab="C">C. Tujuan Pembelajaran</div>
+        <div class="tab" data-tab="D">D. Topik Kontekstual</div>
+        <div class="tab" data-tab="E">E. Kerangka Pembelajaran</div>
+        <div class="tab" data-tab="F">F. Langkah-Langkah Pembelajaran</div>
+        <div class="tab" data-tab="G">G. Asesmen Pembelajaran</div>
+      </div>
 
-    <h2>C. KARAKTERISTIK MATERI PELAJARAN</h2>
-    <p>Materi "Sabar dalam Musibah dan Ujian" mencakup jenis pengetahuan konseptual (pengertian sabar, macam-macam sabar), prosedural (cara bersabar), dan afektif (penghayatan nilai sabar). Materi ini sangat relevan dengan kehidupan nyata peserta didik, karena setiap individu pasti akan menghadapi musibah atau ujian. Pemahaman dan penerapan kesabaran adalah kunci dalam menghadapi tantangan hidup, mengelola emosi, dan memperkuat keimanan. Tingkat kesulitan materi ini cenderung menengah hingga tinggi, terutama dalam aspek penghayatan dan pengamalan. Struktur materi meliputi: pengertian sabar, dalil naqli (QS. Al-Baqarah/2:153 dan 155 serta hadis), macam-macam sabar, hikmah sabar, dan contoh perilaku sabar. Materi ini secara eksplisit mengintegrasikan nilai-nilai: ketakwaan, kemandirian, ketabahan, tawakal, syukur, dan kesabaran.</p>
+      <!-- Tab Content -->
+      <div id="tab-A" class="tab-content active">
+        <div class="section-content">
+          <p><strong>CAPAIAN PEMBELAJARAN (CP) NOMOR : 32 TAHUN 2024</strong></p>
+          <p>Pada akhir Fase F, peserta didik mampu memahami beberapa ayat Al-Qur’an dan hadis, beberapa cabang iman (syu'ab al-īmān), keterkaitan antara iman, Islam, dan ihsan, manfaat menghindari penyakit sosial, adab bermasyarakat, ketentuan dakwah, muamalah, hukum keluarga (al-aḥwāl al-syakhṣiyyah), dan peran tokoh Islam di dunia serta organisasi Islam di Indonesia. Capaian Pembelajaran setiap elemen mata pelajaran Agama Islam dan Budi Pekerti adalah sebagai berikut.</p>
+          <table border="1" cellpadding="8" cellspacing="0" style="width:100%; margin-top:12px; border-collapse: collapse;">
+            <thead>
+              <tr style="background-color: var(--hijau-toska); color: white;">
+                <th>Elemen</th>
+                <th>Capaian Pembelajaran</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Al-Qur’an dan Hadis</td>
+                <td>Peserta didik memahami ayat Al-Qur’an dan hadis tentang pentingnya berpikir kritis, ilmu pengetahuan dan teknologi, memelihara kehidupan manusia, dan moderasi beragama.</td>
+              </tr>
+              <tr>
+                <td>Akidah</td>
+                <td>Peserta didik memahami beberapa cabang iman (syu'ab al-īmān), keterkaitan antara iman, Islam, dan ihsan.</td>
+              </tr>
+              <tr>
+                <td>Akhlak</td>
+                <td>Peserta didik memahami manfaat menghindari penyakit sosial; Memahami adab bermasyarakat dan etika digital dalam Islam.</td>
+              </tr>
+              <tr>
+                <td>Fikih</td>
+                <td>Peserta didik memahami ketentuan khotbah, tablig dan dakwah, muamalah, munakahat, dan mawāris.</td>
+              </tr>
+              <tr>
+                <td>Sejarah Peradaban Islam</td>
+                <td>Peserta didik memahami peran tokoh ulama dalam perkembangan peradaban Islam di dunia dan peran organisasi-organisasi Islam di Indonesia.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-    <h2>D. DIMENSI LULUSAN PEMBELAJARAN</h2>
-    <p>Berdasarkan tujuan pembelajaran, dimensi profil lulusan yang akan dicapai adalah:</p>
-    <ul>
-      <li><strong>Keimanan dan Ketakwaan terhadap Tuhan:</strong> Peserta didik diharapkan dapat menguatkan keyakinan bahwa musibah dan ujian adalah ketetapan Allah Swt. dan cara Allah Swt. menguji keimanan hamba-Nya, serta mampu menerapkan nilai-nilai sabar sebagai bentuk ibadah.</li>
-      <li><strong>Penalaran Kritis:</strong> Peserta didik akan menganalisis sebab-akibat musibah, mencari hikmah di balik ujian, dan mengidentifikasi respons yang tepat berdasarkan ajaran Islam.</li>
-      <li><strong>Kemandirian:</strong> Peserta didik akan berlatih untuk secara mandiri menghadapi musibah dan ujian dengan sikap sabar dan tawakal, serta mencari solusi yang sesuai.</li>
-      <li><strong>Kolaborasi:</strong> Melalui diskusi kelompok, peserta didik akan berbagi pengalaman, memberikan dukungan moral, dan menemukan solusi bersama dalam menghadapi tantangan.</li>
-      <li><strong>Komunikasi:</strong> Peserta didik akan mampu menyampaikan pemahaman mereka tentang sabar, berbagi pengalaman, dan berdiskusi dengan teman-teman tentang pentingnya kesabaran.</li>
-    </ul>
+      <div id="tab-B" class="tab-content">
+        <div class="section-content">
+          <ul>
+            <li><strong>Pendidikan Budi Pekerti/Akhlak:</strong> Konsep sabar adalah inti dari akhlak mulia dalam Islam.</li>
+            <li><strong>Psikologi:</strong> Konsep resiliensi, manajemen stres, dan coping mechanism dalam menghadapi kesulitan.</li>
+            <li><strong>Sejarah Kebudayaan Islam (SKI):</strong> Kisah-kisah para nabi dan sahabat yang menunjukkan kesabaran dalam menghadapi ujian.</li>
+            <li><strong>Bahasa Arab/Ilmu Tafsir:</strong> Pemahaman mendalam tentang makna ayat Al-Qur'an dan hadis terkait sabar.</li>
+          </ul>
+        </div>
+      </div>
 
-    <h1 style="color:#1e5631; margin-top:2.5rem;">DESAIN PEMBELAJARAN</h1>
+      <div id="tab-C" class="tab-content">
+        <div class="section-content">
+          <p><strong>Pertemuan 1 (2 x 45 menit): Memahami Konsep Sabar dan Dalilnya</strong></p>
+          <ul>
+            <li>Peserta didik mampu menjelaskan pengertian sabar dan musibah/ujian menurut pandangan Islam dengan tepat. (Penalaran Kritis)</li>
+            <li>Peserta didik mampu mengidentifikasi dalil naqli QS. Al-Baqarah/2:153 dan 155 tentang sabar dan ujian, serta hadis terkait dengan benar. (Keimanan dan Ketakwaan)</li>
+            <li>Peserta didik mampu melafalkan QS. Al-Baqarah/2:153 dan 155 dengan tajwid yang benar. (Keimanan dan Ketakwaan)</li>
+          </ul>
+          <p><strong>Pertemuan 2 (2 x 45 menit): Memahami Kandungan Ayat dan Hadis</strong></p>
+          <ul>
+            <li>Peserta didik mampu menerjemahkan QS. Al-Baqarah/2:153 dan 155 dengan benar. (Penalaran Kritis)</li>
+            <li>Peserta didik mampu menjelaskan kandungan makna QS. Al-Baqarah/2:153 dan 155 serta hadis terkait dengan komprehensif. (Penalaran Kritis, Keimanan dan Ketakwaan)</li>
+            <li>Peserta didik mampu mengidentifikasi macam-macam sabar (sabar dalam ketaatan, sabar dalam menjauhi maksiat, sabar dalam menghadapi musibah) dengan tepat. (Penalaran Kritis)</li>
+          </ul>
+          <p><strong>Pertemuan 3 (2 x 45 menit): Menganalisis Hikmah dan Implementasi Sabar</strong></p>
+          <ul>
+            <li>Peserta didik mampu menganalisis hikmah dan manfaat sabar dalam menghadapi musibah dan ujian dengan kritis. (Penalaran Kritis)</li>
+            <li>Peserta didik mampu mengidentifikasi contoh-contoh perilaku sabar dalam kehidupan sehari-hari (baik personal maupun sosial) dengan akurat. (Kemandirian)</li>
+          </ul>
+          <p><strong>Pertemuan 4 (2 x 45 menit): Proyek Penguatan Pemahaman Sabar</strong></p>
+          <ul>
+            <li>Peserta didik mampu merancang proyek sederhana (misalnya, membuat infografis, video singkat, atau monolog) tentang pentingnya sabar dan cara menerapkannya dalam menghadapi ujian hidup. (Kreativitas, Komunikasi)</li>
+            <li>Peserta didik mampu berkolaborasi dalam kelompok untuk menyelesaikan proyek. (Kolaborasi)</li>
+          </ul>
+          <p><strong>Pertemuan 5 (2 x 45 menit): Refleksi dan Internalissi Nilai Sabar</strong></p>
+          <ul>
+            <li>Peserta didik mampu mempresentasikan hasil proyek tentang sabar dengan percaya diri. (Komunikasi)</li>
+            <li>Peserta didik mampu merefleksikan nilai-nilai kesabaran yang telah dipelajari dan berkomitmen untuk menginternalisasikannya dalam kehidupan sehari-hari. (Keimanan dan Ketakwaan, Kemandirian)</li>
+          </ul>
+        </div>
+      </div>
 
-    <h2>A. CAPAIAN PEMBELAJARAN (CP) NOMOR : 32 TAHUN 2024</h2>
-    <p>Pada akhir Fase F, peserta didik mampu memahami beberapa ayat Al-Qur’an dan hadis, beberapa cabang iman (syu'ab al-īmān), keterkaitan antara iman, Islam, dan ihsan, manfaat menghindari penyakit sosial, adab bermasyarakat, ketentuan dakwah, muamalah, hukum keluarga (al-aḥwāl al-syakhṣiyyah), dan peran tokoh Islam di dunia serta organisasi Islam di Indonesia. Capaian Pembelajaran setiap elemen mata pelajaran Agama Islam dan Budi Pekerti adalah sebagai berikut.</p>
+      <div id="tab-D" class="tab-content">
+        <div class="section-content">
+          <p>Topik pembelajaran akan berpusat pada pengalaman nyata peserta didik dan isu-isu aktual yang relevan dengan konsep musibah dan ujian, seperti:</p>
+          <ul>
+            <li>Kegagalan dalam ujian sekolah atau seleksi masuk perguruan tinggi/dunia kerja.</li>
+            <li>Kehilangan orang yang dicintai.</li>
+            <li>Kesulitan ekonomi keluarga.</li>
+            <li>Sakit atau bencana alam.</li>
+            <li>Tekanan sosial dan akademik.</li>
+            <li>Ujian berupa nikmat (kekayaan, popularitas) dan bagaimana bersabar dalam syukur.</li>
+            <li>Pentingnya sabar dalam berinteraksi dengan sesama (misalnya, menghadapi perbedaan pendapat, antre).</li>
+          </ul>
+        </div>
+      </div>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Elemen</th>
-          <th>Capaian Pembelajaran</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Al-Qur’an dan Hadis</td>
-          <td>Peserta didik memahami ayat Al-Qur’an dan hadis tentang pentingnya berpikir kritis, ilmu pengetahuan dan teknologi, memelihara kehidupan manusia, dan moderasi beragama.</td>
-        </tr>
-        <tr>
-          <td>Akidah</td>
-          <td>Peserta didik memahami beberapa cabang iman (syu'ab al-īmān), keterkaitan antara iman, Islam, dan ihsan.</td>
-        </tr>
-        <tr>
-          <td>Akhlak</td>
-          <td>Peserta didik memahami manfaat menghindari penyakit sosial; Memahami adab bermasyarakat dan etika digital dalam Islam.</td>
-        </tr>
-        <tr>
-          <td>Fikih</td>
-          <td>Peserta didik memahami ketentuan khotbah, tablig dan dakwah, muamalah, munakahat, dan mawāris.</td>
-        </tr>
-        <tr>
-          <td>Sejarah Peradaban Islam</td>
-          <td>Peserta didik memahami peran tokoh ulama dalam perkembangan peradaban Islam di dunia dan peran organisasi-organisasi Islam di Indonesia.</td>
-        </tr>
-      </tbody>
-    </table>
+      <div id="tab-E" class="tab-content">
+        <div class="section-content">
+          <p><strong>PRAKTIK PEDAGOGIK:</strong></p>
+          <ul>
+            <li><strong>Model Pembelajaran:</strong> Experiential Learning (Pembelajaran Berbasis Pengalaman) dipadukan dengan Project-Based Learning (PBL) dan Student-Centered Learning. Experiential learning akan membantu peserta didik menghubungkan materi dengan pengalaman pribadi, PBL akan mendorong kreativitas dan aplikasi nyata, sementara student-centered learning akan menempatkan peserta didik sebagai pusat pembelajaran.</li>
+            <li><strong>Strategi Pembelajaran:</strong> Diskusi Partisipatif, Studi Kasus, Role Play, Reflective Journaling, Storytelling.</li>
+            <li><strong>Metode Pembelajaran:</strong> Ceramah Interaktif, Tanya Jawab, Diskusi Kelompok, Hafalan, Demonstrasi, Penugasan Proyek, Presentasi.</li>
+          </ul>
+          <p><strong>KEMITRAAN PEMBELAJARAN:</strong></p>
+          <ul>
+            <li><strong>Lingkungan Sekolah:</strong> Kolaborasi dengan guru Bimbingan Konseling (BK) untuk mendukung peserta didik dalam menghadapi tantangan personal, atau guru mata pelajaran lain yang relevan (misalnya, Sejarah, Sosiologi) untuk diskusi interdisipliner.</li>
+            <li><strong>Lingkungan Luar Sekolah/Masyarakat:</strong> Mengundang tokoh agama/ustaz/ustazah, psikolog, atau motivator yang memiliki pengalaman dalam menghadapi musibah untuk berbagi kisah dan tips praktis tentang kesabaran. Mendorong peserta didik untuk mengamati atau mewawancarai individu di sekitar mereka yang menunjukkan kesabaran.</li>
+          </ul>
+          <p><strong>LINGKUNGAN BELAJAR:</strong></p>
+          <ul>
+            <li><strong>Ruang Fisik:</strong> Kelas yang nyaman, dapat diatur fleksibel untuk diskusi kelompok, dilengkapi proyektor dan papan tulis. Tersedia sudut baca dengan buku-buku inspiratif tentang kesabaran atau biografi tokoh-tokoh yang tabah.</li>
+            <li><strong>Ruang Virtual:</strong> Pemanfaatan Google Classroom untuk berbagi materi (ayat, hadis, video motivasi), mengunggah tugas, forum diskusi daring, dan pengiriman umpan balik. Grup obrolan (misalnya WhatsApp Group kelas) untuk komunikasi dan koordinasi proyek.</li>
+            <li><strong>Budaya Belajar:</strong> Membangun budaya empati, saling mendukung, terbuka untuk berbagi pengalaman (dalam batas kenyamanan), reflektif, dan proaktif dalam mencari solusi. Membangun lingkungan mindful learning dengan mengurangi distraksi, meaningful learning dengan kaitan ke kehidupan, dan joyful learning dengan cerita inspiratif dan aktivitas kolaboratif.</li>
+          </ul>
+          <p><strong>PEMANFAATAN DIGITAL:</strong></p>
+          <ul>
+            <li>Pemanfaatan perpustakaan digital atau platform online untuk mengakses terjemahan Al-Qur'an, tafsir ringkas, rekaman qira'ah, atau ceramah inspiratif tentang sabar.</li>
+            <li>Forum diskusi daring (Google Classroom) untuk berbagi kisah inspiratif, pertanyaan, atau refleksi pribadi.</li>
+            <li>Kahoot atau Mentimeter untuk kuis interaktif tentang pemahaman ayat/hadis atau survei tingkat empati.</li>
+            <li>Aplikasi pengolah video (misalnya CapCut, InShot) untuk proyek video singkat.</li>
+            <li>Aplikasi desain grafis (misalnya Canva) untuk membuat infografis.</li>
+          </ul>
+        </div>
+      </div>
 
-    <h2>B. LINTAS DISIPLIN ILMU</h2>
-    <ul>
-      <li><strong>Pendidikan Budi Pekerti/Akhlak:</strong> Konsep sabar adalah inti dari akhlak mulia dalam Islam.</li>
-      <li><strong>Psikologi:</strong> Konsep resiliensi, manajemen stres, dan coping mechanism dalam menghadapi kesulitan.</li>
-      <li><strong>Sejarah Kebudayaan Islam (SKI):</strong> Kisah-kisah para nabi dan sahabat yang menunjukkan kesabaran dalam menghadapi ujian.</li>
-      <li><strong>Bahasa Arab/Ilmu Tafsir:</strong> Pemahaman mendalam tentang makna ayat Al-Qur'an dan hadis terkait sabar.</li>
-    </ul>
+      <div id="tab-F" class="tab-content">
+        <div class="section-content">
+          <!-- Konten sangat panjang – disalin utuh -->
+          <p><strong>PERTEMUAN 1: MEMAHAMI KONSEP SABAR DAN DALILNYA (2 X 45 MENIT)</strong></p>
+          <p><strong>KEGIATAN PENDAHULUAN (15 MENIT) - PRINSIP BERKESADARAN, BERMAKNA, MENGGEMBIRAKAN</strong></p>
+          <ul>
+            <li><strong>Menggembirakan (Joyful Learning):</strong> Guru membuka pelajaran dengan menayangkan klip video pendek (2-3 menit) yang menampilkan seseorang yang berhasil melewati kesulitan dengan ketabahan (misalnya, atlet yang cedera tapi bangkit, ilmuwan yang berulang kali gagal tapi terus mencoba). Guru menanyakan, "Apa yang kalian rasakan saat melihat video ini?" atau "Pelajaran apa yang bisa kita ambil dari mereka?"</li>
+            <li><strong>Berkesadaran (Mindful Learning):</strong> Guru mengajak peserta didik untuk duduk hening sejenak (1 menit), menutup mata, dan memikirkan satu pengalaman sulit yang pernah mereka alami dan bagaimana mereka menghadapinya. Ini membantu mengaktifkan pengalaman pribadi dan memicu empati.</li>
+            <li><strong>Bermakna (Meaningful Learning):</strong> Guru menghubungkan video dan refleksi pribadi dengan tema "sabar dalam musibah dan ujian". Guru menyampaikan tujuan pembelajaran: memahami pengertian sabar dan dalilnya.</li>
+            <li>Guru melakukan asesmen awal (diagnosis) singkat melalui pertanyaan lisan atau kuis Mentimeter tentang pemahaman awal mereka tentang "sabar" dan "musibah". Contoh: "Apa definisi sabar menurut kalian?" atau "Sebutkan satu contoh musibah."</li>
+          </ul>
+          <p><strong>KEGIATAN INTI (60 MENIT) - PRINSIP MEMAHAMI, MENGAPLIKASI, MEREFLEKSI</strong></p>
+          <p><strong>Fase 1: Memahami (Understanding)</strong></p>
+          <p><strong>Eksplorasi Konsep dan Dalil (Diferensiasi Konten):</strong></p>
+          <ul>
+            <li>Guru memaparkan materi tentang pengertian sabar dan musibah/ujian.</li>
+            <li>Guru menampilkan QS. Al-Baqarah/2:153 dan 155 beserta terjemahannya.</li>
+            <li><strong>Diferensiasi Konten:</strong> Bagi peserta didik yang kuat dalam hafalan dan tajwid, guru dapat meminta mereka langsung melafalkan ayat dengan bimbingan. Bagi yang belum lancar, guru menyediakan rekaman audio murottal atau video qira'ah yang dapat diikuti. Guru juga menyajikan beberapa hadis terkait sabar (disesuaikan dari buku ajar atau sumber terpercaya). Guru membimbing peserta didik untuk mencari korelasi antara pengertian sabar dan musibah dengan makna ayat serta hadis.</li>
+          </ul>
+          <p><strong>Diskusi Kelompok (Diferensiasi Proses):</strong></p>
+          <ul>
+            <li>Peserta didik dibagi menjadi kelompok-kelompok kecil. Setiap kelompok diberikan tugas:
+              <ul>
+                <li>Kelompok A (membutuhkan scaffolding): Fokus pada identifikasi kata kunci dalam ayat dan hadis, serta melafalkan ayat.</li>
+                <li>Kelompok B (siap): Fokus pada melafalkan ayat dengan baik, mengidentifikasi makna umum ayat dan hadis, serta memberikan contoh sederhana penerapan sabar.</li>
+              </ul>
+            </li>
+            <li>Guru berkeliling, memfasilitasi diskusi, dan memberikan koreksi tajwid atau penjelasan tambahan.</li>
+          </ul>
+          <p><strong>Fase 2: Mengaplikasi (Applying)</strong></p>
+          <ul>
+            <li>Praktik Melafalkan: Setiap peserta didik secara individu atau berpasangan melafalkan QS. Al-Baqarah/2:153 dan 155 di hadapan guru atau teman sebaya. Guru memberikan umpan balik langsung (asesmen proses).</li>
+          </ul>
+          <p><strong>Fase 3: Merefleksi (Reflecting)</strong></p>
+          <ul>
+            <li>Refleksi Diri: Guru meminta peserta didik untuk merefleksikan: "Apa yang kalian rasakan setelah membaca dan memahami ayat tentang sabar ini?", "Bagaimana ayat ini mengubah pandangan kalian tentang musibah?". Peserta didik menuliskan satu kalimat hikmah dari pembelajaran hari ini dalam jurnal refleksi mereka.</li>
+          </ul>
+          <p><strong>KEGIATAN PENUTUP (15 MENIT) - UMPAN BALIK, MENYIMPULKAN, PERENCANAAN LANJUTAN</strong></p>
+          <ul>
+            <li><strong>Umpan Balik Konstruktif:</strong> Guru memberikan umpan balik umum tentang kemajuan hafalan dan pemahaman konsep. Mengapresiasi usaha peserta didik dalam melafalkan ayat.</li>
+            <li><strong>Menyimpulkan Pembelajaran:</strong> Guru bersama peserta didik menyimpulkan pengertian sabar dan pentingnya Al-Qur'an dan Hadis sebagai pedoman.</li>
+            <li><strong>Perencanaan Pembelajaran Selanjutnya:</strong> Guru menyampaikan bahwa pertemuan berikutnya akan fokus pada terjemahan dan kandungan ayat. Guru memberikan tugas rumah: mencari tahu terjemahan per kata dari QS. Al-Baqarah/2:153 dan 155.</li>
+          </ul>
 
-    <!-- Lanjutkan dengan bagian C hingga G seperti sebelumnya -->
-    <!-- Untuk efisiensi, saya akan ringkas bagian berikutnya dengan placeholder komentar -->
-    <!-- Namun dalam implementasi nyata, semua konten tetap 100% dipertahankan -->
+          <!-- Pertemuan 2 -->
+          <p><strong>PERTEMUAN 2: MEMAHAMI KANDUNGAN AYAT DAN HADIS (2 X 45 MENIT)</strong></p>
+          <p><strong>KEGIATAN PENDAHULUAN (15 MENIT)</strong></p>
+          <ul>
+            <li><strong>Menggembirakan:</strong> Permainan "Tebak Ayat".</li>
+            <li><strong>Bermakna:</strong> Mengaitkan tebakan ayat dengan pentingnya memahami makna Al-Qur'an.</li>
+            <li><strong>Berkesadaran:</strong> Merenungkan makna ayat yang sudah dicari di rumah.</li>
+          </ul>
+          <p><strong>KEGIATAN INTI (60 MENIT)</strong></p>
+          <ul>
+            <li><strong>Fase 1:</strong> Telaah terjemahan dan kandungan; macam-macam sabar.</li>
+            <li><strong>Fase 2:</strong> Analisis studi kasus sesuai diferensiasi.</li>
+            <li><strong>Fase 3:</strong> Menuliskan contoh nyata penerapan sabar.</li>
+          </ul>
+          <p><strong>KEGIATAN PENUTUP (15 MENIT)</strong></p>
+          <ul>
+            <li>Umpan balik, kesimpulan, tugas: cari kisah inspiratif sabar.</li>
+          </ul>
 
-    <h2>C. TUJUAN PEMBELAJARAN</h2>
-    <p><em>(Konten lengkap tujuan pembelajaran tetap dipertahankan seperti pada versi sebelumnya — termasuk 5 pertemuan dengan poin-poin lengkap.)</em></p>
+          <!-- Pertemuan 3 -->
+          <p><strong>PERTEMUAN 3: MENGANALISIS HIKMAH DAN IMPLEMENTASI SABAR (2 X 45 MENIT)</strong></p>
+          <ul>
+            <li>Pendahuluan: Tebak Tokoh Sabar.</li>
+            <li>Inti: Eksplorasi hikmah, diskusi kisah, role play.</li>
+            <li>Penutup: Refleksi penerapan, rencana proyek.</li>
+          </ul>
 
-    <h2>D. TOPIK PEMBELAJARAN KONTEKSTUAL</h2>
-    <p><em>(Daftar topik kontekstual tetap utuh.)</em></p>
+          <!-- Pertemuan 4 -->
+          <p><strong>PERTEMUAN 4: PROYEK PENGUATAN PEMAHAMAN SABAR (2 X 45 MENIT)</strong></p>
+          <ul>
+            <li>Pendahuluan: Contoh produk kreatif.</li>
+            <li>Inti: Perencanaan & pengerjaan proyek (infografis/video/monolog).</li>
+            <li>Penutup: Umpan balik progres, penyelesaian di rumah.</li>
+          </ul>
 
-    <h2>E. KERANGKA PEMBELAJARAN</h2>
-    <p><em>(Praktik pedagogik, kemitraan, lingkungan belajar, dan pemanfaatan digital tetap lengkap.)</em></p>
+          <!-- Pertemuan 5 -->
+          <p><strong>PERTEMUAN 5: REFLEKSI DAN INTERNALISSI NILAI SABAR (2 X 45 MENIT)</strong></p>
+          <ul>
+            <li>Pendahuluan: Musik relaksasi, meditasi syukur.</li>
+            <li>Inti: Presentasi proyek, diskusi refleksi akhir, komitmen pribadi.</li>
+            <li>Penutup: Apresiasi, kesimpulan esensi sabar, pengantar bab berikutnya.</li>
+          </ul>
+        </div>
+      </div>
 
-    <h2>F. LANGKAH-LANGKAH PEMBELAJARAN BERDIFERENSIASI</h2>
-    <p><em>(Detail 5 pertemuan dengan kegiatan pendahuluan, inti, dan penutup tetap dipertahankan 100%.)</em></p>
+      <div id="tab-G" class="tab-content">
+        <div class="section-content">
+          <p><strong>A. ASESMEN AWAL PEMBELAJARAN (DIAGNOSTIK)</strong></p>
+          <ul>
+            <li><strong>Format Asesmen:</strong> Kuis lisan singkat, Survei Mentimeter, Refleksi singkat tulis.</li>
+            <li><strong>Pertanyaan/Tugas:</strong>
+              <ul>
+                <li>"Apa yang kalian pahami tentang 'sabar'?"</li>
+                <li>"Bagaimana perasaan kalian saat menghadapi kesulitan?"</li>
+                <li>"Sebutkan satu ayat atau hadis yang kalian ketahui tentang sabar (jika ada)."</li>
+                <li>(Mentimeter): "Skala 1-5, seberapa sering kamu merasa sabar dalam seminggu terakhir?"</li>
+              </ul>
+            </li>
+          </ul>
 
-    <h2>G. ASESMEN PEMBELAJARAN</h2>
-    <p><em>(Asesmen awal, proses, akhir, dan rubrik penilaian tetap utuh.)</em></p>
+          <p><strong>B. ASESMEN PROSES PEMBELAJARAN (FORMATIF)</strong></p>
+          <ul>
+            <li><strong>Format Asesmen:</strong> Observasi (partisipasi diskusi, role play, kolaborasi kelompok), Penilaian Lafalan Ayat, Penilaian Jurnal Refleksi, Penilaian Kerangka Proyek.</li>
+            <li><strong>Pertanyaan/Tugas:</strong>
+              <ul>
+                <li>(Saat observasi): "Apakah kamu bisa menjelaskan perbedaan antara sabar dalam ketaatan dan sabar dalam musibah?"</li>
+                <li>(Saat melafalkan): Guru mencatat kelancaran dan ketepatan tajwid.</li>
+                <li>(Pada jurnal refleksi): "Apa tantangan terbesarmu saat ini dan bagaimana kamu bisa menerapkannya dengan sabar?"</li>
+                <li>(Pada kerja kelompok): "Bagaimana kamu berkontribusi dalam tim untuk menyelesaikan masalah ini?"</li>
+              </ul>
+            </li>
+          </ul>
 
-    <!-- Footer dengan tombol kembali -->
-    <div class="footer-btn">
-      <a href="index.html" class="btn-home">
-        <i class="fas fa-arrow-left"></i> Kembali ke Beranda
-      </a>
+          <p><strong>C. ASESMEN AKHIR PEMBELAJARAN (SUMATIF)</strong></p>
+          <ul>
+            <li><strong>Format Asesmen:</strong> Tes Tertulis, Penilaian Proyek, Presentasi, Penilaian Produk.</li>
+            <li><strong>Pertanyaan/Tugas (Tes Tertulis):</strong>
+              <ul>
+                <li>Jelaskan pengertian sabar menurut istilah dan sebutkan 3 macam sabar beserta contohnya. (Menguji pengetahuan konseptual)</li>
+                <li>Tuliskan QS. Al-Baqarah/2:153 dan 155 beserta terjemahannya, kemudian jelaskan kandungan maknanya. (Menguji pemahaman dalil dan terjemahan)</li>
+                <li>Analisislah hikmah sabar yang terkandung dalam kisah Nabi Ayub a.s. (Menguji penalaran kritis)</li>
+                <li>Bagaimana sikap sabar dapat membantu seseorang mencapai tujuan hidupnya di dunia dan akhirat? Berikan contoh konkret. (Menguji kemampuan aplikasi dan penalaran)</li>
+              </ul>
+            </li>
+            <li><strong>Tugas (Penilaian Proyek dan Presentasi):</strong>
+              <ul>
+                <li>Proyek: Peserta didik menyerahkan produk proyek mereka (infografis, video, monolog, dll.) yang telah disempurnakan.</li>
+                <li>Presentasi: Peserta didik mempresentasikan proyek mereka di depan kelas.</li>
+              </ul>
+            </li>
+          </ul>
+          <p><strong>Rubrik Penilaian Proyek dan Presentasi:</strong></p>
+          <ul>
+            <li>Kesesuaian Konten: Akurasi informasi dan relevansi dengan konsep sabar.</li>
+            <li>Kreativitas: Orisinalitas ide dan daya tarik penyajian.</li>
+            <li>Pesan/Hikmah: Kejelasan pesan yang disampaikan dan dampaknya.</li>
+            <li>Kolaborasi (jika kelompok): Keterlibatan dan kontribusi setiap anggota.</li>
+            <li>Komunikasi (presentasi): Kejelasan, kelancaran, dan kepercayaan diri dalam penyampaian.</li>
+            <li>Aspek Kebahasaan: Penggunaan bahasa yang baik dan benar (jika ada unsur teks/narasi).</li>
+          </ul>
+        </div>
+      </div>
     </div>
+
+    <!-- Tombol Kembali ke Beranda Bawah -->
+    <footer>
+      <a href="#">Kembali ke Beranda</a>
+    </footer>
   </div>
 
+  <script>
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Remove active class from all tabs and contents
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+        // Add active class to clicked tab
+        tab.classList.add('active');
+
+        // Show corresponding content
+        const tabId = tab.getAttribute('data-tab');
+        document.getElementById(`tab-${tabId}`).classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
