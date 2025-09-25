@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi Bab 3 - PAI dan Budi Pekerti</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-bottom: 2rem;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e5631 0%, #4caf50 100%);
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            border-radius: 0 0 15px 15px;
+        }
+        
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .subject {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .chapter {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .divider {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent);
+            margin: 1.5rem 0;
+        }
+        
+        .content-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: #1e5631;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e0f2e5;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h2 i {
+            color: #4caf50;
+        }
+        
+        h3 {
+            color: #2e7d32;
+            margin: 1.5rem 0 1rem 0;
+            padding-left: 10px;
+            border-left: 3px solid #4caf50;
+        }
+        
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.7rem;
+            position: relative;
+        }
+        
+        li:before {
+            content: "•";
+            color: #4caf50;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1.2rem 0;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .verse {
+            font-style: italic;
+            text-align: center;
+            margin: 1.2rem 0;
+            padding: 1rem;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border-left: 4px solid #8bc34a;
+        }
+        
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #1e5631 0%, #4caf50 100%);
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(30, 86, 49, 0.3);
+            margin-top: 1rem;
+        }
+        
+        .btn-back:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(30, 86, 49, 0.4);
+        }
+        
+        .video-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .video-container iframe {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .conclusion {
+            background: linear-gradient(135deg, #1e5631 0%, #4caf50 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            text-align: center;
+        }
+        
+        .conclusion h2 {
+            color: white;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .content-card {
+                padding: 1.5rem;
+            }
+            
+            .chapter {
+                font-size: 1.5rem;
+            }
+            
+            .subject {
+                font-size: 1.1rem;
+            }
+            
+            h2 {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .content-card {
+                padding: 1rem;
+            }
+            
+            .chapter {
+                font-size: 1.3rem;
+            }
+            
+            .subject {
+                font-size: 1rem;
+            }
+            
+            h2 {
+                font-size: 1.2rem;
+            }
+            
+            .btn-back {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="subject">
+                <i class="fas fa-book"></i>
+                📘 MATA PELAJARAN: PENDIDIKAN AGAMA ISLAM DAN BUDI PEKERTI
+            </div>
+            <div class="chapter">BAB 3: MUNAFIK DAN KERAS HATI TAK AKAN PERNAH MAJU</div>
+            <div class="divider"></div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="content-card">
+            <h2><i class="fas fa-bullseye"></i> Tujuan Pembelajaran</h2>
+            
+            <h3>Pertemuan 1 (2 x 45 menit)</h3>
+            <ul>
+                <li>Melalui kegiatan membaca dan mencermati ayat-ayat Al-Qur'an (QS. An-Nisa/4: 142 dan QS. Al-Baqarah/2: 74) dan hadis terkait, peserta didik mampu mengidentifikasi pengertian serta ciri-ciri perilaku munafik dan keras hati dengan benar.</li>
+                <li>Setelah diskusi kelompok, peserta didik mampu menganalisis dampak negatif perilaku munafik dan keras hati bagi diri sendiri dan masyarakat dengan komprehensif.</li>
+            </ul>
+            
+            <h3>Pertemuan 2 (2 x 45 menit)</h3>
+            <ul>
+                <li>Melalui studi kasus dan diskusi, peserta didik mampu menemukan kaitan antara sifat munafik dan keras hati dengan ketertinggalan umat/kemunduran diri dengan logis.</li>
+                <li>Berdasarkan pemahaman tentang dalil dan ciri-ciri, peserta didik mampu merumuskan upaya-upaya preventif dan kuratif untuk menghindari perilaku munafik dan keras hati dalam kehidupan sehari-hari dengan kreatif.</li>
+            </ul>
+            
+            <h3>Pertemuan 3 (2 x 45 menit)</h3>
+            <ul>
+                <li>Dengan merancang proyek sederhana, peserta didik mampu mempresentasikan kampanye mini tentang bahaya sifat munafik dan keras hati serta ajakan untuk berakhlak mulia secara persuasif dan komunikatif.</li>
+                <li>Melalui refleksi diri, peserta didik mampu menginternalisasi nilai-nilai kejujuran, ketulusan, dan kelembutan hati sebagai modal untuk maju dan meraih keberkahan dalam kehidupan.</li>
+            </ul>
+        </div>
+        
+        <div class="content-card">
+            <h2><i class="fas fa-book-open"></i> Materi Pokok</h2>
+            
+            <h3>A. Pengertian Munafik</h3>
+            <ul>
+                <li>Munafik berasal dari kata nifaq yang berarti berpura-pura.</li>
+                <li>Orang munafik adalah mereka yang menampakkan keimanan di luar, tetapi menyembunyikan kekafiran di dalam hati.</li>
+                <li>Sifat munafik berbahaya karena merusak keimanan, persaudaraan, dan kepercayaan.</li>
+            </ul>
+            
+            <div class="highlight">
+                <strong>Hadis Rasulullah saw. menyebutkan tiga ciri munafik:</strong>
+                <ol>
+                    <li>Jika berbicara, ia berdusta.</li>
+                    <li>Jika berjanji, ia ingkar.</li>
+                    <li>Jika diberi amanah, ia berkhianat.</li>
+                </ol>
+            </div>
+            
+            <h3>B. Ayat Al-Qur'an tentang Munafik dan Keras Hati</h3>
+            
+            <div class="verse">
+                <strong>1. Q.S. An-Nisa/4:142</strong><br>
+                "Sesungguhnya orang-orang munafik itu menipu Allah, dan Allah akan membalas tipuan mereka. Dan apabila mereka berdiri untuk salat mereka berdiri dengan malas. Mereka bermaksud riya di hadapan manusia..."
+            </div>
+            <p>👉 Ayat ini menggambarkan ciri orang munafik: malas beribadah, beramal untuk pamer, dan menipu orang beriman.</p>
+            
+            <div class="verse">
+                <strong>2. Q.S. Al-Baqarah/2:74</strong><br>
+                "Kemudian setelah itu hatimu menjadi keras seperti batu, bahkan lebih keras lagi. Padahal di antara batu-batu itu sungguh ada yang mengalir sungai daripadanya..."
+            </div>
+            <p>👉 Ayat ini menunjukkan bahwa keras hati lebih buruk daripada kerasnya batu karena sulit menerima kebenaran dan kebaikan.</p>
+            
+            <h3>C. Pengertian Keras Hati</h3>
+            <ul>
+                <li>Keras hati berarti enggan menerima nasihat, kebenaran, dan petunjuk Allah.</li>
+                <li>Ciri orang yang keras hati: sombong, menolak kritik, dan sulit berubah.</li>
+                <li>Hati yang keras menjauhkan dari rahmat Allah dan menghambat kemajuan.</li>
+            </ul>
+            
+            <h3>D. Dampak Negatif Munafik dan Keras Hati</h3>
+            <ul>
+                <li><strong>Merusak diri sendiri</strong> → Hidup penuh kepura-puraan, tidak tenang.</li>
+                <li><strong>Merusak hubungan sosial</strong> → Hilangnya kepercayaan dan persaudaraan.</li>
+                <li><strong>Menghambat kemajuan</strong> → Tidak mau menerima kritik, menolak nasihat.</li>
+                <li><strong>Mendapat murka Allah</strong> → Balasan pedih di dunia dan akhirat.</li>
+            </ul>
+            
+            <h3>E. Kaitan Munafik dan Keras Hati dengan Kemunduran</h3>
+            <ul>
+                <li>Umat yang terjangkit sifat munafik akan kehilangan kepercayaan sosial.</li>
+                <li>Keras hati menyebabkan stagnasi, karena menolak inovasi dan kebenaran.</li>
+                <li>Kedua sifat ini membuat pribadi dan masyarakat sulit maju, bahkan terpuruk.</li>
+            </ul>
+            
+            <h3>F. Cara Menghindari Munafik dan Keras Hati</h3>
+            <ol>
+                <li>Ikhlas dalam beriman → Niatkan semua perbuatan karena Allah.</li>
+                <li>Selalu jujur dalam perkataan dan perbuatan.</li>
+                <li>Menepati janji serta tidak berkhianat.</li>
+                <li>Mau menerima nasihat dari orang lain.</li>
+                <li>Banyak berzikir dan berdoa agar hati menjadi lembut.</li>
+                <li>Musyawarah dan terbuka dalam menerima pendapat orang lain.</li>
+            </ol>
+            
+            <h3>G. Proyek Mini (Pertemuan 3)</h3>
+            <ul>
+                <li>Peserta didik membuat kampanye sederhana (poster, video singkat, atau presentasi) tentang:
+                    <ul>
+                        <li>Bahaya sifat munafik dan keras hati.</li>
+                        <li>Ajakan untuk hidup dengan jujur, tulus, dan berhati lembut.</li>
+                    </ul>
+                </li>
+                <li>Tujuannya melatih sikap persuasif, kreatif, dan komunikatif.</li>
+            </ul>
+            
+            <h3>H. Nilai-Nilai yang Bisa Dipetik</h3>
+            <ul>
+                <li>Kejujuran membangun kepercayaan.</li>
+                <li>Kerendahan hati membuka jalan menuju kemajuan.</li>
+                <li>Hati yang lembut menjadikan hidup lebih damai dan diridai Allah.</li>
+            </ul>
+        </div>
+        
+        <div class="conclusion">
+            <h2><i class="fas fa-check-circle"></i> Kesimpulan</h2>
+            <p>Munafik dan keras hati adalah sifat tercela yang menghambat kemajuan diri dan masyarakat. Dengan keimanan yang ikhlas, kejujuran, dan hati yang lembut, seorang muslim akan mampu maju, meraih keberkahan, dan mendapatkan keridaan Allah.</p>
+        </div>
+        
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/r_ydn4trxVM?si=TSOW2u2EraLrjZWF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        
+        <div style="text-align: center;">
+            <a href="index.html" class="btn-back">
+                <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+            </a>
+        </div>
+    </div>
+</body>
+</html>
