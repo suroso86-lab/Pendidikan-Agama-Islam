@@ -1,73 +1,309 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PAI Bab 2 - Indahnya Kehidupan Bermakna</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bab 2: Indahnya Kehidupan Bermakna – PAI Kelas XII</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body {font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; background: #f9f9f9;}
-    h1, h2, h3 {color: #2c3e50;}
-    .pertemuan {background: #fff; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);}
-    iframe {display: block; margin: 10px auto; max-width: 100%; border-radius: 6px;}
-    ul {margin-left: 20px;}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+      color: #2c3a47;
+      line-height: 1.7;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      padding: 25px 20px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .btn-home {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #3498db;
+      color: white;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .btn-home:hover {
+      background: #2980b9;
+      transform: translateY(-2px);
+    }
+
+    h1 {
+      font-size: 28px;
+      color: #1a5276;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 22px;
+      color: #2874a6;
+      margin-top: 8px;
+    }
+
+    .divider {
+      height: 3px;
+      background: linear-gradient(to right, transparent, #3498db, #27ae60, transparent);
+      margin: 20px 0;
+      border-radius: 2px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+    }
+
+    .card h3 {
+      color: #27ae60;
+      margin-bottom: 16px;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card h4 {
+      color: #1a5276;
+      margin: 18px 0 12px;
+      font-size: 18px;
+    }
+
+    ul, ol {
+      padding-left: 24px;
+      margin-bottom: 16px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .video-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .btn-home {
+        position: static;
+        display: inline-block;
+        margin-bottom: 15px;
+      }
+      h1 {
+        font-size: 22px;
+      }
+      h2 {
+        font-size: 18px;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>📘 Bab 2: Indahnya Kehidupan Bermakna</h1>
-  <h2>Tujuan Pembelajaran</h2>
+  <div class="container">
+    <!-- Header with Back Button -->
+    <header>
+      <a href="index.html" class="btn-home">🏠 Kembali ke Beranda</a>
+      <h1>📘 Materi Ajar PAI & Budi Pekerti</h1>
+      <h2>Bab 2: Indahnya Kehidupan Bermakna</h2>
+      <p>Kelas XII – 3 Pertemuan (2 × 45 menit)</p>
+      <div class="divider"></div>
+    </header>
 
-  <div class="pertemuan">
-    <h3>Pertemuan 1 – Memahami Kandungan Q.S. Luqman/31:13-14 dan Q.S. al-Baqarah/2:83</h3>
-    <ul>
-      <li><b>Membaca ayat dengan tartil dan benar</b> – Belajar membaca sesuai kaidah tajwid.
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/zVEGW8v8HR4" allowfullscreen></iframe>
-      </li>
-      <li><b>Mengidentifikasi hukum tajwid</b> – Mengenali mad, ikhfa, idgham, qalqalah.
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/jqLX9mO1i0A" allowfullscreen></iframe>
-      </li>
-      <li><b>Menyajikan terjemah ayat</b> – Makna larangan syirik dan perintah berbakti kepada orang tua.
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/4pAK3gqkDNU" allowfullscreen></iframe>
-      </li>
-      <li><b>Menjelaskan kandungan pokok ayat</b> – Tauhid, syukur kepada orang tua, akhlak.
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/Qxk4MszPZ0Q" allowfullscreen></iframe>
-      </li>
-    </ul>
-  </div>
+    <!-- Pertemuan 1 -->
+    <div class="card">
+      <h3>📌 Pertemuan 1 – Memahami Kandungan Q.S. Luqman/31:13-14 dan Q.S. al-Baqarah/2:83</h3>
+      
+      <h4>📖 Ayat Al-Qur’an</h4>
+      <ol>
+        <li><strong>Q.S. Luqman/31:13-14</strong><br>
+          “Dan (ingatlah) ketika Luqman berkata kepada anaknya, di waktu ia memberi pelajaran kepadanya: ‘Hai anakku, janganlah kamu mempersekutukan Allah, sesungguhnya mempersekutukan (Allah) adalah benar-benar kezaliman yang besar.’<br>
+          Dan Kami perintahkan kepada manusia (agar berbuat baik) kepada kedua orang tuanya. Ibunya telah mengandungnya dalam keadaan lemah yang bertambah-tambah, dan menyapihnya dalam dua tahun. Bersyukurlah kepada-Ku dan kepada kedua orang tuamu. Hanya kepada-Ku kembalimu.”</li>
+        <li><strong>Q.S. al-Baqarah/2:83</strong><br>
+          “Dan (ingatlah) ketika Kami mengambil janji dari Bani Israil: Janganlah kamu menyembah selain Allah; dan berbuat baiklah kepada ibu bapak, kaum kerabat, anak-anak yatim, dan orang-orang miskin; serta ucapkanlah kata-kata yang baik kepada manusia; dirikanlah salat dan tunaikanlah zakat. Kemudian kamu berpaling kecuali sebagian kecil dari kamu, dan kamu masih menjadi pembangkang.”</li>
+      </ol>
 
-  <div class="pertemuan">
-    <h3>Pertemuan 2 – Menganalisis Hadis dan Hikmah Perilaku Hormat dan Patuh</h3>
-    <ul>
-      <li><b>Mengidentifikasi hadis</b> – Hadis ridha Allah bergantung ridha orang tua.
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/2fNa6BprRoA" allowfullscreen></iframe>
-      </li>
-      <li><b>Menganalisis relevansi hadis & ayat</b> – Ayat & hadis saling menguatkan.
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/grtflFqJxEw" allowfullscreen></iframe>
-      </li>
-      <li><b>Menganalisis hikmah hormat & patuh</b> – Mendapat ridha Allah, hidup berkah.
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/xyGSJ4N9z_s" allowfullscreen></iframe>
-      </li>
-      <li><b>Membuat poster/infografis</b> – Kreatif menuangkan pesan islami.
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/iGei7R1mUhk" allowfullscreen></iframe>
-      </li>
-    </ul>
-  </div>
+      <h4>📌 Kandungan Pokok Ayat</h4>
+      <ul>
+        <li>Larangan mempersekutukan Allah (syirik adalah kezaliman besar).</li>
+        <li>Perintah beribadah hanya kepada Allah.</li>
+        <li>Kewajiban berbakti kepada kedua orang tua.</li>
+        <li>Pentingnya bersyukur kepada Allah dan orang tua.</li>
+        <li>Perintah berbuat baik kepada kerabat, yatim, miskin, dan berkata yang baik.</li>
+        <li>Pentingnya salat dan zakat sebagai pilar ibadah sosial-spiritual.</li>
+      </ul>
 
-  <div class="pertemuan">
-    <h3>Pertemuan 3 – Menginternalisasi & Mengaplikasikan Perilaku Hormat dan Patuh</h3>
-    <ul>
-      <li><b>Mengidentifikasi contoh perilaku</b> – Membantu orang tua, sopan pada guru.
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/K8xdwsfHzNI" allowfullscreen></iframe>
-      </li>
-      <li><b>Menyusun rencana aksi pribadi</b> – Target pribadi dalam sikap hormat.
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/z9ij3QdL-mc" allowfullscreen></iframe>
-      </li>
-      <li><b>Membuat video/presentasi simulasi</b> – Drama singkat hormat kepada orang tua/guru.
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/3VUZyk_q-Fw" allowfullscreen></iframe>
-      </li>
-      <li><b>Merefleksikan pengalaman pribadi</b> – Menulis atau menceritakan pengalaman.
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/xloiMCBWHeI" allowfullscreen></iframe>
-      </li>
-    </ul>
+      <h4>🎯 Aktivitas Belajar</h4>
+      <ul>
+        <li>Membaca ayat dengan tartil secara individu.</li>
+        <li>Identifikasi hukum tajwid dalam ayat (ikhfa’, idgham, mad, dll.).</li>
+        <li>Diskusi kelompok: apa pesan utama ayat tentang hubungan dengan Allah dan orang tua.</li>
+        <li>Refleksi pribadi: pengalaman saat berterima kasih kepada orang tua.</li>
+      </ul>
+    </div>
+
+    <!-- Pertemuan 2 -->
+    <div class="card">
+      <h3>📌 Pertemuan 2 – Menganalisis Hadis dan Hikmah Perilaku Hormat dan Patuh</h3>
+      
+      <h4>📖 Hadis tentang Hormat kepada Orang Tua dan Guru</h4>
+      <ol>
+        <li>Rasulullah ﷺ bersabda:<br>
+          “Ridha Allah bergantung pada ridha orang tua, dan murka Allah bergantung pada murka orang tua.” (HR. Tirmidzi)</li>
+        <li>Rasulullah ﷺ bersabda:<br>
+          “Bukan termasuk golongan kami orang yang tidak menghormati yang tua, tidak menyayangi yang muda, dan tidak mengetahui hak ulama.” (HR. Ahmad)</li>
+      </ol>
+
+      <h4>📌 Analisis Kandungan</h4>
+      <ul>
+        <li>Hubungan iman dengan keridhaan orang tua.</li>
+        <li>Pentingnya menghormati guru sebagai pewaris ilmu.</li>
+        <li>Hormat adalah cermin akhlak mulia dan jalan menuju keberkahan hidup.</li>
+      </ul>
+
+      <h4>📌 Hikmah Perilaku Hormat dan Patuh</h4>
+      <ul>
+        <li>Mendapat keridhaan Allah.</li>
+        <li>Mempererat hubungan keluarga dan sekolah.</li>
+        <li>Membentuk kepribadian yang rendah hati.</li>
+        <li>Menjadi teladan dalam masyarakat.</li>
+      </ul>
+
+      <h4>🎯 Aktivitas Belajar</h4>
+      <ul>
+        <li>Diskusi kelompok: bandingkan pesan Al-Qur’an (ayat) dengan hadis.</li>
+        <li>Analisis kasus: bagaimana sikap seorang siswa saat orang tua/guru menegur dengan tegas?</li>
+        <li>Membuat poster/infografis bertema “Hormati Orang Tua & Guru = Hidup Bermakna”.</li>
+      </ul>
+    </div>
+
+    <!-- Pertemuan 3 -->
+    <div class="card">
+      <h3>📌 Pertemuan 3 – Menginternalisasi dan Mengaplikasikan Perilaku Hormat dan Patuh</h3>
+      
+      <h4>📌 Contoh Perilaku Hormat & Patuh</h4>
+      <ul>
+        <li>Mengucapkan salam dan berbicara sopan.</li>
+        <li>Mendengarkan dengan baik ketika orang tua/guru berbicara.</li>
+        <li>Membantu orang tua tanpa diminta.</li>
+        <li>Menjalankan nasihat guru dengan ikhlas.</li>
+      </ul>
+
+      <h4>📌 Aksi Nyata</h4>
+      <ul>
+        <li><strong>Membuat Rencana Aksi Pribadi:</strong>
+          <ul>
+            <li>Contoh: “Saya berkomitmen untuk tidak membantah orang tua dengan suara keras.”</li>
+            <li>“Saya akan mengucapkan terima kasih setiap kali guru memberi ilmu.”</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>🎯 Aktivitas Belajar</h4>
+      <ul>
+        <li>Studi kasus: bagaimana sikap seorang siswa ketika diminta membantu pekerjaan rumah, sementara ia sibuk dengan HP?</li>
+        <li>Simulasi/role play: percakapan sopan antara murid dan guru/orang tua.</li>
+        <li>Proyek kreatif: membuat video pendek tentang hormat kepada orang tua/guru.</li>
+        <li>Refleksi jurnal: menuliskan pengalaman pribadi terkait hormat dan patuh.</li>
+      </ul>
+    </div>
+
+    <!-- Kesimpulan -->
+    <div class="card">
+      <h3>📌 Kesimpulan Bab 2</h3>
+      <ul>
+        <li>Kehidupan bermakna terwujud dengan menggabungkan ibadah kepada Allah dan berbakti kepada orang tua serta menghormati guru.</li>
+        <li>Hormat dan patuh adalah jalan menuju ridha Allah dan menjadi kunci keberhasilan hidup.</li>
+        <li>Implementasi nilai ini membuat pribadi lebih bersyukur, rendah hati, dan berakhlak mulia.</li>
+      </ul>
+    </div>
+
+    <!-- Video Pembelajaran -->
+    <div class="card">
+      <h3>🎥 Video Pembelajaran</h3>
+      <div class="video-container">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/TX-ca4cB1fU?si=4JDiWf7iepIoBxQh" 
+                  title="YouTube video player" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  referrerpolicy="strict-origin-when-cross-origin" 
+                  allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/hryBhJL2pk0?si=hLnxz9ckHrxI9Pls" 
+                  title="YouTube video player" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  referrerpolicy="strict-origin-when-cross-origin" 
+                  allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Button -->
+    <footer>
+      <a href="index.html" class="btn-home">🏠 Kembali ke Beranda</a>
+    </footer>
   </div>
 </body>
 </html>
