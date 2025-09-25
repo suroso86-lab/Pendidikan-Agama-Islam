@@ -35,23 +35,36 @@
       font-weight: 600;
     }
 
-    .btn-home {
-      background-color: white;
-      color: #1e5631;
-      border: none;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       padding: 0.6rem 1.2rem;
       border-radius: 30px;
       font-weight: 600;
       text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
       transition: all 0.3s ease;
       box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
 
+    .btn-home {
+      background-color: white;
+      color: #1e5631;
+    }
+
     .btn-home:hover {
       background-color: #f0f7f0;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .btn-access {
+      background-color: #2e7d32;
+      color: white;
+    }
+
+    .btn-access:hover {
+      background-color: #1b5e20;
       transform: translateY(-2px);
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
@@ -64,13 +77,18 @@
 
     .module-title {
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       color: #1e5631;
     }
 
     .module-title h2 {
       font-size: 2rem;
       margin-bottom: 0.5rem;
+    }
+
+    .module-actions {
+      text-align: center;
+      margin-bottom: 1.5rem;
     }
 
     h2 {
@@ -150,6 +168,10 @@
       .container {
         padding: 0 1rem;
       }
+      .btn {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+      }
     }
   </style>
 </head>
@@ -158,7 +180,7 @@
   <!-- Header -->
   <div class="header">
     <h1>Modul Ajar Deep Learning</h1>
-    <a href="index.html" class="btn-home">
+    <a href="index.html" class="btn btn-home">
       <i class="fas fa-home"></i> Kembali ke Beranda
     </a>
   </div>
@@ -167,6 +189,13 @@
     <div class="module-title">
       <h2>PENDIDIKAN AGAMA ISLAM DAN BUDI PEKERTI</h2>
       <p><strong>BAB:</strong> 2. INDAHNYA KEHIDUPAN BERMAKNA</p>
+    </div>
+
+    <!-- Tombol Akses Materi -->
+    <div class="module-actions">
+      <a href="materi_pai_bab2.pdf" class="btn btn-access" download>
+        <i class="fas fa-download"></i> Akses Materi
+      </a>
     </div>
 
     <!-- A. IDENTITAS MODUL -->
@@ -434,7 +463,7 @@
 
     <!-- Tombol Kembali ke Beranda di Bawah -->
     <div class="footer-btn">
-      <a href="index.html" class="btn-home">
+      <a href="index.html" class="btn btn-home">
         <i class="fas fa-arrow-left"></i> Kembali ke Beranda
       </a>
     </div>
