@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inovasi dan Etika dalam Berorganisasi - PAI Kelas XII</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e5631;       /* Hijau zamrud gelap */
+      --secondary: #d4af37;     /* Emas klasik */
+      --bg: #fdfaf3;            /* Krem gading */
+      --text: #2c1810;          /* Cokelat tua */
+      --border-light: #e0d3c5;
+      --accent: #8b6b3d;        /* Cokelat kayu */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Amiri', serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      padding: 16px;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.03) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(30, 86, 49, 0.02) 0%, transparent 25%);
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 32px;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      position: relative;
+    }
+
+    .container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(to right, var(--primary), var(--secondary), var(--primary));
+    }
+
+    h1, h2, h3, h4 {
+      color: var(--primary);
+      margin-bottom: 16px;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 26px;
+      margin: 0 0 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--secondary);
+      letter-spacing: 0.5px;
+    }
+
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 30px;
+      }
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-top: 32px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border-light);
+    }
+
+    h3 {
+      font-size: 20px;
+      margin-top: 24px;
+      color: var(--accent);
+    }
+
+    p, li {
+      margin-bottom: 10px;
+      font-size: 17px;
+    }
+
+    ul, ol {
+      margin-left: 24px;
+      margin-bottom: 18px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--secondary), transparent);
+      margin: 32px 0;
+    }
+
+    .hadith {
+      font-style: italic;
+      color: var(--primary);
+      padding: 12px 16px;
+      border-right: 3px solid var(--secondary);
+      margin: 16px 0;
+      background-color: rgba(212, 175, 55, 0.05);
+    }
+
+    .quran {
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    .btn-container {
+      text-align: center;
+      margin: 24px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      padding: 10px 24px;
+      border-radius: 4px;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: 1px solid var(--primary);
+    }
+
+    .btn:hover {
+      background: transparent;
+      color: var(--primary);
+    }
+
+    .gold-line {
+      height: 1px;
+      background: var(--secondary);
+      margin: 20px 0;
+    }
+
+    .photo-section {
+      text-align: center;
+      margin: 32px 0;
+    }
+
+    .photo-section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+      border: 1px solid var(--border-light);
+    }
+
+    .photo-caption {
+      font-size: 14px;
+      color: var(--accent);
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      color: var(--accent);
+      font-size: 15px;
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px 16px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      .btn {
+        display: block;
+        margin: 8px auto;
+        width: 90%;
+        max-width: 280px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>📘 Inovasi dan Etika dalam Berorganisasi<br>
+    <span style="font-size: 20px; font-weight: 400; color: var(--accent);">Mata Pelajaran: Pendidikan Agama Islam dan Budi Pekerti – Kelas XII</span>
+  </h1>
+
+  <div class="btn-container">
+    <a href="index.html" class="btn">Kembali ke Beranda</a>
+  </div>
+
+  <!-- Pertemuan 1 -->
+  <h2>🕌 Pertemuan 1 – Memahami Konsep Inovasi (Tajdid) dalam Islam</h2>
+  <p><strong>⏰ Waktu:</strong> 2 x 45 menit</p>
+
+  <h3>1. Pengertian Inovasi (Tajdid) dalam Islam</h3>
+  <ul>
+    <li><strong>Tajdid secara bahasa:</strong> pembaruan atau menghidupkan kembali.</li>
+    <li><strong>Dalam ajaran Islam:</strong> usaha mengembalikan pemahaman agama sesuai dengan kemurnian Al-Qur’an dan Sunnah, sekaligus menyesuaikan metode penerapannya dengan perkembangan zaman tanpa mengubah pokok ajaran.</li>
+  </ul>
+
+  <div class="hadith">
+    “Sesungguhnya Allah akan mengutus untuk umat ini pada setiap seratus tahun orang yang memperbarui (tajdid) urusan agamanya.”<br>
+    <em>(HR. Abu Daud)</em>
+  </div>
+
+  <h3>2. Pentingnya Sikap Inovatif</h3>
+  <ul>
+    <li><strong>Dalil Naqli:</strong>
+      <ul>
+        <li><span class="quran">QS. Ar-Ra’d: 11</span> → <em>“Sesungguhnya Allah tidak mengubah keadaan suatu kaum hingga mereka mengubah keadaan yang ada pada diri mereka sendiri.”</em></li>
+        <li>Hadis Nabi tentang pentingnya ijtihad ketika menghadapi persoalan baru.</li>
+      </ul>
+    </li>
+    <li><strong>Dalil Aqli:</strong> Akal manusia diciptakan untuk berpikir kreatif, mencari solusi, dan memperbaiki keadaan.</li>
+    <li><strong>Dalam organisasi & masyarakat:</strong> inovasi menjaga keberlangsungan, meningkatkan kualitas, serta menjawab tantangan zaman.</li>
+  </ul>
+
+  <h3>3. Ciri-ciri Individu Inovatif dalam Islam</h3>
+  <ol>
+    <li>Berpikir terbuka dan mau belajar.</li>
+    <li>Memiliki keberanian mencoba hal baru.</li>
+    <li>Berorientasi pada kemaslahatan umat.</li>
+    <li>Berlandaskan nilai iman, takwa, dan akhlak mulia.</li>
+    <li>Mampu menyesuaikan diri dengan perubahan tanpa meninggalkan prinsip syariat.</li>
+  </ol>
+
+  <h3>4. Contoh Perilaku Inovatif</h3>
+  <ul>
+    <li>Membuat program kerja OSIS yang kreatif dan bermanfaat.</li>
+    <li>Menciptakan metode belajar kelompok yang lebih efektif.</li>
+    <li>Menggunakan teknologi secara positif (misalnya aplikasi Islami untuk tadarus).</li>
+    <li>Berinovasi dalam kegiatan sosial, seperti bakti lingkungan atau ekonomi kreatif Islami.</li>
+  </ul>
+
+  <!-- Foto Pembelajaran - DI ANTARA PERTEMUAN 1 DAN 2 -->
+  <div class="photo-section">
+    <a href="https://ibb.co.com/GS0m6xB" target="_blank" rel="noopener">
+      <img src="https://i.ibb.co.com/nJbpGgZ/PEMBELAJARAN-1.jpg" alt="Kegiatan Pembelajaran Siswa">
+    </a>
+    <p class="photo-caption">Dokumentasi kegiatan pembelajaran siswa dalam menerapkan nilai inovasi dan etika berorganisasi</p>
+  </div>
+
+  <!-- Pertemuan 2 -->
+  <h2>🕌 Pertemuan 2 – Etika dalam Berorganisasi Perspektif Islam</h2>
+  <p><strong>⏰ Waktu:</strong> 2 x 45 menit</p>
+
+  <h3>1. Konsep Etika dalam Berorganisasi</h3>
+  <ul>
+    <li><strong>Etika (akhlaq):</strong> nilai dan norma yang menjadi pedoman perilaku.</li>
+    <li><strong>Dalam Islam,</strong> etika berorganisasi adalah penerapan akhlak mulia dalam mengelola dan menjalankan organisasi.</li>
+    <li><strong>Dasar:</strong> <span class="quran">QS. Ali Imran: 159</span> → prinsip musyawarah, lemah lembut, dan saling memaafkan.</li>
+  </ul>
+
+  <h3>2. Prinsip-prinsip Etika Islam dalam Organisasi</h3>
+  <ol>
+    <li><strong>Amanah</strong> → dapat dipercaya.</li>
+    <li><strong>Tanggung jawab</strong> → siap menanggung konsekuensi.</li>
+    <li><strong>Musyawarah (syura)</strong> → pengambilan keputusan bersama.</li>
+    <li><strong>Adil</strong> → tidak diskriminatif.</li>
+    <li><strong>Profesionalisme</strong> → bekerja dengan sungguh-sungguh dan kompeten.</li>
+    <li><strong>Transparansi & Kejujuran</strong> → terbuka dan tidak menyembunyikan kebenaran.</li>
+  </ol>
+
+  <h3>3. Dampak Positif Etika Islam dalam Organisasi</h3>
+  <ul>
+    <li>Meningkatkan kepercayaan antar anggota.</li>
+    <li>Menguatkan solidaritas & ukhuwah.</li>
+    <li>Menumbuhkan budaya kerja sama dan gotong royong.</li>
+    <li>Melahirkan pemimpin yang adil dan bertanggung jawab.</li>
+    <li>Memberi kontribusi positif bagi masyarakat.</li>
+  </ul>
+
+  <h3>4. Penerapan Etika dalam Kehidupan Nyata</h3>
+  <ul>
+    <li><strong>Di sekolah:</strong> aktif dalam organisasi (OSIS, Rohis, Pramuka) dengan disiplin, kerja sama, dan kejujuran.</li>
+    <li><strong>Di masyarakat:</strong> ikut serta dalam kegiatan sosial dengan sikap amanah, musyawarah, dan adil.</li>
+    <li><strong>Dalam keluarga:</strong> membantu pengelolaan rumah tangga dengan penuh tanggung jawab.</li>
+  </ul>
+
+  <div class="gold-line"></div>
+
+  <footer>
+    “Barangsiapa yang beramal saleh, baik laki-laki maupun perempuan dalam keadaan beriman, maka sesungguhnya Kami akan berikan kepadanya kehidupan yang baik.”<br>
+    <em>— QS. An-Nahl: 97</em>
+  </footer>
+
+  <div class="btn-container" style="margin-top: 20px;">
+    <a href="index.html" class="btn">Kembali ke Beranda</a>
+  </div>
+</div>
+
+</body>
+</html>
