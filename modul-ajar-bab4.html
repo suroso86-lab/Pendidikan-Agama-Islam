@@ -107,20 +107,33 @@
       background-color: #f9fbf9;
     }
 
-    .btn-home {
+    .btn-home,
+    .btn-access {
       display: inline-block;
-      background-color: var(--primary);
-      color: white;
       padding: 10px 20px;
       text-decoration: none;
       border-radius: 6px;
       font-weight: 600;
-      margin: 15px 0;
+      margin: 8px;
       transition: background-color 0.3s;
+    }
+
+    .btn-home {
+      background-color: var(--primary);
+      color: white;
     }
 
     .btn-home:hover {
       background-color: #163d24;
+    }
+
+    .btn-access {
+      background-color: var(--secondary);
+      color: var(--dark);
+    }
+
+    .btn-access:hover {
+      background-color: #8fb562;
     }
 
     /* Tab Styles */
@@ -202,9 +215,10 @@
 </head>
 <body>
   <div class="container">
-    <!-- Tombol Kembali ke Beranda (Atas) -->
-    <div style="text-align: center;">
+    <!-- Tombol Navigasi Atas -->
+    <div style="text-align: center; margin-bottom: 20px;">
       <a href="index.html" class="btn-home">Kembali ke Beranda</a>
+      <a href="materi-pai-bab4.html" class="btn-access">Akses Materi Pembelajaran</a>
     </div>
 
     <header>
@@ -631,9 +645,10 @@
       </div>
     </div>
 
-    <!-- Tombol Kembali ke Beranda (Bawah) -->
+    <!-- Tombol Navigasi Bawah -->
     <div style="text-align: center; margin-top: 40px;">
       <a href="index.html" class="btn-home">Kembali ke Beranda</a>
+      <a href="materi-pai-bab4.html" class="btn-access">Akses Materi Pembelajaran</a>
     </div>
 
     <footer>
