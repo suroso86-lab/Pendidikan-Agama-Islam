@@ -25,14 +25,14 @@
       line-height: 1.6;
       color: var(--text);
       background-color: var(--bg-light);
-      padding: 20px;
+      padding: 16px;
     }
 
     .container {
       max-width: 900px;
       margin: 0 auto;
       background: white;
-      padding: 30px;
+      padding: 24px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
@@ -44,10 +44,16 @@
 
     h1 {
       text-align: center;
-      font-size: 24px;
-      margin-bottom: 24px;
+      font-size: 22px;
+      margin-bottom: 20px;
       padding-bottom: 12px;
       border-bottom: 2px solid var(--secondary);
+    }
+
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 26px;
+      }
     }
 
     h2 {
@@ -69,6 +75,11 @@
       margin-bottom: 16px;
     }
 
+    .btn-container {
+      text-align: center;
+      margin: 16px 0;
+    }
+
     .home-btn {
       display: inline-block;
       background-color: var(--primary);
@@ -77,8 +88,9 @@
       border-radius: 6px;
       text-decoration: none;
       font-weight: bold;
-      margin: 10px 0;
       transition: background 0.3s;
+      min-width: 160px;
+      text-align: center;
     }
 
     .home-btn:hover {
@@ -87,7 +99,7 @@
 
     /* Tab Styles */
     .tabs {
-      margin: 30px 0;
+      margin: 28px 0;
     }
 
     .tab-buttons {
@@ -106,6 +118,9 @@
       font-weight: 600;
       color: var(--primary);
       transition: all 0.3s;
+      flex: 1;
+      min-width: 120px;
+      text-align: center;
     }
 
     .tab-btn:hover {
@@ -159,17 +174,30 @@
       color: var(--primary);
     }
 
+    /* Responsif untuk mobile */
     @media (max-width: 768px) {
       .container {
-        padding: 15px;
+        padding: 16px;
       }
+
       .tab-buttons {
         flex-direction: column;
       }
+
       .tab-btn {
         border-radius: 6px;
         width: 100%;
-        text-align: center;
+      }
+
+      .home-btn {
+        display: block;
+        margin: 8px auto;
+        width: 90%;
+        max-width: 280px;
+      }
+
+      .btn-container {
+        margin: 12px 0;
       }
     }
   </style>
@@ -178,13 +206,18 @@
 
 <div class="container">
   <!-- Tombol Kembali ke Beranda (Atas) -->
-  <a href="index.html" class="home-btn">Kembali ke Beranda</a>
-  <a href="materi-bab8-pai.pdf" class="home-btn" style="display: block; text-align: center; margin: 16px auto;">Akses Materi</a>
-</div>
+  <div class="btn-container">
+    <a href="index.html" class="home-btn">Kembali ke Beranda</a>
+  </div>
 
   <h1>MODUL AJAR DEEP LEARNING<br>
     MATA PELAJARAN : PENDIDIKAN AGAMA ISLAM DAN BUDI PEKERTI<br>
     BAB: 8. SIKAP INOVATIF DAN ETIKA DALAM BERORGANISASI</h1>
+
+  <!-- Tombol Akses Materi -->
+  <div class="btn-container">
+    <a href="materi-bab8-pai.pdf" class="home-btn">Akses Materi</a>
+  </div>
 
   <!-- Bagian A–D: Ditampilkan penuh -->
   <div class="section">
@@ -497,8 +530,11 @@
     </div>
   </div>
 
-  <!-- Tombol Kembali ke Beranda (Bawah) -->
-  <a href="#" class="home-btn">Kembali ke Beranda</a>
+  <!-- Tombol di bagian bawah -->
+  <div class="btn-container">
+    <a href="index.html" class="home-btn">Kembali ke Beranda</a>
+    <a href="materi-bab8-pai.pdf" class="home-btn">Akses Materi</a>
+  </div>
 </div>
 
 <script>
