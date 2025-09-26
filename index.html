@@ -1,630 +1,1218 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pendidikan Agama Islam - Kelas XII | SMAN 1 Cluring</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Roboto:wght@400;500;700&display=swap');
-
-    :root {
-      --emerald-900: #065f46;
-      --emerald-800: #066a4e;
-      --emerald-700: #077556;
-      --emerald-200: #a7f3d0;
-      --emerald-100: #d1fae5;
-      --amber-600: #d97706;
-      --amber-500: #f59e0b;
-      --amber-400: #fbbf24;
-      --amber-300: #fcd34d;
-      --amber-200: #fde68a;
-      --amber-100: #fef3c7;
-      --white: #ffffff;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to bottom right, #d1fae5, #fef3c7, #d1fae5);
-      min-height: 100vh;
-      position: relative;
-      overflow-x: hidden;
-      color: #1f2937;
-    }
-
-    /* Islamic Pattern Background */
-    body::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23065f46' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      z-index: 0;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      position: relative;
-      z-index: 10;
-    }
-
-    /* Decorative Borders */
-    .top-border {
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(to right, transparent, var(--amber-400), transparent);
-      opacity: 0.4;
-    }
-    .bottom-border {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(to right, transparent, var(--emerald-700), transparent);
-      opacity: 0.4;
-    }
-
-    /* Header */
-    header {
-      background: linear-gradient(to right, var(--emerald-900), var(--emerald-800), var(--emerald-900));
-      color: white;
-      padding: 2rem 0;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-      border-bottom: 4px solid var(--amber-500);
-      position: relative;
-      overflow: hidden;
-    }
-
-    header::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d97706' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-
-    .header-content {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .logo-section {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .logo-frame {
-      background: var(--amber-500);
-      padding: 0.5rem;
-      border-radius: 50%;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-
-    .logo-frame img {
-      width: 64px;
-      height: 64px;
-      border: 4px solid white;
-      border-radius: 50%;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-
-    .header-text h1 {
-      font-size: 1.875rem;
-      font-weight: 700;
-      color: var(--amber-200);
-      margin-bottom: 0.25rem;
-    }
-
-    .header-text p {
-      font-size: 1.25rem;
-      color: #d1fae5;
-    }
-
-    .bismillah {
-      background: linear-gradient(to right, var(--amber-600), var(--amber-500));
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.75rem;
-      font-weight: bold;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      border: 2px solid var(--amber-300);
-      font-family: 'Amiri', serif;
-      font-size: 1rem;
-    }
-
-    /* Main Content */
-    main {
-      padding: 3rem 0 2rem;
-    }
-
-    .avatar-section {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .avatar-container {
-      position: relative;
-      display: inline-block;
-    }
-
-    .avatar-border {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      border: 4px solid var(--amber-400);
-      border-radius: 50%;
-      opacity: 0.3;
-      animation: rotate 20s linear infinite;
-    }
-
-    .avatar-frame {
-      background: linear-gradient(to bottom right, var(--emerald-700), var(--amber-600));
-      padding: 4px;
-      border-radius: 50%;
-      display: inline-block;
-    }
-
-    .avatar-frame img {
-      width: 160px;
-      height: 160px;
-      border: 4px solid white;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    }
-
-    .users-icon {
-      position: absolute;
-      bottom: -12px;
-      right: -12px;
-      background: linear-gradient(to right, var(--amber-600), var(--amber-500));
-      color: white;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      border: 2px solid var(--amber-300);
-    }
-
-    /* Sections */
-    .section-card {
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(10px);
-      border-radius: 1.5rem;
-      padding: 2rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      border: 1px solid rgba(6, 95, 70, 0.2);
-      margin-bottom: 2.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 1.875rem;
-      font-weight: 700;
-      color: var(--emerald-900);
-      margin-bottom: 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-    }
-
-    .section-title span {
-      background: linear-gradient(to right, var(--emerald-800), var(--amber-600));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    /* Modules Grid */
-    .modules-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .module-card {
-      background: linear-gradient(to bottom right, rgba(167, 243, 208, 0.6), rgba(254, 243, 199, 0.6));
-      padding: 1.5rem;
-      border-radius: 1rem;
-      text-decoration: none;
-      color: var(--emerald-900);
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      border: 1px solid rgba(6, 95, 70, 0.3);
-      transition: all 0.3s ease;
-    }
-
-    .module-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      background: linear-gradient(to bottom right, rgba(167, 243, 208, 0.8), rgba(254, 243, 199, 0.8));
-    }
-
-    .module-icon {
-      background: var(--emerald-100);
-      width: 40px;
-      height: 40px;
-      border-radius: 0.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--emerald-300);
-    }
-
-    /* Gallery */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .gallery-item {
-      display: block;
-      border-radius: 1rem;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      border: 2px solid rgba(167, 243, 208, 0.3);
-      transition: all 0.4s ease;
-    }
-
-    .gallery-item:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-    }
-
-    .gallery-img {
-      width: 100%;
-      height: 224px;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .gallery-item:hover .gallery-img {
-      transform: scale(1.1);
-    }
-
-    .gallery-overlay {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .gallery-item:hover .gallery-overlay {
-      opacity: 1;
-    }
-
-    .gallery-icon {
-      background: linear-gradient(to right, var(--amber-600), var(--amber-500));
-      color: white;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid var(--amber-300);
-    }
-
-    .gallery-caption {
-      text-align: center;
-      margin-top: 0.75rem;
-      font-weight: 600;
-      color: var(--emerald-800);
-    }
-
-    /* Footer */
-    footer {
-      background: linear-gradient(to right, var(--emerald-900), var(--emerald-800), var(--emerald-900));
-      color: #d1fae5;
-      padding: 3rem 0 2rem;
-      margin-top: 4rem;
-      border-top: 4px solid var(--amber-500);
-      position: relative;
-    }
-
-    footer::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23065f46' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    @media (min-width: 768px) {
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .footer-section h3 {
-      font-size: 1.5rem;
-      color: var(--amber-300);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .contact-item {
-      display: flex;
-      gap: 1rem;
-      padding: 1rem;
-      background: rgba(6, 95, 70, 0.25);
-      border-radius: 1rem;
-      margin-bottom: 1rem;
-      border: 1px solid rgba(167, 243, 208, 0.2);
-    }
-
-    .contact-icon {
-      color: var(--amber-300);
-      font-size: 1.25rem;
-      min-width: 24px;
-    }
-
-    .resource-link {
-      display: flex;
-      gap: 0.75rem;
-      padding: 0.75rem;
-      background: rgba(6, 95, 70, 0.25);
-      border-radius: 0.75rem;
-      color: #d1fae5;
-      text-decoration: none;
-      margin-bottom: 0.75rem;
-      border: 1px solid rgba(167, 243, 208, 0.2);
-      transition: all 0.2s ease;
-    }
-
-    .resource-link:hover {
-      background: rgba(6, 95, 70, 0.4);
-      transform: translateX(5px);
-    }
-
-    .resource-icon {
-      color: var(--amber-300);
-    }
-
-    .copyright {
-      margin-top: 2.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid rgba(167, 243, 208, 0.2);
-      text-align: center;
-    }
-
-    .divider {
-      width: 96px;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--amber-400), transparent);
-      margin: 1rem auto;
-    }
-
-    /* Animations */
-    @keyframes rotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .header-content {
-        flex-direction: column;
-        text-align: center;
-      }
-      .header-text {
-        order: -1;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendidikan Agama Islam Kelas XII - SMA Negeri 1 Cluring</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset dan Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #0a7b3a;
+            --secondary-color: #d4af37;
+            --accent-color: #1a5d1a;
+            --light-color: #f8f8f8;
+            --dark-color: #333;
+            --text-color: #333;
+            --light-text: #fff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --nu-green: #0a7b3a;
+            --nu-gold: #d4af37;
+            --nu-dark-green: #084c22;
+            --nu-light-green: #e8f5e9;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%230a7b3a" opacity="0.03" d="M50,10 A40,40 0 1,1 50,90 A40,40 0 1,1 50,10 Z"/></svg>');
+            background-attachment: fixed;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles dengan Nuansa NU */
+        header {
+            background: linear-gradient(135deg, var(--nu-dark-green), var(--nu-green));
+            color: var(--light-text);
+            padding: 20px 0;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid var(--nu-gold);
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.15"><path fill="%23ffffff" d="M50,10 A40,40 0 1,1 50,90 A40,40 0 1,1 50,10 Z" /></svg>');
+            background-repeat: repeat;
+            z-index: 0;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            width: 90px;
+            height: 90px;
+            margin-right: 20px;
+            border-radius: 50%;
+            border: 3px solid var(--nu-gold);
+            overflow: hidden;
+            background-color: white;
+            padding: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        
+        .logo::after {
+            content: "ن";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Amiri', serif;
+            font-size: 2.5rem;
+            color: var(--nu-green);
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        
+        .school-info h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: white;
+        }
+        
+        .school-info p {
+            font-size: 0.95rem;
+            opacity: 0.95;
+            font-weight: 500;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            color: #f0f0f0;
+        }
+        
+        .subject-title {
+            text-align: center;
+            margin-top: 15px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        
+        .subject-title::before {
+            content: "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--nu-gold);
+            color: var(--nu-dark-green);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-family: 'Amiri', serif;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        
+        .subject-title h2 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+            font-weight: 700;
+            color: white;
+        }
+        
+        .subject-title p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            color: #f0f0f0;
+            font-weight: 500;
+        }
+        
+        /* Navigation dengan Nuansa NU */
+        nav {
+            background-color: var(--nu-dark-green);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin: 0;
+        }
+        
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            padding: 18px 22px;
+            display: block;
+            transition: all 0.3s;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-links a::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--nu-gold);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light-text);
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 10px;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+        
+        /* Articles Section dengan Nuansa Islami */
+        .articles-section h2 {
+            color: var(--nu-green);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--nu-gold);
+            position: relative;
+            font-size: 2rem;
+            font-family: 'Amiri', serif;
+        }
+        
+        .articles-section h2::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 150px;
+            height: 3px;
+            background-color: var(--nu-green);
+        }
+        
+        .article-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            transition: all 0.4s;
+            position: relative;
+            border-right: 5px solid var(--nu-green);
+        }
+        
+        .article-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--nu-green), var(--nu-gold));
+        }
+        
+        .article-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .article-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s;
+        }
+        
+        .article-card:hover .article-image img {
+            transform: scale(1.1);
+        }
+        
+        .article-content {
+            padding: 25px;
+        }
+        
+        .article-content h3 {
+            color: var(--nu-green);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            line-height: 1.3;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .read-more {
+            display: inline-block;
+            background: linear-gradient(to right, var(--nu-green), var(--nu-dark-green));
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 10px;
+            box-shadow: 0 4px 10px rgba(10, 123, 58, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .read-more::before {
+            content: "";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            margin-right: 8px;
+        }
+        
+        .read-more:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(10, 123, 58, 0.4);
+            background: linear-gradient(to right, var(--nu-dark-green), var(--nu-green));
+        }
+        
+        /* Sidebar dengan Nuansa Islami */
+        .sidebar {
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 100px;
+            border-right: 5px solid var(--nu-gold);
+        }
+        
+        .sidebar-section {
+            margin-bottom: 35px;
+        }
+        
+        .sidebar-section h3 {
+            color: var(--nu-green);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #eee;
+            font-size: 1.4rem;
+            position: relative;
+            font-family: 'Amiri', serif;
+        }
+        
+        .sidebar-section h3::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--nu-gold);
+        }
+        
+        .teacher-profile {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(to bottom right, var(--nu-light-green), white);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .teacher-profile::before {
+            content: "";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 2rem;
+            color: var(--nu-light-green);
+            z-index: 0;
+        }
+        
+        .teacher-avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 4px solid var(--nu-gold);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .teacher-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .teacher-profile h4 {
+            margin-bottom: 8px;
+            color: var(--nu-green);
+            font-size: 1.3rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .teacher-profile p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-info {
+            text-align: left;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+        
+        .contact-info i {
+            margin-right: 12px;
+            color: var(--nu-green);
+            width: 20px;
+            text-align: center;
+        }
+        
+        .module-list {
+            list-style: none;
+        }
+        
+        .module-list li {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #eee;
+            position: relative;
+        }
+        
+        .module-list a {
+            color: var(--text-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+            padding: 8px;
+            border-radius: 6px;
+        }
+        
+        .module-list a:hover {
+            color: var(--nu-green);
+            background-color: var(--nu-light-green);
+            transform: translateX(5px);
+            padding-left: 15px;
+        }
+        
+        .module-list a::before {
+            content: "";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            margin-right: 12px;
+            color: var(--nu-green);
+        }
+        
+        /* Gallery Section dengan Nuansa Islami */
+        .gallery-section {
+            margin-top: 50px;
+        }
+        
+        .gallery-section h2 {
+            color: var(--nu-green);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--nu-gold);
+            position: relative;
+            font-size: 2rem;
+            font-family: 'Amiri', serif;
+        }
+        
+        .gallery-section h2::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 150px;
+            height: 3px;
+            background-color: var(--nu-green);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.4s;
+            position: relative;
+            height: 220px;
+            border: 3px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(45deg, var(--nu-green), var(--nu-gold)) border-box;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(10, 123, 58, 0.9), transparent);
+            color: white;
+            padding: 15px;
+            font-size: 1rem;
+            opacity: 0;
+            transition: opacity 0.4s;
+            transform: translateY(10px);
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Footer dengan Nuansa NU */
+        footer {
+            background: linear-gradient(135deg, var(--nu-dark-green), var(--nu-green));
+            color: var(--light-text);
+            padding: 50px 0 20px;
+            margin-top: 60px;
+            position: relative;
+        }
+        
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--nu-green), var(--nu-gold));
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+            font-size: 1.4rem;
+            color: white;
+            font-family: 'Amiri', serif;
+        }
+        
+        .footer-section h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--nu-gold);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            padding: 5px 0;
+        }
+        
+        .footer-links a:hover {
+            color: var(--nu-gold);
+            transform: translateX(5px);
+        }
+        
+        .footer-links a::before {
+            content: "";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            margin-right: 10px;
+        }
+        
+        .contact-details p {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .contact-details i {
+            margin-right: 12px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.95rem;
+            opacity: 0.9;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                order: -1;
+                margin-bottom: 40px;
+                position: static;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo-section {
+                margin-bottom: 20px;
+                justify-content: center;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+            
+            .subject-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .school-info h1 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .article-image {
+                height: 200px;
+            }
+            
+            .school-info h1 {
+                font-size: 1.3rem;
+            }
+            
+            .subject-title h2 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Islamic Decorative Elements */
+        .islamic-pattern {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%230a7b3a" opacity="0.05" d="M50,10 A40,40 0 1,1 50,90 A40,40 0 1,1 50,10 Z"/></svg>');
+            background-repeat: repeat;
+        }
+        
+        /* Animasi */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInFromLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        .slide-in {
+            animation: slideInFromLeft 0.8s ease-out;
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Loading Animation */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, var(--nu-dark-green), var(--nu-green));
+            z-index: 9999;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+        
+        .loading.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loading-spinner {
+            width: 80px;
+            height: 80px;
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            border-top: 8px solid var(--nu-gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(to right, var(--nu-green), var(--nu-dark-green));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 99;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to right, var(--nu-dark-green), var(--nu-green));
+        }
+        
+        /* Improved Image Quality */
+        .high-quality-img {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+        
+        /* NU Identity Badge */
+        .nu-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(45deg, var(--nu-green), var(--nu-gold));
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 10;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        /* Kaligrafi Section */
+        .kaligrafi-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: linear-gradient(to right, var(--nu-light-green), white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .kaligrafi-section::before {
+            content: "";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            font-size: 8rem;
+            color: var(--nu-light-green);
+            opacity: 0.3;
+            z-index: 0;
+        }
+        
+        .kaligrafi-text {
+            font-family: 'Amiri', serif;
+            font-size: 2.5rem;
+            color: var(--nu-green);
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .kaligrafi-translation {
+            font-style: italic;
+            color: #666;
+            position: relative;
+            z-index: 1;
+        }
+    </style>
 </head>
 <body>
-  <div class="top-border"></div>
-  <div class="bottom-border"></div>
-
-  <header>
-    <div class="container">
-      <div class="header-content">
-        <div class="logo-section">
-          <div class="logo-frame">
-            <img src="https://i.ibb.co.com/5h66Bjs2/SMAN1-Cluring-emblem.png" alt="SMAN1 Cluring Emblem">
-          </div>
-          <div class="header-text">
-            <h1>Pendidikan Agama Islam</h1>
-            <p>Kelas XII - SMA Negeri 1 Cluring</p>
-          </div>
-        </div>
-        <div class="bismillah">
-          <i class="fas fa-sparkles"></i> بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-        </div>
-      </div>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
     </div>
-  </header>
-
-  <main class="container">
-    <div class="avatar-section">
-      <div class="avatar-container">
-        <div class="avatar-border"></div>
-        <div class="avatar-frame">
-          <img src="https://i.ibb.co.com/ycj7x6d7/Praktik-Mengaji.webp" alt="Praktik Mengaji">
-        </div>
-        <div class="users-icon">
-          <i class="fas fa-users"></i>
-        </div>
-      </div>
-    </div>
-
-    <section class="section-card">
-      <h2 class="section-title">
-        <i class="fas fa-book-open" style="color: var(--amber-600);"></i>
-        <span>Modul Ajar Pendidikan Agama Islam</span>
-        <i class="fas fa-mosque" style="color: var(--emerald-700);"></i>
-      </h2>
-      <div class="modules-grid">
-        <!-- Generated via JS -->
-      </div>
-    </section>
-
-    <section class="section-card">
-      <h2 class="section-title">Galeri Kegiatan Pembelajaran</h2>
-      <div class="gallery-grid">
-        <!-- Gallery items inserted via JS -->
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-section">
-          <h3><i class="fas fa-heart" style="color: #f87171;"></i> Kontak Informasi</h3>
-          <div class="contact-item">
-            <i class="fas fa-map-pin contact-icon"></i>
-            <address>Jl. Huzaini, Benculuk,<br>Cluring, Banyuwangi,<br>Jawa Timur</address>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-phone contact-icon"></i>
-            <span>0853-3488-5787</span>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-envelope contact-icon"></i>
-            <span>suroso86@guru.sma.belajar.id</span>
-          </div>
-        </div>
-
-        <div class="footer-section">
-          <h3><i class="fas fa-book-open" style="color: var(--emerald-300);"></i> Sumber Belajar Islami</h3>
-          <div class="resources-list">
-            <!-- Resources inserted via JS -->
-          </div>
-        </div>
-      </div>
-
-      <div class="copyright">
-        <p>© 2025 SMA Negeri 1 Cluring - Semoga Bermanfaat untuk Umat</p>
-        <p style="margin-top: 1rem; font-style: italic;">
-          "Barangsiapa yang menempuh suatu jalan untuk menuntut ilmu, maka Allah akan memudahkan baginya jalan menuju surga."<br>
-          <span style="color: var(--amber-300); font-weight: bold;">(HR. Muslim)</span>
-        </p>
-        <div class="divider"></div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Modules
-    const modules = Array.from({ length: 9 }, (_, i) => ({
-      title: `Modul Ajar Bab ${i + 1}`,
-      file: `modul-ajar-bab${i + 1}.html`
-    }));
-
-    const modulesGrid = document.querySelector('.modules-grid');
-    modules.forEach(mod => {
-      const card = document.createElement('a');
-      card.href = mod.file;
-      card.className = 'module-card';
-      card.innerHTML = `
-        <div class="module-icon">
-          <i class="fas fa-download"></i>
-        </div>
-        <span>${mod.title}</span>
-      `;
-      modulesGrid.appendChild(card);
-    });
-
-    // Gallery
-    const galleryImages = [
-      {
-        src: "https://i.ibb.co.com/PZ8Pr0Yw/SESI-FOTO-BERSAMA.jpg",
-        alt: "SESI-FOTO-BERSAMA",
-        link: "https://ibb.co.com/PZ8Pr0Yw"
-      },
-      {
-        src: "https://i.ibb.co.com/GS0m6xB/FOTO-PEMBELAJARAN.jpg",
-        alt: "FOTO-PEMBELAJARAN",
-        link: "https://ibb.co.com/GS0m6xB"
-      },
-      {
-        src: "https://i.ibb.co.com/vx3MsqTK/PEMBUATAN-ADMINISTRASI-KEGIATAN-KEAGAMAAN.jpg",
-        alt: "PEMBUATAN-ADMINISTRASI-KEGIATAN-KEAGAMAAN",
-        link: "https://ibb.co.com/vx3MsqTK"
-      },
-      {
-        src: "https://i.ibb.co.com/MDmxbQJ7/FOTO-PERSIPAN-KEGIATAN-KEAGAMAAN-DENGAN-OSIS.jpg",
-        alt: "FOTO-PERSIPAN-KEGIATAN-KEAGAMAAN-DENGAN-OSIS",
-        link: "https://ibb.co.com/MDmxbQJ7"
-      }
-    ];
-
-    const galleryGrid = document.querySelector('.gallery-grid');
-    galleryImages.forEach(img => {
-      const item = document.createElement('a');
-      item.href = img.link;
-      item.target = "_blank";
-      item.rel = "noopener noreferrer";
-      item.className = "gallery-item";
-      item.innerHTML = `
-        <div style="position: relative;">
-          <img src="${img.src}" alt="${img.alt}" class="gallery-img">
-          <div class="gallery-overlay">
-            <div class="gallery-icon">
-              <i class="fas fa-external-link-alt"></i>
+    
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">↑</button>
+    
+    <!-- Header dengan nuansa Islami NU -->
+    <header class="islamic-pattern">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">
+                        <img src="https://i.ibb.co.com/5h66Bjs2/SMAN1Cluring-emblem.png" alt="Logo SMA Negeri 1 Cluring" class="high-quality-img">
+                    </div>
+                    <div class="school-info">
+                        <h1>SMA NEGERI 1 CLURING</h1>
+                        <p>Jl. Huzaini, Benculuk, Cluring, Banyuwangi, Jawa Timur</p>
+                    </div>
+                </div>
+                <div class="nu-badge">NU | Ahlussunnah wal Jama'ah</div>
             </div>
-          </div>
+            <div class="subject-title">
+                <h2>PENDIDIKAN AGAMA ISLAM KELAS XII</h2>
+                <p>Tahun Ajaran 2024/2025 - Berbasis Nilai-Nilai Nahdlatul Ulama</p>
+            </div>
         </div>
-        <p class="gallery-caption">${img.alt.replace(/-/g, ' ')}</p>
-      `;
-      galleryGrid.appendChild(item);
-    });
+    </header>
 
-    // Footer Links
-    const footerLinks = [
-      { name: "Al-Qur'an Digital", url: "https://quran.nu.or.id/" },
-      { name: "Panduan Mapel Kemdikbud", url: "https://kurikulum.kemdikbud.go.id/panduan-mapel" },
-      { name: "Rumah Pendidikan", url: "https://rumah.pendidikan.go.id/" },
-      { name: "Sosiologi Ekonomi", url: "https://alam21234.github.io/sosiologi-ekonomi/" },
-      { name: "Modul Matematika", url: "https://alimuthohar15-create.github.io/Modul-Ajar-Matematika/" },
-      { name: "Modul Sosiologi", url: "https://harsocakep0-art.github.io/modul-ajar-sosiologi/" },
-      { name: "Modul Biologi Kelas XII", url: "https://sumardami64-create.github.io/Modul_Ajar_Biologi_Kelas_XII/" }
-    ];
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <button class="mobile-menu-btn">☰</button>
+            <ul class="nav-links">
+                <li><a href="#berita">Berita & Artikel</a></li>
+                <li><a href="#modul">Modul Ajar</a></li>
+                <li><a href="#galeri">Galeri Kegiatan</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    const resourcesList = document.querySelector('.resources-list');
-    footerLinks.forEach(link => {
-      const a = document.createElement('a');
-      a.href = link.url;
-      a.target = "_blank";
-      a.rel = "noopener noreferrer";
-      a.className = "resource-link";
-      a.innerHTML = `
-        <i class="fas fa-external-link-alt resource-icon"></i>
-        <span>${link.name}</span>
-      `;
-      resourcesList.appendChild(a);
-    });
-  </script>
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Kaligrafi Section -->
+        <section class="kaligrafi-section">
+            <div class="kaligrafi-text">وَتَعَاوَنُوا۟ عَلَى ٱلْبِرِّ وَٱلتَّقْوَىٰ</div>
+            <div class="kaligrafi-translation">"Dan tolong-menolonglah kamu dalam (mengerjakan) kebajikan dan takwa" (QS. Al-Maidah: 2)</div>
+        </section>
+        
+        <div class="content-grid">
+            <!-- Articles Section -->
+            <section class="articles-section" id="berita">
+                <h2>Berita & Artikel Terkini</h2>
+                
+                <article class="article-card fade-in">
+                    <div class="article-image">
+                        <img src="https://i.ibb.co.com/s97YqS7f/MAULID-NABI.jpg" alt="Kegiatan Maulid Nabi" class="high-quality-img">
+                    </div>
+                    <div class="article-content">
+                        <h3>Kegiatan Keagamaan Bersama OSIS SMA Negeri 1 Cluring</h3>
+                        <div class="article-meta">
+                            <span><i class="fas fa-calendar-alt"></i> 15 Maret 2025</span>
+                            <span><i class="fas fa-eye"></i> 245 views</span>
+                        </div>
+                        <p>Kegiatan keagamaan yang dilaksanakan bersama OSIS SMA Negeri 1 Cluring berlangsung dengan khidmat dan penuh semangat. Acara ini bertujuan untuk meningkatkan pemahaman siswa tentang nilai-nilai agama Islam dalam kehidupan sehari-hari.</p>
+                        <a href="#" class="read-more">Baca Selengkapnya</a>
+                    </div>
+                </article>
+                
+                <article class="article-card fade-in">
+                    <div class="article-image">
+                        <img src="https://i.ibb.co.com/nJbpGgZ/FOTO-PEMBELAJARAN.jpg" alt="Metode Pembelajaran Interaktif" class="high-quality-img">
+                    </div>
+                    <div class="article-content">
+                        <h3>Metode Pembelajaran Interaktif PAI Kelas XII</h3>
+                        <div class="article-meta">
+                            <span><i class="fas fa-calendar-alt"></i> 10 Maret 2025</span>
+                            <span><i class="fas fa-eye"></i> 189 views</span>
+                        </div>
+                        <p>Penerapan metode pembelajaran interaktif dalam mata pelajaran Pendidikan Agama Islam kelas XII terbukti meningkatkan minat dan pemahaman siswa terhadap materi yang diajarkan.</p>
+                        <a href="#" class="read-more">Baca Selengkapnya</a>
+                    </div>
+                </article>
+                
+                <article class="article-card fade-in">
+                    <div class="article-image">
+                        <img src="https://i.ibb.co.com/Rp3JhbsV/PEMBUATAN-ADMINISTRASI-KEGIATAN-KEAGAMAAN.jpg" alt="Pembuatan Administrasi Kegiatan Keagamaan" class="high-quality-img">
+                    </div>
+                    <div class="article-content">
+                        <h3>Pentingnya Administrasi dalam Perencanaan Kegiatan Keagamaan</h3>
+                        <div class="article-meta">
+                            <span><i class="fas fa-calendar-alt"></i> 5 Maret 2025</span>
+                            <span><i class="fas fa-eye"></i> 167 views</span>
+                        </div>
+                        <p>Administrasi yang baik menjadi kunci sukses dalam perencanaan dan pelaksanaan kegiatan keagamaan di sekolah. Artikel ini membahas pentingnya dokumentasi dan perencanaan yang matang.</p>
+                        <a href="#" class="read-more">Baca Selengkapnya</a>
+                    </div>
+                </article>
+            </section>
+            
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Teacher Profile -->
+                <div class="sidebar-section teacher-profile">
+                    <div class="teacher-avatar">
+                        <img src="https://i.ibb.co.com/ycj7x6d7/Praktik-Mengaji.webp" alt="Guru PAI" class="high-quality-img">
+                    </div>
+                    <h4>Suroso, S.Pd.I</h4>
+                    <p>Guru Pendidikan Agama Islam</p>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> suroso86@guru.sma.belajar.id</p>
+                        <p><i class="fas fa-phone"></i> 0853-3488-5787</p>
+                    </div>
+                </div>
+                
+                <!-- Module Links -->
+                <div class="sidebar-section" id="modul">
+                    <h3>Modul Ajar</h3>
+                    <ul class="module-list">
+                        <li><a href="modul-ajar-bab1.html">Bab 1: Sabar dalam Musibah dan Ujian</a></li>
+                        <li><a href="modul-ajar-bab2.html">Bab 2: Indahnya Kehidupan Bermakna</a></li>
+                        <li><a href="modul-ajar-bab3.html">Bab 3: Munafik dan Keras Hati Tak Akan Pernah Maju</a></li>
+                        <li><a href="modul-ajar-bab4.html">Bab 4: Kewarisan dalam Islam Berbagi dalam Kearifan</a></li>
+                        <li><a href="modul-ajar-bab5.html">Bab 5: Perkembangan Peradaban Islam di Dunia</a></li>
+                        <li><a href="modul-ajar-bab6.html">Bab 6: Cinta Tanah Air dan Moderasi Beragama</a></li>
+                        <li><a href="modul-ajar-bab7.html">Bab 7: Ilmu Kalam</a></li>
+                        <li><a href="modul-ajar-bab8.html">Bab 8: Sikap Inovatif dan Etika dalam Berorganisasi</a></li>
+                        <li><a href="modul-ajar-bab9.html">Bab 9: Ijtihad</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+        
+        <!-- Gallery Section -->
+        <section class="gallery-section" id="galeri">
+            <h2>Galeri Kegiatan</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co.com/SDzgWmnD/Whats-App-Image-2025-05-07-at-13-46-25.jpg" alt="Kegiatan Keagamaan" class="high-quality-img">
+                    <div class="gallery-caption">Kegiatan Keagamaan Siswa</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co.com/6RxhgtYV/Whats-App-Image-2025-05-06-at-21-04-42-1.jpg" alt="Diskusi Kelompok" class="high-quality-img">
+                    <div class="gallery-caption">Diskusi Kelompok Pembelajaran</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co.com/PZ8Pr0Yw/SESI-FOTO-BERSAMA.jpg" alt="Sesi Foto Bersama" class="high-quality-img">
+                    <div class="gallery-caption">Sesi Foto Bersama Kegiatan</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co.com/MDmxbQJ7/FOTO-PERSIPAN-KEGIATAN-KEAGAMAAN-DENGAN-OSIS.jpg" alt="Persiapan Kegiatan dengan OSIS" class="high-quality-img">
+                    <div class="gallery-caption">Persiapan Kegiatan dengan OSIS</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="kontak">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Tautan Penting</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://quran.nu.or.id/"><i class="fas fa-quran"></i> Al-Qur'an Online</a></li>
+                        <li><a href="https://kurikulum.kemdikbud.go.id/panduan-mapel"><i class="fas fa-book"></i> Panduan Kurikulum</a></li>
+                        <li><a href="https://rumah.pendidikan.go.id/"><i class="fas fa-home"></i> Rumah Belajar Kemdikbud</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Modul Ajar Lainnya</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://alam21234.github.io/sosiologi-ekonomi/"><i class="fas fa-chart-line"></i> Sosiologi Ekonomi</a></li>
+                        <li><a href="https://alimuthohar15-create.github.io/Modul-Ajar-Matematika/"><i class="fas fa-calculator"></i> Matematika</a></li>
+                        <li><a href="https://harsocakep0-art.github.io/modul-ajar-sosiologi/"><i class="fas fa-users"></i> Sosiologi</a></li>
+                        <li><a href="https://sumardami64-create.github.io/Modul_Ajar_Biologi_Kelas_XII/"><i class="fas fa-dna"></i> Biologi</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kontak</h3>
+                    <div class="contact-details">
+                        <p><i class="fas fa-phone"></i> 0853-3488-5787</p>
+                        <p><i class="fas fa-envelope"></i> suroso86@guru.sma.belajar.id</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Jl. Huzaini, Benculuk, Cluring, Banyuwangi, Jawa Timur</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 SMA Negeri 1 Cluring. Semua Hak Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Loading Screen
+        window.addEventListener('load', function() {
+            const loading = document.getElementById('loading');
+            setTimeout(function() {
+                loading.classList.add('hidden');
+            }, 1000);
+        });
+        
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Add fade-in animation to elements when they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all article cards and gallery items
+        document.querySelectorAll('.article-card, .gallery-item').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Add hover effects to gallery items
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.zIndex = '10';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.zIndex = '1';
+            });
+        });
+        
+        // Add pulse animation to logo on page load
+        window.addEventListener('load', function() {
+            const logo = document.querySelector('.logo');
+            logo.classList.add('pulse');
+            
+            setTimeout(function() {
+                logo.classList.remove('pulse');
+            }, 2000);
+        });
+    </script>
 </body>
 </html>
