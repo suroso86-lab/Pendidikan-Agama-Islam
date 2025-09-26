@@ -72,10 +72,9 @@
       margin-bottom: 6px;
     }
 
-    .btn-home {
+    .btn-home,
+    .btn-materi {
       display: inline-block;
-      background-color: var(--hijau-muda);
-      color: white;
       padding: 10px 20px;
       text-decoration: none;
       border-radius: 6px;
@@ -84,8 +83,23 @@
       transition: background 0.3s;
     }
 
+    .btn-home {
+      background-color: var(--hijau-muda);
+      color: white;
+    }
+
     .btn-home:hover {
       background-color: var(--hijau-tua);
+    }
+
+    .btn-materi {
+      background-color: var(--emas);
+      color: var(--hijau-tua);
+      margin-left: 12px;
+    }
+
+    .btn-materi:hover {
+      background-color: #c19a2a;
     }
 
     /* Tab Styles */
@@ -156,8 +170,9 @@
 </head>
 <body>
   <div class="container">
-    <!-- Tombol Kembali ke Beranda (Atas) -->
+    <!-- Tombol Kembali ke Beranda dan Akses Materi (Atas) -->
     <a href="index.html" class="btn-home">Kembali ke Beranda</a>
+    <a href="materi-pai-bab7.html" class="btn-materi">Akses Materi Pembelajaran</a>
 
     <h1>MODUL AJAR DEEP LEARNING<br>MATA PELAJARAN: PENDIDIKAN AGAMA ISLAM DAN BUDI PEKERTI<br>BAB: 7 ILMU KALAM</h1>
 
@@ -483,8 +498,9 @@
       </div>
     </div>
 
-    <!-- Tombol Kembali ke Beranda (Bawah) -->
-    <a href="#" class="btn-home">Kembali ke Beranda</a>
+    <!-- Tombol Kembali ke Beranda dan Akses Materi (Bawah) -->
+    <a href="index.html" class="btn-home">Kembali ke Beranda</a>
+    <a href="materi-pai-bab7.html" class="btn-materi">Akses Materi Pembelajaran</a>
   </div>
 
   <script>
