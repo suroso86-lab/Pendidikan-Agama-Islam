@@ -34,19 +34,33 @@
       margin: 20px 0;
     }
 
-    .btn-home {
+    .btn-home,
+    .btn-akses {
       display: inline-block;
-      background-color: var(--hijau-tua);
-      color: var(--putih);
       padding: 10px 20px;
       text-decoration: none;
       border-radius: 5px;
       font-weight: bold;
       transition: background-color 0.3s;
+      margin: 10px;
+    }
+
+    .btn-home {
+      background-color: var(--hijau-tua);
+      color: var(--putih);
     }
 
     .btn-home:hover {
       background-color: var(--hijau-muda);
+    }
+
+    .btn-akses {
+      background-color: var(--emas);
+      color: var(--hijau-tua);
+    }
+
+    .btn-akses:hover {
+      background-color: #c19a2a;
     }
 
     h1, h2, h3 {
@@ -142,6 +156,11 @@
 
     <!-- Judul Modul -->
     <h1>MODUL AJAR DEEP LEARNING<br>MATA PELAJARAN: PENDIDIKAN AGAMA ISLAM DAN BUDI PEKERTI<br>BAB 9: IJTIHAD</h1>
+
+    <!-- Tombol Akses Materi -->
+    <div style="text-align: center; margin-bottom: 30px;">
+      <a href="#" class="btn-akses">Akses Materi</a>
+    </div>
 
     <!-- Bagian A–D: Identitas hingga Dimensi Lulusan -->
     <div class="identitas">
