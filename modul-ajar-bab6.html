@@ -56,20 +56,35 @@
       font-weight: normal;
     }
 
-    .btn-home {
+    .btn-home,
+    .btn-access {
       display: inline-block;
-      background: var(--emas);
-      color: var(--hijau-tua);
       padding: 8px 16px;
       text-decoration: none;
       border-radius: 6px;
       font-weight: bold;
       margin: 12px 0;
       transition: background 0.3s;
+      text-align: center;
+    }
+
+    .btn-home {
+      background: var(--emas);
+      color: var(--hijau-tua);
     }
 
     .btn-home:hover {
       background: #c19a2a;
+    }
+
+    .btn-access {
+      background: var(--hijau-muda);
+      color: white;
+      margin-left: 10px;
+    }
+
+    .btn-access:hover {
+      background: var(--hijau-tua);
     }
 
     .section {
@@ -170,9 +185,10 @@
 <body>
 
 <div class="container">
-  <!-- Tombol Kembali ke Beranda (Atas) -->
+  <!-- Tombol Kembali ke Beranda dan Akses Materi (Atas) -->
   <div style="text-align: center; padding: 10px 0;">
     <a href="index.html" class="btn-home">Kembali ke Beranda</a>
+    <a href="materi-pai-bab6.html" class="btn-access">Akses Materi</a>
   </div>
 
   <header>
@@ -458,9 +474,10 @@
     </ul>
   </div>
 
-  <!-- Tombol Kembali ke Beranda (Bawah) -->
+  <!-- Tombol Kembali ke Beranda dan Akses Materi (Bawah) -->
   <div class="footer-btn">
-    <a href="#" class="btn-home">Kembali ke Beranda</a>
+    <a href="index.html" class="btn-home">Kembali ke Beranda</a>
+    <a href="materi-pai-bab6.html" class="btn-access">Akses Materi</a>
   </div>
 </div>
 
