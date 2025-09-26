@@ -10,26 +10,27 @@
             line-height: 1.6;
             margin: 0;
             padding: 20px;
-            background-color: #f9f9f9;
-            color: #333;
+            background-color: #f8f9fa;
+            color: #2c3e50;
         }
         .container {
             max-width: 800px;
             margin: 0 auto;
             background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
         h1 {
             color: #1a5276;
             text-align: center;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 10px;
+            border-bottom: 2px solid #d5dbdb;
+            padding-bottom: 12px;
+            margin-bottom: 25px;
         }
         h2 {
             color: #2874a6;
-            margin-top: 25px;
+            margin-top: 28px;
         }
         h3 {
             color: #2e86c1;
@@ -45,21 +46,60 @@
             text-align: center;
             margin: 20px 0 30px;
         }
+
         .highlight {
-            background-color: #fff3cd;
-            padding: 15px;
-            border-left: 4px solid #ffc107;
+            background-color: #e8f5e9;
+            padding: 18px;
+            border-left: 4px solid #27ae60;
             margin-top: 25px;
-            border-radius: 0 4px 4px 0;
+            border-radius: 0 6px 6px 0;
         }
         .highlight h3 {
             margin-top: 0;
-            color: #856404;
+            color: #27ae60;
+        }
+
+        /* Tombol Islami */
+        .btn-islami {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: #27ae60; /* Hijau Islami */
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 16px;
+            margin: 20px auto 30px;
+            width: fit-content;
+            box-shadow: 0 4px 8px rgba(39, 174, 96, 0.3);
+            transition: all 0.3s ease;
+            border: 2px solid #229954;
+        }
+        .btn-islami:hover {
+            background-color: #229954;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(39, 174, 96, 0.4);
+        }
+        .btn-islami:active {
+            transform: translateY(0);
+        }
+
+        /* Ikon bulan sabit */
+        .crescent {
+            font-size: 18px;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Tombol Kembali ke Beranda (nuansa Islami) -->
+        <a href="index.html" class="btn-islami">
+            <span class="crescent">☪</span> Kembali ke Beranda
+        </a>
+
         <h1>📘 Bab 5 – Perkembangan Peradaban Islam di Dunia</h1>
 
         <div class="video-container">
