@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -38,28 +38,23 @@
     header {
       text-align: center;
       margin-bottom: 40px;
-      position: relative;
     }
 
     h1 {
       font-family: 'Amiri', serif;
-      font-size: 2.4rem;
+      font-size: 2.2rem;
       color: var(--hijau-islami);
       margin: 0;
       line-height: 1.3;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.05);
-      position: relative;
-      padding-bottom: 16px;
     }
 
     h1::after {
       content: "";
       display: block;
-      width: 120px;
-      height: 3px;
-      background: linear-gradient(to right, var(--emas-islami), transparent);
+      width: 100px;
+      height: 2px;
+      background: var(--emas-islami);
       margin: 12px auto 0;
-      border-radius: 2px;
     }
 
     .section {
@@ -70,119 +65,57 @@
       box-shadow: 0 6px 20px rgba(0,0,0,0.06);
       border: 1px solid rgba(201, 168, 92, 0.15);
       position: relative;
-      overflow: hidden;
-    }
-
-    .section::before {
-      content: "❖";
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      color: var(--emas-islami);
-      font-size: 1.2rem;
-      opacity: 0.4;
-      font-family: serif;
     }
 
     .section h2 {
       font-family: 'Amiri', serif;
-      font-size: 1.8rem;
+      font-size: 1.7rem;
       color: var(--hijau-islami);
       margin-top: 0;
       padding-bottom: 8px;
       border-bottom: 1px solid rgba(10, 85, 58, 0.1);
     }
 
-    .section h3 {
+    .ayat-arab {
       font-family: 'Amiri', serif;
       font-size: 1.4rem;
-      color: var(--hijau-muda);
-      margin-top: 24px;
-      margin-bottom: 12px;
-    }
-
-    ul, ol {
-      padding-right: 0;
-      padding-left: 24px;
-    }
-
-    li {
-      margin-bottom: 10px;
-    }
-
-    strong {
+      text-align: right;
+      direction: rtl;
       color: var(--hijau-islami);
+      background-color: rgba(201, 168, 92, 0.08);
+      padding: 16px;
+      border-radius: 10px;
+      margin: 20px 0;
+      line-height: 1.8;
     }
 
-    em {
-      color: var(--abu-tua);
+    .terjemahan {
       font-style: italic;
-    }
-
-    /* Video Section */
-    .video-section {
-      background: var(--putih);
-      padding: 32px;
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-      border: 1px solid rgba(201, 168, 92, 0.15);
-      margin-top: 20px;
-    }
-
-    .video-section h2 {
-      font-family: 'Amiri', serif;
-      font-size: 1.8rem;
-      color: var(--hijau-islami);
-      text-align: center;
-      margin-top: 0;
-      padding-bottom: 16px;
-      border-bottom: 1px solid rgba(10, 85, 58, 0.1);
+      color: var(--abu-tua);
+      margin: 12px 0;
+      padding-left: 10px;
+      border-left: 3px solid var(--emas-islami);
     }
 
     .video-container {
       display: flex;
-      flex-wrap: wrap;
-      gap: 24px;
       justify-content: center;
       margin-top: 20px;
     }
 
-    .video-item {
-      flex: 1 1 300px;
-      max-width: 560px;
-    }
-
-    iframe {
+    .video-container iframe {
       width: 100%;
+      max-width: 560px;
       height: 315px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      color: var(--abu-tua);
-      font-size: 0.9rem;
-      padding: 20px;
-    }
-
     @media (max-width: 600px) {
-      h1 {
-        font-size: 1.8rem;
-      }
-
-      .section {
-        padding: 20px;
-      }
-
-      iframe {
-        height: 200px;
-      }
-
-      .video-container {
-        gap: 16px;
-      }
+      h1 { font-size: 1.7rem; }
+      .section { padding: 20px; }
+      .ayat-arab { font-size: 1.2rem; }
+      .video-container iframe { height: 200px; }
     }
   </style>
 </head>
@@ -190,117 +123,48 @@
 
   <div class="container">
     <header>
-      <h1>📘 Mata Pelajaran: Pendidikan Agama Islam dan Budi Pekerti<br><span style="color: var(--emas-islami);">BAB 9: IJTIHAD</span></h1>
+      <h1>📘 Pendidikan Agama Islam dan Budi Pekerti<br><span style="color: var(--emas-islami);">BAB 9: IJTIHAD</span></h1>
     </header>
 
     <!-- Pertemuan 1 -->
     <div class="section">
       <h2>Pertemuan 1: Memahami Konsep Dasar Ijtihad</h2>
-      <h3>1. Pengertian Ijtihad</h3>
-      <p><strong>Secara bahasa</strong>, ijtihad berarti mencurahkan seluruh kemampuan dan kesungguhan dalam melakukan suatu pekerjaan.<br>
-      <strong>Secara istilah</strong>, ijtihad adalah usaha seorang mujtahid (ulama yang memenuhi syarat) untuk menggali hukum Islam dari sumber-sumbernya (Al-Qur’an dan Hadis) terhadap suatu persoalan yang tidak ada ketentuan hukumnya secara jelas.</p>
+      <p><strong>QS. An-Nisa’ ayat 59</strong> merupakan salah satu dasar hukum utama Ijtihad:</p>
 
-      <h3>2. Kedudukan Ijtihad dalam Islam</h3>
-      <ul>
-        <li>Ijtihad memiliki kedudukan penting sebagai sarana menetapkan hukum terhadap masalah baru.</li>
-        <li>Ia menjadi pelengkap setelah Al-Qur’an dan Hadis, serta menjadi bentuk tanggung jawab ulama dalam menjaga relevansi hukum Islam sepanjang zaman.</li>
-      </ul>
+      <div class="ayat-arab">
+        يَا أَيُّهَا الَّذِينَ آمَنُوا أَطِيعُوا اللَّهَ وَأَطِيعُوا الرَّسُولَ وَأُولِي الْأَمْرِ مِنْكُمْ ۖ فَإِنْ تَنَازَعْتُمْ فِي شَيْءٍ فَرُدُّوهُ إِلَى اللَّهِ وَالرَّسُولِ إِنْ كُنْتُمْ تُؤْمِنُونَ بِاللَّهِ وَالْيَوْمِ الْآخِرِ ۚ ذَٰلِكَ خَيْرٌ وَأَحْسَنُ تَأْوِيلًا
+      </div>
 
-      <h3>3. Dasar Hukum Ijtihad</h3>
-      <ul>
-        <li><strong>QS. An-Nisa’ (4): 59</strong> → memerintahkan umat untuk taat kepada Allah, Rasul, dan ulil amri (pemimpin). Ulil amri di sini termasuk ulama yang berijtihad.</li>
-        <li><strong>Hadis Mu’adz bin Jabal</strong> saat diutus ke Yaman → ketika ditanya Nabi SAW dengan apa ia akan memutuskan perkara, Mu’adz menjawab: “Dengan Kitab Allah, jika tidak ada maka dengan Sunnah Rasul, jika tidak ada maka dengan pendapatku (ijtihad).” Rasul membenarkan hal tersebut.</li>
-      </ul>
+      <div class="terjemahan">
+        “Wahai orang-orang yang beriman! Taatilah Allah dan taatilah Rasul (Muhammad), dan ulil amri di antara kamu. Kemudian, jika kamu berbeda pendapat tentang sesuatu, maka kembalikanlah kepada Allah dan Rasul, jika kamu beriman kepada Allah dan hari akhir. Yang demikian itu lebih utama dan lebih baik akibatnya.”
+      </div>
 
-      <h3>4. Syarat-syarat Mujtahid</h3>
-      <ul>
-        <li>Menguasai bahasa Arab.</li>
-        <li>Mengetahui isi Al-Qur’an dan Hadis serta kaidah-kaidah penafsirannya.</li>
-        <li>Menguasai ilmu ushul fiqh.</li>
-        <li>Mengetahui ijma’ ulama.</li>
-        <li>Memiliki akhlak mulia dan niat yang ikhlas.</li>
-      </ul>
+      <p>Ulil amri di sini mencakup para ulama yang memenuhi syarat untuk berijtihad dalam menetapkan hukum syariah.</p>
 
-      <h3>5. Urgensi Ijtihad di Era Kontemporer</h3>
-      <ul>
-        <li>Banyak persoalan baru muncul yang tidak dijelaskan secara eksplisit dalam Al-Qur’an dan Hadis (misalnya: teknologi, ekonomi modern, bioetika).</li>
-        <li>Ijtihad menjadi solusi agar Islam tetap relevan sepanjang zaman.</li>
-      </ul>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/NPMBK1_JO84" title="Pengertian Ijtihad" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
     </div>
 
     <!-- Pertemuan 2 -->
     <div class="section">
-      <h2>Pertemuan 2: Mengenal Macam-macam Ijtihad dan Fungsinya</h2>
-      <h3>1. Macam-macam Ijtihad</h3>
-      <ul>
-        <li><strong>Qiyas</strong> → menetapkan hukum suatu masalah baru dengan cara membandingkan dengan masalah lama yang sudah ada hukumnya karena memiliki illat (alasan hukum) yang sama.<br>
-        <em>Contoh:</em> larangan narkoba diqiyaskan dengan larangan khamr karena sama-sama memabukkan.</li>
-        <li><strong>Istihsan</strong> → menetapkan hukum dengan meninggalkan qiyas yang kaku demi mengambil kemaslahatan yang lebih kuat.<br>
-        <em>Contoh:</em> membolehkan transaksi digital meskipun tidak ada pada zaman klasik karena membawa kemudahan.</li>
-        <li><strong>Maslahah Mursalah</strong> → menetapkan hukum demi kemaslahatan umum yang tidak bertentangan dengan Al-Qur’an dan Hadis.<br>
-        <em>Contoh:</em> peraturan lalu lintas, undang-undang kesehatan.</li>
-        <li><strong>‘Urf (kebiasaan)</strong> → menjadikan adat kebiasaan masyarakat yang baik sebagai dasar hukum selama tidak bertentangan dengan syariat.</li>
-        <li><strong>Istishab</strong> → menetapkan hukum berdasarkan keadaan yang sudah ada sebelumnya sampai ada dalil yang mengubahnya.</li>
-      </ul>
+      <h2>Pertemuan 2: Macam-macam Ijtihad dan Fungsinya</h2>
+      <p>Materi mencakup Qiyas, Istihsan, Maslahah Mursalah, ‘Urf, dan Istishab beserta fungsinya dalam menjawab tantangan zaman.</p>
 
-      <h3>2. Fungsi Ijtihad</h3>
-      <ul>
-        <li>Menjawab persoalan baru yang tidak ada di zaman Nabi SAW.</li>
-        <li>Menjaga fleksibilitas hukum Islam sesuai perkembangan zaman.</li>
-        <li>Memberikan solusi bagi umat dalam kehidupan sosial, ekonomi, politik, dan budaya.</li>
-      </ul>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/SE1nfnkex7M" title="Macam-Macam Ijtihad" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
     </div>
 
     <!-- Pertemuan 3 -->
     <div class="section">
-      <h2>Pertemuan 3: Penerapan Ijtihad dalam Isu Kontemporer dan Hikmahnya</h2>
-      <h3>1. Penerapan Ijtihad pada Isu Kontemporer</h3>
-      <ul>
-        <li><strong>Ekonomi</strong> → hukum transaksi online, bank syariah, fintech syariah.</li>
-        <li><strong>Kesehatan</strong> → transplantasi organ, bayi tabung, vaksinasi.</li>
-        <li><strong>Teknologi</strong> → penggunaan AI, media sosial, hak cipta digital.</li>
-        <li><strong>Lingkungan</strong> → hukum terkait pencemaran, konservasi alam.</li>
-      </ul>
+      <h2>Pertemuan 3: Penerapan Ijtihad dalam Isu Kontemporer</h2>
+      <p>Ijtihad diterapkan dalam isu ekonomi digital, bioetika, teknologi, dan lingkungan, dengan hikmah menjaga kemaslahatan umat dan relevansi Islam sepanjang zaman.</p>
 
-      <h3>2. Hikmah Ijtihad</h3>
-      <ul>
-        <li>Menunjukkan keluwesan ajaran Islam.</li>
-        <li>Membuktikan Islam sesuai dengan segala zaman dan tempat.</li>
-        <li>Menjaga kemaslahatan umat.</li>
-        <li>Menumbuhkan semangat berpikir kritis dan kreatif dalam agama.</li>
-        <li>Memberikan kepastian hukum dalam masalah yang belum jelas.</li>
-      </ul>
-
-      <h3>3. Manfaat bagi Kehidupan</h3>
-      <ul>
-        <li><strong>Individu</strong> → memiliki panduan hidup dalam hal-hal baru.</li>
-        <li><strong>Umat Islam</strong> → menjaga persatuan dengan solusi hukum yang kontekstual.</li>
-        <li><strong>Peradaban</strong> → menjadikan Islam tetap hidup dan dinamis di tengah perubahan zaman.</li>
-      </ul>
-    </div>
-
-    <!-- Video Pembelajaran -->
-    <div class="video-section">
-      <h2>🎥 Tayangan Pembelajaran: Memahami Ijtihad</h2>
-      <p style="text-align: center; color: var(--abu-tua); margin-bottom: 20px;">
-        Tonton video berikut untuk memperdalam pemahaman tentang konsep dan penerapan Ijtihad dalam kehidupan modern.
-      </p>
       <div class="video-container">
-        <div class="video-item">
-          <iframe src="https://www.youtube.com/embed/NPMBK1_JO84" title="Pengertian Ijtihad" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <div class="video-item">
-          <iframe src="https://www.youtube.com/embed/SE1nfnkex7M" title="Macam-Macam Ijtihad" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <div class="video-item">
-          <iframe src="https://www.youtube.com/embed/DN-m7cInigQ" title="Ijtihad dalam Isu Kontemporer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
+        <iframe src="https://www.youtube.com/embed/DN-m7cInigQ" title="Ijtihad dalam Isu Kontemporer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </div>
-
-    <footer>
-      <p>© 2025 | Modul Ajar PAI dan Budi Pekerti – BAB 9: IJTIHAD</p>
-    </footer>
   </div>
 </body>
 </html>
