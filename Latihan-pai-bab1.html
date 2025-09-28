@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis: Sabar dalam Islam</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .section-title {
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .options {
+            margin-left: 20px;
+        }
+        .option {
+            margin-bottom: 8px;
+        }
+        .matching-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .matching-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .matching-table select {
+            width: 100%;
+            padding: 5px;
+        }
+        .short-answer input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .case-study {
+            background-color: #e8f4fc;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .case-question {
+            margin-top: 15px;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e8f4fc;
+            border-radius: 5px;
+            display: none;
+        }
+        .score {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        .correct {
+            color: #27ae60;
+        }
+        .incorrect {
+            color: #e74c3c;
+        }
+        .answer-feedback {
+            margin-top: 5px;
+            font-size: 14px;
+            padding: 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kuis: Sabar dalam Islam</h1>
+        
+        <form id="quiz-form">
+            <!-- Pertemuan 1 -->
+            <div class="section">
+                <h2 class="section-title">Pertemuan 1 – Pengertian dan Jenis Sabar</h2>
+                
+                <div class="question">
+                    <p>1. Apa arti sabar dari segi bahasa?</p>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="pg1a" name="pg1" value="a">
+                            <label for="pg1a">a. Menahan diri, tabah</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="pg1b" name="pg1" value="b">
+                            <label for="pg1b">b. Mengeluh saat kesulitan</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="pg1c" name="pg1" value="c">
+                            <label for="pg1c">c. Selalu menang sendiri</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="pg1d" name="pg1" value="d">
+                            <label for="pg1d">d. Bersikap cuek</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>2. Sabar dalam menghadapi musibah termasuk jenis sabar…</p>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="pg2a" name="pg2" value="a">
+                            <label for="pg2a">a. Sabar dalam ketaatan</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="pg2b" name="pg2" value="b">
+                            <label for="pg2b">b. Sabar menjauhi maksiat</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="pg2c" name="pg2" value="c">
+                            <label for="pg2c">c. Sabar menghadapi ujian dan musibah</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="pg2d" name="pg2" value="d">
+                            <label for="pg2d">d. Sabar dalam belajar</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>3. Dalil Al-Qur'an yang menyebutkan "Sabar dan salat sebagai penolong" terdapat pada:</p>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="pg3a" name="pg3" value="a">
+                            <label for="pg3a">a. QS. Al-Baqarah/2:153</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="pg3b" name="pg3" value="b">
+                            <label for="pg3b">b. QS. Al-Baqarah/2:155</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="pg3c" name="pg3" value="c">
+                            <label for="pg3c">c. QS. Az-Zumar:10</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="pg3d" name="pg3" value="d">
+                            <label for="pg3d">d. QS. An-Nisa/4:142</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pertemuan 2 -->
+            <div class="section">
+                <h2 class="section-title">Pertemuan 2 – Memahami Kandungan Ayat dan Hadis</h2>
+                
+                <div class="question">
+                    <p>4. Berdasarkan QS. Al-Baqarah/2:155, musibah adalah…</p>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="pg4a" name="pg4" value="a">
+                            <label for="pg4a">a. Hukuman Allah</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="pg4b" name="pg4" value="b">
+                            <label for="pg4b">b. Ujian hidup untuk orang beriman</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="pg4c" name="pg4" value="c">
+                            <label for="pg4c">c. Kesalahan manusia</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="pg4d" name="pg4" value="d">
+                            <label for="pg4d">d. Hal yang tidak penting</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>5. Contoh sabar dalam kehidupan sehari-hari adalah…</p>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="pg5a" name="pg5" value="a">
+                            <label for="pg5a">a. Mengeluh saat gagal ujian</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="pg5b" name="pg5" value="b">
+                            <label for="pg5b">b. Menjaga emosi ketika diejek</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="pg5c" name="pg5" value="c">
+                            <label for="pg5c">c. Mengambil hak orang lain</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="pg5d" name="pg5" value="d">
+                            <label for="pg5d">d. Menunda salat</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>6. Hadis Nabi ﷺ yang menunjukkan pentingnya sabar adalah:</p>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="pg6a" name="pg6" value="a">
+                            <label for="pg6a">a. "Sungguh menakjubkan urusan seorang mukmin... jika mendapat kesenangan, ia bersyukur; jika ditimpa musibah, ia bersabar." (HR. Muslim)</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="pg6b" name="pg6" value="b">
+                            <label for="pg6b">b. "Berdoalah agar selalu kaya."</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="pg6c" name="pg6" value="c">
+                            <label for="pg6c">c. "Belajar itu tidak wajib bagi perempuan."</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="pg6d" name="pg6" value="d">
+                            <label for="pg6d">d. "Tidak ada pahala tanpa usaha."</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pertemuan 3 -->
+            <div class="section">
+                <h2 class="section-title">Pertemuan 3 – Hikmah dan Implementasi</h2>
+                
+                <div class="question">
+                    <p>7. Salah satu hikmah bersabar adalah…</p>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="pg7a" name="pg7" value="a">
+                            <label for="pg7a">a. Mendapat pahala besar</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="pg7b" name="pg7" value="b">
+                            <label for="pg7b">b. Menjadi orang sombong</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="pg7c" name="pg7" value="c">
+                            <label for="pg7c">c. Tidak peduli lingkungan</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="pg7d" name="pg7" value="d">
+                            <label for="pg7d">d. Menghindari tanggung jawab</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>8. Kisah Nabi Ayyub a.s. mengajarkan bahwa:</p>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="pg8a" name="pg8" value="a">
+                            <label for="pg8a">a. Sabar hanya untuk orang kaya</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="pg8b" name="pg8" value="b">
+                            <label for="pg8b">b. Kesabaran menghadapi penyakit dan kehilangan harta membuahkan hikmah</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="pg8c" name="pg8" value="c">
+                            <label for="pg8c">c. Kesabaran tidak penting dalam hidup</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="pg8d" name="pg8" value="d">
+                            <label for="pg8d">d. Selalu mengeluh saat tertimpa musibah</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Soal Menjodohkan -->
+            <div class="section">
+                <h2 class="section-title">Soal Menjodohkan</h2>
+                <p>Pasangkan jenis sabar dengan contohnya:</p>
+                <table class="matching-table">
+                    <tr>
+                        <td>1. Sabar dalam ketaatan</td>
+                        <td>
+                            <select name="match1">
+                                <option value="">Pilih Contoh</option>
+                                <option value="a">a. Menunaikan salat meski lelah</option>
+                                <option value="b">b. Menahan diri dari mengumpat orang lain</option>
+                                <option value="c">c. Tetap tenang saat keluarga terkena bencana</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2. Sabar menjauhi maksiat</td>
+                        <td>
+                            <select name="match2">
+                                <option value="">Pilih Contoh</option>
+                                <option value="a">a. Menunaikan salat meski lelah</option>
+                                <option value="b">b. Menahan diri dari mengumpat orang lain</option>
+                                <option value="c">c. Tetap tenang saat keluarga terkena bencana</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3. Sabar menghadapi ujian dan musibah</td>
+                        <td>
+                            <select name="match3">
+                                <option value="">Pilih Contoh</option>
+                                <option value="a">a. Menunaikan salat meski lelah</option>
+                                <option value="b">b. Menahan diri dari mengumpat orang lain</option>
+                                <option value="c">c. Tetap tenang saat keluarga terkena bencana</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            
+            <!-- Soal Isian Singkat -->
+            <div class="section">
+                <h2 class="section-title">Soal Isian Singkat</h2>
+                
+                <div class="question short-answer">
+                    <p>9. Bahasa sabar berasal dari kata …</p>
+                    <input type="text" name="short9">
+                </div>
+                
+                <div class="question short-answer">
+                    <p>10. Sabar yang menolong kita melalui kesulitan disebut sabar …</p>
+                    <input type="text" name="short10">
+                </div>
+                
+                <div class="question short-answer">
+                    <p>11. QS. Al-Baqarah/2:153 menekankan pentingnya … dan salat sebagai penolong.</p>
+                    <input type="text" name="short11">
+                </div>
+            </div>
+            
+            <!-- Soal Studi Kasus / Refleksi -->
+            <div class="section">
+                <h2 class="section-title">Soal Studi Kasus / Refleksi</h2>
+                
+                <div class="case-study">
+                    <p><strong>Kasus:</strong> Siti gagal ujian semester. Ia merasa sedih tetapi mencoba belajar lebih giat untuk ujian berikutnya.</p>
+                    
+                    <div class="case-question short-answer">
+                        <p>12. Berdasarkan kasus di atas, sikap Siti termasuk jenis sabar…</p>
+                        <input type="text" name="case12">
+                    </div>
+                    
+                    <div class="case-question short-answer">
+                        <p>13. Apa hikmah yang bisa dipetik dari sikap Siti?</p>
+                        <input type="text" name="case13">
+                    </div>
+                    
+                    <div class="case-question short-answer">
+                        <p>14. Bagaimana kalian bisa meneladani sikap Siti dalam kehidupan sehari-hari?</p>
+                        <input type="text" name="case14">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="button-container">
+                <button type="button" id="submit-btn">Koreksi Jawaban</button>
+            </div>
+        </form>
+        
+        <div class="result" id="result">
+            <div class="score" id="score-display"></div>
+            <div id="answer-feedback"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('submit-btn').addEventListener('click', function() {
+            // Kunci jawaban
+            const correctAnswers = {
+                // Pilihan Ganda
+                pg1: 'a',
+                pg2: 'c',
+                pg3: 'a',
+                pg4: 'b',
+                pg5: 'b',
+                pg6: 'a',
+                pg7: 'a',
+                pg8: 'b',
+                
+                // Menjodohkan
+                match1: 'a',
+                match2: 'b',
+                match3: 'c',
+                
+                // Isian Singkat
+                short9: ['ṣabara', 'sabara'],
+                short10: ['dalam ketaatan dan menghadapi ujian', 'dalam ketaatan', 'dalam menghadapi ujian'],
+                short11: ['sabar'],
+                
+                // Studi Kasus
+                case12: ['sabar menghadapi ujian dan musibah', 'sabar menghadapi ujian', 'sabar menghadapi musibah'],
+                case13: ['Belajar untuk tetap tabah, tekun, dan tidak mudah menyerah; memperoleh pahala kesabaran; hati lebih tenang', 
+                         'tetap tabah, tekun, dan tidak mudah menyerah', 'memperoleh pahala kesabaran', 'hati lebih tenang'],
+                case14: ['Menahan emosi saat mendapat kesulitan, tetap tekun belajar, atau menghadapi masalah dengan tenang',
+                         'menahan emosi saat mendapat kesulitan', 'tetap tekun belajar', 'menghadapi masalah dengan tenang']
+            };
+            
+            // Bobot nilai per soal (total 100)
+            const weights = {
+                pg: 5, // 8 soal x 5 = 40
+                match: 4, // 3 soal x 4 = 12
+                short: 4, // 3 soal x 4 = 12
+                case: 12 // 3 soal x 12 = 36
+            };
+            
+            let totalScore = 0;
+            let feedbackHTML = '';
+            
+            // Periksa jawaban pilihan ganda
+            for (let i = 1; i <= 8; i++) {
+                const selected = document.querySelector(`input[name="pg${i}"]:checked`);
+                const isCorrect = selected && selected.value === correctAnswers[`pg${i}`];
+                
+                if (isCorrect) {
+                    totalScore += weights.pg;
+                    feedbackHTML += `<p class="correct">Soal ${i}: Benar (+${weights.pg})</p>`;
+                } else {
+                    feedbackHTML += `<p class="incorrect">Soal ${i}: Salah. Jawaban yang benar: ${correctAnswers[`pg${i}`]}</p>`;
+                }
+            }
+            
+            // Periksa soal menjodohkan
+            for (let i = 1; i <= 3; i++) {
+                const selected = document.querySelector(`select[name="match${i}"]`).value;
+                const isCorrect = selected === correctAnswers[`match${i}`];
+                
+                if (isCorrect) {
+                    totalScore += weights.match;
+                    feedbackHTML += `<p class="correct">Soal Menjodohkan ${i}: Benar (+${weights.match})</p>`;
+                } else {
+                    feedbackHTML += `<p class="incorrect">Soal Menjodohkan ${i}: Salah. Jawaban yang benar: ${correctAnswers[`match${i}`]}</p>`;
+                }
+            }
+            
+            // Periksa soal isian singkat
+            for (let i = 9; i <= 11; i++) {
+                const answer = document.querySelector(`input[name="short${i}"]`).value.trim().toLowerCase();
+                const correctOptions = correctAnswers[`short${i}`];
+                let isCorrect = false;
+                
+                for (let option of correctOptions) {
+                    if (answer.includes(option.toLowerCase())) {
+                        isCorrect = true;
+                        break;
+                    }
+                }
+                
+                if (isCorrect) {
+                    totalScore += weights.short;
+                    feedbackHTML += `<p class="correct">Soal ${i}: Benar (+${weights.short})</p>`;
+                } else {
+                    feedbackHTML += `<p class="incorrect">Soal ${i}: Salah. Jawaban yang benar: ${correctOptions[0]}</p>`;
+                }
+            }
+            
+            // Periksa soal studi kasus
+            for (let i = 12; i <= 14; i++) {
+                const answer = document.querySelector(`input[name="case${i}"]`).value.trim().toLowerCase();
+                const correctOptions = correctAnswers[`case${i}`];
+                let isCorrect = false;
+                
+                for (let option of correctOptions) {
+                    if (answer.includes(option.toLowerCase())) {
+                        isCorrect = true;
+                        break;
+                    }
+                }
+                
+                if (isCorrect) {
+                    totalScore += weights.case;
+                    feedbackHTML += `<p class="correct">Soal ${i}: Benar (+${weights.case})</p>`;
+                } else {
+                    feedbackHTML += `<p class="incorrect">Soal ${i}: Salah. Jawaban yang benar: ${correctOptions[0]}</p>`;
+                }
+            }
+            
+            // Tampilkan hasil
+            document.getElementById('score-display').textContent = `Nilai Anda: ${totalScore}/100`;
+            document.getElementById('answer-feedback').innerHTML = feedbackHTML;
+            document.getElementById('result').style.display = 'block';
+            
+            // Scroll ke hasil
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
