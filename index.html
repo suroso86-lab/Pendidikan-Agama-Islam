@@ -4,154 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pendidikan Agama Islam Kelas XII - SMA Negeri 1 Cluring</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="Website resmi PAI Kelas XII SMA Negeri 1 Cluring - Berbasis nilai Nahdlatul Ulama">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset dan Base Styles */
+        /* === RESET & VARIABLES === */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
-        
         :root {
-            --primary-color: #0a7b3a;
-            --secondary-color: #d4af37;
-            --accent-color: #1a5d1a;
-            --light-color: #f8f8f8;
-            --dark-color: #333;
-            --text-color: #333;
-            --light-text: #fff;
-            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             --nu-green: #0a7b3a;
             --nu-gold: #d4af37;
             --nu-dark-green: #084c22;
             --nu-light-green: #e8f5e9;
-            --section-spacing: 60px;
+            --text: #333;
+            --light: #fff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
-        
         body {
             background-color: #f9f9f9;
-            color: var(--text-color);
+            color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%230a7b3a" opacity="0.03" d="M50,10 A40,40 0 1,1 50,90 A40,40 0 1,1 50,10 Z"/></svg>');
+            background-image: url('image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%230a7b3a" opacity="0.03" d="M50,10 A40,40 0 1,1 50,90 A40,40 0 1,1 50,10 Z"/></svg>');
             background-attachment: fixed;
         }
-        
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 15px;
         }
-        
-        /* Header Styles dengan Nuansa NU */
+
+        /* === HEADER === */
         header {
             background: linear-gradient(135deg, var(--nu-dark-green), var(--nu-green));
-            color: var(--light-text);
+            color: var(--light);
             padding: 20px 0;
             box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
             border-bottom: 5px solid var(--nu-gold);
         }
-        
-        header::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.15"><path fill="%23ffffff" d="M50,10 A40,40 0 1,1 50,90 A40,40 0 1,1 50,10 Z" /></svg>');
-            background-repeat: repeat;
-            z-index: 0;
-        }
-        
         .header-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            position: relative;
-            z-index: 1;
+            gap: 20px;
         }
-        
         .logo-section {
             display: flex;
             align-items: center;
+            gap: 15px;
         }
-        
         .logo {
-            width: 90px;
-            height: 90px;
-            margin-right: 20px;
-            border-radius: 50%;
+            width: 80px;
+            height: 80px;
             border: 3px solid var(--nu-gold);
+            border-radius: 50%;
             overflow: hidden;
-            background-color: white;
-            padding: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            position: relative;
+            background: white;
         }
-        
         .logo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 50%;
         }
-        
-        .logo::after {
-            content: "ن";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: 'Amiri', serif;
-            font-size: 2.5rem;
-            color: var(--nu-green);
-            opacity: 0.1;
-            pointer-events: none;
-        }
-        
         .school-info h1 {
-            font-size: 1.8rem;
-            margin-bottom: 8px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            font-weight: 700;
-            letter-spacing: 0.5px;
+            font-size: 1.7rem;
+            margin-bottom: 6px;
             color: white;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
-        
         .school-info p {
-            font-size: 0.95rem;
-            opacity: 0.95;
-            font-weight: 500;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-            color: #f0f0f0;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.9);
         }
-        
+        .nu-badge {
+            background: linear-gradient(45deg, var(--nu-green), var(--nu-gold));
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
         .subject-title {
             text-align: center;
-            margin-top: 15px;
-            padding: 15px;
-            background-color: rgba(0, 0, 0, 0.3);
-            border-radius: 8px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+            padding: 16px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 10px;
+            backdrop-filter: blur(6px);
             position: relative;
         }
-        
         .subject-title::before {
             content: "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم";
             position: absolute;
             top: -10px;
             left: 50%;
             transform: translateX(-50%);
-            background-color: var(--nu-gold);
+            background: var(--nu-gold);
             color: var(--nu-dark-green);
             padding: 5px 15px;
             border-radius: 20px;
@@ -159,984 +116,503 @@
             font-size: 0.9rem;
             font-weight: bold;
         }
-        
         .subject-title h2 {
-            font-size: 2.2rem;
-            margin-bottom: 8px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
-            font-weight: 700;
+            font-size: 2rem;
             color: white;
+            margin-bottom: 8px;
         }
-        
         .subject-title p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-            color: #f0f0f0;
-            font-weight: 500;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.9);
         }
-        
-        /* Navigation dengan Nuansa NU */
+
+        /* === NAVIGATION === */
         nav {
-            background-color: var(--nu-dark-green);
+            background: var(--nu-dark-green);
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
-        
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
         .nav-links {
             display: flex;
             list-style: none;
         }
-        
-        .nav-links li {
-            margin: 0;
-        }
-        
-        .nav-links a {
-            color: var(--light-text);
+        .nav-links li a {
+            color: white;
             text-decoration: none;
-            padding: 18px 22px;
+            padding: 18px 16px;
             display: block;
-            transition: all 0.3s;
             font-weight: 600;
             position: relative;
-            overflow: hidden;
         }
-        
-        .nav-links a::before {
-            content: "";
+        .nav-links a::after {
+            content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
+            left: 50%;
             width: 0;
             height: 3px;
-            background-color: var(--nu-gold);
+            background: var(--nu-gold);
+            transform: translateX(-50%);
             transition: width 0.3s;
         }
-        
-        .nav-links a:hover {
-            background-color: rgba(255, 255, 255, 0.15);
+        .nav-links a:hover::after {
+            width: 80%;
         }
-        
-        .nav-links a:hover::before {
-            width: 100%;
-        }
-        
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
-            color: var(--light-text);
+            color: white;
             font-size: 1.8rem;
             cursor: pointer;
-            padding: 10px;
         }
-        
-        /* Main Content */
+
+        /* === MAIN LAYOUT === */
         main {
-            padding: var(--section-spacing) 0;
+            padding: 50px 0;
         }
-        
         .content-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
-            gap: 40px;
-            margin-bottom: var(--section-spacing);
+            gap: 35px;
+            margin-bottom: 50px;
         }
-        
-        /* Section Styles */
+
+        /* === SECTION TITLE === */
         .section-title {
             color: var(--nu-green);
-            margin-bottom: 30px;
-            padding-bottom: 15px;
+            margin: 40px 0 25px;
+            padding-bottom: 12px;
             border-bottom: 3px solid var(--nu-gold);
-            position: relative;
-            font-size: 2rem;
             font-family: 'Amiri', serif;
+            font-size: 1.8rem;
         }
-        
-        .section-title::after {
-            content: "";
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 150px;
-            height: 3px;
-            background-color: var(--nu-green);
-        }
-        
-        /* Articles Section dengan Nuansa Islami */
-        .articles-section {
-            margin-bottom: var(--section-spacing);
-        }
-        
-        .article-card {
-            background-color: white;
+
+        /* === KALIGRAFI === */
+        .kaligrafi-section {
+            text-align: center;
+            padding: 30px;
+            background: white;
             border-radius: 12px;
-            overflow: hidden;
             box-shadow: var(--shadow);
-            margin-bottom: 30px;
-            transition: all 0.4s;
-            position: relative;
-            border-right: 5px solid var(--nu-green);
+            margin-bottom: 40px;
+            border-top: 4px solid var(--nu-gold);
         }
-        
-        .article-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, var(--nu-green), var(--nu-gold));
-        }
-        
-        .article-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .article-image {
-            height: 250px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .article-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s;
-        }
-        
-        .article-card:hover .article-image img {
-            transform: scale(1.1);
-        }
-        
-        .article-content {
-            padding: 25px;
-        }
-        
-        .article-content h3 {
-            color: var(--nu-green);
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-            line-height: 1.3;
-        }
-        
-        .article-meta {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px dashed #eee;
-        }
-        
-        .read-more {
-            display: inline-block;
-            background: linear-gradient(to right, var(--nu-green), var(--nu-dark-green));
-            color: white;
-            padding: 10px 20px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            margin-top: 10px;
-            box-shadow: 0 4px 10px rgba(10, 123, 58, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .read-more::before {
-            content: "";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            margin-right: 8px;
-        }
-        
-        .read-more:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(10, 123, 58, 0.4);
-            background: linear-gradient(to right, var(--nu-dark-green), var(--nu-green));
-        }
-        
-        /* Sidebar dengan Nuansa Islami */
-        .sidebar {
-            background-color: white;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 100px;
-            border-right: 5px solid var(--nu-gold);
-        }
-        
-        .sidebar-section {
-            margin-bottom: 35px;
-        }
-        
-        .sidebar-section h3 {
-            color: var(--nu-green);
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #eee;
-            font-size: 1.4rem;
-            position: relative;
+        .kaligrafi-text {
             font-family: 'Amiri', serif;
-        }
-        
-        .sidebar-section h3::after {
-            content: "";
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 60px;
-            height: 2px;
-            background-color: var(--nu-gold);
-        }
-        
-        .teacher-profile {
-            text-align: center;
-            padding: 20px;
-            background: linear-gradient(to bottom right, var(--nu-light-green), white);
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .teacher-profile::before {
-            content: "";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 2rem;
-            color: var(--nu-light-green);
-            z-index: 0;
-        }
-        
-        .teacher-avatar {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin: 0 auto 20px;
-            border: 4px solid var(--nu-gold);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .teacher-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .teacher-profile h4 {
-            margin-bottom: 8px;
+            font-size: 2.2rem;
             color: var(--nu-green);
-            font-size: 1.3rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .teacher-profile p {
-            font-size: 1rem;
-            color: #666;
-            margin-bottom: 15px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .contact-info {
-            text-align: left;
-            margin-top: 20px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .contact-info p {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            font-size: 0.95rem;
-        }
-        
-        .contact-info i {
-            margin-right: 12px;
-            color: var(--nu-green);
-            width: 20px;
-            text-align: center;
-        }
-        
-        .module-list {
-            list-style: none;
-        }
-        
-        .module-list li {
             margin-bottom: 12px;
-            padding-bottom: 12px;
-            border-bottom: 1px dashed #eee;
-            position: relative;
         }
-        
-        .module-list a {
-            color: var(--text-color);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            transition: all 0.3s;
-            padding: 8px;
-            border-radius: 6px;
+        .kaligrafi-translation {
+            font-style: italic;
+            color: #666;
+            font-size: 1.1rem;
         }
-        
-        .module-list a:hover {
-            color: var(--nu-green);
-            background-color: var(--nu-light-green);
-            transform: translateX(5px);
-            padding-left: 15px;
-        }
-        
-        .module-list a::before {
-            content: "";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            margin-right: 12px;
-            color: var(--nu-green);
-        }
-        
-        /* Menu Tugas & Kehadiran */
-        .custom-menu {
-            background: linear-gradient(to right, var(--nu-light-green), white);
-            border-radius: 10px;
+
+        /* === MENU TUGAS === */
+        .custom-menu, .exercise-menu {
+            background: white;
+            border-radius: 12px;
             padding: 25px;
-            margin-bottom: var(--section-spacing);
+            margin-bottom: 45px;
             box-shadow: var(--shadow);
-            border-left: 5px solid var(--nu-gold);
+            border-left: 4px solid var(--nu-gold);
         }
-        
-        .custom-menu h3 {
+        .custom-menu h3, .exercise-menu h3 {
             color: var(--nu-green);
             margin-bottom: 20px;
             font-family: 'Amiri', serif;
-            font-size: 1.4rem;
             display: flex;
             align-items: center;
+            gap: 10px;
         }
-        
-        .custom-menu h3 i {
-            margin-right: 10px;
-        }
-        
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             gap: 15px;
             margin-bottom: 25px;
         }
-        
         .menu-item {
-            background: white;
-            border-radius: 8px;
-            padding: 15px;
             text-align: center;
-            transition: all 0.3s;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
+            padding: 15px;
+            background: var(--nu-light-green);
+            border-radius: 8px;
         }
-        
-        .menu-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
         .menu-item i {
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: var(--nu-green);
             margin-bottom: 10px;
         }
-        
         .menu-item h4 {
             font-size: 1rem;
             color: var(--nu-green);
-            margin-bottom: 5px;
         }
-        
-        .menu-item p {
-            font-size: 0.8rem;
-            color: #666;
-        }
-        
-        /* Link Tugas dan Absensi */
+
+        /* === TASK LINKS === */
         .task-links {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
-        
         .task-link {
             display: flex;
-            align-items: center;
-            background: linear-gradient(to right, var(--nu-light-green), white);
+            gap: 15px;
             padding: 15px;
+            background: var(--nu-light-green);
             border-radius: 8px;
             text-decoration: none;
-            color: var(--text-color);
-            transition: all 0.3s;
-            border-left: 4px solid var(--nu-green);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            color: var(--text);
         }
-        
         .task-link:hover {
-            transform: translateX(5px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            color: var(--nu-green);
+            background: #d0ebcc;
         }
-        
-        .task-link i {
-            margin-right: 15px;
-            font-size: 1.5rem;
+        .task-icon {
+            font-size: 1.6rem;
             color: var(--nu-green);
+            min-width: 30px;
+            text-align: center;
         }
-        
         .task-info h4 {
-            margin-bottom: 5px;
+            margin: 0 0 6px;
             font-size: 1.1rem;
         }
-        
         .task-info p {
-            font-size: 0.9rem;
+            margin: 0;
+            font-size: 0.95rem;
             color: #666;
         }
-        
-        /* Menu Latihan Soal */
-        .exercise-menu {
-            background: linear-gradient(to right, var(--nu-light-green), white);
-            border-radius: 10px;
-            padding: 25px;
-            margin-bottom: var(--section-spacing);
-            box-shadow: var(--shadow);
-            border-left: 5px solid var(--nu-gold);
-        }
-        
-        .exercise-menu h3 {
-            color: var(--nu-green);
-            margin-bottom: 20px;
-            font-family: 'Amiri', serif;
-            font-size: 1.4rem;
-            display: flex;
-            align-items: center;
-        }
-        
-        .exercise-menu h3 i {
-            margin-right: 10px;
-        }
-        
+
+        /* === LATIHAN SOAL === */
         .exercise-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             gap: 20px;
         }
-        
         .exercise-item {
             background: white;
-            border-radius: 8px;
             padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             text-align: center;
-            transition: all 0.3s;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
-            position: relative;
-            overflow: hidden;
         }
-        
-        .exercise-item::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(to right, var(--nu-green), var(--nu-gold));
-        }
-        
-        .exercise-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
         .exercise-item i {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: var(--nu-green);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
-        
         .exercise-item h4 {
             font-size: 1.1rem;
             color: var(--nu-green);
             margin-bottom: 10px;
-            line-height: 1.3;
         }
-        
-        .exercise-item p {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 15px;
-        }
-        
         .exercise-link {
             display: inline-block;
-            background: linear-gradient(to right, var(--nu-green), var(--nu-dark-green));
+            background: var(--nu-green);
             color: white;
-            padding: 8px 15px;
-            border-radius: 4px;
+            padding: 6px 12px;
+            border-radius: 6px;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
             font-size: 0.9rem;
+            margin-top: 10px;
         }
-        
-        .exercise-link:hover {
-            background: linear-gradient(to right, var(--nu-dark-green), var(--nu-green));
-            transform: translateY(-2px);
-        }
-        
-        /* Gallery Section dengan Nuansa Islami */
-        .gallery-section {
-            margin-bottom: var(--section-spacing);
-        }
-        
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        
-        .gallery-item {
+
+        /* === BERITA === */
+        .article-card {
+            background: white;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: all 0.4s;
-            position: relative;
+            margin-bottom: 30px;
+        }
+        .article-image {
             height: 220px;
-            border: 3px solid transparent;
-            background: linear-gradient(white, white) padding-box,
-                        linear-gradient(45deg, var(--nu-green), var(--nu-gold)) border-box;
+            overflow: hidden;
         }
-        
-        .gallery-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
-        
+        .article-content {
+            padding: 20px;
+        }
+        .article-content h3 {
+            color: var(--nu-green);
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+        }
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 15px;
+        }
+        .read-more {
+            color: var(--nu-green);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* === SIDEBAR === */
+        .sidebar {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 100px;
+        }
+        .teacher-profile {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .teacher-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            border: 3px solid var(--nu-gold);
+            overflow: hidden;
+        }
+        .teacher-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .module-list {
+            list-style: none;
+        }
+        .module-list li {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #eee;
+        }
+        .module-list a {
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .module-list a::before {
+            content: "•";
+            color: var(--nu-gold);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        .module-list a:hover {
+            color: var(--nu-green);
+        }
+
+        /* === GALLERY === */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+        }
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 200px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.8s;
         }
-        
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        
         .gallery-caption {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(10, 123, 58, 0.9), transparent);
+            background: linear-gradient(to top, rgba(10,123,58,0.85), transparent);
             color: white;
-            padding: 15px;
-            font-size: 1rem;
+            padding: 12px;
+            font-size: 0.9rem;
             opacity: 0;
-            transition: opacity 0.4s;
-            transform: translateY(10px);
+            transition: opacity 0.3s;
         }
-        
         .gallery-item:hover .gallery-caption {
             opacity: 1;
-            transform: translateY(0);
         }
-        
-        /* Footer dengan Nuansa NU */
+
+        /* === FOOTER === */
         footer {
             background: linear-gradient(135deg, var(--nu-dark-green), var(--nu-green));
-            color: var(--light-text);
+            color: white;
             padding: 50px 0 20px;
             margin-top: 60px;
-            position: relative;
         }
-        
-        footer::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, var(--nu-green), var(--nu-gold));
-        }
-        
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 35px;
+            margin-bottom: 30px;
         }
-        
         .footer-section h3 {
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 15px;
-            font-size: 1.4rem;
-            color: white;
+            margin-bottom: 20px;
             font-family: 'Amiri', serif;
+            position: relative;
+            padding-bottom: 10px;
         }
-        
         .footer-section h3::after {
-            content: "";
+            content: '';
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 60px;
+            width: 50px;
             height: 3px;
-            background-color: var(--nu-gold);
+            background: var(--nu-gold);
         }
-        
         .footer-links {
             list-style: none;
         }
-        
         .footer-links li {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
-        
         .footer-links a {
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255,255,255,0.9);
             text-decoration: none;
-            transition: all 0.3s;
             display: flex;
             align-items: center;
-            padding: 5px 0;
+            gap: 10px;
         }
-        
         .footer-links a:hover {
             color: var(--nu-gold);
-            transform: translateX(5px);
         }
-        
-        .footer-links a::before {
-            content: "";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            margin-right: 10px;
-        }
-        
-        .contact-details p {
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
-        .contact-details i {
-            margin-right: 12px;
-            width: 20px;
-            text-align: center;
-        }
-        
         .copyright {
             text-align: center;
-            padding-top: 25px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            font-size: 0.95rem;
-            opacity: 0.9;
-            color: rgba(255, 255, 255, 0.9);
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            color: rgba(255,255,255,0.8);
         }
-        
-        /* Kaligrafi Section */
-        .kaligrafi-section {
-            text-align: center;
-            margin: 40px 0;
-            padding: 30px;
-            background: linear-gradient(to right, var(--nu-light-green), white);
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
+
+        /* === BACK TO TOP === */
+        .back-to-top {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 48px;
+            height: 48px;
+            background: var(--nu-green);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 99;
         }
-        
-        .kaligrafi-section::before {
-            content: "";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            font-size: 8rem;
-            color: var(--nu-light-green);
-            opacity: 0.3;
-            z-index: 0;
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
         }
-        
-        .kaligrafi-text {
-            font-family: 'Amiri', serif;
-            font-size: 2.5rem;
-            color: var(--nu-green);
-            margin-bottom: 15px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .kaligrafi-translation {
-            font-style: italic;
-            color: #666;
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* Responsive Design */
+
+        /* === RESPONSIVE === */
         @media (max-width: 992px) {
             .content-grid {
                 grid-template-columns: 1fr;
             }
-            
             .sidebar {
-                order: -1;
-                margin-bottom: 40px;
                 position: static;
+                margin-bottom: 40px;
             }
-            
-            .exercise-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            .exercise-grid, .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
             }
         }
-        
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
                 text-align: center;
             }
-            
-            .logo-section {
-                margin-bottom: 20px;
-                justify-content: center;
+            .logo {
+                width: 70px;
+                height: 70px;
             }
-            
+            .school-info h1 {
+                font-size: 1.4rem;
+            }
+            .subject-title h2 {
+                font-size: 1.6rem;
+            }
             .nav-links {
                 display: none;
                 flex-direction: column;
                 width: 100%;
+                background: rgba(0,0,0,0.2);
+                margin-top: 10px;
+                border-radius: 8px;
             }
-            
             .nav-links.active {
                 display: flex;
             }
-            
+            .nav-links li a {
+                padding: 14px 20px;
+                text-align: center;
+            }
             .mobile-menu-btn {
                 display: block;
             }
-            
             .nav-container {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: stretch;
             }
-            
-            .gallery-grid, .exercise-grid {
-                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            }
-            
-            .subject-title h2 {
-                font-size: 1.8rem;
-            }
-            
-            .school-info h1 {
-                font-size: 1.5rem;
-            }
-            
             .menu-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-        
         @media (max-width: 576px) {
-            .gallery-grid, .exercise-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .article-image {
-                height: 200px;
-            }
-            
             .school-info h1 {
                 font-size: 1.3rem;
             }
-            
             .subject-title h2 {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
-            
-            .menu-grid {
+            .kaligrafi-text {
+                font-size: 1.8rem;
+            }
+            .menu-grid, .exercise-grid, .gallery-grid {
                 grid-template-columns: 1fr;
             }
-        }
-        
-        /* Islamic Decorative Elements */
-        .islamic-pattern {
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%230a7b3a" opacity="0.05" d="M50,10 A40,40 0 1,1 50,90 A40,40 0 1,1 50,10 Z"/></svg>');
-            background-repeat: repeat;
-        }
-        
-        /* Animasi */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes slideInFromLeft {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        .fade-in {
-            animation: fadeIn 0.8s ease-out;
-        }
-        
-        .slide-in {
-            animation: slideInFromLeft 0.8s ease-out;
-        }
-        
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-        
-        /* Loading Animation */
-        .loading {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(135deg, var(--nu-dark-green), var(--nu-green));
-            z-index: 9999;
-            transition: opacity 0.5s, visibility 0.5s;
-        }
-        
-        .loading.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-        
-        .loading-spinner {
-            width: 80px;
-            height: 80px;
-            border: 8px solid rgba(255, 255, 255, 0.3);
-            border-top: 8px solid var(--nu-gold);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(to right, var(--nu-green), var(--nu-dark-green));
-            color: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s;
-            opacity: 0;
-            visibility: hidden;
-            z-index: 99;
-        }
-        
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .back-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-            background: linear-gradient(to right, var(--nu-dark-green), var(--nu-green));
-        }
-        
-        /* Improved Image Quality */
-        .high-quality-img {
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
-        }
-        
-        /* NU Identity Badge */
-        .nu-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: linear-gradient(45deg, var(--nu-green), var(--nu-gold));
-            color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            z-index: 10;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            .article-image {
+                height: 180px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading" id="loading">
-        <div class="loading-spinner"></div>
-    </div>
-    
-    <!-- Back to Top Button -->
+    <!-- Back to Top -->
     <button class="back-to-top" id="backToTop">↑</button>
-    
-    <!-- Header dengan nuansa Islami NU -->
-    <header class="islamic-pattern">
+
+    <!-- Header -->
+    <header>
         <div class="container">
             <div class="header-content">
                 <div class="logo-section">
                     <div class="logo">
-                        <img src="https://i.ibb.co.com/5h66Bjs2/SMAN1Cluring-emblem.png" alt="Logo SMA Negeri 1 Cluring" class="high-quality-img">
+                        <img src="https://i.ibb.co.com/5h66Bjs2/SMAN1Cluring-emblem.png" alt="Logo SMA Negeri 1 Cluring">
                     </div>
                     <div class="school-info">
                         <h1>SMA NEGERI 1 CLURING</h1>
-                        <p>Jl. Huzaini, Benculuk, Cluring, Banyuwangi, Jawa Timur</p>
+                        <p>Jl. Huzaini, Benculuk, Cluring, Banyuwangi</p>
                     </div>
                 </div>
                 <div class="nu-badge">NU | Ahlussunnah wal Jama'ah</div>
@@ -1157,194 +633,129 @@
                 <li><a href="#modul">Modul Ajar</a></li>
                 <li><a href="#tugas">Tugas & Absensi</a></li>
                 <li><a href="#latihan">Latihan Soal</a></li>
-                <li><a href="#galeri">Galeri Kegiatan</a></li>
+                <li><a href="#galeri">Galeri</a></li>
                 <li><a href="#kontak">Kontak</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Main Content -->
+    <!-- Main -->
     <main class="container">
-        <!-- Kaligrafi Section -->
+        <!-- Kaligrafi -->
         <section class="kaligrafi-section">
-            <div class="kaligrafi-text">وَتَعَاوَنُوا۟ عَلَى ٱلْبِرِّ وَٱلتَّقْوَىٰ</div>
+            <div class="kaligrafi-text">وَتَعَاوَنُوا۟ عَلَى ٱلْبِرِّ وَٱلتَّقْوَىٰ</div>
             <div class="kaligrafi-translation">"Dan tolong-menolonglah kamu dalam (mengerjakan) kebajikan dan takwa" (QS. Al-Maidah: 2)</div>
         </section>
-        
-        <!-- Menu Tugas & Kehadiran -->
+
+        <!-- Tugas -->
         <section class="custom-menu" id="tugas">
-            <h3><i class="fas fa-tasks"></i> Menu Tugas & Kehadiran</h3>
+            <h3><i class="fas fa-tasks"></i> Tugas & Kehadiran</h3>
             <div class="menu-grid">
-                <div class="menu-item">
-                    <i class="fas fa-user-check"></i>
-                    <h4>Absensi</h4>
-                    <p>Isi kehadiran harian</p>
-                </div>
-                <div class="menu-item">
-                    <i class="fas fa-file-upload"></i>
-                    <h4>Pengumpulan Tugas</h4>
-                    <p>Kirim tugas yang telah selesai</p>
-                </div>
-                <div class="menu-item">
-                    <i class="fas fa-book"></i>
-                    <h4>Modul Ajar</h4>
-                    <p>Materi pembelajaran</p>
-                </div>
-                <div class="menu-item">
-                    <i class="fas fa-calendar-alt"></i>
-                    <h4>Jadwal</h4>
-                    <p>Jadwal pelajaran PAI</p>
-                </div>
+                <div class="menu-item"><i class="fas fa-user-check"></i><h4>Absensi</h4></div>
+                <div class="menu-item"><i class="fas fa-file-upload"></i><h4>Tugas</h4></div>
+                <div class="menu-item"><i class="fas fa-book"></i><h4>Modul</h4></div>
+                <div class="menu-item"><i class="fas fa-calendar-alt"></i><h4>Jadwal</h4></div>
             </div>
-            
-            <!-- Link Tugas dan Absensi -->
             <div class="task-links">
                 <a href="https://forms.gle/EeURX4qDzAVSrrPAA" class="task-link" target="_blank">
-                    <i class="fas fa-user-check"></i>
+                    <div class="task-icon"><i class="fas fa-user-check"></i></div>
                     <div class="task-info">
                         <h4>Link Absensi Harian</h4>
-                        <p>Klik untuk mengisi kehadiran harian mata pelajaran PAI</p>
+                        <p>Klik untuk mengisi kehadiran harian</p>
                     </div>
                 </a>
-                
                 <a href="https://forms.gle/bq8QBB3JWA5sE6H67" class="task-link" target="_blank">
-                    <i class="fas fa-file-upload"></i>
+                    <div class="task-icon"><i class="fas fa-file-upload"></i></div>
                     <div class="task-info">
                         <h4>Link Pengumpulan Tugas</h4>
-                        <p>Klik untuk mengirimkan tugas yang telah diselesaikan</p>
+                        <p>Kirim tugas yang telah selesai</p>
                     </div>
                 </a>
             </div>
         </section>
-        
-        <!-- Menu Latihan Soal -->
+
+        <!-- Latihan Soal -->
         <section class="exercise-menu" id="latihan">
             <h3><i class="fas fa-pen-square"></i> Latihan Soal PAI Kelas XII</h3>
             <div class="exercise-grid">
                 <div class="exercise-item">
                     <i class="fas fa-book-open"></i>
-                    <h4>Bab 1: Sabar dalam Musibah dan Ujian</h4>
-                    <p>Latihan soal tentang konsep sabar dalam menghadapi ujian hidup</p>
-                    <a href="Latihan-pai-bab1.html" class="exercise-link">Mulai Latihan</a>
+                    <h4>Bab 1</h4>
+                    <a href="Latihan-pai-bab1.html" class="exercise-link">Mulai</a>
                 </div>
                 <div class="exercise-item">
                     <i class="fas fa-heart"></i>
-                    <h4>Bab 2: Indahnya Kehidupan Bermakna</h4>
-                    <p>Soal tentang menjalani kehidupan yang penuh makna dan berkah</p>
-                    <a href="Latihan-pai-bab2.html" class="exercise-link">Mulai Latihan</a>
+                    <h4>Bab 2</h4>
+                    <a href="Latihan-pai-bab2.html" class="exercise-link">Mulai</a>
                 </div>
                 <div class="exercise-item">
                     <i class="fas fa-exclamation-triangle"></i>
-                    <h4>Bab 3: Munafik dan Keras Hati Tak Akan Pernah Maju</h4>
-                    <p>Latihan tentang bahaya sifat munafik dan keras hati</p>
-                    <a href="Latihan-pai-bab3.html" class="exercise-link">Mulai Latihan</a>
+                    <h4>Bab 3</h4>
+                    <a href="Latihan-pai-bab3.html" class="exercise-link">Mulai</a>
                 </div>
                 <div class="exercise-item">
                     <i class="fas fa-balance-scale"></i>
-                    <h4>Bab 4: Kewarisan dalam Islam Berbagi dalam Kearifan</h4>
-                    <p>Soal tentang sistem waris dalam Islam</p>
-                    <a href="Latihan-pai-bab4.html" class="exercise-link">Mulai Latihan</a>
+                    <h4>Bab 4</h4>
+                    <a href="Latihan-pai-bab4.html" class="exercise-link">Mulai</a>
                 </div>
                 <div class="exercise-item">
                     <i class="fas fa-globe-asia"></i>
-                    <h4>Bab 5: Perkembangan Peradaban Islam di Dunia</h4>
-                    <p>Latihan soal sejarah peradaban Islam</p>
-                    <a href="Latihan-pai-bab5.html" class="exercise-link">Mulai Latihan</a>
+                    <h4>Bab 5</h4>
+                    <a href="Latihan-pai-bab5.html" class="exercise-link">Mulai</a>
                 </div>
                 <div class="exercise-item">
                     <i class="fas fa-flag"></i>
-                    <h4>Bab 6: Cinta Tanah Air dan Moderasi Beragama</h4>
-                    <p>Soal tentang nasionalisme dan moderasi beragama</p>
-                    <a href="Latihan-pai-bab6.html" class="exercise-link">Mulai Latihan</a>
+                    <h4>Bab 6</h4>
+                    <a href="Latihan-pai-bab6.html" class="exercise-link">Mulai</a>
                 </div>
                 <div class="exercise-item">
                     <i class="fas fa-brain"></i>
-                    <h4>Bab 7: Ilmu Kalam</h4>
-                    <p>Latihan tentang teologi Islam</p>
-                    <a href="Latihan-pai-bab7.html" class="exercise-link">Mulai Latihan</a>
+                    <h4>Bab 7</h4>
+                    <a href="Latihan-pai-bab7.html" class="exercise-link">Mulai</a>
                 </div>
                 <div class="exercise-item">
                     <i class="fas fa-lightbulb"></i>
-                    <h4>Bab 8: Sikap Inovatif dan Etika dalam Berorganisasi</h4>
-                    <p>Soal tentang inovasi dan etika organisasi</p>
-                    <a href="Latihan-pai-bab8.html" class="exercise-link">Mulai Latihan</a>
+                    <h4>Bab 8</h4>
+                    <a href="Latihan-pai-bab8.html" class="exercise-link">Mulai</a>
                 </div>
                 <div class="exercise-item">
                     <i class="fas fa-gavel"></i>
-                    <h4>Bab 9: Ijtihad</h4>
-                    <p>Latihan tentang metode ijtihad dalam Islam</p>
-                    <a href="Latihan-pai-bab9.html" class="exercise-link">Mulai Latihan</a>
+                    <h4>Bab 9</h4>
+                    <a href="Latihan-pai-bab9.html" class="exercise-link">Mulai</a>
                 </div>
             </div>
         </section>
-        
+
+        <!-- Content Grid -->
         <div class="content-grid">
-            <!-- Articles Section -->
-            <section class="articles-section" id="berita">
+            <!-- Berita -->
+            <section id="berita">
                 <h2 class="section-title">Berita & Artikel Terkini</h2>
-                
-                <article class="article-card fade-in">
+                <article class="article-card">
                     <div class="article-image">
-                        <img src="https://i.ibb.co.com/s97YqS7f/MAULID-NABI.jpg" alt="Kegiatan Maulid Nabi" class="high-quality-img">
+                        <img src="https://i.ibb.co.com/s97YqS7f/MAULID-NABI.jpg" alt="Maulid Nabi">
                     </div>
                     <div class="article-content">
-                        <h3>Kegiatan Keagamaan Bersama OSIS SMA Negeri 1 Cluring</h3>
+                        <h3>Kegiatan Keagamaan Bersama OSIS</h3>
                         <div class="article-meta">
-                            <span><i class="fas fa-calendar-alt"></i> 18 September 2025</span>
-                            <span><i class="fas fa-eye"></i> 245 views</span>
+                            <span><i class="far fa-calendar"></i> 18 Sep 2025</span>
+                            <span><i class="far fa-eye"></i> 245</span>
                         </div>
-                        <p>Kegiatan keagamaan yang dilaksanakan bersama OSIS SMA Negeri 1 Cluring berlangsung dengan khidmat dan penuh semangat. Acara ini bertujuan untuk meningkatkan pemahaman siswa tentang nilai-nilai agama Islam dalam kehidupan sehari-hari.</p>
-                        <a href="Maulid-nabi.html" class="read-more">Baca Selengkapnya</a>
-                    </div>
-                </article>
-                
-                <article class="article-card fade-in">
-                    <div class="article-image">
-                        <img src="https://i.ibb.co.com/nJbpGgZ/FOTO-PEMBELAJARAN.jpg" alt="Metode Pembelajaran Interaktif" class="high-quality-img">
-                    </div>
-                    <div class="article-content">
-                        <h3>Metode Pembelajaran Interaktif PAI Kelas XII</h3>
-                        <div class="article-meta">
-                            <span><i class="fas fa-calendar-alt"></i> 10 Maret 2025</span>
-                            <span><i class="fas fa-eye"></i> 189 views</span>
-                        </div>
-                        <p>Penerapan metode pembelajaran interaktif dalam mata pelajaran Pendidikan Agama Islam kelas XII terbukti meningkatkan minat dan pemahaman siswa terhadap materi yang diajarkan.</p>
-                        <a href="Pembelajaran-Interaktif.html" class="read-more">Baca Selengkapnya</a>
-                    </div>
-                </article>
-                
-                <article class="article-card fade-in">
-                    <div class="article-image">
-                        <img src="https://i.ibb.co.com/Rp3JhbsV/PEMBUATAN-ADMINISTRASI-KEGIATAN-KEAGAMAAN.jpg" alt="Pembuatan Administrasi Kegiatan Keagamaan" class="high-quality-img">
-                    </div>
-                    <div class="article-content">
-                        <h3>Pentingnya Administrasi dalam Perencanaan Kegiatan Keagamaan</h3>
-                        <div class="article-meta">
-                            <span><i class="fas fa-calendar-alt"></i> 5 Maret 2025</span>
-                            <span><i class="fas fa-eye"></i> 167 views</span>
-                        </div>
-                        <p>Administrasi yang baik menjadi kunci sukses dalam perencanaan dan pelaksanaan kegiatan keagamaan di sekolah. Artikel ini membahas pentingnya dokumentasi dan perencanaan yang matang.</p>
-                        <a href="Perencanaan-Administrasi.html" class="read-more">Baca Selengkapnya</a>
+                        <p>Kegiatan keagamaan yang dilaksanakan bersama OSIS berlangsung khidmat...</p>
+                        <a href="Maulid-nabi.html" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </article>
             </section>
-            
+
             <!-- Sidebar -->
             <aside class="sidebar">
-                <!-- Teacher Profile -->
-                <div class="sidebar-section teacher-profile">
+                <div class="teacher-profile">
                     <div class="teacher-avatar">
-                        <img src="https://i.ibb.co.com/ycj7x6d7/Praktik-Mengaji.webp" alt="Guru PAI" class="high-quality-img">
+                        <img src="https://i.ibb.co.com/ycj7x6d7/Praktik-Mengaji.webp" alt="Guru PAI">
                     </div>
                     <h4>Suroso, S.Pd.I</h4>
-                    <p>Guru Pendidikan Agama Islam</p>
-                    <div class="contact-info">
-                        <p><i class="fas fa-envelope"></i> suroso86@guru.sma.belajar.id</p>
-                        <p><i class="fas fa-phone"></i> 0853-3488-5787</p>
-                    </div>
+                    <p>Guru PAI</p>
                 </div>
-                
-                <!-- Module Links -->
                 <div class="sidebar-section" id="modul">
                     <h3>Modul Ajar</h3>
                     <ul class="module-list">
@@ -1361,26 +772,26 @@
                 </div>
             </aside>
         </div>
-        
-        <!-- Gallery Section -->
-        <section class="gallery-section" id="galeri">
+
+        <!-- Galeri -->
+        <section id="galeri">
             <h2 class="section-title">Galeri Kegiatan</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://i.ibb.co.com/SDzgWmnD/Whats-App-Image-2025-05-07-at-13-46-25.jpg" alt="Kegiatan Keagamaan" class="high-quality-img">
+                    <img src="https://i.ibb.co.com/SDzgWmnD/Whats-App-Image-2025-05-07-at-13-46-25.jpg" alt="Presentasi">
                     <div class="gallery-caption">Presentasi Siswa</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.ibb.co.com/6RxhgtYV/Whats-App-Image-2025-05-06-at-21-04-42-1.jpg" alt="Diskusi Kelompok" class="high-quality-img">
-                    <div class="gallery-caption">Diskusi Kelompok Pembelajaran</div>
+                    <img src="https://i.ibb.co.com/6RxhgtYV/Whats-App-Image-2025-05-06-at-21-04-42-1.jpg" alt="Diskusi">
+                    <div class="gallery-caption">Diskusi Kelompok</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.ibb.co.com/PZ8Pr0Yw/SESI-FOTO-BERSAMA.jpg" alt="Sesi Foto Bersama" class="high-quality-img">
+                    <img src="https://i.ibb.co.com/PZ8Pr0Yw/SESI-FOTO-BERSAMA.jpg" alt="Foto Bersama">
                     <div class="gallery-caption">Pendidikan Sosial Emosional</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.ibb.co.com/MDmxbQJ7/FOTO-PERSIPAN-KEGIATAN-KEAGAMAAN-DENGAN-OSIS.jpg" alt="Persiapan Kegiatan dengan OSIS" class="high-quality-img">
-                    <div class="gallery-caption">Persiapan Maulid Nabi SAW dengan OSIS</div>
+                    <img src="https://i.ibb.co.com/MDmxbQJ7/FOTO-PERSIPAN-KEGIATAN-KEAGAMAAN-DENGAN-OSIS.jpg" alt="Persiapan">
+                    <div class="gallery-caption">Persiapan Maulid Nabi SAW</div>
                 </div>
             </div>
         </section>
@@ -1395,11 +806,10 @@
                     <ul class="footer-links">
                         <li><a href="https://quran.nu.or.id/" target="_blank"><i class="fas fa-quran"></i> Al-Qur'an Online</a></li>
                         <li><a href="https://kurikulum.kemdikbud.go.id/panduan-mapel" target="_blank"><i class="fas fa-book"></i> Panduan Kurikulum</a></li>
-                        <li><a href="https://rumah.pendidikan.go.id/" target="_blank"><i class="fas fa-home"></i> Rumah Belajar Kemdikbud</a></li>
-                        <li><a href="https://askarasaptaofficial-cmd.github.io/Kelas-XI.7-Askarasapta/" target="_blank"><i class="fas fa-external-link-alt"></i> Kelas XI.7 Askarasapta</a></li>
+                        <li><a href="https://rumah.pendidikan.go.id/" target="_blank"><i class="fas fa-home"></i> Rumah Belajar</a></li>
+                        <li><a href="https://askarasaptaofficial-cmd.github.io/Kelas-XI.7-Askarasapta/" target="_blank"><i class="fas fa-external-link-alt"></i> Kelas XI.7</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-section">
                     <h3>Modul Ajar Lainnya</h3>
                     <ul class="footer-links">
@@ -1409,121 +819,52 @@
                         <li><a href="https://sumardami64-create.github.io/Modul_Ajar_Biologi_Kelas_XII/" target="_blank"><i class="fas fa-dna"></i> Biologi</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-section">
                     <h3>Kontak</h3>
-                    <div class="contact-details">
-                        <p><i class="fas fa-phone"></i> 0853-3488-5787</p>
-                        <p><i class="fas fa-envelope"></i> suroso86@guru.sma.belajar.id</p>
-                        <p><i class="fas fa-map-marker-alt"></i> Jl. Huzaini, Benculuk, Cluring, Banyuwangi, Jawa Timur</p>
-                    </div>
+                    <p><i class="fas fa-phone"></i> 0853-3488-5787</p>
+                    <p><i class="fas fa-envelope"></i> suroso86@guru.sma.belajar.id</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Huzaini, Benculuk, Cluring</p>
                 </div>
             </div>
-            
             <div class="copyright">
-                <p>&copy; 2025 SMA Negeri 1 Cluring. Semua Hak Dilindungi.</p>
+                &copy; 2025 SMA Negeri 1 Cluring. Semua Hak Dilindungi.
             </div>
         </div>
     </footer>
 
     <script>
-        // Loading Screen
-        window.addEventListener('load', function() {
-            const loading = document.getElementById('loading');
-            setTimeout(function() {
-                loading.classList.add('hidden');
-            }, 1000);
-        });
-        
-        // Mobile Menu Toggle
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+        // Mobile Menu
+        document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
             document.querySelector('.nav-links').classList.toggle('active');
         });
-        
-        // Smooth Scrolling for Navigation Links
+
+        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    document.querySelector('.nav-links').classList.remove('active');
                     window.scrollTo({
-                        top: targetElement.offsetTop - 100,
+                        top: target.offsetTop - 100,
                         behavior: 'smooth'
                     });
-                    
-                    // Close mobile menu if open
-                    document.querySelector('.nav-links').classList.remove('active');
                 }
             });
         });
-        
-        // Back to Top Button
-        const backToTopButton = document.getElementById('backToTop');
-        
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('visible');
-            } else {
-                backToTopButton.classList.remove('visible');
-            }
+
+        // Back to Top
+        const btn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            btn.classList.toggle('visible', window.scrollY > 300);
         });
-        
-        backToTopButton.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+        btn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-        
-        // Add fade-in animation to elements when they come into view
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-        
-        // Observe all article cards and gallery items
-        document.querySelectorAll('.article-card, .gallery-item, .exercise-item').forEach(el => {
-            observer.observe(el);
-        });
-        
-        // Add hover effects to gallery items
-        document.querySelectorAll('.gallery-item').forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                this.style.zIndex = '10';
-            });
-            
-            item.addEventListener('mouseleave', function() {
-                this.style.zIndex = '1';
-            });
-        });
-        
-        // Add pulse animation to logo on page load
-        window.addEventListener('load', function() {
-            const logo = document.querySelector('.logo');
-            logo.classList.add('pulse');
-            
-            setTimeout(function() {
-                logo.classList.remove('pulse');
-            }, 2000);
-        });
-        
-        // External link handler
-        document.querySelectorAll('a[href^="http"]').forEach(link => {
-            if (!link.getAttribute('target')) {
-                link.setAttribute('target', '_blank');
-            }
+
+        // External Links
+        document.querySelectorAll('a[href^="http"]').forEach(a => {
+            if (!a.hasAttribute('target')) a.setAttribute('target', '_blank');
         });
     </script>
 </body>
