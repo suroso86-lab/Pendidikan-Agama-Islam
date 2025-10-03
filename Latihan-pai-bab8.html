@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ujian PAI – Tajdid & Etika Organisasi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2a9d8f;
+      --primary-dark: #217a6f;
+      --secondary: #e9c46a;
+      --light-bg: #f8f9fa;
+      --card-bg: #ffffff;
+      --text: #264653;
+      --text-light: #6c757d;
+      --danger: #e76f51;
+      --success: #28a745;
+      --border: #e0e0e0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 15px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 25px;
+      padding: 20px;
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      position: relative;
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    header p {
+      color: var(--text-light);
+      font-size: 1rem;
+    }
+
+    .timer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--danger);
+      color: white;
+      padding: 12px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin: 20px 0;
+      box-shadow: 0 4px 10px rgba(231, 111, 81, 0.3);
+    }
+
+    .timer::before {
+      content: "⏱️";
+      margin-right: 10px;
+      font-size: 1.4rem;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+      transition: border 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.2);
+    }
+
+    button {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1.05rem;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(42, 157, 143, 0.3);
+    }
+
+    .btn-danger {
+      background: var(--danger);
+      color: white;
+    }
+
+    .btn-danger:hover {
+      background: #d65a43;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-outline:hover {
+      background: rgba(42, 157, 143, 0.05);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .question-card {
+      background: var(--card-bg);
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+      margin-bottom: 25px;
+    }
+
+    .question-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .question-text {
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .option-item {
+      display: flex;
+      align-items: flex-start;
+      margin: 12px 0;
+      padding: 12px;
+      background: #fafafa;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .option-item:hover {
+      background: #f0f7f6;
+    }
+
+    .option-input {
+      margin-right: 14px;
+      margin-top: 4px;
+      transform: scale(1.2);
+    }
+
+    .option-label {
+      flex: 1;
+    }
+
+    .navigation {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .nav-btn {
+      flex: 1;
+      padding: 12px;
+      font-size: 1rem;
+    }
+
+    /* Progress & Question Navigator */
+    .progress-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 15px 0;
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+
+    .question-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    .q-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border: none;
+      cursor: pointer;
+      background: #e9ecef;
+      color: var(--text);
+    }
+
+    .q-btn.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    .q-btn.unanswered {
+      background: #ffebee;
+      color: var(--danger);
+      border: 1px solid #ffcdd2;
+    }
+
+    /* Result Page */
+    .result-card {
+      background: var(--card-bg);
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+
+    .result-card h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+
+    .score-display {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 20px 0;
+      text-shadow: 0 2px 4px rgba(42,157,143,0.2);
+    }
+
+    .essay-count {
+      font-size: 1.2rem;
+      margin: 15px 0;
+      color: var(--text-light);
+    }
+
+    .info-text {
+      background: #e8f5f4;
+      padding: 12px;
+      border-radius: 10px;
+      margin: 20px 0;
+      color: var(--primary-dark);
+    }
+
+    @media (max-width: 600px) {
+      .navigation {
+        flex-direction: column;
+      }
+      .q-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+      }
+      header h1 {
+        font-size: 1.5rem;
+      }
+      .score-display {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Halaman Identitas -->
+    <div id="page-identity">
+      <header>
+        <h1>Ujian Pendidikan Agama Islam</h1>
+        <p>Tajdid & Etika dalam Berorganisasi</p>
+      </header>
+      <div class="form-group">
+        <label for="name">Nama Lengkap</label>
+        <input type="text" id="name" placeholder="Contoh: Ahmad Fauzi" />
+      </div>
+      <div class="form-group">
+        <label for="class">Kelas</label>
+        <input type="text" id="class" placeholder="Contoh: X IPA 3" />
+      </div>
+      <div class="form-group">
+        <label for="date">Tanggal</label>
+        <input type="date" id="date" />
+      </div>
+      <button class="btn-primary" onclick="startExam()">Mulai Ujian (60 Menit)</button>
+    </div>
+
+    <!-- Halaman Ujian -->
+    <div id="page-exam" class="hidden">
+      <div class="timer" id="timer">60:00</div>
+
+      <div class="progress-section">
+        <span id="progress-text">Soal 1 dari 30</span>
+        <span id="answered-count">Dijawab: 0</span>
+      </div>
+
+      <div id="questions-container"></div>
+
+      <div class="question-nav" id="question-nav"></div>
+
+      <div class="navigation">
+        <button class="nav-btn btn-outline" onclick="prevQuestion()" id="btn-prev">◀ Sebelumnya</button>
+        <button class="nav-btn btn-primary" onclick="nextQuestion()" id="btn-next">Berikutnya ▶</button>
+        <button class="nav-btn btn-danger" onclick="submitExam()">Selesai</button>
+      </div>
+    </div>
+
+    <!-- Halaman Hasil -->
+    <div id="page-result" class="hidden">
+      <div class="result-card">
+        <h2>✅ Ujian Telah Selesai!</h2>
+        <p id="student-info" style="font-size:1.1rem; margin-bottom:10px;"></p>
+        <div class="score-display" id="final-score">0/80</div>
+        <div class="essay-count">Soal Esai Terjawab: <span id="essay-count">0</span>/10</div>
+        <div class="info-text">
+          Skor PG dinilai otomatis. Soal esai akan dinilai oleh guru.
+        </div>
+        <button class="btn-primary" onclick="location.reload()" style="margin-top:20px; max-width:250px;">
+          Mulai Ujian Baru
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // === 20 SOAL PILIHAN GANDA ===
+    const pgQuestions = [
+      {
+        q: "Dalam sebuah diskusi, Ali mengusulkan agar kegiatan bakti sosial OSIS tidak hanya membagikan sembako, tetapi juga memberikan pelatihan keterampilan kepada penerima manfaat, agar mereka mandiri. Sikap Ali mencerminkan nilai Islam yang disebut...",
+        a: "c",
+        options: ["a. Taqlid", "b. Taklid", "c. Tajdid", "d. Tafwid", "e. Tawassul"]
+      },
+      {
+        q: "Rasulullah SAW bersabda: 'Barangsiapa yang memulai sunnah yang baik, maka baginya pahala sunnah itu dan pahala orang yang mengikutinya...' (HR. Muslim). Hadis ini menunjukkan bahwa Islam...",
+        a: "b",
+        options: ["a. Melarang perubahan dalam ibadah", "b. Mendorong inovasi dalam kebaikan", "c. Hanya mengikuti tradisi Arab", "d. Menolak segala bentuk pembaruan", "e. Mengutamakan kebiasaan lama"]
+      },
+      {
+        q: "Di antara ciri individu yang memiliki sikap inovatif menurut ajaran Islam adalah...",
+        a: "c",
+        options: ["a. Selalu meniru tanpa berpikir", "b. Takut mengambil risiko", "c. Kreatif, bertanggung jawab, dan berpegang pada nilai syariah", "d. Mengabaikan aturan demi kebaruan", "e. Menolak ilmu pengetahuan modern"]
+      },
+      {
+        q: "Seorang ketua panitia lomba mengganti sistem penilaian manual dengan aplikasi digital untuk menghindari kecurangan dan mempercepat pengumuman juara. Tindakannya termasuk perilaku inovatif yang sesuai nilai Islam karena...",
+        a: "b",
+        options: ["a. Mengikuti tren teknologi", "b. Meningkatkan efisiensi dan keadilan", "c. Ingin dipuji guru", "d. Meniru sekolah lain", "e. Mengurangi jumlah panitia"]
+      },
+      {
+        q: "QS. Al-Hasyr ayat 2 menyatakan bahwa Allah membinasakan orang-orang yang membuat kerusakan di muka bumi. Ayat ini mengingatkan kita bahwa inovasi harus...",
+        a: "b",
+        options: ["a. Mengutamakan keuntungan pribadi", "b. Tidak merugikan orang lain dan lingkungan", "c. Dilakukan secara diam-diam", "d. Mengikuti selera pasar", "e. Dijadikan ajang pamer"]
+      },
+      {
+        q: "Konsep etika dalam berorganisasi menurut Islam menekankan bahwa setiap anggota harus...",
+        a: "c",
+        options: ["a. Mengejar jabatan tertinggi", "b. Memiliki keterampilan public speaking", "c. Menjaga amanah, adil, dan musyawarah", "d. Selalu setuju dengan ketua", "e. Menghindari konflik dengan diam"]
+      },
+      {
+        q: "Ketua OSIS memutuskan anggaran kegiatan setelah mendengarkan usulan semua anggota dan memilih yang terbaik melalui voting. Tindakannya mencerminkan prinsip Islam yaitu...",
+        a: "c",
+        options: ["a. Amanah", "b. Profesionalisme", "c. Musyawarah", "d. Tanggung jawab", "e. Keadilan"]
+      },
+      {
+        q: "Seorang bendahara OSIS menolak menggunakan uang kas untuk keperibadiannya, meskipun tidak ada yang tahu. Sikap ini mencerminkan nilai...",
+        a: "b",
+        options: ["a. Tanggung jawab", "b. Amanah", "c. Adil", "d. Disiplin", "e. Profesional"]
+      },
+      {
+        q: "QS. An-Nisa’ ayat 58 berbunyi: 'Sesungguhnya Allah menyuruh kamu menyampaikan amanat kepada yang berhak menerimanya...' Ayat ini menekankan pentingnya sikap... dalam berorganisasi.",
+        a: "c",
+        options: ["a. Kreatif", "b. Inovatif", "c. Amanah", "d. Cerdas", "e. Populer"]
+      },
+      {
+        q: "Dampak positif penerapan etika Islam dalam organisasi sekolah adalah...",
+        a: "c",
+        options: ["a. Banyak anggota yang mengundurkan diri", "b. Keputusan dibuat sepihak oleh ketua", "c. Terbangunnya kepercayaan dan kerja sama", "d. Kegiatan menjadi lebih mewah", "e. Anggaran membengkak"]
+      },
+      {
+        q: "Saat rapat, Rina tidak setuju dengan usulan temannya, tetapi ia menyampaikannya dengan santun dan memberikan alternatif solusi. Perilaku Rina mencerminkan etika Islam dalam berorganisasi, yaitu...",
+        a: "b",
+        options: ["a. Menghindari musyawarah", "b. Menjaga adab dalam berbeda pendapat", "c. Memaksakan kehendak", "d. Bersikap pasif", "e. Menghindari tanggung jawab"]
+      },
+      {
+        q: "Inovasi dalam Islam **tidak boleh** bertentangan dengan...",
+        a: "b",
+        options: ["a. Selera mayoritas", "b. Prinsip akidah dan syariah", "c. Teknologi terbaru", "d. Kebijakan sekolah", "e. Tren media sosial"]
+      },
+      {
+        q: "Seorang anggota OSIS selalu datang tepat waktu, menyelesaikan tugas sesuai deadline, dan melaporkan hasil kerjanya. Ia menunjukkan sikap...",
+        a: "b",
+        options: ["a. Inovatif", "b. Profesional", "c. Populer", "d. Individualis", "e. Taqlid"]
+      },
+      {
+        q: "Rasulullah SAW adalah teladan dalam berorganisasi, seperti saat membangun Masjid Quba bersama para sahabat. Dalam peristiwa itu, beliau menunjukkan sikap...",
+        a: "b",
+        options: ["a. Otoriter", "b. Kolaboratif dan rendah hati", "c. Eksklusif", "d. Cepat bosan", "e. Individual"]
+      },
+      {
+        q: "Jika seorang ketua organisasi membagi tugas sesuai kemampuan anggotanya, ia telah menerapkan prinsip...",
+        a: "b",
+        options: ["a. Amanah", "b. Adil", "c. Musyawarah", "d. Tanggung jawab", "e. Inovatif"]
+      },
+      {
+        q: "Berikut ini yang **bukan** termasuk ciri perilaku inovatif dalam Islam adalah...",
+        a: "c",
+        options: ["a. Memperbaiki cara lama dengan cara yang lebih baik", "b. Menciptakan sesuatu yang bermanfaat", "c. Mengubah aturan agama demi kemudahan", "d. Menggunakan akal untuk memecahkan masalah", "e. Berpikir kritis berdasarkan Al-Qur’an dan Hadis"]
+      },
+      {
+        q: "Ketika terjadi kesalahan dalam laporan keuangan, seorang bendahara segera mengakui dan memperbaikinya. Sikap ini mencerminkan...",
+        a: "a",
+        options: ["a. Kejujuran dan tanggung jawab", "b. Ketidakcakapan", "c. Keinginan dipuji", "d. Ketergantungan pada orang lain", "e. Ketakutan dihukum"]
+      },
+      {
+        q: "Dalam konteks Islam, inovasi (tajdid) bertujuan untuk...",
+        a: "c",
+        options: ["a. Mengganti ajaran Islam", "b. Menjauhkan umat dari agama", "c. Memurnikan dan menghidupkan ajaran Islam sesuai zaman", "d. Meniru budaya Barat", "e. Mencari popularitas"]
+      },
+      {
+        q: "Organisasi yang menerapkan etika Islam akan...",
+        a: "c",
+        options: ["a. Fokus pada keuntungan finansial", "b. Mengabaikan perbedaan pendapat", "c. Menjunjung tinggi kejujuran, keadilan, dan kerja sama", "d. Mengutamakan senioritas tanpa prestasi", "e. Menghindari evaluasi"]
+      },
+      {
+        q: "Seorang siswa membuat aplikasi untuk mengelola jadwal piket kelas secara otomatis, sehingga tidak ada yang bolos. Tindakannya termasuk tajdid karena...",
+        a: "b",
+        options: ["a. Mengikuti tren coding", "b. Memecahkan masalah sosial dengan cara baru yang bermanfaat", "c. Ingin menang lomba", "d. Mengurangi interaksi antar siswa", "e. Menggantikan peran guru"]
+      }
+    ];
+
+    // === 10 SOAL ESAI STUDI KASUS HOTS ===
+    const essayQuestions = [
+      "Studi Kasus: OSIS SMAN 1 ingin mengadakan bazar amal, tetapi anggaran terbatas. Sebagai ketua, kamu mengusulkan sistem 'bazar digital' via Instagram dan pembayaran nontunai. Jelaskan bagaimana ide ini mencerminkan nilai tajdid dan amanah dalam Islam!",
+      "Studi Kasus: Seorang bendahara OSIS ketahuan memakai uang kas untuk keperluan pribadi, lalu mengembalikannya diam-diam. Menurut perspektif Islam, apakah tindakannya sudah benar? Analisis berdasarkan QS. Al-Baqarah: 283 dan prinsip amanah!",
+      "Studi Kasus: Dalam rapat, mayoritas anggota OSIS setuju mengadakan lomba berbayar, tetapi kamu khawatir ini memberatkan siswa kurang mampu. Bagaimana kamu menerapkan prinsip musyawarah dan keadilan dalam Islam untuk menyelesaikan konflik ini?",
+      "Studi Kasus: Seorang anggota OSIS menemukan cara baru mengumpulkan donasi lewat QRIS dan donasi digital. Namun, ada yang menuduhnya 'menjauhkan dari nilai gotong royong'. Tanggapi tuduhan tersebut dengan argumen berbasis dalil naqli dan aqli!",
+      "Studi Kasus: Ketua MPK memutuskan sendiri jadwal pelantikan tanpa rapat. Akibatnya, banyak anggota kecewa. Menurutmu, nilai etika Islam apa yang dilanggar? Jelaskan dampaknya bagi kekompakan organisasi!",
+      "Studi Kasus: Kamu melihat temanmu sebagai panitia acara memalsukan jumlah peserta untuk mendapat dana lebih. Sebagai sesama anggota, bagaimana sikap yang sesuai dengan nilai Islam: diam, menegur langsung, atau melapor? Beri alasan berdasarkan akhlak mulia!",
+      "Studi Kasus: Sekolahmu akan mengadopsi sistem 'e-voting' untuk pemilihan ketua OSIS. Beberapa guru khawatir ini mengurangi nilai musyawarah. Rancanglah cara agar e-voting tetap mencerminkan prinsip syura (musyawarah) dalam Islam!",
+      "Studi Kasus: Seorang siswa membuat podcast tentang kisah tokoh Islam yang inovatif (seperti Ibnu Sina atau Fatimah al-Fihri). Menurutmu, apakah kegiatan ini termasuk tajdid? Jelaskan manfaatnya bagi dakwah di era digital!",
+      "Studi Kasus: Dalam proyek kelompok, satu anggota tidak pernah hadir rapat, tapi minta namanya tetap dicantumkan. Bagaimana kamu menyelesaikan masalah ini dengan tetap menjaga silaturahmi dan menegakkan prinsip tanggung jawab dalam Islam?",
+      "Refleksi Diri: Ceritakan pengalaman pribadimu (atau bayangkan) ketika kamu menerapkan sikap inovatif dan etis dalam organisasi (OSIS, pramuka, dll). Apa tantangannya? Apa nilai Islam yang kamu pegang?"
+    ];
+
+    // === LOGIKA APLIKASI ===
+    let currentQuestion = 0;
+    let answers = {};
+    let timeLeft = 3600; // 60 menit = 3600 detik
+    let timerInterval = null;
+    const totalQuestions = pgQuestions.length + essayQuestions.length;
+
+    // Set tanggal hari ini secara otomatis
+    document.getElementById('date').valueAsDate = new Date();
+
+    function startExam() {
+      const name = document.getElementById('name').value.trim();
+      const kelas = document.getElementById('class').value.trim();
+      const date = document.getElementById('date').value;
+
+      if (!name || !kelas || !date) {
+        alert("Harap lengkapi semua data!");
+        return;
+      }
+
+      document.getElementById('page-identity').classList.add('hidden');
+      document.getElementById('page-exam').classList.remove('hidden');
+
+      renderQuestion();
+      renderQuestionNavigator();
+      updateProgress();
+      startTimer();
+    }
+
+    function startTimer() {
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        const mins = Math.floor(timeLeft / 60).toString().padStart(2, '0');
+        const secs = (timeLeft % 60).toString().padStart(2, '0');
+        document.getElementById('timer').textContent = `${mins}:${secs}`;
+
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          submitExam();
+        }
+      }, 1000);
+    }
+
+    function renderQuestion() {
+      const container = document.getElementById('questions-container');
+      container.innerHTML = '';
+
+      if (currentQuestion < pgQuestions.length) {
+        const q = pgQuestions[currentQuestion];
+        let html = `<div class="question-card">
+          <div class="question-header">Soal ${currentQuestion + 1} <span>(Pilihan Ganda)</span></div>
+          <div class="question-text">${q.q}</div>
+          <div class="options">`;
+
+        q.options.forEach((opt, idx) => {
+          const letter = String.fromCharCode(97 + idx);
+          const isChecked = answers[currentQuestion] === letter;
+          html += `
+            <div class="option-item" onclick="document.querySelector('input[name=q${currentQuestion}][value=${letter}]').click()">
+              <input type="radio" id="q${currentQuestion}_${letter}" name="q${currentQuestion}" 
+                value="${letter}" class="option-input" ${isChecked ? 'checked' : ''}
+                onchange="saveAnswer(${currentQuestion}, '${letter}')">
+              <label for="q${currentQuestion}_${letter}" class="option-label">${opt}</label>
+            </div>`;
+        });
+        html += `</div></div>`;
+        container.innerHTML = html;
+      } else {
+        const idx = currentQuestion - pgQuestions.length;
+        const q = essayQuestions[idx];
+        const saved = answers[currentQuestion] || '';
+        container.innerHTML = `
+          <div class="question-card">
+            <div class="question-header">Soal ${currentQuestion + 1} <span>(Esai)</span></div>
+            <div class="question-text">${q}</div>
+            <textarea id="essay-${currentQuestion}" rows="6" 
+              placeholder="Tulis jawabanmu secara lengkap dan jelas..." 
+              oninput="saveEssay(${currentQuestion})">${saved}</textarea>
+          </div>`;
+      }
+
+      document.getElementById('btn-prev').disabled = currentQuestion === 0;
+      document.getElementById('btn-next').style.display = currentQuestion === totalQuestions - 1 ? 'none' : 'inline-block';
+      updateProgress();
+      updateQuestionNavigator();
+    }
+
+    function renderQuestionNavigator() {
+      const nav = document.getElementById('question-nav');
+      let html = '';
+      for (let i = 0; i < totalQuestions; i++) {
+        html += `<button class="q-btn" onclick="goToQuestion(${i})">${i + 1}</button>`;
+      }
+      nav.innerHTML = html;
+    }
+
+    function updateQuestionNavigator() {
+      const buttons = document.querySelectorAll('.q-btn');
+      buttons.forEach((btn, i) => {
+        btn.classList.remove('active', 'unanswered');
+        if (i === currentQuestion) btn.classList.add('active');
+        if (!answers[i]) btn.classList.add('unanswered');
+      });
+    }
+
+    function updateProgress() {
+      const answered = Object.keys(answers).filter(k => {
+        const val = answers[k];
+        return val !== undefined && val !== null && val.toString().trim() !== '';
+      }).length;
+      document.getElementById('progress-text').textContent = `Soal ${currentQuestion + 1} dari ${totalQuestions}`;
+      document.getElementById('answered-count').textContent = `Dijawab: ${answered}`;
+    }
+
+    function saveAnswer(qIndex, value) {
+      answers[qIndex] = value;
+      updateProgress();
+      updateQuestionNavigator();
+    }
+
+    function saveEssay(qIndex) {
+      answers[qIndex] = document.getElementById(`essay-${qIndex}`).value;
+      updateProgress();
+      updateQuestionNavigator();
+    }
+
+    function goToQuestion(index) {
+      currentQuestion = index;
+      renderQuestion();
+    }
+
+    function nextQuestion() {
+      if (currentQuestion < totalQuestions - 1) {
+        currentQuestion++;
+        renderQuestion();
+      }
+    }
+
+    function prevQuestion() {
+      if (currentQuestion > 0) {
+        currentQuestion--;
+        renderQuestion();
+      }
+    }
+
+    function submitExam() {
+      clearInterval(timerInterval);
+
+      // Hitung skor PG
+      let score = 0;
+      for (let i = 0; i < pgQuestions.length; i++) {
+        if (answers[i] === pgQuestions[i].a) score += 4;
+      }
+
+      // Hitung esai terjawab
+      let essayCount = 0;
+      for (let i = pgQuestions.length; i < totalQuestions; i++) {
+        if (answers[i] && answers[i].trim() !== '') essayCount++;
+      }
+
+      // Tampilkan hasil
+      const name = document.getElementById('name').value;
+      const kelas = document.getElementById('class').value;
+      document.getElementById('student-info').textContent = `${name} • Kelas ${kelas}`;
+      document.getElementById('final-score').textContent = `${score}/80`;
+      document.getElementById('essay-count').textContent = essayCount;
+
+      document.getElementById('page-exam').classList.add('hidden');
+      document.getElementById('page-result').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
