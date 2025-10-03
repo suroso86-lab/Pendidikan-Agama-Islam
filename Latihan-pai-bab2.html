@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Penilaian PAI - Hormat dan Patuh</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    .info-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .info-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    .info-form input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .tabs {
+      display: flex;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #ddd;
+    }
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      background: #e0e0e0;
+      border: 1px solid #ccc;
+      border-bottom: none;
+      margin-right: 5px;
+      border-radius: 5px 5px 0 0;
+    }
+    .tab.active {
+      background: white;
+      font-weight: bold;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .question {
+      margin-bottom: 20px;
+      padding: 10px;
+      border-left: 4px solid #3498db;
+      background: #f8f9fa;
+    }
+    .question label {
+      display: block;
+      margin: 5px 0;
+    }
+    .question p {
+      margin: 5px 0;
+      font-weight: bold;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: inherit;
+    }
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 25px;
+      background: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #219653;
+    }
+    #result {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+      padding: 15px;
+      background: #e8f5e9;
+      border-radius: 5px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Penilaian PAI<br>Pertemuan 1–3: Hormat dan Patuh</h1>
+
+    <!-- Form Info Siswa -->
+    <div class="info-form">
+      <div>
+        <label for="nama">Nama Siswa:</label>
+        <input type="text" id="nama" required />
+      </div>
+      <div>
+        <label for="kelas">Kelas:</label>
+        <input type="text" id="kelas" required />
+      </div>
+      <div>
+        <label for="tanggal">Tanggal:</label>
+        <input type="date" id="tanggal" required />
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <div class="tab active" onclick="openTab('pg')">Pilihan Ganda</div>
+      <div class="tab" onclick="openTab('esai')">Esai</div>
+    </div>
+
+    <!-- Pilihan Ganda -->
+    <div id="pg" class="tab-content active">
+      <form id="pgForm">
+        <!-- Soal 1 -->
+        <div class="question">
+          <p>1. Bacaan Al-Qur’an yang sesuai dengan tartil adalah …</p>
+          <label><input type="radio" name="q1" value="a"> a. Membaca cepat tanpa memperhatikan panjang pendek huruf</label>
+          <label><input type="radio" name="q1" value="b"> b. Membaca dengan memperhatikan makna saja</label>
+          <label><input type="radio" name="q1" value="c"> c. Membaca sesuai kaidah tajwid, pelan, dan teratur</label>
+          <label><input type="radio" name="q1" value="d"> d. Membaca secepat mungkin agar khatam</label>
+          <label><input type="radio" name="q1" value="e"> e. Membaca dengan nada tinggi saja</label>
+        </div>
+
+        <!-- Soal 2 -->
+        <div class="question">
+          <p>2. Hukum tajwid pada lafaz مِنْ شَيْءٍ dalam Q.S. Luqman/31:13 adalah …</p>
+          <label><input type="radio" name="q2" value="a"> a. Idgham bilaghunnah</label>
+          <label><input type="radio" name="q2" value="b"> b. Ikhfa’ haqiqi</label>
+          <label><input type="radio" name="q2" value="c"> c. Iqlab</label>
+          <label><input type="radio" name="q2" value="d"> d. Idzhar syafawi</label>
+          <label><input type="radio" name="q2" value="e"> e. Qalqalah</label>
+        </div>
+
+        <!-- Soal 3 -->
+        <div class="question">
+          <p>3. Kandungan pokok Q.S. Luqman/31:13 menekankan larangan …</p>
+          <label><input type="radio" name="q3" value="a"> a. Menolak perintah orang tua</label>
+          <label><input type="radio" name="q3" value="b"> b. Menyekutukan Allah Swt.</label>
+          <label><input type="radio" name="q3" value="c"> c. Mengabaikan guru</label>
+          <label><input type="radio" name="q3" value="d"> d. Berbuat boros</label>
+          <label><input type="radio" name="q3" value="e"> e. Menunda salat</label>
+        </div>
+
+        <!-- Soal 4 -->
+        <div class="question">
+          <p>4. Dalam Q.S. al-Baqarah/2:83, selain beribadah hanya kepada Allah, manusia juga diperintahkan untuk …</p>
+          <label><input type="radio" name="q4" value="a"> a. Berbuat boros</label>
+          <label><input type="radio" name="q4" value="b"> b. Berbakti kepada orang tua</label>
+          <label><input type="radio" name="q4" value="c"> c. Mengabaikan fakir miskin</label>
+          <label><input type="radio" name="q4" value="d"> d. Melupakan sejarah</label>
+          <label><input type="radio" name="q4" value="e"> e. Mengikuti hawa nafsu</label>
+        </div>
+
+        <!-- Soal 5 -->
+        <div class="question">
+          <p>5. Manfaat membaca ayat Al-Qur’an dengan tartil adalah …</p>
+          <label><input type="radio" name="q5" value="a"> a. Mempermudah menghafal dan memahami kandungan ayat</label>
+          <label><input type="radio" name="q5" value="b"> b. Membuat bacaan lebih cepat selesai</label>
+          <label><input type="radio" name="q5" value="c"> c. Menarik perhatian orang lain</label>
+          <label><input type="radio" name="q5" value="d"> d. Menghilangkan rasa mengantuk</label>
+          <label><input type="radio" name="q5" value="e"> e. Mendapatkan pahala lebih banyak daripada membaca cepat</label>
+        </div>
+
+        <!-- Soal 6 -->
+        <div class="question">
+          <p>6. Hadis yang berisi perintah untuk berbakti kepada ibu tiga kali lebih utama daripada ayah adalah riwayat …</p>
+          <label><input type="radio" name="q6" value="a"> a. Abu Dawud</label>
+          <label><input type="radio" name="q6" value="b"> b. Imam Bukhari dan Muslim</label>
+          <label><input type="radio" name="q6" value="c"> c. Ibnu Majah</label>
+          <label><input type="radio" name="q6" value="d"> d. Tirmidzi</label>
+          <label><input type="radio" name="q6" value="e"> e. Ahmad bin Hanbal</label>
+        </div>
+
+        <!-- Soal 7 -->
+        <div class="question">
+          <p>7. Relevansi kandungan hadis hormat kepada orang tua dengan Q.S. Luqman/31:14 adalah …</p>
+          <label><input type="radio" name="q7" value="a"> a. Menekankan pentingnya menjaga harta orang tua</label>
+          <label><input type="radio" name="q7" value="b"> b. Menyuruh anak agar selalu belajar ilmu dunia</label>
+          <label><input type="radio" name="q7" value="c"> c. Menyuruh berbuat baik kepada orang tua setelah beribadah kepada Allah</label>
+          <label><input type="radio" name="q7" value="d"> d. Melarang menikah tanpa izin orang tua</label>
+          <label><input type="radio" name="q7" value="e"> e. Menyuruh anak-anak untuk mencari nafkah sendiri</label>
+        </div>
+
+        <!-- Soal 8 -->
+        <div class="question">
+          <p>8. Hikmah dari perilaku patuh kepada guru adalah …</p>
+          <label><input type="radio" name="q8" value="a"> a. Menjadikan murid lebih disukai teman-temannya</label>
+          <label><input type="radio" name="q8" value="b"> b. Membantu memperoleh ilmu yang bermanfaat dan keberkahan</label>
+          <label><input type="radio" name="q8" value="c"> c. Membuat orang tua senang melihatnya</label>
+          <label><input type="radio" name="q8" value="d"> d. Meningkatkan nilai akademik secara otomatis</label>
+          <label><input type="radio" name="q8" value="e"> e. Menghindarkan diri dari ujian yang sulit</label>
+        </div>
+
+        <!-- Soal 9 -->
+        <div class="question">
+          <p>9. Hadis yang menyatakan “Ridha Allah tergantung ridha orang tua” mengajarkan bahwa …</p>
+          <label><input type="radio" name="q9" value="a"> a. Semua ibadah tidak sah tanpa izin orang tua</label>
+          <label><input type="radio" name="q9" value="b"> b. Keberkahan hidup seorang anak bergantung pada keridhaan orang tua</label>
+          <label><input type="radio" name="q9" value="c"> c. Orang tua wajib selalu menuruti kemauan anak</label>
+          <label><input type="radio" name="q9" value="d"> d. Anak harus lebih taat kepada ayah daripada ibu</label>
+          <label><input type="radio" name="q9" value="e"> e. Orang tua boleh memaksa anak menikah</label>
+        </div>
+
+        <!-- Soal 10 -->
+        <div class="question">
+          <p>10. Media pembelajaran kreatif yang sesuai untuk mengajak siswa memahami pentingnya hormat kepada orang tua adalah …</p>
+          <label><input type="radio" name="q10" value="a"> a. Lomba hafalan ayat</label>
+          <label><input type="radio" name="q10" value="b"> b. Diskusi kelompok saja</label>
+          <label><input type="radio" name="q10" value="c"> c. Membuat poster atau infografis singkat</label>
+          <label><input type="radio" name="q10" value="d"> d. Membaca terjemah tanpa penjelasan</label>
+          <label><input type="radio" name="q10" value="e"> e. Menghafal tanpa memahami makna</label>
+        </div>
+
+        <!-- Soal 11 -->
+        <div class="question">
+          <p>11. Contoh perilaku hormat kepada guru adalah …</p>
+          <label><input type="radio" name="q11" value="a"> a. Membantah pendapat guru di depan kelas dengan kasar</label>
+          <label><input type="radio" name="q11" value="b"> b. Mendengarkan dengan sopan ketika guru menjelaskan</label>
+          <label><input type="radio" name="q11" value="c"> c. Menyela penjelasan guru untuk bercerita</label>
+          <label><input type="radio" name="q11" value="d"> d. Mengabaikan tugas yang diberikan</label>
+          <label><input type="radio" name="q11" value="e"> e. Menyindir guru dengan candaan</label>
+        </div>
+
+        <!-- Soal 12 -->
+        <div class="question">
+          <p>12. Bentuk aksi nyata berbakti kepada orang tua di rumah adalah …</p>
+          <label><input type="radio" name="q12" value="a"> a. Membantu pekerjaan rumah tanpa diminta</label>
+          <label><input type="radio" name="q12" value="b"> b. Menghabiskan waktu bermain game saja</label>
+          <label><input type="radio" name="q12" value="c"> c. Membeli barang mahal untuk diri sendiri</label>
+          <label><input type="radio" name="q12" value="d"> d. Pulang larut malam tanpa izin</label>
+          <label><input type="radio" name="q12" value="e"> e. Menolak menolong adik ketika diminta orang tua</label>
+        </div>
+
+        <!-- Soal 13 -->
+        <div class="question">
+          <p>13. Membuat video pendek tentang perilaku hormat kepada orang tua bermanfaat untuk …</p>
+          <label><input type="radio" name="q13" value="a"> a. Membuktikan keterampilan editing video</label>
+          <label><input type="radio" name="q13" value="b"> b. Mengingatkan teman sebaya tentang pentingnya bakti kepada orang tua</label>
+          <label><input type="radio" name="q13" value="c"> c. Menambah koleksi konten hiburan</label>
+          <label><input type="radio" name="q13" value="d"> d. Mendapat banyak pengikut di media sosial</label>
+          <label><input type="radio" name="q13" value="e"> e. Melatih suara agar indah</label>
+        </div>
+
+        <!-- Soal 14 -->
+        <div class="question">
+          <p>14. Rencana aksi pribadi yang sesuai dengan nilai bakti kepada orang tua adalah …</p>
+          <label><input type="radio" name="q14" value="a"> a. Menyusun jadwal belajar agar tidak merepotkan orang tua</label>
+          <label><input type="radio" name="q14" value="b"> b. Membuat jadwal tidur lebih lama</label>
+          <label><input type="radio" name="q14" value="c"> c. Mengurangi komunikasi dengan orang tua</label>
+          <label><input type="radio" name="q14" value="d"> d. Mengutamakan teman daripada keluarga</label>
+          <label><input type="radio" name="q14" value="e"> e. Membantah setiap perintah orang tua</label>
+        </div>
+
+        <!-- Soal 15 -->
+        <div class="question">
+          <p>15. Merefleksikan pengalaman pribadi terkait hormat kepada orang tua bermanfaat untuk …</p>
+          <label><input type="radio" name="q15" value="a"> a. Membandingkan diri dengan orang lain</label>
+          <label><input type="radio" name="q15" value="b"> b. Membuat anak lebih paham pentingnya bakti dalam kehidupan</label>
+          <label><input type="radio" name="q15" value="c"> c. Menambah tugas sekolah saja</label>
+          <label><input type="radio" name="q15" value="d"> d. Menghindari kritik dari guru</label>
+          <label><input type="radio" name="q15" value="e"> e. Mendapatkan pujian semata</label>
+        </div>
+
+        <!-- Soal 16 -->
+        <div class="question">
+          <p>16. Q.S. Luqman/31:14 menyebutkan bahwa seorang ibu mengalami kesulitan dalam …</p>
+          <label><input type="radio" name="q16" value="a"> a. Mendidik anak agar berprestasi</label>
+          <label><input type="radio" name="q16" value="b"> b. Mengandung dan menyapih anaknya</label>
+          <label><input type="radio" name="q16" value="c"> c. Menyekolahkan anak hingga dewasa</label>
+          <label><input type="radio" name="q16" value="d"> d. Membantu anak mencari pekerjaan</label>
+          <label><input type="radio" name="q16" value="e"> e. Membesarkan anak dengan harta banyak</label>
+        </div>
+
+        <!-- Soal 17 -->
+        <div class="question">
+          <p>17. Perilaku yang menunjukkan tidak patuh kepada orang tua adalah …</p>
+          <label><input type="radio" name="q17" value="a"> a. Menyelesaikan tugas rumah ketika diminta</label>
+          <label><input type="radio" name="q17" value="b"> b. Mengucapkan kata-kata sopan saat berbicara</label>
+          <label><input type="radio" name="q17" value="c"> c. Membantah dengan suara keras ketika diberi nasihat</label>
+          <label><input type="radio" name="q17" value="d"> d. Menjaga nama baik keluarga</label>
+          <label><input type="radio" name="q17" value="e"> e. Mendoakan kebaikan untuk kedua orang tua</label>
+        </div>
+
+        <!-- Soal 18 -->
+        <div class="question">
+          <p>18. Hadis tentang berbakti kepada orang tua terutama menekankan kepada …</p>
+          <label><input type="radio" name="q18" value="a"> a. Kewajiban menafkahi orang tua</label>
+          <label><input type="radio" name="q18" value="b"> b. Pentingnya menghormati ibu</label>
+          <label><input type="radio" name="q18" value="c"> c. Kewajiban menyekolahkan anak</label>
+          <label><input type="radio" name="q18" value="d"> d. Pentingnya memiliki pekerjaan</label>
+          <label><input type="radio" name="q18" value="e"> e. Kewajiban menjadi kaya raya</label>
+        </div>
+
+        <!-- Soal 19 -->
+        <div class="question">
+          <p>19. Membuat poster tentang hormat kepada guru termasuk kegiatan pembelajaran yang mengembangkan …</p>
+          <label><input type="radio" name="q19" value="a"> a. Kreativitas dan kerja sama</label>
+          <label><input type="radio" name="q19" value="b"> b. Hafalan dan kecepatan</label>
+          <label><input type="radio" name="q19" value="c"> c. Kemampuan menulis cepat</label>
+          <label><input type="radio" name="q19" value="d"> d. Kemampuan berhitung</label>
+          <label><input type="radio" name="q19" value="e"> e. Keterampilan olahraga</label>
+        </div>
+
+        <!-- Soal 20 -->
+        <div class="question">
+          <p>20. Refleksi pribadi tentang pengalaman hormat kepada orang tua dan guru bertujuan agar siswa …</p>
+          <label><input type="radio" name="q20" value="a"> a. Menjadi lebih paham pentingnya nilai tersebut dalam kehidupan</label>
+          <label><input type="radio" name="q20" value="b"> b. Bisa menulis cerita panjang untuk dinilai guru</label>
+          <label><input type="radio" name="q20" value="c"> c. Bisa menghafal lebih banyak hadis</label>
+          <label><input type="radio" name="q20" value="d"> d. Bisa membuat laporan tanpa isi</label>
+          <label><input type="radio" name="q20" value="e"> e. Dapat menghindari kewajiban di rumah</label>
+        </div>
+
+        <button type="button" onclick="submitPG()">Hitung Nilai Pilihan Ganda</button>
+      </form>
+    </div>
+
+    <!-- Esai -->
+    <div id="esai" class="tab-content">
+      <form id="esaiForm">
+        <div class="question">
+          <p>1. Seorang siswa membaca Q.S. Luqman/31:13 dengan cepat tanpa memperhatikan hukum tajwid.<br>
+            👉 Analisislah kesalahan tersebut dan jelaskan pentingnya membaca Al-Qur’an dengan tartil sesuai kaidah tajwid!</p>
+          <textarea name="e1" placeholder="Tuliskan jawaban Anda..."></textarea>
+        </div>
+
+        <div class="question">
+          <p>2. Dalam Q.S. al-Baqarah/2:83, Allah memerintahkan manusia untuk tidak hanya beribadah kepada-Nya, tetapi juga berbuat baik kepada orang tua.<br>
+            👉 Menurut pendapatmu, mengapa kedua perintah ini tidak bisa dipisahkan?</p>
+          <textarea name="e2" placeholder="Tuliskan jawaban Anda..."></textarea>
+        </div>
+
+        <div class="question">
+          <p>3. Bayangkan ada seorang temanmu yang rajin beribadah, tetapi sering berkata kasar kepada orang tuanya.<br>
+            👉 Evaluasilah perilakunya dengan merujuk pada kandungan ayat Q.S. Luqman/31:14.</p>
+          <textarea name="e3" placeholder="Tuliskan jawaban Anda..."></textarea>
+        </div>
+
+        <div class="question">
+          <p>4. Seorang siswa lebih mendengarkan nasihat temannya daripada nasihat guru. Akibatnya, ia sering melanggar aturan sekolah.<br>
+            👉 Analisislah kasus ini dengan menghubungkan hadis tentang pentingnya menghormati guru!</p>
+          <textarea name="e4" placeholder="Tuliskan jawaban Anda..."></textarea>
+        </div>
+
+        <div class="question">
+          <p>5. Ada seorang anak yang menganggap ibunya biasa saja dan lebih membanggakan ayahnya.<br>
+            👉 Evaluasilah pandangan anak tersebut berdasarkan hadis Nabi yang menyebutkan ibu tiga kali lebih utama daripada ayah.</p>
+          <textarea name="e5" placeholder="Tuliskan jawaban Anda..."></textarea>
+        </div>
+
+        <div class="question">
+          <p>6. Sebuah kelas membuat poster tentang pentingnya hormat kepada orang tua. Namun sebagian siswa hanya menyalin dari internet tanpa memahami maknanya.<br>
+            👉 Menurutmu, apakah kegiatan itu sudah mencapai tujuan pembelajaran? Berikan alasanmu!</p>
+          <textarea name="e6" placeholder="Tuliskan jawaban Anda..."></textarea>
+        </div>
+
+        <div class="question">
+          <p>7. Bayangkan seorang siswa menolak membantu ayahnya karena sibuk bermain game, tetapi ia berencana membuat video tentang pentingnya hormat pada orang tua.<br>
+            👉 Analisislah ketidaksesuaian sikap dan rencananya. Apa saranmu agar ia bisa lebih konsisten?</p>
+          <textarea name="e7" placeholder="Tuliskan jawaban Anda..."></textarea>
+        </div>
+
+        <div class="question">
+          <p>8. Seorang guru sedang menjelaskan pelajaran, tetapi sebagian siswa sibuk bercanda. Setelah itu mereka membuat rencana aksi hormat kepada guru.<br>
+            👉 Bagaimana kamu mengevaluasi rencana aksi mereka berdasarkan kenyataan sikap di kelas?</p>
+          <textarea name="e8" placeholder="Tuliskan jawaban Anda..."></textarea>
+        </div>
+
+        <div class="question">
+          <p>9. Seorang siswa membuat refleksi pribadi bahwa ia menyesal pernah membentak ibunya. Ia bertekad untuk berubah.<br>
+            👉 Menurutmu, bagaimana langkah konkret yang bisa ia lakukan agar tekadnya benar-benar terwujud dalam kehidupan sehari-hari?</p>
+          <textarea name="e9" placeholder="Tuliskan jawaban Anda..."></textarea>
+        </div>
+
+        <div class="question">
+          <p>10. Dalam sebuah kegiatan sekolah, siswa diminta membuat video pendek tentang hormat kepada orang tua dan guru. Ada kelompok yang membuat video lucu, tetapi pesan utamanya justru tidak tersampaikan.<br>
+            👉 Berikan penilaian kritis terhadap video tersebut dan saran perbaikan agar lebih bermakna!</p>
+          <textarea name="e10" placeholder="Tuliskan jawaban Anda..."></textarea>
+        </div>
+
+        <button type="button" onclick="alert('Jawaban esai telah disimpan!')">Simpan Jawaban Esai</button>
+      </form>
+    </div>
+
+    <!-- Hasil Nilai -->
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const kunci = {
+      q1: 'c', q2: 'b', q3: 'b', q4: 'b', q5: 'a',
+      q6: 'b', q7: 'c', q8: 'b', q9: 'b', q10: 'c',
+      q11: 'b', q12: 'a', q13: 'b', q14: 'a', q15: 'b',
+      q16: 'b', q17: 'c', q18: 'b', q19: 'a', q20: 'a'
+    };
+
+    function openTab(tabName) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+      document.getElementById(tabName).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    function submitPG() {
+      let skor = 0;
+      for (let key in kunci) {
+        const selected = document.querySelector(`input[name="${key}"]:checked`);
+        if (selected && selected.value === kunci[key]) {
+          skor += 4; // 4 poin per soal → total maks 80
+        }
+      }
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = `Nilai Pilihan Ganda: <strong>${skor}</strong> dari <strong>80</strong>`;
+      resultDiv.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
