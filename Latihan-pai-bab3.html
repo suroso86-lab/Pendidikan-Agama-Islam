@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Penilaian HOTS - Perilaku Munafik & Keras Hati</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
+      margin: 0;
+      padding: 20px;
+      color: #2c3e50;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #1a5276;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      text-align: center;
+      color: #566573;
+      margin-bottom: 20px;
+    }
+    .info-form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .info-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #2874a6;
+    }
+    .info-form input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #bdc3c7;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+    .timer {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: #c0392b;
+      margin: 15px 0;
+      padding: 10px;
+      background: #fdf2f2;
+      border-radius: 8px;
+    }
+    .question {
+      margin-bottom: 25px;
+      padding: 15px;
+      background: #f8f9fa;
+      border-left: 4px solid #3498db;
+      border-radius: 0 8px 8px 0;
+    }
+    .question p {
+      margin: 8px 0;
+      font-weight: bold;
+    }
+    .question label {
+      display: block;
+      margin: 6px 0;
+      cursor: pointer;
+    }
+    textarea {
+      width: 100%;
+      min-height: 100px;
+      padding: 12px;
+      border: 1px solid #bdc3c7;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 15px;
+      resize: vertical;
+    }
+    button {
+      display: block;
+      margin: 25px auto;
+      padding: 12px 30px;
+      background: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 17px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #219653;
+    }
+    #result {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+      padding: 15px;
+      background: #e8f5e9;
+      border-radius: 8px;
+      display: none;
+    }
+    .disabled {
+      pointer-events: none;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Penilaian HOTS</h1>
+    <div class="subtitle">Perilaku Munafik dan Keras Hati (QS. An-Nisa/4:142 & QS. Al-Baqarah/2:74)</div>
+
+    <!-- Info Siswa -->
+    <div class="info-form">
+      <div>
+        <label for="nama">Nama Siswa:</label>
+        <input type="text" id="nama" required />
+      </div>
+      <div>
+        <label for="kelas">Kelas:</label>
+        <input type="text" id="kelas" required />
+      </div>
+      <div>
+        <label for="tanggal">Tanggal:</label>
+        <input type="date" id="tanggal" required />
+      </div>
+    </div>
+
+    <!-- Timer -->
+    <div class="timer" id="timer">Waktu Tersisa: <span id="time">60:00</span></div>
+
+    <!-- Soal Pilihan Ganda -->
+    <form id="pgForm">
+      <!-- Soal 1 -->
+      <div class="question">
+        <p>1. Perhatikan perilaku berikut:<br>
+        - Hadir di majelis ilmu tetapi hatinya tidak hadir<br>
+        - Sering memuji di depan, tetapi menggunjing di belakang<br>
+        - Janji baik, tetapi tidak ditepati<br>
+        Perilaku tersebut mencerminkan ciri utama orang …</p>
+        <label><input type="radio" name="q1" value="a"> a. Bodoh</label>
+        <label><input type="radio" name="q1" value="b"> b. Munafik</label>
+        <label><input type="radio" name="q1" value="c"> c. Zalim</label>
+        <label><input type="radio" name="q1" value="d"> d. Fasik</label>
+        <label><input type="radio" name="q1" value="e"> e. Kafir</label>
+      </div>
+
+      <!-- Soal 2 -->
+      <div class="question">
+        <p>2. Dalam QS. An-Nisa/4:142, Allah menggambarkan orang munafik sebagai orang yang …</p>
+        <label><input type="radio" name="q2" value="a"> a. Selalu berbuat baik secara sembunyi-sembunyi</label>
+        <label><input type="radio" name="q2" value="b"> b. Shalatnya malas dan riya’</label>
+        <label><input type="radio" name="q2" value="c"> c. Tidak pernah shalat sama sekali</label>
+        <label><input type="radio" name="q2" value="d"> d. Hanya shalat Jumat</label>
+        <label><input type="radio" name="q2" value="e"> e. Shalat cepat agar segera selesai</label>
+      </div>
+
+      <!-- Soal 3 -->
+      <div class="question">
+        <p>3. QS. Al-Baqarah/2:74 menyebutkan bahwa hati sebagian Bani Israil menjadi seperti batu. Hal ini menggambarkan sifat …</p>
+        <label><input type="radio" name="q3" value="a"> a. Lemah lembut</label>
+        <label><input type="radio" name="q3" value="b"> b. Keras hati</label>
+        <label><input type="radio" name="q3" value="c"> c. Penakut</label>
+        <label><input type="radio" name="q3" value="d"> d. Penasaran</label>
+        <label><input type="radio" name="q3" value="e"> e. Ragu-ragu</label>
+      </div>
+
+      <!-- Soal 4 -->
+      <div class="question">
+        <p>4. Dampak perilaku munafik dalam kehidupan sosial adalah …</p>
+        <label><input type="radio" name="q4" value="a"> a. Meningkatkan kepercayaan orang lain</label>
+        <label><input type="radio" name="q4" value="b"> b. Menjadi panutan masyarakat</label>
+        <label><input type="radio" name="q4" value="c"> c. Merusak kepercayaan dan persatuan</label>
+        <label><input type="radio" name="q4" value="d"> d. Mempercepat kemajuan kelompok</label>
+        <label><input type="radio" name="q4" value="e"> e. Meningkatkan kualitas ibadah bersama</label>
+      </div>
+
+      <!-- Soal 5 -->
+      <div class="question">
+        <p>5. Seorang siswa selalu mengatakan “iya” saat diberi tugas, tetapi tidak pernah menyelesaikannya. Ia juga sering berjanji membantu teman, namun mengingkari. Perilaku ini termasuk ciri …</p>
+        <label><input type="radio" name="q5" value="a"> a. Amanah</label>
+        <label><input type="radio" name="q5" value="b"> b. Jujur</label>
+        <label><input type="radio" name="q5" value="c"> c. Munafik</label>
+        <label><input type="radio" name="q5" value="d"> d. Pemaaf</label>
+        <label><input type="radio" name="q5" value="e"> e. Sabar</label>
+      </div>
+
+      <!-- Soal 6 -->
+      <div class="question">
+        <p>6. Hadis Nabi menyatakan: “Tanda orang munafik ada tiga…” Salah satunya adalah …</p>
+        <label><input type="radio" name="q6" value="a"> a. Suka berpuasa sunnah</label>
+        <label><input type="radio" name="q6" value="b"> b. Jika berbicara, dusta</label>
+        <label><input type="radio" name="q6" value="c"> c. Jika shalat, khusyuk</label>
+        <label><input type="radio" name="q6" value="d"> d. Jika berjanji, ditepati</label>
+        <label><input type="radio" name="q6" value="e"> e. Jika dipercaya, amanah</label>
+      </div>
+
+      <!-- Soal 7 -->
+      <div class="question">
+        <p>7. Keras hati dapat menyebabkan seseorang …</p>
+        <label><input type="radio" name="q7" value="a"> a. Mudah menerima nasihat</label>
+        <label><input type="radio" name="q7" value="b"> b. Cepat menyesal atas kesalahan</label>
+        <label><input type="radio" name="q7" value="c"> c. Sulit merasakan kebenaran</label>
+        <label><input type="radio" name="q7" value="d"> d. Rajin membaca Al-Qur’an</label>
+        <label><input type="radio" name="q7" value="e"> e. Senang berbagi</label>
+      </div>
+
+      <!-- Soal 8 -->
+      <div class="question">
+        <p>8. Dalam konteks kemajuan umat, sifat munafik berkontribusi terhadap …</p>
+        <label><input type="radio" name="q8" value="a"> a. Solidaritas tinggi</label>
+        <label><input type="radio" name="q8" value="b"> b. Keterbelakangan dan perpecahan</label>
+        <label><input type="radio" name="q8" value="c"> c. Inovasi teknologi</label>
+        <label><input type="radio" name="q8" value="d"> d. Kemandirian ekonomi</label>
+        <label><input type="radio" name="q8" value="e"> e. Pendidikan berkualitas</label>
+      </div>
+
+      <!-- Soal 9 -->
+      <div class="question">
+        <p>9. Upaya preventif menghindari sifat munafik adalah …</p>
+        <label><input type="radio" name="q9" value="a"> a. Sering berbohong agar disukai</label>
+        <label><input type="radio" name="q9" value="b"> b. Menjaga niat ikhlas dalam beramal</label>
+        <label><input type="radio" name="q9" value="c"> c. Menghindari shalat berjamaah</label>
+        <label><input type="radio" name="q9" value="d"> d. Berjanji tanpa pertimbangan</label>
+        <label><input type="radio" name="q9" value="e"> e. Menunda tobat</label>
+      </div>
+
+      <!-- Soal 10 -->
+      <div class="question">
+        <p>10. QS. Al-Baqarah/2:74 menyebutkan bahwa di antara batu-batu itu ada yang “mengalirkan air”. Makna kiasan ayat ini adalah …</p>
+        <label><input type="radio" name="q10" value="a"> a. Hati yang keras tetap bisa lembut dengan izin Allah</label>
+        <label><input type="radio" name="q10" value="b"> b. Batu bisa berubah jadi air</label>
+        <label><input type="radio" name="q10" value="c"> c. Air suci hanya keluar dari batu</label>
+        <label><input type="radio" name="q10" value="d"> d. Hanya Nabi Musa yang bisa membelah batu</label>
+        <label><input type="radio" name="q10" value="e"> e. Batu simbol kekayaan</label>
+      </div>
+
+      <!-- Soal 11 -->
+      <div class="question">
+        <p>11. Seorang pemimpin sering mengumbar janji saat kampanye, tetapi setelah menang tidak menepati satupun. Ini mencerminkan …</p>
+        <label><input type="radio" name="q11" value="a"> a. Kepemimpinan visioner</label>
+        <label><input type="radio" name="q11" value="b"> b. Sifat amanah</label>
+        <label><input type="radio" name="q11" value="c"> c. Perilaku munafik</label>
+        <label><input type="radio" name="q11" value="d"> d. Strategi politik cerdas</label>
+        <label><input type="radio" name="q11" value="e"> e. Keterbatasan anggaran</label>
+      </div>
+
+      <!-- Soal 12 -->
+      <div class="question">
+        <p>12. Orang yang keras hati cenderung …</p>
+        <label><input type="radio" name="q12" value="a"> a. Mudah memaafkan kesalahan orang lain</label>
+        <label><input type="radio" name="q12" value="b"> b. Tidak terpengaruh oleh nasihat agama</label>
+        <label><input type="radio" name="q12" value="c"> c. Sering menangis saat mendengar ayat Al-Qur’an</label>
+        <label><input type="radio" name="q12" value="d"> d. Aktif dalam kegiatan sosial</label>
+        <label><input type="radio" name="q12" value="e"> e. Suka membaca buku motivasi</label>
+      </div>
+
+      <!-- Soal 13 -->
+      <div class="question">
+        <p>13. Dampak jangka panjang sifat munafik bagi diri sendiri adalah …</p>
+        <label><input type="radio" name="q13" value="a"> a. Dicintai banyak orang</label>
+        <label><input type="radio" name="q13" value="b"> b. Mendapat keberkahan hidup</label>
+        <label><input type="radio" name="q13" value="c"> c. Terasing secara spiritual</label>
+        <label><input type="radio" name="q13" value="d"> d. Sukses dalam karier</label>
+        <label><input type="radio" name="q13" value="e"> e. Dianggap rendah hati</label>
+      </div>
+
+      <!-- Soal 14 -->
+      <div class="question">
+        <p>14. Upaya kuratif untuk mengatasi keras hati adalah …</p>
+        <label><input type="radio" name="q14" value="a"> a. Menghindari majelis ilmu</label>
+        <label><input type="radio" name="q14" value="b"> b. Memperbanyak zikir dan membaca Al-Qur’an</label>
+        <label><input type="radio" name="q14" value="c"> c. Menunda shalat</label>
+        <label><input type="radio" name="q14" value="d"> d. Mengikuti tren media sosial</label>
+        <label><input type="radio" name="q14" value="e"> e. Menyalahkan orang lain</label>
+      </div>
+
+      <!-- Soal 15 -->
+      <div class="question">
+        <p>15. Dalam kehidupan sekolah, contoh perilaku munafik adalah …</p>
+        <label><input type="radio" name="q15" value="a"> a. Membantu teman saat ujian</label>
+        <label><input type="radio" name="q15" value="b"> b. Mengaku tidak tahu saat ketahuan menyontek</label>
+        <label><input type="radio" name="q15" value="c"> c. Mengatakan “saya siap presentasi” padahal belum belajar</label>
+        <label><input type="radio" name="q15" value="d"> d. Menolak tugas kelompok</label>
+        <label><input type="radio" name="q15" value="e"> e. Datang terlambat tanpa alasan</label>
+      </div>
+
+      <!-- Soal 16 -->
+      <div class="question">
+        <p>16. QS. An-Nisa/4:142 menyebutkan bahwa orang munafik “berdiri (shalat) dengan malas”. Makna “malas” di sini adalah …</p>
+        <label><input type="radio" name="q16" value="a"> a. Tidak pernah shalat</label>
+        <label><input type="radio" name="q16" value="b"> b. Shalat hanya saat dilihat orang</label>
+        <label><input type="radio" name="q16" value="c"> c. Gerakan shalat cepat dan hati tidak khusyuk</label>
+        <label><input type="radio" name="q16" value="d"> d. Shalat sambil duduk</label>
+        <label><input type="radio" name="q16" value="e"> e. Shalat di rumah saja</label>
+      </div>
+
+      <!-- Soal 17 -->
+      <div class="question">
+        <p>17. Seorang siswa menolak masukan guru dengan berkata, “Saya tahu yang terbaik untuk diri saya.” Sikap ini mencerminkan …</p>
+        <label><input type="radio" name="q17" value="a"> a. Kemandirian</label>
+        <label><input type="radio" name="q17" value="b"> b. Keras hati</label>
+        <label><input type="radio" name="q17" value="c"> c. Kritis</label>
+        <label><input type="radio" name="q17" value="d"> d. Percaya diri</label>
+        <label><input type="radio" name="q17" value="e"> e. Inovatif</label>
+      </div>
+
+      <!-- Soal 18 -->
+      <div class="question">
+        <p>18. Kampanye anti-munafik yang efektif di kalangan remaja sebaiknya menggunakan …</p>
+        <label><input type="radio" name="q18" value="a"> a. Poster lucu tanpa pesan jelas</label>
+        <label><input type="radio" name="q18" value="b"> b. Ceramah panjang oleh guru</label>
+        <label><input type="radio" name="q18" value="c"> c. Konten kreatif di media sosial dengan pesan moral</label>
+        <label><input type="radio" name="q18" value="d"> d. Hukuman bagi yang berperilaku buruk</label>
+        <label><input type="radio" name="q18" value="e"> e. Lomba hafalan dalil saja</label>
+      </div>
+
+      <!-- Soal 19 -->
+      <div class="question">
+        <p>19. Refleksi diri tentang kejujuran penting karena …</p>
+        <label><input type="radio" name="q19" value="a"> a. Membuat nilai rapor bagus</label>
+        <label><input type="radio" name="q19" value="b"> b. Mencegah sifat munafik dan memperkuat akhlak</label>
+        <label><input type="radio" name="q19" value="c"> c. Agar disukai teman</label>
+        <label><input type="radio" name="q19" value="d"> d. Menghindari hukuman</label>
+        <label><input type="radio" name="q19" value="e"> e. Meningkatkan popularitas</label>
+      </div>
+
+      <!-- Soal 20 -->
+      <div class="question">
+        <p>20. Modal utama untuk meraih keberkahan hidup menurut materi ini adalah …</p>
+        <label><input type="radio" name="q20" value="a"> a. Kekayaan dan kekuasaan</label>
+        <label><input type="radio" name="q20" value="b"> b. Kejujuran, ketulusan, dan kelembutan hati</label>
+        <label><input type="radio" name="q20" value="c"> c. Banyak teman di media sosial</label>
+        <label><input type="radio" name="q20" value="d"> d. Nilai akademik tinggi</label>
+        <label><input type="radio" name="q20" value="e"> e. Keterampilan berdebat</label>
+      </div>
+
+      <button type="button" onclick="submitPG()">Hitung Nilai Pilihan Ganda</button>
+    </form>
+
+    <!-- Soal Esai -->
+    <h2 style="margin-top: 40px;">Soal Esai</h2>
+    <form id="esaiForm">
+      <div class="question">
+        <p>1. Jelaskan mengapa sifat munafik lebih berbahaya daripada kekafiran terang-terangan menurut perspektif Islam!</p>
+        <textarea name="e1" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>2. Analisislah hubungan antara keras hati dan ketertinggalan umat Islam di era modern!</p>
+        <textarea name="e2" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>3. Buatlah studi kasus nyata (bisa fiktif tapi realistis) tentang seorang remaja yang memiliki ciri-ciri munafik, lalu jelaskan dampaknya pada lingkungan sekolah!</p>
+        <textarea name="e3" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>4. Mengapa QS. Al-Baqarah/2:74 menggunakan metafora “batu” untuk menggambarkan hati manusia? Jelaskan makna mendalamnya!</p>
+        <textarea name="e4" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>5. Menurut Anda, bagaimana cara mendeteksi sifat munafik dalam diri sendiri sejak dini?</p>
+        <textarea name="e5" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>6. Rancanglah kampanye mini (judul, slogan, dan media) untuk mengajak teman-teman menjauhi sifat munafik!</p>
+        <textarea name="e6" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>7. Apa hubungan antara ketulusan dalam beribadah dan kelembutan hati? Jelaskan dengan merujuk pada dalil!</p>
+        <textarea name="e7" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>8. Evaluasi: Apakah mungkin seseorang bersikap munafik tanpa sadar? Berikan argumen Anda!</p>
+        <textarea name="e8" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>9. Bagaimana cara mengubah hati yang keras menjadi lembut menurut ajaran Islam?</p>
+        <textarea name="e9" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>10. Refleksikan: Apa yang akan Anda lakukan jika mengetahui teman dekat Anda sering berbohong dan berpura-pura baik di depan guru?</p>
+        <textarea name="e10" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <button type="button" onclick="alert('Jawaban esai telah disimpan!')">Simpan Jawaban Esai</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    // Kunci jawaban pilihan ganda
+    const kunci = {
+      q1: 'b', q2: 'b', q3: 'b', q4: 'c', q5: 'c',
+      q6: 'b', q7: 'c', q8: 'b', q9: 'b', q10: 'a',
+      q11: 'c', q12: 'b', q13: 'c', q14: 'b', q15: 'c',
+      q16: 'c', q17: 'b', q18: 'c', q19: 'b', q20: 'b'
+    };
+
+    // Timer
+    let timeLeft = 3600; // 60 menit = 3600 detik
+    const timerElement = document.getElementById('time');
+    const timerDisplay = document.getElementById('timer');
+
+    const timer = setInterval(() => {
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        timerDisplay.innerHTML = "Waktu Habis!";
+        timerDisplay.style.color = "#e74c3c";
+        document.body.classList.add('disabled');
+        submitPG();
+        return;
+      }
+
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      timeLeft--;
+    }, 1000);
+
+    function submitPG() {
+      let skor = 0;
+      for (let key in kunci) {
+        const selected = document.querySelector(`input[name="${key}"]:checked`);
+        if (selected && selected.value === kunci[key]) {
+          skor += 4; // 4 poin per soal → total maks 80
+        }
+      }
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = `Nilai Pilihan Ganda: <strong>${skor}</strong> dari <strong>80</strong>`;
+      resultDiv.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
