@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ujian: Ilmu Kalam</title>
+  <style>
+    :root {
+      --primary: #1976d2;
+      --light: #e3f2fd;
+      --dark: #0d47a1;
+      --gray: #f5f5f5;
+      --text: #212121;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: #fafafa;
+      color: var(--text);
+      line-height: 1.6;
+      padding: 15px;
+    }
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+    .timer {
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: white;
+      background: var(--dark);
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+    }
+    label {
+      display: block;
+      margin: 12px 0 6px;
+      font-weight: 600;
+    }
+    input[type="text"], input[type="date"], textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+    .options label {
+      display: flex;
+      margin: 8px 0;
+      font-weight: normal;
+    }
+    .options input[type="radio"] {
+      margin-right: 10px;
+    }
+    button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1.1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto;
+      width: 200px;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: var(--dark);
+    }
+    .section {
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+    .soal-number {
+      font-weight: bold;
+      color: var(--primary);
+    }
+    .hidden {
+      display: none;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 15px;
+      }
+      .timer {
+        font-size: 1.1rem;
+      }
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Halaman Identitas -->
+    <div id="page-identitas">
+      <h1>Ujian Akhir: Ilmu Kalam</h1>
+      <p style="text-align:center; margin-bottom:20px;">Alokasi Waktu: 60 Menit</p>
+      <form id="form-identitas">
+        <label for="nama">Nama Lengkap:</label>
+        <input type="text" id="nama" required>
+
+        <label for="kelas">Kelas:</label>
+        <input type="text" id="kelas" required>
+
+        <label for="tanggal">Tanggal:</label>
+        <input type="text" id="tanggal" readonly>
+
+        <button type="submit">Mulai Ujian</button>
+      </form>
+    </div>
+
+    <!-- Halaman Ujian -->
+    <div id="page-ujian" class="hidden">
+      <div class="timer" id="timer">60:00</div>
+
+      <!-- Soal Pilihan Ganda -->
+      <div class="section">
+        <h2>📘 Soal Pilihan Ganda (20 Soal)</h2>
+        <!-- Soal 1 -->
+        <div class="soal">
+          <p class="soal-number">1. Ilmu Kalam secara etimologis berasal dari kata “kalam” yang berarti …</p>
+          <div class="options">
+            <label><input type="radio" name="q1" value="a"> a. Pembicaraan</label>
+            <label><input type="radio" name="q1" value="b"> b. Perkataan atau ucapan</label>
+            <label><input type="radio" name="q1" value="c"> c. Ilmu debat</label>
+            <label><input type="radio" name="q1" value="d"> d. Hujah logis</label>
+            <label><input type="radio" name="q1" value="e"> e. Ajaran akidah</label>
+          </div>
+        </div>
+        <!-- Soal 2 -->
+        <div class="soal">
+          <p class="soal-number">2. Ruang lingkup Ilmu Kalam mencakup hal-hal berikut, kecuali …</p>
+          <div class="options">
+            <label><input type="radio" name="q2" value="a"> a. Sifat-sifat Allah</label>
+            <label><input type="radio" name="q2" value="b"> b. Kenabian</label>
+            <label><input type="radio" name="q2" value="c"> c. Takdir</label>
+            <label><input type="radio" name="q2" value="d"> d. Hukum fiqih</label>
+            <label><input type="radio" name="q2" value="e"> e. Hari akhir</label>
+          </div>
+        </div>
+        <!-- Soal 3 -->
+        <div class="soal">
+          <p class="soal-number">3. Kedudukan Ilmu Kalam dalam Islam adalah sebagai …</p>
+          <div class="options">
+            <label><input type="radio" name="q3" value="a"> a. Ilmu fardhu ‘ain</label>
+            <label><input type="radio" name="q3" value="b"> b. Ilmu fardhu kifayah</label>
+            <label><input type="radio" name="q3" value="c"> c. Ilmu sunnah</label>
+            <label><input type="radio" name="q3" value="d"> d. Ilmu bid’ah</label>
+            <label><input type="radio" name="q3" value="e"> e. Ilmu tambahan</label>
+          </div>
+        </div>
+        <!-- Soal 4 -->
+        <div class="soal">
+          <p class="soal-number">4. Urgensi mempelajari Ilmu Kalam dalam kehidupan sehari-hari adalah untuk …</p>
+          <div class="options">
+            <label><input type="radio" name="q4" value="a"> a. Memperkuat akidah dan membentengi diri dari pemikiran sesat</label>
+            <label><input type="radio" name="q4" value="b"> b. Menjadi ahli debat</label>
+            <label><input type="radio" name="q4" value="c"> c. Menghafal dalil-dalil</label>
+            <label><input type="radio" name="q4" value="d"> d. Menjadi tokoh politik</label>
+            <label><input type="radio" name="q4" value="e"> e. Menguasai bahasa Arab</label>
+          </div>
+        </div>
+        <!-- Soal 5 -->
+        <div class="soal">
+          <p class="soal-number">5. Aliran yang muncul akibat peristiwa tahkim (arbitrasi) dalam Perang Siffin adalah …</p>
+          <div class="options">
+            <label><input type="radio" name="q5" value="a"> a. Murji’ah</label>
+            <label><input type="radio" name="q5" value="b"> b. Mu’tazilah</label>
+            <label><input type="radio" name="q5" value="c"> c. Khawarij</label>
+            <label><input type="radio" name="q5" value="d"> d. Syi’ah</label>
+            <label><input type="radio" name="q5" value="e"> e. Ahlussunnah</label>
+          </div>
+        </div>
+        <!-- Soal 6 -->
+        <div class="soal">
+          <p class="soal-number">6. Aliran yang berpendapat bahwa pelaku dosa besar bukan mukmin dan bukan kafir adalah …</p>
+          <div class="options">
+            <label><input type="radio" name="q6" value="a"> a. Khawarij</label>
+            <label><input type="radio" name="q6" value="b"> b. Murji’ah</label>
+            <label><input type="radio" name="q6" value="c"> c. Mu’tazilah</label>
+            <label><input type="radio" name="q6" value="d"> d. Qadariyah</label>
+            <label><input type="radio" name="q6" value="e"> e. Jabariyah</label>
+          </div>
+        </div>
+        <!-- Soal 7 -->
+        <div class="soal">
+          <p class="soal-number">7. Tokoh utama aliran Mu’tazilah yang terkenal adalah …</p>
+          <div class="options">
+            <label><input type="radio" name="q7" value="a"> a. Imam Syafi’i</label>
+            <label><input type="radio" name="q7" value="b"> b. Wasil bin ‘Atha</label>
+            <label><input type="radio" name="q7" value="c"> c. Hasan al-Bashri</label>
+            <label><input type="radio" name="q7" value="d"> d. Abu Hanifah</label>
+            <label><input type="radio" name="q7" value="e"> e. Ibn Taimiyah</label>
+          </div>
+        </div>
+        <!-- Soal 8 -->
+        <div class="soal">
+          <p class="soal-number">8. Aliran Ahlussunnah wal Jama’ah dalam Ilmu Kalam diwakili oleh dua mazhab utama, yaitu …</p>
+          <div class="options">
+            <label><input type="radio" name="q8" value="a"> a. Hanafi dan Maliki</label>
+            <label><input type="radio" name="q8" value="b"> b. Asy’ariyah dan Maturidiyah</label>
+            <label><input type="radio" name="q8" value="c"> c. Syafi’i dan Hanbali</label>
+            <label><input type="radio" name="q8" value="d"> d. Zaidiyah dan Ismailiyah</label>
+            <label><input type="radio" name="q8" value="e"> e. Salafiyah dan Khalafiyah</label>
+          </div>
+        </div>
+        <!-- Soal 9 -->
+        <div class="soal">
+          <p class="soal-number">9. Salah satu prinsip utama Mu’tazilah adalah …</p>
+          <div class="options">
+            <label><input type="radio" name="q9" value="a"> a. Al-‘adl wa at-tauhid (keadilan dan tauhid)</label>
+            <label><input type="radio" name="q9" value="b"> b. Al-irja’ (menunda penilaian)</label>
+            <label><input type="radio" name="q9" value="c"> c. Al-jabr (pemaksaan takdir)</label>
+            <label><input type="radio" name="q9" value="d"> d. Al-wala’ wal bara’</label>
+            <label><input type="radio" name="q9" value="e"> e. Taqlid buta</label>
+          </div>
+        </div>
+        <!-- Soal 10 -->
+        <div class="soal">
+          <p class="soal-number">10. Aliran yang menunda penilaian terhadap pelaku dosa besar disebut …</p>
+          <div class="options">
+            <label><input type="radio" name="q10" value="a"> a. Khawarij</label>
+            <label><input type="radio" name="q10" value="b"> b. Murji’ah</label>
+            <label><input type="radio" name="q10" value="c"> c. Mu’tazilah</label>
+            <label><input type="radio" name="q10" value="d"> d. Qadariyah</label>
+            <label><input type="radio" name="q10" value="e"> e. Jabariyah</label>
+          </div>
+        </div>
+        <!-- Soal 11 -->
+        <div class="soal">
+          <p class="soal-number">11. Ilmu Kalam berbeda dengan Filsafat karena Ilmu Kalam …</p>
+          <div class="options">
+            <label><input type="radio" name="q11" value="a"> a. Menggunakan akal tetapi tetap berpijak pada dalil naqli</label>
+            <label><input type="radio" name="q11" value="b"> b. Hanya mengandalkan akal murni</label>
+            <label><input type="radio" name="q11" value="c"> c. Menolak wahyu</label>
+            <label><input type="radio" name="q11" value="d"> d. Tidak membahas ketuhanan</label>
+            <label><input type="radio" name="q11" value="e"> e. Bersifat spekulatif tanpa batas</label>
+          </div>
+        </div>
+        <!-- Soal 12 -->
+        <div class="soal">
+          <p class="soal-number">12. Fenomena ateisme di era digital merupakan tantangan yang dapat dihadapi dengan memahami …</p>
+          <div class="options">
+            <label><input type="radio" name="q12" value="a"> a. Ilmu Kalam</label>
+            <label><input type="radio" name="q12" value="b"> b. Ilmu Tajwid</label>
+            <label><input type="radio" name="q12" value="c"> c. Ilmu Nahwu</label>
+            <label><input type="radio" name="q12" value="d"> d. Ilmu Sejarah</label>
+            <label><input type="radio" name="q12" value="e"> e. Ilmu Ekonomi</label>
+          </div>
+        </div>
+        <!-- Soal 13 -->
+        <div class="soal">
+          <p class="soal-number">13. Liberalisme agama sering mengaburkan batas antara …</p>
+          <div class="options">
+            <label><input type="radio" name="q13" value="a"> a. Iman dan kufur</label>
+            <label><input type="radio" name="q13" value="b"> b. Sunnah dan bid’ah</label>
+            <label><input type="radio" name="q13" value="c"> c. Halal dan haram</label>
+            <label><input type="radio" name="q13" value="d"> d. Semua jawaban benar</label>
+            <label><input type="radio" name="q13" value="e"> e. Hanya a dan b</label>
+          </div>
+        </div>
+        <!-- Soal 14 -->
+        <div class="soal">
+          <p class="soal-number">14. Pendekatan Ilmu Kalam dalam menyikapi keraguan keimanan bersifat …</p>
+          <div class="options">
+            <label><input type="radio" name="q14" value="a"> a. Emosional</label>
+            <label><input type="radio" name="q14" value="b"> b. Rasional dan berbasis dalil</label>
+            <label><input type="radio" name="q14" value="c"> c. Spekulatif</label>
+            <label><input type="radio" name="q14" value="d"> d. Dogmatis</label>
+            <label><input type="radio" name="q14" value="e"> e. Intuitif</label>
+          </div>
+        </div>
+        <!-- Soal 15 -->
+        <div class="soal">
+          <p class="soal-number">15. Tokoh Ahlussunnah yang membela akidah dengan pendekatan rasional adalah …</p>
+          <div class="options">
+            <label><input type="radio" name="q15" value="a"> a. Imam Malik</label>
+            <label><input type="radio" name="q15" value="b"> b. Imam Abu Hanifah</label>
+            <label><input type="radio" name="q15" value="c"> c. Imam al-Asy’ari</label>
+            <label><input type="radio" name="q15" value="d"> d. Imam Bukhari</label>
+            <label><input type="radio" name="q15" value="e"> e. Imam Nawawi</label>
+          </div>
+        </div>
+        <!-- Soal 16 -->
+        <div class="soal">
+          <p class="soal-number">16. Ilmu Kalam disebut juga sebagai …</p>
+          <div class="options">
+            <label><input type="radio" name="q16" value="a"> a. Ilmu Tauhid</label>
+            <label><input type="radio" name="q16" value="b"> b. Ilmu Fiqih</label>
+            <label><input type="radio" name="q16" value="c"> c. Ilmu Tasawuf</label>
+            <label><input type="radio" name="q16" value="d"> d. Ilmu Tafsir</label>
+            <label><input type="radio" name="q16" value="e"> e. Ilmu Hadis</label>
+          </div>
+        </div>
+        <!-- Soal 17 -->
+        <div class="soal">
+          <p class="soal-number">17. Aliran yang menekankan kebebasan manusia dalam berbuat adalah …</p>
+          <div class="options">
+            <label><input type="radio" name="q17" value="a"> a. Jabariyah</label>
+            <label><input type="radio" name="q17" value="b"> b. Qadariyah</label>
+            <label><input type="radio" name="q17" value="c"> c. Murji’ah</label>
+            <label><input type="radio" name="q17" value="d"> d. Khawarij</label>
+            <label><input type="radio" name="q17" value="e"> e. Asy’ariyah</label>
+          </div>
+        </div>
+        <!-- Soal 18 -->
+        <div class="soal">
+          <p class="soal-number">18. Dalam konteks kekinian, Ilmu Kalam relevan untuk …</p>
+          <div class="options">
+            <label><input type="radio" name="q18" value="a"> a. Membentengi akidah dari hoaks dan pemikiran radikal</label>
+            <label><input type="radio" name="q18" value="b"> b. Menjadi influencer</label>
+            <label><input type="radio" name="q18" value="c"> c. Membuat konten hiburan</label>
+            <label><input type="radio" name="q18" value="d"> d. Menghindari ujian</label>
+            <label><input type="radio" name="q18" value="e"> e. Menolak teknologi</label>
+          </div>
+        </div>
+        <!-- Soal 19 -->
+        <div class="soal">
+          <p class="soal-number">19. Sikap yang tepat menghadapi keraguan iman menurut Ilmu Kalam adalah …</p>
+          <div class="options">
+            <label><input type="radio" name="q19" value="a"> a. Mengabaikannya</label>
+            <label><input type="radio" name="q19" value="b"> b. Mencari jawaban dengan akal dan dalil yang benar</label>
+            <label><input type="radio" name="q19" value="c"> c. Menyalahkan orang lain</label>
+            <label><input type="radio" name="q19" value="d"> d. Menyerah pada nasib</label>
+            <label><input type="radio" name="q19" value="e"> e. Mengikuti tren media sosial</label>
+          </div>
+        </div>
+        <!-- Soal 20 -->
+        <div class="soal">
+          <p class="soal-number">20. Ilmu Kalam membantu umat Islam untuk bersikap … dalam menghadapi perbedaan pemahaman akidah.</p>
+          <div class="options">
+            <label><input type="radio" name="q20" value="a"> a. Toleran namun tetap berpegang pada prinsip</label>
+            <label><input type="radio" name="q20" value="b"> b. Fanatik buta</label>
+            <label><input type="radio" name="q20" value="c"> c. Acuh tak acuh</label>
+            <label><input type="radio" name="q20" value="d"> d. Agresif</label>
+            <label><input type="radio" name="q20" value="e"> e. Skeptis terhadap semua ajaran</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Soal Esai -->
+      <div class="section">
+        <h2>📘 Soal Esai HOTS (Studi Kasus)</h2>
+        <div class="soal">
+          <p class="soal-number">1. Jelaskan mengapa Ilmu Kalam disebut sebagai ilmu fardhu kifayah, bukan fardhu ‘ain!</p>
+          <textarea name="esai1" placeholder="Tulis jawabanmu di sini..."></textarea>
+        </div>
+        <div class="soal">
+          <p class="soal-number">2. Bagaimana latar belakang sejarah munculnya aliran Khawarij dan Murji’ah? Apa perbedaan pandangan keduanya tentang pelaku dosa besar?</p>
+          <textarea name="esai2" placeholder="Tulis jawabanmu di sini..."></textarea>
+        </div>
+        <div class="soal">
+          <p class="soal-number">3. Bandingkan prinsip dasar aliran Mu’tazilah dan Asy’ariyah dalam memahami sifat-sifat Allah!</p>
+          <textarea name="esai3" placeholder="Tulis jawabanmu di sini..."></textarea>
+        </div>
+        <div class="soal">
+          <p class="soal-number">4. Mengapa Ilmu Kalam penting dipelajari di era digital saat ini? Berikan contoh konkret!</p>
+          <textarea name="esai4" placeholder="Tulis jawabanmu di sini..."></textarea>
+        </div>
+        <div class="soal">
+          <p class="soal-number">5. Analisislah: Apakah liberalisme agama bertentangan dengan prinsip Ilmu Kalam? Jelaskan!</p>
+          <textarea name="esai5" placeholder="Tulis jawabanmu di sini..."></textarea>
+        </div>
+        <div class="soal">
+          <p class="soal-number">6. Seorang temanmu mulai meragukan keberadaan Allah karena pengaruh konten ateis di media sosial. Bagaimana kamu menggunakan prinsip Ilmu Kalam untuk membantunya?</p>
+          <textarea name="esai6" placeholder="Tulis jawabanmu di sini..."></textarea>
+        </div>
+        <div class="soal">
+          <p class="soal-number">7. Buatlah argumen berdasarkan Ilmu Kalam untuk membantah paham determinisme ekstrem (manusia tidak punya kebebasan sama sekali)!</p>
+          <textarea name="esai7" placeholder="Tulis jawabanmu di sini..."></textarea>
+        </div>
+        <div class="soal">
+          <p class="soal-number">8. Mengapa Ahlussunnah wal Jama’ah dianggap sebagai jalan tengah dalam Ilmu Kalam?</p>
+          <textarea name="esai8" placeholder="Tulis jawabanmu di sini..."></textarea>
+        </div>
+        <div class="soal">
+          <p class="soal-number">9. Bagaimana Ilmu Kalam dapat mencegah radikalisme berbasis akidah?</p>
+          <textarea name="esai9" placeholder="Tulis jawabanmu di sini..."></textarea>
+        </div>
+        <div class="soal">
+          <p class="soal-number">10. Susunlah rencana aksi pribadi untuk memperkuat akidahmu menggunakan prinsip Ilmu Kalam di era digital!</p>
+          <textarea name="esai10" placeholder="Tulis jawabanmu di sini..."></textarea>
+        </div>
+      </div>
+
+      <button id="btn-selesai">Selesai Sekarang</button>
+    </div>
+
+    <!-- Halaman Hasil -->
+    <div id="page-hasil" class="hidden">
+      <h1>✅ Ujian Selesai!</h1>
+      <div id="hasil-content"></div>
+      <button onclick="window.print()">🖨️ Cetak Hasil</button>
+      <button onclick="location.reload()">🔁 Ujian Baru</button>
+    </div>
+  </div>
+
+  <script>
+    // Kunci Jawaban PG
+    const kunciJawaban = {
+      q1: 'b', q2: 'd', q3: 'b', q4: 'a', q5: 'c',
+      q6: 'c', q7: 'b', q8: 'b', q9: 'a', q10: 'b',
+      q11: 'a', q12: 'a', q13: 'd', q14: 'b', q15: 'c',
+      q16: 'a', q17: 'b', q18: 'a', q19: 'b', q20: 'a'
+    };
+
+    // DOM
+    const pageIdentitas = document.getElementById('page-identitas');
+    const pageUjian = document.getElementById('page-ujian');
+    const pageHasil = document.getElementById('page-hasil');
+    const formIdentitas = document.getElementById('form-identitas');
+    const timerEl = document.getElementById('timer');
+    const btnSelesai = document.getElementById('btn-selesai');
+    const hasilContent = document.getElementById('hasil-content');
+
+    // Tanggal otomatis
+    document.getElementById('tanggal').value = new Date().toLocaleDateString('id-ID');
+
+    // Timer
+    let waktu = 3600;
+    let timerInterval = null;
+
+    function mulaiTimer() {
+      timerInterval = setInterval(() => {
+        const menit = Math.floor(waktu / 60);
+        const detik = waktu % 60;
+        timerEl.textContent = `${menit.toString().padStart(2, '0')}:${detik.toString().padStart(2, '0')}`;
+        if (waktu <= 0) {
+          clearInterval(timerInterval);
+          submitUjian();
+        }
+        waktu--;
+      }, 1000);
+    }
+
+    // Event Listener
+    formIdentitas.addEventListener('submit', (e) => {
+      e.preventDefault();
+      pageIdentitas.classList.add('hidden');
+      pageUjian.classList.remove('hidden');
+      mulaiTimer();
+    });
+
+    btnSelesai.addEventListener('click', () => {
+      if (confirm('Yakin ingin menyelesaikan ujian sekarang?')) {
+        clearInterval(timerInterval);
+        submitUjian();
+      }
+    });
+
+    // Submit & Hitung Skor
+    function submitUjian() {
+      const nama = document.getElementById('nama').value;
+      const kelas = document.getElementById('kelas').value;
+
+      let skor = 0;
+      for (let i = 1; i <= 20; i++) {
+        const jawaban = document.querySelector(`input[name="q${i}"]:checked`);
+        if (jawaban && jawaban.value === kunciJawaban[`q${i}`]) {
+          skor += 4;
+        }
+      }
+
+      hasilContent.innerHTML = `
+        <p><strong>Nama:</strong> ${nama}</p>
+        <p><strong>Kelas:</strong> ${kelas}</p>
+        <p><strong>Skor Pilihan Ganda:</strong> ${skor} / 80</p>
+        <p><em>Jawaban esai telah dikumpulkan.</em></p>
+        <p style="margin-top: 20px; color: ${skor >= 64 ? 'green' : skor >= 48 ? 'orange' : 'red'};">
+          ${skor >= 64 ? '🟢 Sangat Baik' : skor >= 48 ? '🟡 Cukup' : '🔴 Perlu Penguatan'}
+        </p>
+      `;
+
+      pageUjian.classList.add('hidden');
+      pageHasil.classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
