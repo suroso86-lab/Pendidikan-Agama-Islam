@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Interaktif: Ijtihad dalam Islam</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --success: #4cc9f0;
+            --danger: #f72585;
+            --warning: #f8961e;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --border-radius: 10px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-weight: 600;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            font-weight: 300;
+            opacity: 0.9;
+        }
+        
+        .quiz-info {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 20px;
+            background-color: var(--light);
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .timer-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .timer-icon {
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+        
+        .timer {
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        
+        .progress-container {
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(to right, var(--success), var(--primary));
+            width: 0%;
+            transition: var(--transition);
+        }
+        
+        .question-counter {
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        
+        .quiz-content {
+            display: flex;
+            min-height: 500px;
+        }
+        
+        .navigation-panel {
+            width: 250px;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-right: 1px solid #e9ecef;
+        }
+        
+        .navigation-title {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+        
+        .question-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--gray);
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .question-btn:hover {
+            border-color: var(--primary);
+            background-color: #e9ecef;
+        }
+        
+        .question-btn.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .question-btn.answered {
+            background-color: var(--success);
+            color: white;
+            border-color: var(--success);
+        }
+        
+        .question-panel {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .question-text {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .option {
+            padding: 15px;
+            border: 2px solid #e9ecef;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .option:hover {
+            border-color: var(--primary);
+            background-color: #f8f9ff;
+        }
+        
+        .option.selected {
+            border-color: var(--primary);
+            background-color: #e9ecef;
+        }
+        
+        .option-letter {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: auto;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-icon {
+            font-size: 1.1rem;
+        }
+        
+        .quiz-tabs {
+            display: flex;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .tab {
+            padding: 15px 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+        
+        .tab.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .tab:hover:not(.active) {
+            background-color: #f8f9fa;
+        }
+        
+        .quiz-section {
+            display: none;
+        }
+        
+        .quiz-section.active {
+            display: block;
+        }
+        
+        .essay-question {
+            margin-bottom: 30px;
+        }
+        
+        .essay-question-text {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+        
+        .essay-answer {
+            width: 100%;
+            min-height: 150px;
+            padding: 15px;
+            border: 2px solid #e9ecef;
+            border-radius: var(--border-radius);
+            font-family: 'Poppins', sans-serif;
+            resize: vertical;
+        }
+        
+        .essay-answer:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        @media (max-width: 768px) {
+            .quiz-content {
+                flex-direction: column;
+            }
+            
+            .navigation-panel {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #e9ecef;
+            }
+            
+            .question-grid {
+                grid-template-columns: repeat(10, 1fr);
+            }
+            
+            .question-btn {
+                width: 35px;
+                height: 35px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Kuis Interaktif: Ijtihad dalam Islam</h1>
+            <p class="subtitle">Uji pemahaman Anda tentang konsep ijtihad dan penerapannya</p>
+        </header>
+        
+        <div class="quiz-tabs">
+            <div class="tab active" data-tab="pilihan-ganda">Pilihan Ganda (20 Soal)</div>
+            <div class="tab" data-tab="esai">Esai (10 Soal)</div>
+        </div>
+        
+        <div class="quiz-info">
+            <div class="timer-container">
+                <span class="timer-icon">⏱️</span>
+                <span class="timer">30:00</span>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+            </div>
+            <div class="question-counter">
+                Soal <span id="current-question">1</span> dari <span id="total-questions">20</span>
+            </div>
+        </div>
+        
+        <div class="quiz-content">
+            <!-- Panel Navigasi Soal -->
+            <div class="navigation-panel">
+                <h3 class="navigation-title">Navigasi Soal</h3>
+                <div class="question-grid" id="question-nav">
+                    <!-- Tombol navigasi soal akan diisi oleh JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Panel Soal dan Jawaban -->
+            <div class="question-panel">
+                <!-- Soal Pilihan Ganda -->
+                <div class="quiz-section active" id="pilihan-ganda">
+                    <div class="question-text" id="question-text">
+                        <!-- Teks soal akan diisi oleh JavaScript -->
+                    </div>
+                    
+                    <div class="options-container" id="options-container">
+                        <!-- Opsi jawaban akan diisi oleh JavaScript -->
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button class="btn btn-outline" id="prev-btn">
+                            <span class="btn-icon">←</span> Sebelumnya
+                        </button>
+                        <button class="btn btn-primary" id="next-btn">
+                            Selanjutnya <span class="btn-icon">→</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Soal Esai -->
+                <div class="quiz-section" id="esai">
+                    <div class="essay-question">
+                        <div class="essay-question-text" id="essay-question-text">
+                            <!-- Teks soal esai akan diisi oleh JavaScript -->
+                        </div>
+                        <textarea class="essay-answer" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button class="btn btn-outline" id="essay-prev-btn">
+                            <span class="btn-icon">←</span> Sebelumnya
+                        </button>
+                        <button class="btn btn-primary" id="essay-next-btn">
+                            Selanjutnya <span class="btn-icon">→</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data soal pilihan ganda
+        const multipleChoiceQuestions = [
+            {
+                question: "Secara bahasa, ijtihad berarti…",
+                options: [
+                    "Menyimpulkan hukum dengan mudah",
+                    "Bersungguh-sungguh mengerahkan kemampuan",
+                    "Menyampaikan hadis Nabi",
+                    "Mengikuti pendapat ulama terdahulu",
+                    "Menghafalkan dalil syar'i"
+                ],
+                answer: 1
+            },
+            {
+                question: "Ijtihad dilakukan ketika…",
+                options: [
+                    "Dalil al-Qur'an dan Hadis tidak jelas atau tidak ada secara eksplisit",
+                    "Semua hukum sudah lengkap",
+                    "Ulama berbeda mazhab",
+                    "Ada perbedaan bahasa",
+                    "Masalah kecil yang tidak penting"
+                ],
+                answer: 0
+            },
+            {
+                question: "Dasar hukum ijtihad salah satunya adalah…",
+                options: [
+                    "Q.S. An-Nisa' ayat 59",
+                    "Q.S. Al-Ikhlas ayat 1-4",
+                    "Q.S. Al-Fatihah ayat 1-7",
+                    "Q.S. Al-Maidah ayat 3",
+                    "Q.S. Al-Kahfi ayat 10"
+                ],
+                answer: 0
+            },
+            {
+                question: "Hadis yang menjadi dasar bolehnya ijtihad adalah hadis tentang…",
+                options: [
+                    "Muadz bin Jabal ketika diutus ke Yaman",
+                    "Perjanjian Hudaibiyah",
+                    "Isra' Mi'raj",
+                    "Turunnya wahyu pertama",
+                    "Hijrah Nabi ke Madinah"
+                ],
+                answer: 0
+            },
+            {
+                question: "Orang yang melakukan ijtihad disebut…",
+                options: [
+                    "Mujtahid",
+                    "Muhaddits",
+                    "Mufassir",
+                    "Qari'",
+                    "Muadzin"
+                ],
+                answer: 0
+            },
+            {
+                question: "Salah satu syarat mujtahid adalah…",
+                options: [
+                    "Menguasai ilmu astronomi",
+                    "Menguasai bahasa Arab",
+                    "Menguasai ilmu kedokteran",
+                    "Menguasai ilmu kimia",
+                    "Menjadi hakim di pengadilan"
+                ],
+                answer: 1
+            },
+            {
+                question: "Urgensi ijtihad di era kontemporer adalah…",
+                options: [
+                    "Menutup pintu diskusi hukum Islam",
+                    "Mengikuti kebudayaan barat tanpa seleksi",
+                    "Menjawab permasalahan baru yang tidak ada di masa klasik",
+                    "Menggantikan semua hukum yang sudah ada",
+                    "Mengabaikan al-Qur'an dan Hadis"
+                ],
+                answer: 2
+            },
+            {
+                question: "Qiyas adalah bentuk ijtihad dengan cara…",
+                options: [
+                    "Menggunakan kebiasaan masyarakat",
+                    "Membandingkan hukum suatu perkara baru dengan perkara yang ada dalilnya",
+                    "Mengikuti mayoritas ulama",
+                    "Mengutamakan maslahat umum",
+                    "Mengambil pendapat sahabat"
+                ],
+                answer: 1
+            },
+            {
+                question: "Maslahah mursalah berarti…",
+                options: [
+                    "Manfaat umum yang tidak bertentangan dengan syariat",
+                    "Hukum yang hanya berlaku di masa sahabat",
+                    "Kepentingan pribadi mujtahid",
+                    "Kebiasaan adat istiadat",
+                    "Hukum yang dihapus"
+                ],
+                answer: 0
+            },
+            {
+                question: "Istihsan adalah metode ijtihad dengan cara…",
+                options: [
+                    "Mengambil pendapat yang dianggap lebih baik karena adanya dalil",
+                    "Mengutamakan kepentingan dunia",
+                    "Menolak hukum syariat",
+                    "Mengikuti mazhab tertentu secara mutlak",
+                    "Mencari jalan keluar tanpa pertimbangan hukum"
+                ],
+                answer: 0
+            },
+            {
+                question: "Ijtihad diperlukan karena…",
+                options: [
+                    "Semua masalah kehidupan sudah selesai",
+                    "Kehidupan manusia selalu berkembang dan muncul masalah baru",
+                    "Ulama berselisih",
+                    "Adat lebih kuat dari syariat",
+                    "Untuk menolak hukum Islam"
+                ],
+                answer: 1
+            },
+            {
+                question: "Fungsi utama ijtihad adalah…",
+                options: [
+                    "Menutup pintu perbedaan",
+                    "Menghilangkan syariat yang sulit",
+                    "Memberikan solusi hukum atas masalah baru",
+                    "Mengikuti hukum adat",
+                    "Menambah perpecahan umat"
+                ],
+                answer: 2
+            },
+            {
+                question: "Ulama yang menolak pintu ijtihad disebut…",
+                options: [
+                    "Taqlid",
+                    "Qiyas",
+                    "Istihsan",
+                    "Mujtahid",
+                    "Maslahah"
+                ],
+                answer: 0
+            },
+            {
+                question: "Salah satu manfaat ijtihad adalah…",
+                options: [
+                    "Membekukan hukum Islam",
+                    "Menghapus ayat al-Qur'an",
+                    "Membantu umat Islam beradaptasi dengan perkembangan zaman",
+                    "Menyamaratakan semua agama",
+                    "Membuat syariat jadi lebih rumit"
+                ],
+                answer: 2
+            },
+            {
+                question: "Contoh masalah kontemporer yang memerlukan ijtihad adalah…",
+                options: [
+                    "Zakat fitrah",
+                    "Puasa Ramadhan",
+                    "Hukum transaksi online",
+                    "Shalat lima waktu",
+                    "Wudhu"
+                ],
+                answer: 2
+            },
+            {
+                question: "Ijtihad tidak boleh dilakukan oleh orang yang…",
+                options: [
+                    "Menguasai al-Qur'an dan Hadis",
+                    "Tidak memiliki ilmu yang memadai",
+                    "Menguasai kaidah ushul fiqh",
+                    "Paham bahasa Arab",
+                    "Paham maqashid syariah"
+                ],
+                answer: 1
+            },
+            {
+                question: "Hikmah dari ijtihad adalah…",
+                options: [
+                    "Membuat hukum Islam kaku",
+                    "Menimbulkan perpecahan",
+                    "Membawa kemudahan dan solusi bagi umat",
+                    "Menghapus syariat lama",
+                    "Mengganti al-Qur'an"
+                ],
+                answer: 2
+            },
+            {
+                question: "Contoh penerapan ijtihad di bidang kesehatan adalah…",
+                options: [
+                    "Menentukan arah kiblat",
+                    "Menentukan hukum transplantasi organ",
+                    "Menentukan hukum shalat berjamaah",
+                    "Menghitung warisan",
+                    "Menentukan bacaan doa"
+                ],
+                answer: 1
+            },
+            {
+                question: "Ijtihad harus berlandaskan pada…",
+                options: [
+                    "Perasaan pribadi mujtahid",
+                    "Adat istiadat lokal",
+                    "Dalil syar'i dan maqashid syariah",
+                    "Mayoritas masyarakat",
+                    "Kesepakatan politik"
+                ],
+                answer: 2
+            },
+            {
+                question: "Hasil ijtihad bisa berbeda antar ulama karena…",
+                options: [
+                    "Dalil yang mereka gunakan berbeda",
+                    "Tidak ada aturan dalam Islam",
+                    "Islam membolehkan sembarang hukum",
+                    "Semua ulama bebas tanpa ilmu",
+                    "Tidak ada pedoman syariat"
+                ],
+                answer: 0
+            }
+        ];
+
+        // Data soal esai
+        const essayQuestions = [
+            "Seorang mahasiswa bertanya tentang hukum menggunakan e-wallet untuk pembayaran zakat. Bagaimana ijtihad dapat digunakan untuk menjawab masalah ini?",
+            "Dalam masyarakat modern, muncul masalah bayi tabung. Bagaimana ulama melakukan ijtihad untuk menentukan hukumnya?",
+            "Diskusikan mengapa ijtihad penting dalam menghadapi perkembangan teknologi informasi, seperti jual beli online.",
+            "Seorang dokter Muslim menemukan metode transplantasi organ baru. Bagaimana prinsip ijtihad dapat digunakan untuk menentukan kehalalannya?",
+            "Jelaskan perbedaan antara qiyas, istihsan, dan maslahah mursalah dalam contoh kasus nyata.",
+            "Dalam kasus polusi lingkungan yang membahayakan masyarakat, bagaimana ijtihad dapat digunakan untuk melahirkan fatwa tentang tanggung jawab industri?",
+            "Analisislah urgensi ijtihad bagi generasi muda Muslim di era globalisasi.",
+            "Bagaimana ijtihad dapat menjadi solusi dalam masalah pinjaman online (fintech) agar sesuai syariat?",
+            "Apa hikmah terbesar yang bisa diambil umat Islam dari adanya ijtihad dalam berbagai bidang kehidupan?",
+            "Diskusikan sebuah kasus kontemporer di Indonesia yang memerlukan ijtihad, lalu jelaskan langkah-langkah penyelesaiannya."
+        ];
+
+        // State aplikasi
+        let currentQuizType = 'pilihan-ganda';
+        let currentQuestionIndex = 0;
+        let userAnswers = {
+            'pilihan-ganda': Array(multipleChoiceQuestions.length).fill(null),
+            'esai': Array(essayQuestions.length).fill('')
+        };
+        let timer = 30 * 60; // 30 menit dalam detik
+        let timerInterval;
+
+        // Elemen DOM
+        const questionNav = document.getElementById('question-nav');
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        const progress = document.getElementById('progress');
+        const currentQuestionElement = document.getElementById('current-question');
+        const totalQuestionsElement = document.getElementById('total-questions');
+        const timerElement = document.querySelector('.timer');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const essayPrevBtn = document.getElementById('essay-prev-btn');
+        const essayNextBtn = document.getElementById('essay-next-btn');
+        const essayQuestionText = document.getElementById('essay-question-text');
+        const essayAnswer = document.querySelector('.essay-answer');
+        const tabs = document.querySelectorAll('.tab');
+        const quizSections = document.querySelectorAll('.quiz-section');
+
+        // Inisialisasi aplikasi
+        function init() {
+            renderQuestionNavigation();
+            updateQuestion();
+            updateProgress();
+            startTimer();
+            
+            // Event listeners
+            prevBtn.addEventListener('click', goToPreviousQuestion);
+            nextBtn.addEventListener('click', goToNextQuestion);
+            essayPrevBtn.addEventListener('click', goToPreviousEssay);
+            essayNextBtn.addEventListener('click', goToNextEssay);
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => switchTab(tab.dataset.tab));
+            });
+            
+            essayAnswer.addEventListener('input', () => {
+                userAnswers['esai'][currentQuestionIndex] = essayAnswer.value;
+                updateQuestionNavigation();
+            });
+        }
+
+        // Render navigasi soal
+        function renderQuestionNavigation() {
+            questionNav.innerHTML = '';
+            
+            const questions = currentQuizType === 'pilihan-ganda' ? 
+                multipleChoiceQuestions : essayQuestions;
+            
+            for (let i = 0; i < questions.length; i++) {
+                const button = document.createElement('button');
+                button.className = 'question-btn';
+                button.textContent = i + 1;
+                button.dataset.index = i;
+                
+                if (i === currentQuestionIndex) {
+                    button.classList.add('active');
+                }
+                
+                if (userAnswers[currentQuizType][i] !== null && 
+                    (currentQuizType === 'pilihan-ganda' || 
+                    (currentQuizType === 'esai' && userAnswers[currentQuizType][i] !== ''))) {
+                    button.classList.add('answered');
+                }
+                
+                button.addEventListener('click', () => {
+                    if (currentQuizType === 'pilihan-ganda') {
+                        goToQuestion(parseInt(button.dataset.index));
+                    } else {
+                        goToEssay(parseInt(button.dataset.index));
+                    }
+                });
+                
+                questionNav.appendChild(button);
+            }
+        }
+
+        // Update tampilan soal
+        function updateQuestion() {
+            if (currentQuizType === 'pilihan-ganda') {
+                const question = multipleChoiceQuestions[currentQuestionIndex];
+                questionText.textContent = question.question;
+                
+                optionsContainer.innerHTML = '';
+                question.options.forEach((option, index) => {
+                    const optionElement = document.createElement('div');
+                    optionElement.className = 'option';
+                    if (userAnswers['pilihan-ganda'][currentQuestionIndex] === index) {
+                        optionElement.classList.add('selected');
+                    }
+                    
+                    optionElement.innerHTML = `
+                        <div class="option-letter">${String.fromCharCode(65 + index)}</div>
+                        <div class="option-text">${option}</div>
+                    `;
+                    
+                    optionElement.addEventListener('click', () => selectOption(index));
+                    optionsContainer.appendChild(optionElement);
+                });
+                
+                currentQuestionElement.textContent = currentQuestionIndex + 1;
+                totalQuestionsElement.textContent = multipleChoiceQuestions.length;
+                
+                // Update status tombol navigasi
+                prevBtn.disabled = currentQuestionIndex === 0;
+                nextBtn.disabled = currentQuestionIndex === multipleChoiceQuestions.length - 1;
+            }
+        }
+
+        // Update tampilan soal esai
+        function updateEssay() {
+            essayQuestionText.textContent = essayQuestions[currentQuestionIndex];
+            essayAnswer.value = userAnswers['esai'][currentQuestionIndex] || '';
+            
+            currentQuestionElement.textContent = currentQuestionIndex + 1;
+            totalQuestionsElement.textContent = essayQuestions.length;
+            
+            // Update status tombol navigasi
+            essayPrevBtn.disabled = currentQuestionIndex === 0;
+            essayNextBtn.disabled = currentQuestionIndex === essayQuestions.length - 1;
+        }
+
+        // Pilih opsi jawaban
+        function selectOption(index) {
+            userAnswers['pilihan-ganda'][currentQuestionIndex] = index;
+            updateQuestion();
+            updateProgress();
+            updateQuestionNavigation();
+        }
+
+        // Update progress bar
+        function updateProgress() {
+            if (currentQuizType === 'pilihan-ganda') {
+                const answeredCount = userAnswers['pilihan-ganda'].filter(answer => answer !== null).length;
+                const progressPercentage = (answeredCount / multipleChoiceQuestions.length) * 100;
+                progress.style.width = `${progressPercentage}%`;
+            }
+        }
+
+        // Update navigasi soal
+        function updateQuestionNavigation() {
+            const buttons = questionNav.querySelectorAll('.question-btn');
+            buttons.forEach((button, index) => {
+                button.classList.remove('active');
+                if (index === currentQuestionIndex) {
+                    button.classList.add('active');
+                }
+                
+                button.classList.remove('answered');
+                if (userAnswers[currentQuizType][index] !== null && 
+                    (currentQuizType === 'pilihan-ganda' || 
+                    (currentQuizType === 'esai' && userAnswers[currentQuizType][index] !== ''))) {
+                    button.classList.add('answered');
+                }
+            });
+        }
+
+        // Navigasi soal
+        function goToQuestion(index) {
+            currentQuestionIndex = index;
+            updateQuestion();
+            updateQuestionNavigation();
+        }
+
+        function goToPreviousQuestion() {
+            if (currentQuestionIndex > 0) {
+                goToQuestion(currentQuestionIndex - 1);
+            }
+        }
+
+        function goToNextQuestion() {
+            if (currentQuestionIndex < multipleChoiceQuestions.length - 1) {
+                goToQuestion(currentQuestionIndex + 1);
+            }
+        }
+
+        // Navigasi soal esai
+        function goToEssay(index) {
+            currentQuestionIndex = index;
+            updateEssay();
+            updateQuestionNavigation();
+        }
+
+        function goToPreviousEssay() {
+            if (currentQuestionIndex > 0) {
+                goToEssay(currentQuestionIndex - 1);
+            }
+        }
+
+        function goToNextEssay() {
+            if (currentQuestionIndex < essayQuestions.length - 1) {
+                goToEssay(currentQuestionIndex + 1);
+            }
+        }
+
+        // Ganti tab
+        function switchTab(tabName) {
+            currentQuizType = tabName;
+            currentQuestionIndex = 0;
+            
+            // Update tab aktif
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.dataset.tab === tabName) {
+                    tab.classList.add('active');
+                }
+            });
+            
+            // Update section aktif
+            quizSections.forEach(section => {
+                section.classList.remove('active');
+                if (section.id === tabName) {
+                    section.classList.add('active');
+                }
+            });
+            
+            // Render ulang navigasi dan konten
+            renderQuestionNavigation();
+            
+            if (tabName === 'pilihan-ganda') {
+                updateQuestion();
+            } else {
+                updateEssay();
+            }
+            
+            updateProgress();
+        }
+
+        // Timer
+        function startTimer() {
+            updateTimerDisplay();
+            timerInterval = setInterval(() => {
+                timer--;
+                updateTimerDisplay();
+                
+                if (timer <= 0) {
+                    clearInterval(timerInterval);
+                    alert('Waktu telah habis!');
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timer / 60);
+            const seconds = timer % 60;
+            timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        // Inisialisasi aplikasi saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
