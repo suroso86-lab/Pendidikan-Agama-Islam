@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Penilaian Hukum Waris Islam</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+      color: #2c3e50;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #1a5276;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      text-align: center;
+      color: #566573;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .info-form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .info-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #2874a6;
+    }
+    .info-form input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #bdc3c7;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+    .timer {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: #c0392b;
+      margin: 15px 0;
+      padding: 10px;
+      background: #fdf2f2;
+      border-radius: 8px;
+    }
+    .question {
+      margin-bottom: 25px;
+      padding: 15px;
+      background: #f8f9fa;
+      border-left: 4px solid #2980b9;
+      border-radius: 0 8px 8px 0;
+    }
+    .question p {
+      margin: 8px 0;
+      font-weight: bold;
+    }
+    .question label {
+      display: block;
+      margin: 6px 0;
+      cursor: pointer;
+    }
+    textarea {
+      width: 100%;
+      min-height: 100px;
+      padding: 12px;
+      border: 1px solid #bdc3c7;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 15px;
+      resize: vertical;
+    }
+    button {
+      display: block;
+      margin: 25px auto;
+      padding: 12px 30px;
+      background: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 17px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #219653;
+    }
+    #result {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+      padding: 15px;
+      background: #e8f5e9;
+      border-radius: 8px;
+      display: none;
+    }
+    .disabled {
+      pointer-events: none;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Penilaian Hukum Waris Islam</h1>
+    <div class="subtitle">Pertemuan 1–4: Dasar Hukum, Ahli Waris, Perhitungan, dan Hikmah</div>
+
+    <!-- Info Siswa -->
+    <div class="info-form">
+      <div>
+        <label for="nama">Nama Siswa:</label>
+        <input type="text" id="nama" required />
+      </div>
+      <div>
+        <label for="kelas">Kelas:</label>
+        <input type="text" id="kelas" required />
+      </div>
+      <div>
+        <label for="tanggal">Tanggal:</label>
+        <input type="date" id="tanggal" required />
+      </div>
+    </div>
+
+    <!-- Timer -->
+    <div class="timer" id="timer">Waktu Tersisa: <span id="time">60:00</span></div>
+
+    <!-- Soal Pilihan Ganda -->
+    <form id="pgForm">
+      <!-- Soal 1 -->
+      <div class="question">
+        <p>1. Dasar hukum utama kewarisan dalam Islam terdapat dalam …</p>
+        <label><input type="radio" name="q1" value="a"> a. Q.S. al-Baqarah: 183</label>
+        <label><input type="radio" name="q1" value="b"> b. Q.S. an-Nisa: 11–12</label>
+        <label><input type="radio" name="q1" value="c"> c. Q.S. al-Maidah: 3</label>
+        <label><input type="radio" name="q1" value="d"> d. Q.S. al-Anfal: 60</label>
+        <label><input type="radio" name="q1" value="e"> e. Q.S. Yusuf: 4</label>
+      </div>
+
+      <!-- Soal 2 -->
+      <div class="question">
+        <p>2. Rukun kewarisan salah satunya adalah …</p>
+        <label><input type="radio" name="q2" value="a"> a. Harta benda yang halal</label>
+        <label><input type="radio" name="q2" value="b"> b. Adanya pewaris yang meninggal dunia</label>
+        <label><input type="radio" name="q2" value="c"> c. Adanya wasiat dari orang kaya</label>
+        <label><input type="radio" name="q2" value="d"> d. Adanya saksi dua orang laki-laki</label>
+        <label><input type="radio" name="q2" value="e"> e. Adanya wali hakim</label>
+      </div>
+
+      <!-- Soal 3 -->
+      <div class="question">
+        <p>3. Syarat terjadinya kewarisan adalah …</p>
+        <label><input type="radio" name="q3" value="a"> a. Adanya hibah kepada ahli waris</label>
+        <label><input type="radio" name="q3" value="b"> b. Pewaris sudah wafat secara hakiki atau hukum</label>
+        <label><input type="radio" name="q3" value="c"> c. Semua ahli waris hadir di rumah duka</label>
+        <label><input type="radio" name="q3" value="d"> d. Adanya perjanjian tertulis sebelum wafat</label>
+        <label><input type="radio" name="q3" value="e"> e. Ahli waris sepakat membagi harta</label>
+      </div>
+
+      <!-- Soal 4 -->
+      <div class="question">
+        <p>4. Yang termasuk sebab kewarisan dalam Islam adalah …</p>
+        <label><input type="radio" name="q4" value="a"> a. Hubungan pekerjaan</label>
+        <label><input type="radio" name="q4" value="b"> b. Hubungan nasab, pernikahan, dan wala’</label>
+        <label><input type="radio" name="q4" value="c"> c. Hubungan pertemanan dekat</label>
+        <label><input type="radio" name="q4" value="d"> d. Hubungan sosial masyarakat</label>
+        <label><input type="radio" name="q4" value="e"> e. Hubungan persaudaraan seagama</label>
+      </div>
+
+      <!-- Soal 5 -->
+      <div class="question">
+        <p>5. Orang yang membunuh pewarisnya tidak berhak menerima warisan. Hal ini termasuk …</p>
+        <label><input type="radio" name="q5" value="a"> a. Rukun waris</label>
+        <label><input type="radio" name="q5" value="b"> b. Syarat waris</label>
+        <label><input type="radio" name="q5" value="c"> c. Sebab waris</label>
+        <label><input type="radio" name="q5" value="d"> d. Penghalang waris</label>
+        <label><input type="radio" name="q5" value="e"> e. Hikmah waris</label>
+      </div>
+
+      <!-- Soal 6 -->
+      <div class="question">
+        <p>6. Ashabul furud adalah ahli waris yang …</p>
+        <label><input type="radio" name="q6" value="a"> a. Mendapat bagian pasti sesuai ketentuan syariat</label>
+        <label><input type="radio" name="q6" value="b"> b. Mendapat sisa harta setelah ashabul furud</label>
+        <label><input type="radio" name="q6" value="c"> c. Mendapat warisan karena hubungan pertemanan</label>
+        <label><input type="radio" name="q6" value="d"> d. Tidak memiliki bagian dalam hukum Islam</label>
+        <label><input type="radio" name="q6" value="e"> e. Hanya berhak atas wasiat</label>
+      </div>
+
+      <!-- Soal 7 -->
+      <div class="question">
+        <p>7. Contoh ahli waris ashabul furud adalah …</p>
+        <label><input type="radio" name="q7" value="a"> a. Anak laki-laki</label>
+        <label><input type="radio" name="q7" value="b"> b. Anak perempuan</label>
+        <label><input type="radio" name="q7" value="c"> c. Paman</label>
+        <label><input type="radio" name="q7" value="d"> d. Saudara seayah</label>
+        <label><input type="radio" name="q7" value="e"> e. Sepupu</label>
+      </div>
+
+      <!-- Soal 8 -->
+      <div class="question">
+        <p>8. Ahli waris ashabah adalah …</p>
+        <label><input type="radio" name="q8" value="a"> a. Mereka yang mendapat bagian pasti</label>
+        <label><input type="radio" name="q8" value="b"> b. Mereka yang mendapat sisa harta setelah ashabul furud</label>
+        <label><input type="radio" name="q8" value="c"> c. Mereka yang tidak diakui secara syar’i</label>
+        <label><input type="radio" name="q8" value="d"> d. Mereka yang hanya mendapat wasiat</label>
+        <label><input type="radio" name="q8" value="e"> e. Mereka yang menghalangi pewarisan</label>
+      </div>
+
+      <!-- Soal 9 -->
+      <div class="question">
+        <p>9. Seorang istri yang ditinggal wafat suaminya tanpa memiliki anak akan mendapat bagian …</p>
+        <label><input type="radio" name="q9" value="a"> a. 1/2</label>
+        <label><input type="radio" name="q9" value="b"> b. 1/3</label>
+        <label><input type="radio" name="q9" value="c"> c. 1/4</label>
+        <label><input type="radio" name="q9" value="d"> d. 1/6</label>
+        <label><input type="radio" name="q9" value="e"> e. 2/3</label>
+      </div>
+
+      <!-- Soal 10 -->
+      <div class="question">
+        <p>10. Seorang suami yang ditinggal wafat istrinya tanpa anak berhak mendapat …</p>
+        <label><input type="radio" name="q10" value="a"> a. 1/2</label>
+        <label><input type="radio" name="q10" value="b"> b. 1/3</label>
+        <label><input type="radio" name="q10" value="c"> c. 1/4</label>
+        <label><input type="radio" name="q10" value="d"> d. 2/3</label>
+        <label><input type="radio" name="q10" value="e"> e. 1/6</label>
+      </div>
+
+      <!-- Soal 11 -->
+      <div class="question">
+        <p>11. Seorang laki-laki meninggal dunia meninggalkan istri dan seorang anak laki-laki. Bagian istri adalah …</p>
+        <label><input type="radio" name="q11" value="a"> a. 1/2</label>
+        <label><input type="radio" name="q11" value="b"> b. 1/4</label>
+        <label><input type="radio" name="q11" value="c"> c. 1/3</label>
+        <label><input type="radio" name="q11" value="d"> d. 1/6</label>
+        <label><input type="radio" name="q11" value="e"> e. Sisa dari anak</label>
+      </div>
+
+      <!-- Soal 12 -->
+      <div class="question">
+        <p>12. Seorang perempuan wafat meninggalkan suami dan dua anak perempuan. Bagian suami adalah …</p>
+        <label><input type="radio" name="q12" value="a"> a. 1/2</label>
+        <label><input type="radio" name="q12" value="b"> b. 1/4</label>
+        <label><input type="radio" name="q12" value="c"> c. 1/3</label>
+        <label><input type="radio" name="q12" value="d"> d. 1/6</label>
+        <label><input type="radio" name="q12" value="e"> e. Tidak mendapat</label>
+      </div>
+
+      <!-- Soal 13 -->
+      <div class="question">
+        <p>13. Seorang pewaris meninggalkan ibu, ayah, dan seorang anak laki-laki. Bagian ayah adalah …</p>
+        <label><input type="radio" name="q13" value="a"> a. 1/6 + ashabah</label>
+        <label><input type="radio" name="q13" value="b"> b. 1/3</label>
+        <label><input type="radio" name="q13" value="c"> c. 1/2</label>
+        <label><input type="radio" name="q13" value="d"> d. 1/6</label>
+        <label><input type="radio" name="q13" value="e"> e. Semua harta</label>
+      </div>
+
+      <!-- Soal 14 -->
+      <div class="question">
+        <p>14. Jika jumlah bagian ahli waris lebih besar daripada harta yang tersedia, maka terjadi kasus …</p>
+        <label><input type="radio" name="q14" value="a"> a. Aul</label>
+        <label><input type="radio" name="q14" value="b"> b. Radd</label>
+        <label><input type="radio" name="q14" value="c"> c. Hibah</label>
+        <label><input type="radio" name="q14" value="d"> d. Wasiat</label>
+        <label><input type="radio" name="q14" value="e"> e. Fasakh</label>
+      </div>
+
+      <!-- Soal 15 -->
+      <div class="question">
+        <p>15. Jika ada kelebihan harta setelah pembagian kepada ahli waris furud, maka harta itu kembali kepada ahli waris. Hal ini disebut …</p>
+        <label><input type="radio" name="q15" value="a"> a. Wasiat wajibah</label>
+        <label><input type="radio" name="q15" value="b"> b. Aul</label>
+        <label><input type="radio" name="q15" value="c"> c. Radd</label>
+        <label><input type="radio" name="q15" value="d"> d. Hibahtul mal</label>
+        <label><input type="radio" name="q15" value="e"> e. Takharruj</label>
+      </div>
+
+      <!-- Soal 16 -->
+      <div class="question">
+        <p>16. Hikmah utama disyariatkannya hukum waris dalam Islam adalah …</p>
+        <label><input type="radio" name="q16" value="a"> a. Mempercepat pembagian harta</label>
+        <label><input type="radio" name="q16" value="b"> b. Menghindari sengketa antar keluarga</label>
+        <label><input type="radio" name="q16" value="c"> c. Memberi hak lebih besar pada anak sulung</label>
+        <label><input type="radio" name="q16" value="d"> d. Menambah kekayaan keluarga</label>
+        <label><input type="radio" name="q16" value="e"> e. Mengurangi pajak warisan</label>
+      </div>
+
+      <!-- Soal 17 -->
+      <div class="question">
+        <p>17. Adab dalam pembagian waris di antaranya adalah …</p>
+        <label><input type="radio" name="q17" value="a"> a. Mengutamakan anak laki-laki tanpa aturan syariat</label>
+        <label><input type="radio" name="q17" value="b"> b. Membagi warisan secara musyawarah dan adil</label>
+        <label><input type="radio" name="q17" value="c"> c. Memberi lebih banyak pada keluarga kaya</label>
+        <label><input type="radio" name="q17" value="d"> d. Menyembunyikan harta dari ahli waris</label>
+        <label><input type="radio" name="q17" value="e"> e. Mengutamakan ahli waris terdekat saja</label>
+      </div>
+
+      <!-- Soal 18 -->
+      <div class="question">
+        <p>18. Salah satu nilai penting dalam pembagian waris adalah …</p>
+        <label><input type="radio" name="q18" value="a"> a. Keadilan dan tanggung jawab</label>
+        <label><input type="radio" name="q18" value="b"> b. Persaingan antar saudara</label>
+        <label><input type="radio" name="q18" value="c"> c. Kecepatan dalam mengambil keputusan</label>
+        <label><input type="radio" name="q18" value="d"> d. Kekuasaan penuh anak tertua</label>
+        <label><input type="radio" name="q18" value="e"> e. Mengutamakan tradisi lokal</label>
+      </div>
+
+      <!-- Soal 19 -->
+      <div class="question">
+        <p>19. Seorang anak membagi warisan sesuai syariat tetapi dengan sikap arogan. Apa yang hilang dari pembagian waris tersebut?</p>
+        <label><input type="radio" name="q19" value="a"> a. Rukun waris</label>
+        <label><input type="radio" name="q19" value="b"> b. Hikmah dan adab</label>
+        <label><input type="radio" name="q19" value="c"> c. Syarat waris</label>
+        <label><input type="radio" name="q19" value="d"> d. Sebab waris</label>
+        <label><input type="radio" name="q19" value="e"> e. Penghalang waris</label>
+      </div>
+
+      <!-- Soal 20 -->
+      <div class="question">
+        <p>20. Refleksi pribadi dalam pembagian waris bertujuan agar …</p>
+        <label><input type="radio" name="q20" value="a"> a. Siswa hafal semua bagian waris</label>
+        <label><input type="radio" name="q20" value="b"> b. Siswa mampu memahami nilai keadilan dan tanggung jawab</label>
+        <label><input type="radio" name="q20" value="c"> c. Siswa bisa menjadi pengacara waris</label>
+        <label><input type="radio" name="q20" value="d"> d. Siswa mampu menguasai ilmu hitung cepat</label>
+        <label><input type="radio" name="q20" value="e"> e. Siswa dapat menghindari pembagian waris</label>
+      </div>
+
+      <button type="button" onclick="submitPG()">Hitung Nilai Pilihan Ganda</button>
+    </form>
+
+    <!-- Soal Esai -->
+    <h2 style="margin-top: 40px;">Soal Esai HOTS (Studi Kasus)</h2>
+    <form id="esaiForm">
+      <div class="question">
+        <p>1. Seorang ayah wafat meninggalkan seorang istri, dua anak laki-laki, dan satu anak perempuan. Buatlah analisis pembagian harta warisan sesuai ketentuan syariat Islam!</p>
+        <textarea name="e1" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>2. Dalam satu keluarga, seorang anak menuntut bagian lebih besar daripada saudaranya karena merasa lebih berjasa. Evaluasilah kasus ini berdasarkan hikmah keadilan dalam hukum waris Islam.</p>
+        <textarea name="e2" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>3. Jika seorang pewaris terbukti dibunuh oleh salah satu ahli warisnya, bagaimana kedudukan pelaku dalam pembagian harta? Analisislah dengan dalil naqli!</p>
+        <textarea name="e3" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>4. Seorang ibu meninggal meninggalkan suami, satu anak perempuan, dan satu cucu laki-laki dari anak yang sudah wafat. Tentukan pembagian warisnya dan jelaskan alasanmu!</p>
+        <textarea name="e4" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>5. Dalam sebuah keluarga, ahli waris sepakat membagi warisan tidak sesuai syariat demi “kebersamaan”. Bagaimana kamu menilai tindakan tersebut?</p>
+        <textarea name="e5" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>6. Ada kasus seorang saudara menolak menerima warisan karena ingin mengalah kepada saudaranya yang lain. Analisislah, apakah ini dibolehkan dalam Islam?</p>
+        <textarea name="e6" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>7. Buatlah contoh kasus sederhana yang mengandung aul, lalu tunjukkan cara penyelesaiannya!</p>
+        <textarea name="e7" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>8. Seorang siswa berpendapat bahwa hukum waris Islam lebih adil dibandingkan hukum adat karena sudah jelas dalil dan aturannya. Berikan argumen kritis untuk mendukung pendapat ini!</p>
+        <textarea name="e8" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>9. Dalam pembagian waris, sering muncul konflik antar saudara. Bagaimana adab dan nilai-nilai Islam bisa menjadi solusi untuk menghindari konflik tersebut?</p>
+        <textarea name="e9" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>10. Bayangkan kamu diminta membuat rencana aksi pribadi dalam konteks pengelolaan harta warisan. Tulis langkah-langkah yang akan kamu lakukan agar sesuai dengan nilai keadilan dan kearifan Islam.</p>
+        <textarea name="e10" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <button type="button" onclick="alert('Jawaban esai telah disimpan!')">Simpan Jawaban Esai</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    // Kunci jawaban
+    const kunci = {
+      q1: 'b', q2: 'b', q3: 'b', q4: 'b', q5: 'd',
+      q6: 'a', q7: 'b', q8: 'b', q9: 'c', q10: 'a',
+      q11: 'b', q12: 'b', q13: 'a', q14: 'a', q15: 'c',
+      q16: 'b', q17: 'b', q18: 'a', q19: 'b', q20: 'b'
+    };
+
+    // Timer 60 menit
+    let timeLeft = 3600; // 60 * 60 detik
+    const timerElement = document.getElementById('time');
+    const timerDisplay = document.getElementById('timer');
+
+    const countdown = setInterval(() => {
+      if (timeLeft <= 0) {
+        clearInterval(countdown);
+        timerDisplay.innerHTML = "Waktu Habis!";
+        timerDisplay.style.color = "#e74c3c";
+        document.body.classList.add('disabled');
+        submitPG();
+        return;
+      }
+
+      const mins = Math.floor(timeLeft / 60);
+      const secs = timeLeft % 60;
+      timerElement.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+      timeLeft--;
+    }, 1000);
+
+    function submitPG() {
+      let score = 0;
+      for (let key in kunci) {
+        const selected = document.querySelector(`input[name="${key}"]:checked`);
+        if (selected && selected.value === kunci[key]) {
+          score += 4; // 20 soal × 4 = 80
+        }
+      }
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = `Nilai Pilihan Ganda: <strong>${score}</strong> dari <strong>80</strong>`;
+      resultDiv.style.display = 'block';
+    }
+  </script>
+</body>
+</html>

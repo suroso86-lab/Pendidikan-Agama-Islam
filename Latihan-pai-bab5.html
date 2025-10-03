@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Penilaian Akhir - Jejak Peradaban Islam di Dunia</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 20px;
+      color: #2c3e50;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #1a5276;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      text-align: center;
+      color: #566573;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .info-form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .info-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #2874a6;
+    }
+    .info-form input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #bdc3c7;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+    .timer {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: #c0392b;
+      margin: 15px 0;
+      padding: 10px;
+      background: #fdf2f2;
+      border-radius: 8px;
+    }
+    .question {
+      margin-bottom: 25px;
+      padding: 15px;
+      background: #f8f9fa;
+      border-left: 4px solid #2980b9;
+      border-radius: 0 8px 8px 0;
+    }
+    .question p {
+      margin: 8px 0;
+      font-weight: bold;
+    }
+    .question label {
+      display: block;
+      margin: 6px 0;
+      cursor: pointer;
+    }
+    textarea {
+      width: 100%;
+      min-height: 100px;
+      padding: 12px;
+      border: 1px solid #bdc3c7;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 15px;
+      resize: vertical;
+    }
+    button {
+      display: block;
+      margin: 25px auto;
+      padding: 12px 30px;
+      background: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 17px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #219653;
+    }
+    #result {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+      padding: 15px;
+      background: #e8f5e9;
+      border-radius: 8px;
+      display: none;
+    }
+    .disabled {
+      pointer-events: none;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Penilaian Akhir</h1>
+    <div class="subtitle">Jejak Peradaban Islam di Asia, Eropa, Afrika, dan Australia</div>
+
+    <!-- Info Siswa -->
+    <div class="info-form">
+      <div>
+        <label for="nama">Nama Siswa:</label>
+        <input type="text" id="nama" required />
+      </div>
+      <div>
+        <label for="kelas">Kelas:</label>
+        <input type="text" id="kelas" required />
+      </div>
+      <div>
+        <label for="tanggal">Tanggal:</label>
+        <input type="date" id="tanggal" required />
+      </div>
+    </div>
+
+    <!-- Timer -->
+    <div class="timer" id="timer">Waktu Tersisa: <span id="time">60:00</span></div>
+
+    <!-- Soal Pilihan Ganda -->
+    <form id="pgForm">
+      <!-- Soal 1 -->
+      <div class="question">
+        <p>1. Di wilayah Asia Tenggara, Kerajaan Samudera Pasai dikenal sebagai pusat penyebaran Islam karena …</p>
+        <label><input type="radio" name="q1" value="a"> a. Memiliki armada perang terkuat</label>
+        <label><input type="radio" name="q1" value="b"> b. Menjadi pusat perdagangan dan pendidikan Islam</label>
+        <label><input type="radio" name="q1" value="c"> c. Menaklukkan seluruh kerajaan Hindu-Buddha</label>
+        <label><input type="radio" name="q1" value="d"> d. Membangun masjid terbesar di dunia</label>
+        <label><input type="radio" name="q1" value="e"> e. Menjadi sekutu Portugis</label>
+      </div>
+
+      <!-- Soal 2 -->
+      <div class="question">
+        <p>2. Salah satu tokoh ilmuwan Muslim di Andalusia (Spanyol) yang berjasa dalam bidang kedokteran adalah …</p>
+        <label><input type="radio" name="q2" value="a"> a. Al-Khwarizmi</label>
+        <label><input type="radio" name="q2" value="b"> b. Ibnu Sina</label>
+        <label><input type="radio" name="q2" value="c"> c. Ibnu Rusyd</label>
+        <label><input type="radio" name="q2" value="d"> d. Al-Zahrawi</label>
+        <label><input type="radio" name="q2" value="e"> e. Al-Farabi</label>
+      </div>
+
+      <!-- Soal 3 -->
+      <div class="question">
+        <p>3. Di Afrika Barat, Kerajaan Mali mencapai puncak kejayaan di bawah kepemimpinan …</p>
+        <label><input type="radio" name="q3" value="a"> a. Shalahuddin Al-Ayyubi</label>
+        <label><input type="radio" name="q3" value="b"> b. Mansa Musa</label>
+        <label><input type="radio" name="q3" value="c"> c. Sultan Muhammad Al-Fatih</label>
+        <label><input type="radio" name="q3" value="d"> d. Raja Faisal</label>
+        <label><input type="radio" name="q3" value="e"> e. Sunan Kalijaga</label>
+      </div>
+
+      <!-- Soal 4 -->
+      <div class="question">
+        <p>4. Faktor utama kemunduran peradaban Islam di Andalusia adalah …</p>
+        <label><input type="radio" name="q4" value="a"> a. Perpecahan internal dan konflik politik antar kerajaan kecil</label>
+        <label><input type="radio" name="q4" value="b"> b. Kurangnya sumber daya alam</label>
+        <label><input type="radio" name="q4" value="c"> c. Serangan dari Dinasti Umayyah</label>
+        <label><input type="radio" name="q4" value="d"> d. Penolakan terhadap ilmu pengetahuan</label>
+        <label><input type="radio" name="q4" value="e"> e. Bencana alam besar</label>
+      </div>
+
+      <!-- Soal 5 -->
+      <div class="question">
+        <p>5. Di Tiongkok, jejak peradaban Islam terlihat dari keberadaan …</p>
+        <label><input type="radio" name="q5" value="a"> a. Masjid Niujie di Beijing</label>
+        <label><input type="radio" name="q5" value="b"> b. Tembok Besar</label>
+        <label><input type="radio" name="q5" value="c"> c. Kuil Konfusius</label>
+        <label><input type="radio" name="q5" value="d"> d. Istana Musim Panas</label>
+        <label><input type="radio" name="q5" value="e"> e. Menara Eiffel versi Tiongkok</label>
+      </div>
+
+      <!-- Soal 6 -->
+      <div class="question">
+        <p>6. Peradaban Islam di Australia mulai berkembang signifikan pada abad ke-19 melalui …</p>
+        <label><input type="radio" name="q6" value="a"> a. Penjajahan Inggris</label>
+        <label><input type="radio" name="q6" value="b"> b. Kedatangan pedagang Makassar yang berdagang teripang</label>
+        <label><input type="radio" name="q6" value="c"> c. Misi misionaris Kristen</label>
+        <label><input type="radio" name="q6" value="d"> d. Ekspedisi Zheng He</label>
+        <label><input type="radio" name="q6" value="e"> e. Penyebaran oleh para Wali Songo</label>
+      </div>
+
+      <!-- Soal 7 -->
+      <div class="question">
+        <p>7. Di Afrika Utara, tokoh yang memimpin perlawanan terhadap penjajah Prancis dan sekaligus ulama besar adalah …</p>
+        <label><input type="radio" name="q7" value="a"> a. Nelson Mandela</label>
+        <label><input type="radio" name="q7" value="b"> b. Umar Mukhtar</label>
+        <label><input type="radio" name="q7" value="c"> c. Gamal Abdel Nasser</label>
+        <label><input type="radio" name="q7" value="d"> d. Kwame Nkrumah</label>
+        <label><input type="radio" name="q7" value="e"> e. Soekarno</label>
+      </div>
+
+      <!-- Soal 8 -->
+      <div class="question">
+        <p>8. Peninggalan arsitektur Islam di Sisilia (Italia) yang masih ada hingga kini adalah …</p>
+        <label><input type="radio" name="q8" value="a"> a. Menara Pisa</label>
+        <label><input type="radio" name="q8" value="b"> b. Kubah Masjid Palermo</label>
+        <label><input type="radio" name="q8" value="c"> c. Colosseum</label>
+        <label><input type="radio" name="q8" value="d"> d. Vatikan</label>
+        <label><input type="radio" name="q8" value="e"> e. Tidak ada peninggalan sama sekali</label>
+      </div>
+
+      <!-- Soal 9 -->
+      <div class="question">
+        <p>9. Faktor utama kemajuan peradaban Islam di Asia Tenggara adalah …</p>
+        <label><input type="radio" name="q9" value="a"> a. Penaklukan militer besar-besaran</label>
+        <label><input type="radio" name="q9" value="b"> b. Diplomasi, perdagangan, dan dakwah damai</label>
+        <label><input type="radio" name="q9" value="c"> c. Paksaan agama oleh raja</label>
+        <label><input type="radio" name="q9" value="d"> d. Bantuan dari Eropa</label>
+        <label><input type="radio" name="q9" value="e"> e. Penghancuran candi-candi</label>
+      </div>
+
+      <!-- Soal 10 -->
+      <div class="question">
+        <p>10. Di Balkan, jejak peradaban Islam terlihat dari keberadaan masjid-masjid berarsitektur Ottoman, seperti di negara …</p>
+        <label><input type="radio" name="q10" value="a"> a. Yunani</label>
+        <label><input type="radio" name="q10" value="b"> b. Bosnia dan Herzegovina</label>
+        <label><input type="radio" name="q10" value="c"> c. Jerman</label>
+        <label><input type="radio" name="q10" value="d"> d. Prancis</label>
+        <label><input type="radio" name="q10" value="e"> e. Swedia</label>
+      </div>
+
+      <!-- Soal 11 -->
+      <div class="question">
+        <p>11. Ibnu Khaldun, seorang sejarawan Muslim besar, berasal dari wilayah …</p>
+        <label><input type="radio" name="q11" value="a"> a. India</label>
+        <label><input type="radio" name="q11" value="b"> b. Afrika Utara (Tunisia)</label>
+        <label><input type="radio" name="q11" value="c"> c. Andalusia</label>
+        <label><input type="radio" name="q11" value="d"> d. Persia</label>
+        <label><input type="radio" name="q11" value="e"> e. Cina</label>
+      </div>
+
+      <!-- Soal 12 -->
+      <div class="question">
+        <p>12. Salah satu kontribusi peradaban Islam di Andalusia bagi Eropa adalah …</p>
+        <label><input type="radio" name="q12" value="a"> a. Pengenalan sistem demokrasi</label>
+        <label><input type="radio" name="q12" value="b"> b. Penerjemahan karya Yunani dan pengembangan ilmu pengetahuan</label>
+        <label><input type="radio" name="q12" value="c"> c. Penemuan listrik</label>
+        <label><input type="radio" name="q12" value="d"> d. Pembangunan kereta api</label>
+        <label><input type="radio" name="q12" value="e"> e. Penghapusan feodalisme</label>
+      </div>
+
+      <!-- Soal 13 -->
+      <div class="question">
+        <p>13. Di India, Dinasti Mughal membangun monumen megah yang menjadi simbol cinta, yaitu …</p>
+        <label><input type="radio" name="q13" value="a"> a. Qutub Minar</label>
+        <label><input type="radio" name="q13" value="b"> b. Taj Mahal</label>
+        <label><input type="radio" name="q13" value="c"> c. Red Fort</label>
+        <label><input type="radio" name="q13" value="d"> d. Masjid Jama</label>
+        <label><input type="radio" name="q13" value="e"> e. Benteng Lahore</label>
+      </div>
+
+      <!-- Soal 14 -->
+      <div class="question">
+        <p>14. Peran pedagang Muslim dalam penyebaran Islam di Afrika Timur sangat besar karena …</p>
+        <label><input type="radio" name="q14" value="a"> a. Mereka membangun pelabuhan dan kota perdagangan seperti Kilwa</label>
+        <label><input type="radio" name="q14" value="b"> b. Mereka membawa tentara besar</label>
+        <label><input type="radio" name="q14" value="c"> c. Mereka menghancurkan kuil lokal</label>
+        <label><input type="radio" name="q14" value="d"> d. Mereka bekerja sama dengan kolonial Eropa</label>
+        <label><input type="radio" name="q14" value="e"> e. Mereka hanya berdagang rempah</label>
+      </div>
+
+      <!-- Soal 15 -->
+      <div class="question">
+        <p>15. Studi kasus: Seorang siswa menemukan bahwa di setiap wilayah yang disentuh peradaban Islam, selalu ada pusat ilmu (madrasah/universitas). Ini menunjukkan bahwa …</p>
+        <label><input type="radio" name="q15" value="a"> a. Islam anti ilmu pengetahuan</label>
+        <label><input type="radio" name="q15" value="b"> b. Islam menekankan pentingnya ilmu dan pendidikan</label>
+        <label><input type="radio" name="q15" value="c"> c. Ilmu hanya untuk kalangan elit</label>
+        <label><input type="radio" name="q15" value="d"> d. Pendidikan hanya untuk laki-laki</label>
+        <label><input type="radio" name="q15" value="e"> e. Ilmu digunakan untuk berperang</label>
+      </div>
+
+      <!-- Soal 16 -->
+      <div class="question">
+        <p>16. Kemunduran peradaban Islam di berbagai wilayah sering disebabkan oleh …</p>
+        <label><input type="radio" name="q16" value="a"> a. Keterlambatan teknologi saja</label>
+        <label><input type="radio" name="q16" value="b"> b. Perpecahan umat, meninggalkan nilai Qur’ani, dan stagnasi intelektual</label>
+        <label><input type="radio" name="q16" value="c"> c. Terlalu banyak membangun masjid</label>
+        <label><input type="radio" name="q16" value="d"> d. Kurangnya minat pada agama</label>
+        <label><input type="radio" name="q16" value="e"> e. Iklim yang tidak mendukung</label>
+      </div>
+
+      <!-- Soal 17 -->
+      <div class="question">
+        <p>17. Di Australia, komunitas Muslim awal berasal dari …</p>
+        <label><input type="radio" name="q17" value="a"> a. Imigran Eropa</label>
+        <label><input type="radio" name="q17" value="b"> b. Pedagang Nusantara dan pekerja cameleer dari Afghanistan</label>
+        <label><input type="radio" name="q17" value="c"> c. Misionaris Arab</label>
+        <label><input type="radio" name="q17" value="d"> d. Tentara Ottoman</label>
+        <label><input type="radio" name="q17" value="e"> e. Pengungsi perang</label>
+      </div>
+
+      <!-- Soal 18 -->
+      <div class="question">
+        <p>18. Perbandingan: Apa kesamaan utama antara peradaban Islam di Andalusia dan di Asia Tenggara?</p>
+        <label><input type="radio" name="q18" value="a"> a. Keduanya dibangun melalui penaklukan militer total</label>
+        <label><input type="radio" name="q18" value="b"> b. Keduanya menjadi pusat ilmu dan toleransi antaragama</label>
+        <label><input type="radio" name="q18" value="c"> c. Keduanya tidak meninggalkan peninggalan arsitektur</label>
+        <label><input type="radio" name="q18" value="d"> d. Keduanya runtuh karena bencana alam</label>
+        <label><input type="radio" name="q18" value="e"> e. Keduanya dipimpin oleh wanita</label>
+      </div>
+
+      <!-- Soal 19 -->
+      <div class="question">
+        <p>19. Nilai yang bisa diambil dari sejarah peradaban Islam di dunia adalah …</p>
+        <label><input type="radio" name="q19" value="a"> a. Kejayaan hanya ditentukan oleh kekayaan</label>
+        <label><input type="radio" name="q19" value="b"> b. Kemajuan lahir dari keseimbangan iman, ilmu, dan akhlak</label>
+        <label><input type="radio" name="q19" value="c"> c. Agama harus dipaksakan kepada orang lain</label>
+        <label><input type="radio" name="q19" value="d"> d. Ilmu pengetahuan bertentangan dengan agama</label>
+        <label><input type="radio" name="q19" value="e"> e. Peradaban tidak perlu dipelajari</label>
+      </div>
+
+      <!-- Soal 20 -->
+      <div class="question">
+        <p>20. Dalam konteks kekinian, semangat peradaban Islam dapat diwujudkan melalui …</p>
+        <label><input type="radio" name="q20" value="a"> a. Menolak teknologi modern</label>
+        <label><input type="radio" name="q20" value="b"> b. Mengisolasi diri dari masyarakat non-Muslim</label>
+        <label><input type="radio" name="q20" value="c"> c. Mengintegrasikan nilai Islam dalam ilmu, teknologi, dan kehidupan sosial</label>
+        <label><input type="radio" name="q20" value="d"> d. Hanya fokus pada ibadah ritual</label>
+        <label><input type="radio" name="q20" value="e"> e. Meniru budaya Barat tanpa filter</label>
+      </div>
+
+      <button type="button" onclick="submitPG()">Hitung Nilai Pilihan Ganda</button>
+    </form>
+
+    <!-- Soal Esai -->
+    <h2 style="margin-top: 40px;">Soal Esai</h2>
+    <form id="esaiForm">
+      <div class="question">
+        <p>1. Bandingkan faktor kemajuan peradaban Islam di Andalusia dan di Asia Tenggara! Apa persamaan dan perbedaannya?</p>
+        <textarea name="e1" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>2. Mengapa peradaban Islam di Afrika Barat (seperti Mali dan Songhai) mampu berkembang pesat meskipun jauh dari pusat kekhalifahan?</p>
+        <textarea name="e2" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>3. Jelaskan peran perdagangan dalam penyebaran Islam di tiga wilayah: Asia Tenggara, Afrika Timur, dan Tiongkok!</p>
+        <textarea name="e3" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>4. Analisislah mengapa peradaban Islam di Eropa (Andalusia) akhirnya runtuh, sementara di Asia Tenggara Islam tetap eksis hingga kini!</p>
+        <textarea name="e4" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>5. Apa kontribusi terbesar peradaban Islam di dunia terhadap perkembangan ilmu pengetahuan modern? Berikan contoh konkret!</p>
+        <textarea name="e5" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>6. Mengapa jejak peradaban Islam di Australia sering terabaikan dalam sejarah global? Bagaimana cara mengangkatnya?</p>
+        <textarea name="e6" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>7. Rancanglah kampanye mini (judul, media, pesan utama) untuk mengenalkan kejayaan peradaban Islam di dunia kepada generasi muda!</p>
+        <textarea name="e7" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>8. Refleksikan: Apa pelajaran terpenting yang bisa diambil dari kemunduran peradaban Islam di berbagai wilayah?</p>
+        <textarea name="e8" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>9. Bagaimana cara menghidupkan kembali “semangat emas” peradaban Islam di era digital saat ini?</p>
+        <textarea name="e9" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>10. Menurut Anda, mengapa penting mempelajari sejarah peradaban Islam di seluruh dunia, bukan hanya di Timur Tengah?</p>
+        <textarea name="e10" placeholder="Tuliskan jawaban Anda..."></textarea>
+      </div>
+
+      <button type="button" onclick="alert('Jawaban esai telah disimpan!')">Simpan Jawaban Esai</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    // Kunci jawaban
+    const kunci = {
+      q1: 'b', q2: 'd', q3: 'b', q4: 'a', q5: 'a',
+      q6: 'b', q7: 'b', q8: 'b', q9: 'b', q10: 'b',
+      q11: 'b', q12: 'b', q13: 'b', q14: 'a', q15: 'b',
+      q16: 'b', q17: 'b', q18: 'b', q19: 'b', q20: 'c'
+    };
+
+    // Timer 60 menit
+    let timeLeft = 3600;
+    const timerElement = document.getElementById('time');
+    const timerDisplay = document.getElementById('timer');
+
+    const countdown = setInterval(() => {
+      if (timeLeft <= 0) {
+        clearInterval(countdown);
+        timerDisplay.innerHTML = "Waktu Habis!";
+        timerDisplay.style.color = "#e74c3c";
+        document.body.classList.add('disabled');
+        submitPG();
+        return;
+      }
+
+      const mins = Math.floor(timeLeft / 60);
+      const secs = timeLeft % 60;
+      timerElement.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+      timeLeft--;
+    }, 1000);
+
+    function submitPG() {
+      let score = 0;
+      for (let key in kunci) {
+        const selected = document.querySelector(`input[name="${key}"]:checked`);
+        if (selected && selected.value === kunci[key]) {
+          score += 4; // 20 soal × 4 = 80
+        }
+      }
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = `Nilai Pilihan Ganda: <strong>${score}</strong> dari <strong>80</strong>`;
+      resultDiv.style.display = 'block';
+    }
+  </script>
+</body>
+</html>

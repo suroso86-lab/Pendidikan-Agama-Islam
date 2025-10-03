@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ujian: Cinta Tanah Air & Moderasi Beragama</title>
+  <style>
+    :root {
+      --primary: #2e7d32;
+      --light: #e8f5e9;
+      --dark: #1b5e20;
+      --gray: #f5f5f5;
+      --text: #333;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: #f9f9f9;
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+    .timer {
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: white;
+      background: var(--dark);
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin: 12px 0 6px;
+      font-weight: 600;
+    }
+    input[type="text"], input[type="date"], textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+    .options label {
+      display: flex;
+      margin: 8px 0;
+      font-weight: normal;
+    }
+    .options input[type="radio"] {
+      margin-right: 10px;
+    }
+    button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1.1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto;
+      width: 200px;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: var(--dark);
+    }
+    .section {
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+    .soal-number {
+      font-weight: bold;
+      color: var(--primary);
+    }
+    .hidden {
+      display: none;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 15px;
+      }
+      .timer {
+        font-size: 1.1rem;
+      }
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Halaman Identitas -->
+    <div id="page-identitas">
+      <h1>Ujian: Cinta Tanah Air & Moderasi Beragama</h1>
+      <form id="form-identitas">
+        <label for="nama">Nama Lengkap:</label>
+        <input type="text" id="nama" required>
+
+        <label for="kelas">Kelas:</label>
+        <input type="text" id="kelas" required>
+
+        <label for="tanggal">Tanggal:</label>
+        <input type="text" id="tanggal" readonly>
+
+        <button type="submit">Mulai Ujian (60 Menit)</button>
+      </form>
+    </div>
+
+    <!-- Halaman Ujian -->
+    <div id="page-ujian" class="hidden">
+      <div class="timer" id="timer">60:00</div>
+
+      <!-- Soal Pilihan Ganda -->
+      <div class="section">
+        <h2>📘 Soal Pilihan Ganda (20 Soal)</h2>
+        <!-- Soal 1 -->
+        <div class="soal">
+          <p class="soal-number">1. Istilah cinta tanah air dalam bahasa Arab dikenal dengan …</p>
+          <div class="options">
+            <label><input type="radio" name="q1" value="a"> a. Ukhuwah wathaniyah</label>
+            <label><input type="radio" name="q1" value="b"> b. Hubbul wathan</label>
+            <label><input type="radio" name="q1" value="c"> c. Hubbun nabiy</label>
+            <label><input type="radio" name="q1" value="d"> d. Al-muwathanah</label>
+            <label><input type="radio" name="q1" value="e"> e. Hubbud dunya</label>
+          </div>
+        </div>
+        <!-- Soal 2 -->
+        <div class="soal">
+          <p class="soal-number">2. Dalil yang menunjukkan pentingnya menjaga tanah air adalah …</p>
+          <div class="options">
+            <label><input type="radio" name="q2" value="a"> a. Q.S. an-Nisa: 59</label>
+            <label><input type="radio" name="q2" value="b"> b. Q.S. al-Hujurat: 13</label>
+            <label><input type="radio" name="q2" value="c"> c. Q.S. al-Qashash: 85</label>
+            <label><input type="radio" name="q2" value="d"> d. Q.S. al-Baqarah: 183</label>
+            <label><input type="radio" name="q2" value="e"> e. Q.S. an-Nur: 35</label>
+          </div>
+        </div>
+        <!-- Soal 3 -->
+        <div class="soal">
+          <p class="soal-number">3. Nabi Muhammad Saw. menunjukkan rasa cinta kepada Makkah ketika …</p>
+          <div class="options">
+            <label><input type="radio" name="q3" value="a"> a. Hijrah ke Madinah</label>
+            <label><input type="radio" name="q3" value="b"> b. Menjadi pedagang sukses</label>
+            <label><input type="radio" name="q3" value="c"> c. Menikahi Khadijah</label>
+            <label><input type="radio" name="q3" value="d"> d. Membuat perjanjian Hudaibiyah</label>
+            <label><input type="radio" name="q3" value="e"> e. Melaksanakan haji wada’</label>
+          </div>
+        </div>
+        <!-- Soal 4 -->
+        <div class="soal">
+          <p class="soal-number">4. Menurut ulama, cinta tanah air merupakan bagian dari …</p>
+          <div class="options">
+            <label><input type="radio" name="q4" value="a"> a. Tradisi budaya</label>
+            <label><input type="radio" name="q4" value="b"> b. Iman dan akhlak</label>
+            <label><input type="radio" name="q4" value="c"> c. Pergaulan sosial</label>
+            <label><input type="radio" name="q4" value="d"> d. Politik modern</label>
+            <label><input type="radio" name="q4" value="e"> e. Nasionalisme sekuler</label>
+          </div>
+        </div>
+        <!-- Soal 5 -->
+        <div class="soal">
+          <p class="soal-number">5. Berikut yang bukan merupakan indikator cinta tanah air adalah …</p>
+          <div class="options">
+            <label><input type="radio" name="q5" value="a"> a. Menjaga persatuan bangsa</label>
+            <label><input type="radio" name="q5" value="b"> b. Membayar pajak dan taat aturan</label>
+            <label><input type="radio" name="q5" value="c"> c. Melakukan korupsi demi keuntungan pribadi</label>
+            <label><input type="radio" name="q5" value="d"> d. Ikut serta dalam pembangunan bangsa</label>
+            <label><input type="radio" name="q5" value="e"> e. Menghormati simbol negara</label>
+          </div>
+        </div>
+        <!-- Soal 6 -->
+        <div class="soal">
+          <p class="soal-number">6. Wujud cinta tanah air dalam kehidupan sehari-hari adalah …</p>
+          <div class="options">
+            <label><input type="radio" name="q6" value="a"> a. Mengabaikan aturan lalu lintas</label>
+            <label><input type="radio" name="q6" value="b"> b. Merawat lingkungan sekitar</label>
+            <label><input type="radio" name="q6" value="c"> c. Membenci budaya lokal</label>
+            <label><input type="radio" name="q6" value="d"> d. Menolak program pemerintah</label>
+            <label><input type="radio" name="q6" value="e"> e. Menyebarkan berita hoaks</label>
+          </div>
+        </div>
+        <!-- Soal 7 -->
+        <div class="soal">
+          <p class="soal-number">7. Pahlawan nasional yang terkenal dengan semangat jihad melawan penjajah Belanda adalah …</p>
+          <div class="options">
+            <label><input type="radio" name="q7" value="a"> a. KH. Hasyim Asy’ari</label>
+            <label><input type="radio" name="q7" value="b"> b. Bung Karno</label>
+            <label><input type="radio" name="q7" value="c"> c. Bung Tomo</label>
+            <label><input type="radio" name="q7" value="d"> d. Jenderal Sudirman</label>
+            <label><input type="radio" name="q7" value="e"> e. KH. Ahmad Dahlan</label>
+          </div>
+        </div>
+        <!-- Soal 8 -->
+        <div class="soal">
+          <p class="soal-number">8. Sikap nasionalisme religius para ulama Indonesia tampak dalam …</p>
+          <div class="options">
+            <label><input type="radio" name="q8" value="a"> a. Menolak semua budaya modern</label>
+            <label><input type="radio" name="q8" value="b"> b. Menyatukan semangat agama dengan perjuangan bangsa</label>
+            <label><input type="radio" name="q8" value="c"> c. Mengutamakan kepentingan pribadi</label>
+            <label><input type="radio" name="q8" value="d"> d. Menutup diri dari dunia luar</label>
+            <label><input type="radio" name="q8" value="e"> e. Mengedepankan konflik internal</label>
+          </div>
+        </div>
+        <!-- Soal 9 -->
+        <div class="soal">
+          <p class="soal-number">9. Sumpah Pemuda 1928 mencerminkan …</p>
+          <div class="options">
+            <label><input type="radio" name="q9" value="a"> a. Semangat hedonisme</label>
+            <label><input type="radio" name="q9" value="b"> b. Nasionalisme dan persatuan bangsa</label>
+            <label><input type="radio" name="q9" value="c"> c. Perlawanan antar suku</label>
+            <label><input type="radio" name="q9" value="d"> d. Penolakan terhadap agama</label>
+            <label><input type="radio" name="q9" value="e"> e. Perpecahan umat</label>
+          </div>
+        </div>
+        <!-- Soal 10 -->
+        <div class="soal">
+          <p class="soal-number">10. Meneladani pahlawan nasional dapat diwujudkan dengan cara …</p>
+          <div class="options">
+            <label><input type="radio" name="q10" value="a"> a. Mengabaikan sejarah</label>
+            <label><input type="radio" name="q10" value="b"> b. Meniru gaya hidup mewah mereka</label>
+            <label><input type="radio" name="q10" value="c"> c. Menyebarkan kebencian</label>
+            <label><input type="radio" name="q10" value="d"> d. Melanjutkan perjuangan dengan cara positif</label>
+            <label><input type="radio" name="q10" value="e"> e. Menolak semua nilai modern</label>
+          </div>
+        </div>
+        <!-- Soal 11 -->
+        <div class="soal">
+          <p class="soal-number">11. Moderasi beragama bertujuan untuk …</p>
+          <div class="options">
+            <label><input type="radio" name="q11" value="a"> a. Melebih-lebihkan ajaran tertentu</label>
+            <label><input type="radio" name="q11" value="b"> b. Menjaga persatuan dan keutuhan bangsa</label>
+            <label><input type="radio" name="q11" value="c"> c. Menolak agama lain secara mutlak</label>
+            <label><input type="radio" name="q11" value="d"> d. Membenarkan sikap ekstrem</label>
+            <label><input type="radio" name="q11" value="e"> e. Mengabaikan perbedaan</label>
+          </div>
+        </div>
+        <!-- Soal 12 -->
+        <div class="soal">
+          <p class="soal-number">12. Prinsip tawasuth berarti …</p>
+          <div class="options">
+            <label><input type="radio" name="q12" value="a"> a. Seimbang</label>
+            <label><input type="radio" name="q12" value="b"> b. Tengah-tengah</label>
+            <label><input type="radio" name="q12" value="c"> c. Adil</label>
+            <label><input type="radio" name="q12" value="d"> d. Toleransi</label>
+            <label><input type="radio" name="q12" value="e"> e. Musyawarah</label>
+          </div>
+        </div>
+        <!-- Soal 13 -->
+        <div class="soal">
+          <p class="soal-number">13. Prinsip tasamuh dalam moderasi beragama adalah …</p>
+          <div class="options">
+            <label><input type="radio" name="q13" value="a"> a. Keadilan</label>
+            <label><input type="radio" name="q13" value="b"> b. Toleransi</label>
+            <label><input type="radio" name="q13" value="c"> c. Musyawarah</label>
+            <label><input type="radio" name="q13" value="d"> d. Reformasi</label>
+            <label><input type="radio" name="q13" value="e"> e. Kreativitas</label>
+          </div>
+        </div>
+        <!-- Soal 14 -->
+        <div class="soal">
+          <p class="soal-number">14. Jika seseorang bersikap ekstrem terhadap kelompok lain, maka ia tidak mengamalkan prinsip …</p>
+          <div class="options">
+            <label><input type="radio" name="q14" value="a"> a. Tawasuth</label>
+            <label><input type="radio" name="q14" value="b"> b. Tawazun</label>
+            <label><input type="radio" name="q14" value="c"> c. I’tidal</label>
+            <label><input type="radio" name="q14" value="d"> d. Tasamuh</label>
+            <label><input type="radio" name="q14" value="e"> e. Syura</label>
+          </div>
+        </div>
+        <!-- Soal 15 -->
+        <div class="soal">
+          <p class="soal-number">15. Contoh sikap i’tidal dalam kehidupan bermasyarakat adalah …</p>
+          <div class="options">
+            <label><input type="radio" name="q15" value="a"> a. Membela kebenaran secara adil meskipun berbeda suku/agama</label>
+            <label><input type="radio" name="q15" value="b"> b. Mengutamakan golongan tertentu</label>
+            <label><input type="radio" name="q15" value="c"> c. Mengabaikan aturan negara</label>
+            <label><input type="radio" name="q15" value="d"> d. Menolak kerjasama dengan siapapun</label>
+            <label><input type="radio" name="q15" value="e"> e. Membenci perbedaan</label>
+          </div>
+        </div>
+        <!-- Soal 16 -->
+        <div class="soal">
+          <p class="soal-number">16. Tantangan utama dalam penerapan moderasi beragama di Indonesia adalah …</p>
+          <div class="options">
+            <label><input type="radio" name="q16" value="a"> a. Globalisasi dan intoleransi</label>
+            <label><input type="radio" name="q16" value="b"> b. Pertumbuhan ekonomi</label>
+            <label><input type="radio" name="q16" value="c"> c. Perkembangan teknologi</label>
+            <label><input type="radio" name="q16" value="d"> d. Pendidikan yang maju</label>
+            <label><input type="radio" name="q16" value="e"> e. Kerjasama internasional</label>
+          </div>
+        </div>
+        <!-- Soal 17 -->
+        <div class="soal">
+          <p class="soal-number">17. Solusi yang tepat dalam menghadapi radikalisme adalah …</p>
+          <div class="options">
+            <label><input type="radio" name="q17" value="a"> a. Menutup diri dari dunia luar</label>
+            <label><input type="radio" name="q17" value="b"> b. Menguatkan pendidikan agama moderat</label>
+            <label><input type="radio" name="q17" value="c"> c. Menghapus pelajaran agama di sekolah</label>
+            <label><input type="radio" name="q17" value="d"> d. Memaksa semua orang berpikir sama</label>
+            <label><input type="radio" name="q17" value="e"> e. Membiarkan intoleransi berkembang</label>
+          </div>
+        </div>
+        <!-- Soal 18 -->
+        <div class="soal">
+          <p class="soal-number">18. Implementasi moderasi beragama di sekolah dapat dilakukan dengan …</p>
+          <div class="options">
+            <label><input type="radio" name="q18" value="a"> a. Membatasi pergaulan antar siswa berbeda agama</label>
+            <label><input type="radio" name="q18" value="b"> b. Mengadakan diskusi lintas iman dan budaya</label>
+            <label><input type="radio" name="q18" value="c"> c. Melarang kegiatan seni budaya</label>
+            <label><input type="radio" name="q18" value="d"> d. Membiarkan intoleransi berkembang</label>
+            <label><input type="radio" name="q18" value="e"> e. Menghapus pelajaran kewarganegaraan</label>
+          </div>
+        </div>
+        <!-- Soal 19 -->
+        <div class="soal">
+          <p class="soal-number">19. Setelah presentasi dan refleksi, siswa diharapkan …</p>
+          <div class="options">
+            <label><input type="radio" name="q19" value="a"> a. Hafal semua dalil tanpa mengamalkan</label>
+            <label><input type="radio" name="q19" value="b"> b. Menginternalisasi nilai moderasi beragama</label>
+            <label><input type="radio" name="q19" value="c"> c. Menolak perbedaan dengan keras</label>
+            <label><input type="radio" name="q19" value="d"> d. Mengabaikan nilai-nilai keadilan</label>
+            <label><input type="radio" name="q19" value="e"> e. Fokus pada kepentingan pribadi</label>
+          </div>
+        </div>
+        <!-- Soal 20 -->
+        <div class="soal">
+          <p class="soal-number">20. Komitmen untuk menyebarkan nilai moderasi beragama dapat diwujudkan dengan …</p>
+          <div class="options">
+            <label><input type="radio" name="q20" value="a"> a. Menyebarkan ujaran kebencian</label>
+            <label><input type="radio" name="q20" value="b"> b. Menjaga persaudaraan antar umat</label>
+            <label><input type="radio" name="q20" value="c"> c. Membatasi pergaulan sosial</label>
+            <label><input type="radio" name="q20" value="d"> d. Memusuhi penganut agama lain</label>
+            <label><input type="radio" name="q20" value="e"> e. Mengutamakan kelompok tertentu</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Soal Esai -->
+      <div class="section">
+        <h2>📘 Soal Esai HOTS (Studi Kasus)</h2>
+        <div class="soal">
+          <p class="soal-number">1. Dalam masyarakat sering muncul anggapan bahwa cinta tanah air hanyalah konsep nasionalisme sekuler. Bagaimana kamu menjelaskan bahwa cinta tanah air adalah bagian dari ajaran Islam?</p>
+          <textarea name="esai1" placeholder="Tulis jawabanmu di sini..."></textarea>
+        </div>
+        <div class="soal">
+          <p class="soal-number">2. Seorang siswa merasa bangga terhadap bangsanya, tetapi sering menyebarkan hoaks tentang pemerintah. Analisislah apakah sikap ini sesuai dengan nasionalisme religius!</p>
+          <textarea name="esai2" placeholder="Tulis jawabanmu di sini..."></textarea>
+        </div>
+        <div class="soal">
+          <p class="soal-number">3. Jika para ulama dahulu berjuang melawan penjajah dengan semangat agama, bagaimana generasi sekarang bisa meneladani mereka dalam konteks kekinian?</p>
+          <textarea name="esai3" placeholder="Tulis jawabanmu di sini..."></textarea>
+        </div>
+        <div class="soal">
+          <p class="soal-number">4. Banyak anak muda yang lebih bangga dengan budaya luar daripada budaya Indonesia. Bagaimana pandangan Islam tentang hal ini dan solusinya?</p>
+          <textarea name="esai4" placeholder="Tulis jawabanmu di sini..."></textarea>
+        </div>
+        <div class="soal">
+          <p class="soal-number">5. Dalam kehidupan sehari-hari ada siswa yang mudah membenci orang berbeda agama. Analisislah kasus ini dengan prinsip-prinsip moderasi beragama!</p>
+          <textarea name="esai5" placeholder="Tulis jawabanmu di sini..."></textarea>
+        </div>
+        <div class="soal">
+          <p class="soal-number">6. Sebuah organisasi sekolah menolak bekerja sama dengan siswa yang berbeda keyakinan. Apa dampak negatifnya bagi persatuan, dan bagaimana solusi Islami yang bisa ditawarkan?</p>
+          <textarea name="esai6" placeholder="Tulis jawabanmu di sini..."></textarea>
+        </div>
+        <div class="soal">
+          <p class="soal-number">7. Buatlah contoh kasus penerapan prinsip tasamuh dalam lingkungan sekolah, lalu jelaskan nilai positif yang bisa diperoleh!</p>
+          <textarea name="esai7" placeholder="Tulis jawabanmu di sini..."></textarea>
+        </div>
+        <div class="soal">
+          <p class="soal-number">8. Ada kelompok yang merasa paling benar dan menolak semua perbedaan. Bagaimana prinsip tawasuth dan tawazun bisa menjadi solusi?</p>
+          <textarea name="esai8" placeholder="Tulis jawabanmu di sini..."></textarea>
+        </div>
+        <div class="soal">
+          <p class="soal-number">9. Seorang tokoh masyarakat berusaha meredam konflik antaragama dengan cara musyawarah (syura). Analisis efektivitas pendekatan ini dalam menjaga persatuan bangsa!</p>
+          <textarea name="esai9" placeholder="Tulis jawabanmu di sini..."></textarea>
+        </div>
+        <div class="soal">
+          <p class="soal-number">10. Bayangkan kamu diminta membuat rencana aksi pribadi untuk menyebarkan nilai moderasi beragama di lingkunganmu. Tuliskan langkah-langkahnya secara konkret!</p>
+          <textarea name="esai10" placeholder="Tulis jawabanmu di sini..."></textarea>
+        </div>
+      </div>
+
+      <button id="btn-selesai">Selesai Sekarang</button>
+    </div>
+
+    <!-- Halaman Hasil -->
+    <div id="page-hasil" class="hidden">
+      <h1>✅ Ujian Selesai!</h1>
+      <div id="hasil-content"></div>
+      <button onclick="window.print()">🖨️ Cetak Hasil</button>
+      <button onclick="location.reload()">🔁 Mulai Ujian Baru</button>
+    </div>
+  </div>
+
+  <script>
+    // === DATA ===
+    const kunciJawaban = {
+      q1: 'b', q2: 'c', q3: 'a', q4: 'b', q5: 'c',
+      q6: 'b', q7: 'c', q8: 'b', q9: 'b', q10: 'd',
+      q11: 'b', q12: 'b', q13: 'b', q14: 'd', q15: 'a',
+      q16: 'a', q17: 'b', q18: 'b', q19: 'b', q20: 'b'
+    };
+
+    // === DOM Elements ===
+    const pageIdentitas = document.getElementById('page-identitas');
+    const pageUjian = document.getElementById('page-ujian');
+    const pageHasil = document.getElementById('page-hasil');
+    const formIdentitas = document.getElementById('form-identitas');
+    const timerEl = document.getElementById('timer');
+    const btnSelesai = document.getElementById('btn-selesai');
+    const hasilContent = document.getElementById('hasil-content');
+
+    // Isi tanggal otomatis
+    document.getElementById('tanggal').value = new Date().toLocaleDateString('id-ID');
+
+    // === Timer ===
+    let waktu = 3600; // 60 menit
+    let timerInterval = null;
+
+    function mulaiTimer() {
+      timerInterval = setInterval(() => {
+        const menit = Math.floor(waktu / 60);
+        const detik = waktu % 60;
+        timerEl.textContent = `${menit.toString().padStart(2, '0')}:${detik.toString().padStart(2, '0')}`;
+        
+        if (waktu <= 0) {
+          clearInterval(timerInterval);
+          submitUjian();
+        }
+        waktu--;
+      }, 1000);
+    }
+
+    // === Navigasi ===
+    formIdentitas.addEventListener('submit', (e) => {
+      e.preventDefault();
+      pageIdentitas.classList.add('hidden');
+      pageUjian.classList.remove('hidden');
+      mulaiTimer();
+    });
+
+    btnSelesai.addEventListener('click', () => {
+      if (confirm('Apakah kamu yakin ingin menyelesaikan ujian sekarang?')) {
+        clearInterval(timerInterval);
+        submitUjian();
+      }
+    });
+
+    // === Submit Ujian ===
+    function submitUjian() {
+      const nama = document.getElementById('nama').value;
+      const kelas = document.getElementById('kelas').value;
+
+      // Hitung skor PG
+      let skor = 0;
+      for (let i = 1; i <= 20; i++) {
+        const jawaban = document.querySelector(`input[name="q${i}"]:checked`);
+        if (jawaban && jawaban.value === kunciJawaban[`q${i}`]) {
+          skor += 4;
+        }
+      }
+
+      // Tampilkan hasil
+      hasilContent.innerHTML = `
+        <p><strong>Nama:</strong> ${nama}</p>
+        <p><strong>Kelas:</strong> ${kelas}</p>
+        <p><strong>Skor Pilihan Ganda:</strong> ${skor} / 80</p>
+        <p><em>Jawaban esai telah dikumpulkan.</em></p>
+        <p style="margin-top: 20px; color: ${skor >= 64 ? 'green' : skor >= 48 ? 'orange' : 'red'};">
+          ${skor >= 64 ? '🟢 Sangat Baik' : skor >= 48 ? '🟡 Cukup' : '🔴 Perlu Belajar Lagi'}
+        </p>
+      `;
+
+      pageUjian.classList.add('hidden');
+      pageHasil.classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
